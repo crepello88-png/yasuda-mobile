@@ -78,6 +78,7 @@
   <div class="tab" data-tab="positions" onclick="switchTab('positions')">保有</div>
   <div class="tab" data-tab="weekly" onclick="switchTab('weekly')">週次</div>
   <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
+  <div class="tab" data-tab="history" onclick="switchTab('history')">履歴</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
 </div>
@@ -272,6 +273,48 @@
   <div class="section">
     <div class="section-title">📅 次回 schedule</div>
     <div class="card" id="champ-sched" style="font-size:12px"></div>
+  </div>
+</div>
+
+<!-- Tab: 履歴 -->
+<div class="tab-content" id="tab-history">
+  <div class="section">
+    <div class="section-title">📊 日次 推移 (NetLiq + 累積 P&L)</div>
+    <div class="card">
+      <svg id="history-chart" width="100%" height="220" viewBox="0 0 360 220" preserveAspectRatio="none"></svg>
+      <div style="font-size:10px;color:var(--sub);text-align:center;margin-top:4px">
+        <span style="color:#58a6ff">━ NetLiq</span> · <span style="color:#3fb950">━ 累積 P&L (短期)</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📈 LIVE 累積 統計</div>
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">運用 日数</div>
+          <div class="stat-value" id="h-days">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">累積 P&L</div>
+          <div class="stat-value" id="h-cum">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">trade 数</div>
+          <div class="stat-value" id="h-trades">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">勝ち日 / 全日</div>
+          <div class="stat-value" id="h-win-days">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 日次 ログ</div>
+    <div class="card" id="history-list" style="font-size:12px"></div>
   </div>
 </div>
 
@@ -621,6 +664,96 @@ function renderWeekly() {
   document.getElementById('weekly-note').textContent = w.note || '';
 }
 
+function renderHistory() {
+  const h = (window.MOBILE_DATA||{}).daily_history || [];
+  if (!h.length) {
+    document.getElementById('history-list').innerHTML = '<div class="empty">履歴データなし</div>';
+    return;
+  }
+  // Stats
+  const cumLast = h[h.length-1].cum_pnl_short || 0;
+  const totTrades = h.reduce((a,d)=>a+(d.n_trades||0),0);
+  const winDays = h.filter(d=>(d.day_pnl||0)>0).length;
+  document.getElementById('h-days').textContent = h.length+'';
+  const cumEl = document.getElementById('h-cum');
+  cumEl.textContent = (cumLast>=0?'+$':'-$') + Math.abs(cumLast).toFixed(0);
+  cumEl.className = 'stat-value ' + pctClass(cumLast);
+  document.getElementById('h-trades').textContent = totTrades+'';
+  document.getElementById('h-win-days').textContent = winDays + '/' + h.length;
+
+  // SVG: dual line (NetLiq + cum P&L)
+  const svg = document.getElementById('history-chart');
+  const W=360, H=220, padL=42, padR=42, padT=14, padB=30;
+  const cw=W-padL-padR, ch=H-padT-padB;
+  const netliqs = h.map(d=>d.netliq).filter(v=>v!=null);
+  const cums = h.map(d=>d.cum_pnl_short||0);
+  if (!netliqs.length) { svg.innerHTML=''; return; }
+  const nMin = Math.min(...netliqs)*0.998, nMax = Math.max(...netliqs)*1.002;
+  const cMin = Math.min(0, ...cums), cMax = Math.max(...cums, 10);
+  const nRng = nMax-nMin || 1, cRng = cMax-cMin || 1;
+  const stepX = h.length > 1 ? cw/(h.length-1) : cw;
+  const yNet = v => padT + ch - (v-nMin)/nRng*ch;
+  const yCum = v => padT + ch - (v-cMin)/cRng*ch;
+  let html = '';
+  // grid
+  for (let i=0;i<=4;i++) {
+    const y = padT + ch*(i/4);
+    html += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>`;
+    const nv = nMax - nRng*(i/4);
+    const cv = cMax - cRng*(i/4);
+    html += `<text x="${padL-4}" y="${y+3}" fill="#58a6ff" font-size="9" text-anchor="end">$${(nv/1000).toFixed(2)}k</text>`;
+    html += `<text x="${W-padR+4}" y="${y+3}" fill="#3fb950" font-size="9">${cv>=0?'+':''}$${cv.toFixed(0)}</text>`;
+  }
+  // x axis labels
+  h.forEach((d,i)=>{
+    if (h.length <= 10 || i%Math.ceil(h.length/8)===0) {
+      const x = padL + stepX*i;
+      html += `<text x="${x}" y="${H-padB+14}" fill="#7d8590" font-size="9" text-anchor="middle">${d.date.slice(5)}</text>`;
+    }
+  });
+  // NetLiq line
+  let pdN = '';
+  h.forEach((d,i)=>{
+    if (d.netliq==null) return;
+    const x = padL + stepX*i;
+    pdN += (pdN===''?'M':'L') + x + ',' + yNet(d.netliq) + ' ';
+  });
+  html += `<path d="${pdN}" stroke="#58a6ff" stroke-width="2" fill="none"/>`;
+  // Cum P&L line (filled area)
+  let pdC = '';
+  h.forEach((d,i)=>{
+    const x = padL + stepX*i;
+    pdC += (i===0?'M':'L') + x + ',' + yCum(d.cum_pnl_short||0) + ' ';
+  });
+  const y0 = yCum(0);
+  let area = pdC + `L${padL+stepX*(h.length-1)},${y0} L${padL},${y0} Z`;
+  html += `<path d="${area}" fill="#3fb950" opacity="0.10"/>`;
+  html += `<path d="${pdC}" stroke="#3fb950" stroke-width="2" fill="none"/>`;
+  // dots
+  h.forEach((d,i)=>{
+    const x = padL + stepX*i;
+    if (d.netliq!=null) html += `<circle cx="${x}" cy="${yNet(d.netliq)}" r="2.5" fill="#58a6ff"/>`;
+    html += `<circle cx="${x}" cy="${yCum(d.cum_pnl_short||0)}" r="2.5" fill="#3fb950"/>`;
+  });
+  svg.innerHTML = html;
+
+  // List (newest first)
+  const list = [...h].reverse();
+  document.getElementById('history-list').innerHTML = list.map(d => {
+    const pnl = d.day_pnl||0;
+    return `<div class="row">
+      <div class="row-l">
+        <div class="ticker" style="font-size:12px">${d.date}<span class="badge">${d.n_trades||0}件</span></div>
+        <div class="strat">NetLiq ${fmt$2(d.netliq)} · VIX ${(d.vix||0).toFixed(2)}</div>
+      </div>
+      <div class="row-r">
+        <div class="price ${pctClass(pnl)}">${pnl>=0?'+$':'-$'}${Math.abs(pnl).toFixed(2)}</div>
+        <div class="strat">累積 ${(d.cum_pnl_short||0)>=0?'+':''}$${(d.cum_pnl_short||0).toFixed(0)}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
 function renderForecast() {
   const f = (window.MOBILE_DATA||{}).forecast;
   if (!f) return;
@@ -732,6 +865,7 @@ function loadAll() {
   renderWeekly();
   renderForecast();
   renderChamp();
+  renderHistory();
   renderIntraday();
   renderStrat();
   const ts = (window.MOBILE_DATA||{}).generated_at || new Date().toISOString();

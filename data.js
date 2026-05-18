@@ -135,6 +135,13 @@ window.MOBILE_DATA = {
       {"name":"Semi_FriPanic_v1","est":1}
     ]
   },
+  "daily_history": [
+    {"date":"2026-05-11","netliq":11540.00,"day_pnl":-6.28,"cum_pnl_short":-6.28,"n_trades":1,"vix":18.38},
+    {"date":"2026-05-12","netliq":11618.00,"day_pnl":71.66,"cum_pnl_short":65.38,"n_trades":3,"vix":17.99},
+    {"date":"2026-05-13","netliq":11650.00,"day_pnl":24.41,"cum_pnl_short":89.79,"n_trades":2,"vix":17.87},
+    {"date":"2026-05-14","netliq":11628.00,"day_pnl":0.00,"cum_pnl_short":89.79,"n_trades":0,"vix":17.26},
+    {"date":"2026-05-15","netliq":11637.24,"day_pnl":8.99,"cum_pnl_short":89.79,"n_trades":0,"vix":18.43}
+  ],
   "morning_brief": "# 2026-05-18 (Mon) LIVE 7日目\n\n## 🚀 月曜 候補 (Fri 5/15 trigger)\n\n- **Sector_FriPanic_v1**: LIN (XLB Fri -2.65%)\n- **HighPullback50_v1**: NVDA / SOXX / SMH / IWM\n- max_pos 3 → 上位 3 採用見込み\n\n## ⚙️ v20 設定\n- bracket TP/SL 全 19 戦略 OCA\n- vol_regime_size_mult (VIX 帯別 size)\n- pyramid 2tier (TP1 60% + Trailing 40%)\n- Gap Fade (寄付 -2% で intraday 底狙い)\n\n## ⏰ 朝 8:00 ルーチン\n1. TWS 起動確認\n2. sanity_test_5_18.py 全 41 pass\n3. short_term_executor.py --execute\n4. 寄付後 8:35 fill 確認\n5. 15:00 intraday-exit batch\n6. 5/19 Tue 朝 SELL 自動化 試金石\n\n## 📊 先週 P&L (backtest)\n- 短期: +$89.79 (+2.12%)\n- Champ unrealized: +$48.74\n- 合計: +$138.53",
   "vix_trend": [
     {"date":"2026-05-05","v":16.20},
