@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-17T21:32",
+  "generated_at": "2026-05-17T21:44",
   "today_summary": {
     "netliq": null,
     "day_pnl_pct": null,
