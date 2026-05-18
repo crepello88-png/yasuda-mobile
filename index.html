@@ -203,6 +203,45 @@
   <div class="section">
     <div class="card" id="weekly-note" style="font-size:11px;color:var(--sub)"></div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🔮 月次・年間 予想 (短期 capital base)</div>
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">月次 (mid)</div>
+          <div class="stat-value green" id="f-monthly">—</div>
+          <div class="strat" id="f-monthly-range" style="margin-top:2px">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">年間 (mid)</div>
+          <div class="stat-value green" id="f-annual">—</div>
+          <div class="strat" id="f-annual-range" style="margin-top:2px">—</div>
+        </div>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-top:8px" id="f-basis">—</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📈 12ヶ月 capital 成長 trajectory</div>
+    <div class="card">
+      <svg id="growth-chart" width="100%" height="220" viewBox="0 0 360 220" preserveAspectRatio="none"></svg>
+      <div style="font-size:10px;color:var(--sub);text-align:center;margin-top:4px">
+        <span style="color:#3fb950">━ High +80%</span> · <span style="color:#58a6ff">━ Mid +70%</span> · <span style="color:#d29922">━ Low +60%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎯 戦略別 月次 寄与 (top 10)</div>
+    <div class="card" id="f-bystrat"></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🏆 Champ DCA 別建て 予想 (+12-15%/年)</div>
+    <div class="card" id="f-champ" style="font-size:12px"></div>
+  </div>
 </div>
 
 <!-- Tab: Champ -->
@@ -582,6 +621,87 @@ function renderWeekly() {
   document.getElementById('weekly-note').textContent = w.note || '';
 }
 
+function renderForecast() {
+  const f = (window.MOBILE_DATA||{}).forecast;
+  if (!f) return;
+  document.getElementById('f-monthly').textContent = '+$'+f.monthly_mid;
+  document.getElementById('f-monthly-range').textContent = '+$'+f.monthly_low+' 〜 +$'+f.monthly_high;
+  document.getElementById('f-annual').textContent = '+'+f.annual_mid_pct+'%';
+  document.getElementById('f-annual-range').textContent = '$'+f.annual_low_usd.toLocaleString()+' 〜 $'+f.annual_high_usd.toLocaleString();
+  document.getElementById('f-basis').textContent = f._basis;
+
+  // Growth chart
+  const traj = f.growth_trajectory || [];
+  const svg = document.getElementById('growth-chart');
+  if (traj.length >= 2 && svg) {
+    const W=360, H=220, padL=42, padR=12, padT=14, padB=30;
+    const cw=W-padL-padR, ch=H-padT-padB;
+    const allV = [];
+    traj.forEach(t => { allV.push(t.low, t.mid, t.high); });
+    const mn = Math.min(...allV) * 0.95;
+    const mx = Math.max(...allV) * 1.02;
+    const rng = mx-mn || 1;
+    const xFor = m => padL + (m/12)*cw;
+    const yFor = v => padT + ch - (v-mn)/rng*ch;
+    let html = '';
+    // grid
+    for (let i=0;i<=4;i++) {
+      const y = padT + ch * (i/4);
+      const v = mx - (mx-mn) * (i/4);
+      html += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>`;
+      html += `<text x="${padL-4}" y="${y+3}" fill="#7d8590" font-size="9" text-anchor="end">$${(v/1000).toFixed(1)}k</text>`;
+    }
+    // months axis
+    [0,3,6,9,12].forEach(m => {
+      html += `<text x="${xFor(m)}" y="${H-padB+14}" fill="#7d8590" font-size="9" text-anchor="middle">${m}mo</text>`;
+    });
+    // 3 lines
+    const drawLine = (key, col) => {
+      let pd = '';
+      traj.forEach((t,i) => { pd += (i===0?'M':'L') + xFor(t.month) + ',' + yFor(t[key]) + ' '; });
+      html += `<path d="${pd}" stroke="${col}" stroke-width="2" fill="none"/>`;
+      // final dot+label
+      const last = traj[traj.length-1];
+      html += `<circle cx="${xFor(last.month)}" cy="${yFor(last[key])}" r="3" fill="${col}"/>`;
+    };
+    drawLine('low', '#d29922');
+    drawLine('mid', '#58a6ff');
+    drawLine('high', '#3fb950');
+    svg.innerHTML = html;
+  }
+
+  // by strategy bar list
+  const bs = (f.by_strategy_monthly||[]).slice(0,10);
+  const max = bs[0] ? bs[0].est : 1;
+  document.getElementById('f-bystrat').innerHTML = bs.map(s => {
+    const w = Math.round(s.est/max * 100);
+    return `<div class="row">
+      <div class="row-l" style="flex:1">
+        <div class="ticker" style="font-size:12px">${s.name}</div>
+        <div style="height:4px;background:#30363d;border-radius:2px;margin-top:4px;width:100%">
+          <div style="height:4px;background:#3fb950;border-radius:2px;width:${w}%"></div>
+        </div>
+      </div>
+      <div class="row-r" style="margin-left:10px"><div class="price green">+$${s.est}</div></div>
+    </div>`;
+  }).join('');
+
+  // Champ
+  document.getElementById('f-champ').innerHTML = `
+    <div class="row">
+      <div class="row-l"><div class="ticker">capital</div></div>
+      <div class="row-r"><div class="price">$${(f.capital_champ||0).toLocaleString()}</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="ticker">想定年率</div></div>
+      <div class="row-r"><div class="price green">+${f.champ_annual_pct}%</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="ticker">年間 (mid)</div></div>
+      <div class="row-r"><div class="price green">+$${(f.champ_annual_usd||0).toLocaleString()}</div></div>
+    </div>`;
+}
+
 function renderChamp() {
   const c = (window.MOBILE_DATA||{}).champ;
   if (!c) { document.getElementById('champ-buys').innerHTML='<div class="empty">Champ データなし</div>'; return; }
@@ -610,6 +730,7 @@ function loadAll() {
   renderToday();
   renderPositions();
   renderWeekly();
+  renderForecast();
   renderChamp();
   renderIntraday();
   renderStrat();
