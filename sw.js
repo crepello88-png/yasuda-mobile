@@ -1,9 +1,10 @@
-// Service Worker - offline cache for 安田 短期 mobile
-const CACHE = 'yasuda-mobile-v1';
-const ASSETS = ['./', './index.html', './manifest.json', './data.js'];
+// Service Worker - IBKR投資計画 mobile
+// v3 (5/18): index.html / manifest を network-first 化、 静的 asset のみ cache-first
+const CACHE = 'ibkr-plan-v3';
+const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)));
+  e.waitUntil(caches.open(CACHE).then(c => c.addAll(STATIC_ASSETS).catch(()=>null)));
   self.skipWaiting();
 });
 
@@ -15,16 +16,25 @@ self.addEventListener('activate', e => {
 });
 
 self.addEventListener('fetch', e => {
-  // data.js は network 優先 (stale-while-revalidate)、 他は cache 優先
-  if (e.request.url.includes('data.js')) {
+  const url = e.request.url;
+  // network-first: data.js / index.html / manifest.json (常に最新)
+  const networkFirst = url.includes('data.js') || url.endsWith('/') || url.endsWith('/index.html') || url.includes('manifest.json');
+  if (networkFirst) {
     e.respondWith(
       fetch(e.request).then(r => {
-        const c = r.clone();
-        caches.open(CACHE).then(cache => cache.put(e.request, c));
+        if (r && r.ok) {
+          const c = r.clone();
+          caches.open(CACHE).then(cache => cache.put(e.request, c));
+        }
         return r;
       }).catch(() => caches.match(e.request))
     );
   } else {
+    // cache-first: 静的 asset
     e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
   }
+});
+
+self.addEventListener('message', e => {
+  if (e.data === 'SKIP_WAITING') self.skipWaiting();
 });

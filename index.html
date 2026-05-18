@@ -68,7 +68,7 @@
       <h1>IBKR投資計画</h1>
       <div class="header-sub" id="hdr-sub">v20 LIVE · 短期 19 戦略 · 場中 6 paper</div>
     </div>
-    <button class="refresh" onclick="loadAll()">更新</button>
+    <button class="refresh" onclick="hardRefresh()">更新</button>
   </div>
   <div class="last-update" id="last-update">未取得</div>
 </header>
@@ -872,9 +872,43 @@ function loadAll() {
   document.getElementById('last-update').textContent = '更新: ' + ts.replace('T',' ').slice(0,16);
 }
 
-// PWA service worker (キャッシュで offline 対応)
+// 強力リロード: cache/SW 全クリア + cache-busting URL でリロード
+async function hardRefresh() {
+  try {
+    if ('caches' in window) {
+      const keys = await caches.keys();
+      await Promise.all(keys.map(k => caches.delete(k)));
+    }
+    if ('serviceWorker' in navigator) {
+      const regs = await navigator.serviceWorker.getRegistrations();
+      await Promise.all(regs.map(r => r.unregister()));
+    }
+  } catch(e) {}
+  // URL に ts= つけて強制再取得
+  const url = new URL(location.href);
+  url.searchParams.set('ts', Date.now());
+  location.replace(url.toString());
+}
+
+// PWA service worker (キャッシュで offline 対応)、 新版検知で auto skipWaiting
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('sw.js').catch(()=>{});
+  navigator.serviceWorker.register('sw.js').then(reg => {
+    reg.addEventListener('updatefound', () => {
+      const nw = reg.installing;
+      if (nw) nw.addEventListener('statechange', () => {
+        if (nw.state === 'installed' && navigator.serviceWorker.controller) {
+          // 新 SW 待機中、 skip させて次回ロードで適用
+          nw.postMessage('SKIP_WAITING');
+        }
+      });
+    });
+  }).catch(()=>{});
+  // controller が変わったら強制 reload (新 SW 適用後)
+  let reloaded = false;
+  navigator.serviceWorker.addEventListener('controllerchange', () => {
+    if (reloaded) return; reloaded = true;
+    location.reload();
+  });
 }
 
 window.addEventListener('load', loadAll);
