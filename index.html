@@ -66,7 +66,7 @@
   <div class="header-row">
     <div>
       <h1>安田 短期</h1>
-      <div class="header-sub" id="hdr-sub">v20 LIVE — 場中監視</div>
+      <div class="header-sub" id="hdr-sub">v20 LIVE · 短期 19 戦略 · 場中 6 paper</div>
     </div>
     <button class="refresh" onclick="loadAll()">更新</button>
   </div>
@@ -76,6 +76,8 @@
 <div class="tabs">
   <div class="tab active" data-tab="today" onclick="switchTab('today')">今日</div>
   <div class="tab" data-tab="positions" onclick="switchTab('positions')">保有</div>
+  <div class="tab" data-tab="weekly" onclick="switchTab('weekly')">週次</div>
+  <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
 </div>
@@ -85,31 +87,48 @@
 <!-- Tab: 今日 -->
 <div class="tab-content active" id="tab-today">
   <div class="section">
-    <div class="section-title">📊 今日のサマリ</div>
+    <div class="section-title">💼 TWS 口座 (Cash account)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
-          <div class="stat-label">NetLiq</div>
+          <div class="stat-label">総資産 NetLiq</div>
           <div class="stat-value" id="stat-netliq">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label">Day P&L</div>
+          <div class="stat-label">未実現 P&L</div>
           <div class="stat-value" id="stat-pnl">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label">保有</div>
-          <div class="stat-value" id="stat-pos">—</div>
+          <div class="stat-label">現金</div>
+          <div class="stat-value" id="stat-cash" style="font-size:15px">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label">VIX</div>
+          <div class="stat-label">株式時価</div>
+          <div class="stat-value" id="stat-stock" style="font-size:15px">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">余力 BuyingPower</div>
+          <div class="stat-value" id="stat-bp" style="font-size:15px">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">VIX (10d)</div>
           <div class="stat-value" id="stat-vix">—</div>
+          <svg id="vix-spark" width="100%" height="28" viewBox="0 0 120 28" preserveAspectRatio="none" style="margin-top:4px"></svg>
         </div>
       </div>
+      <div style="font-size:10px;color:var(--sub);text-align:center;margin-top:6px" id="stat-acct-type">—</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">🔥 当日 fire signal (寄付 BUY)</div>
+    <div class="section-title">🎯 寄付前 候補 (Fri EOD trigger)</div>
+    <div id="signals-pending" class="card">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🔥 当日 fire (寄付 BUY 後 state)</div>
     <div id="signals-today" class="card">
       <div class="empty">読込中...</div>
     </div>
@@ -133,6 +152,90 @@
   </div>
 </div>
 
+<!-- Tab: 週次 -->
+<div class="tab-content" id="tab-weekly">
+  <div class="section">
+    <div class="section-title">📈 先週 P&L サマリ</div>
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">週次 P&L</div>
+          <div class="stat-value" id="w-pnl">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">勝率</div>
+          <div class="stat-value" id="w-win">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">trade 数</div>
+          <div class="stat-value" id="w-n">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">capital</div>
+          <div class="stat-value" id="w-cap">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📊 日次 P&L + 累積</div>
+    <div class="card">
+      <svg id="weekly-chart" width="100%" height="240" viewBox="0 0 360 240" preserveAspectRatio="none"></svg>
+      <div id="weekly-legend" style="font-size:10px;color:var(--sub);text-align:center;margin-top:4px"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 trade 詳細</div>
+    <div class="card" id="weekly-trades">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🎯 戦略別 内訳</div>
+    <div class="card" id="weekly-bystrat">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="card" id="weekly-note" style="font-size:11px;color:var(--sub)"></div>
+  </div>
+</div>
+
+<!-- Tab: Champ -->
+<div class="tab-content" id="tab-champ">
+  <div class="section">
+    <div class="section-title">🏆 Champ DCA 週次 (5/11-5/15)</div>
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">unrealized P&L</div>
+          <div class="stat-value" id="c-pnl">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">cost / value</div>
+          <div class="stat-value" id="c-cost" style="font-size:13px">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">📋 週次 BUY 明細</div>
+    <div class="card" id="champ-buys"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">💰 5/11 rebalance SELL</div>
+    <div class="card" id="champ-sells" style="font-size:12px;color:var(--sub)"></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📅 次回 schedule</div>
+    <div class="card" id="champ-sched" style="font-size:12px"></div>
+  </div>
+</div>
+
 <!-- Tab: 場中 -->
 <div class="tab-content" id="tab-intraday">
   <div class="section">
@@ -152,7 +255,7 @@
 <!-- Tab: 戦略 -->
 <div class="tab-content" id="tab-strat">
   <div class="section">
-    <div class="section-title">📋 LIVE 戦略 一覧 (v20)</div>
+    <div class="section-title">📋 LIVE 戦略 19 件 (v20)</div>
     <div class="card" id="strategy-list">
       <div class="empty">読込中...</div>
     </div>
@@ -190,15 +293,65 @@ function pctClass(v) { if (v==null) return ''; return v>0?'green':(v<0?'red':'')
 function renderToday() {
   const d = window.MOBILE_DATA || {};
   const s = d.today_summary || {};
-  document.getElementById('stat-netliq').textContent = fmt$(s.netliq);
-  const pnl = s.day_pnl;
+  document.getElementById('stat-netliq').textContent = fmt$2(s.netliq);
+  const upnl = s.unrealized_pnl;
   const pnlEl = document.getElementById('stat-pnl');
-  pnlEl.textContent = pnl==null?'—':fmtPct(s.day_pnl_pct||0);
-  pnlEl.className = 'stat-value ' + pctClass(pnl);
-  document.getElementById('stat-pos').textContent = (s.open_positions||0)+'';
+  pnlEl.textContent = upnl==null?'—':(upnl>=0?'+$':'-$')+Math.abs(upnl).toFixed(2);
+  pnlEl.className = 'stat-value ' + pctClass(upnl);
+  document.getElementById('stat-cash').textContent = fmt$2(s.cash);
+  document.getElementById('stat-stock').textContent = fmt$2(s.stock_value);
+  document.getElementById('stat-bp').textContent = fmt$2(s.buying_power);
+  document.getElementById('stat-acct-type').textContent = (s.account_type||'') + (s.open_positions!=null?` · 保有 ${s.open_positions} 件`:'');
   document.getElementById('stat-vix').textContent = s.vix==null?'—':s.vix.toFixed(2);
 
-  // signals
+  // VIX sparkline (last 10 days)
+  const vt = d.vix_trend || [];
+  const spark = document.getElementById('vix-spark');
+  if (vt.length >= 2 && spark) {
+    const W2=120, H2=28, p=2;
+    const vals = vt.map(x=>x.v);
+    const mn = Math.min(...vals), mx = Math.max(...vals);
+    const rng = (mx-mn)||1;
+    const stepX = (W2-2*p) / (vt.length-1);
+    const last = vt[vt.length-1].v;
+    const first = vt[0].v;
+    const col = last>=first ? '#f85149' : '#3fb950';
+    let pd = '';
+    vt.forEach((x,i)=>{
+      const px = p + stepX*i;
+      const py = p + (1-(x.v-mn)/rng)*(H2-2*p);
+      pd += (i===0?'M':'L') + px + ',' + py + ' ';
+    });
+    // fill area
+    const lastX = p + stepX*(vt.length-1);
+    const baseY = H2-p;
+    let area = pd + `L${lastX},${baseY} L${p},${baseY} Z`;
+    spark.innerHTML = `<path d="${area}" fill="${col}" opacity="0.12"/><path d="${pd}" stroke="${col}" stroke-width="1.5" fill="none"/>`;
+  }
+
+  // signals pending (寄付前)
+  const pending = d.signals_pending || [];
+  const pEl = document.getElementById('signals-pending');
+  if (!pending.length) {
+    pEl.innerHTML = '<div class="empty">候補なし</div>';
+  } else {
+    pEl.innerHTML = pending.map(p => {
+      const selBadge = p.selected ? '<span class="badge fire">採用</span>' : '<span class="badge" style="background:#7d859022;color:#7d8590">drop</span>';
+      return `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${p.ticker} <span class="badge">${p.tier||''}</span>${selBadge}</div>
+          <div class="strat">${p.strategy} · ${p.trigger||''}</div>
+        </div>
+        <div class="row-r">
+          <div class="price">${fmt$2(p.ref_price)}</div>
+          <div class="pct green">TP+${(p.target_tp_pct||0).toFixed(2)}% · ${p.hold}d</div>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  // signals fire (BUY 後)
   const sigs = d.signals_today || [];
   const sigEl = document.getElementById('signals-today');
   if (!sigs.length) {
@@ -296,23 +449,168 @@ function renderStrat() {
     el.innerHTML = '<div class="empty">戦略 list なし</div>';
     return;
   }
-  el.innerHTML = strats.map(s => `
+  el.innerHTML = strats.map(s => {
+    const kindCol = s.kind==='PANIC' ? '#f85149' : (s.kind==='BULL' ? '#3fb950' : '#7d8590');
+    const kindBadge = s.kind ? `<span class="badge" style="background:${kindCol}22;color:${kindCol}">${s.kind}</span>` : '';
+    return `
     <div class="row">
       <div class="row-l">
-        <div class="ticker">${s.name}<span class="badge">${s.tier||''}</span></div>
-        <div class="strat">hold=${s.hold||'-'}d · TP+${(s.tp||0).toFixed(2)}%</div>
+        <div class="ticker">${s.name}<span class="badge">${s.tier||''}</span>${kindBadge}</div>
+        <div class="strat">hold=${s.hold||'-'}d · TP+${(s.tp||0).toFixed(2)}% · SL${(s.sl||0).toFixed(0)}%</div>
       </div>
       <div class="row-r">
         <div class="pct ${pctClass(s.monthly_usd)}">${fmt$2(s.monthly_usd)}/月</div>
         <div class="strat">win ${(s.win||0).toFixed(0)}%</div>
       </div>
-    </div>
-  `).join('');
+    </div>`;
+  }).join('');
+}
+
+function renderWeekly() {
+  const d = window.MOBILE_DATA || {};
+  const w = d.weekly_pnl;
+  if (!w) {
+    document.getElementById('weekly-trades').innerHTML = '<div class="empty">週次データなし</div>';
+    return;
+  }
+  // Stat cards
+  const pnlEl = document.getElementById('w-pnl');
+  pnlEl.textContent = (w.total_pnl_usd>=0?'+$':'-$') + Math.abs(w.total_pnl_usd).toFixed(2);
+  pnlEl.className = 'stat-value ' + pctClass(w.total_pnl_usd);
+  document.getElementById('w-win').textContent = w.win_rate.toFixed(0) + '%';
+  document.getElementById('w-n').textContent = w.n_wins + '/' + w.n_trades;
+  document.getElementById('w-cap').textContent = '$' + (w.capital||0).toLocaleString();
+
+  // SVG chart: daily bars + cumulative line
+  const svg = document.getElementById('weekly-chart');
+  const days = w.days || [];
+  if (!days.length) { svg.innerHTML = ''; return; }
+  const W = 360, H = 240;
+  const padL = 36, padR = 10, padT = 16, padB = 36;
+  const cw = W - padL - padR;
+  const ch = H - padT - padB;
+  // value ranges
+  const pnls = days.map(d => d.pnl);
+  const cums = days.map(d => d.cum);
+  const allVals = pnls.concat(cums).concat([0]);
+  let vMin = Math.min(...allVals);
+  let vMax = Math.max(...allVals);
+  const pad = (vMax - vMin) * 0.15 || 10;
+  vMin -= pad; vMax += pad;
+  const range = vMax - vMin || 1;
+  const yFor = v => padT + ch - (v - vMin) / range * ch;
+  const barW = cw / days.length * 0.55;
+  const slot = cw / days.length;
+  // zero line
+  const y0 = yFor(0);
+  let html = '';
+  // grid + zero
+  html += `<line x1="${padL}" y1="${y0}" x2="${W-padR}" y2="${y0}" stroke="#30363d" stroke-width="1"/>`;
+  // y axis labels (top / zero / bottom)
+  const lbl = v => v>=0?'+$'+v.toFixed(0):'-$'+Math.abs(v).toFixed(0);
+  html += `<text x="${padL-4}" y="${padT+6}" fill="#7d8590" font-size="9" text-anchor="end">${lbl(vMax)}</text>`;
+  html += `<text x="${padL-4}" y="${y0+3}" fill="#7d8590" font-size="9" text-anchor="end">$0</text>`;
+  html += `<text x="${padL-4}" y="${padT+ch}" fill="#7d8590" font-size="9" text-anchor="end">${lbl(vMin)}</text>`;
+  // bars (daily P&L)
+  days.forEach((d, i) => {
+    const cx = padL + slot * (i + 0.5);
+    const bx = cx - barW/2;
+    const by = d.pnl >= 0 ? yFor(d.pnl) : y0;
+    const bh = Math.abs(yFor(d.pnl) - y0);
+    const col = d.pnl >= 0 ? '#3fb950' : (d.pnl < 0 ? '#f85149' : '#7d8590');
+    html += `<rect x="${bx}" y="${by}" width="${barW}" height="${Math.max(bh,1)}" fill="${col}" opacity="0.85"/>`;
+    // bar value
+    if (d.pnl !== 0) {
+      const ty = d.pnl >= 0 ? by - 4 : by + bh + 10;
+      html += `<text x="${cx}" y="${ty}" fill="${col}" font-size="9" text-anchor="middle" font-weight="600">${d.pnl>0?'+':''}${d.pnl.toFixed(0)}</text>`;
+    }
+    // x label (dow)
+    html += `<text x="${cx}" y="${H-padB+14}" fill="#7d8590" font-size="10" text-anchor="middle">${d.dow}</text>`;
+    html += `<text x="${cx}" y="${H-padB+26}" fill="#7d8590" font-size="8" text-anchor="middle">${d.date.slice(5)}</text>`;
+  });
+  // cumulative line
+  let pathD = '';
+  days.forEach((d, i) => {
+    const cx = padL + slot * (i + 0.5);
+    const cy = yFor(d.cum);
+    pathD += (i === 0 ? 'M' : 'L') + cx + ',' + cy + ' ';
+  });
+  html += `<path d="${pathD}" stroke="#58a6ff" stroke-width="2" fill="none"/>`;
+  // dots on line
+  days.forEach((d, i) => {
+    const cx = padL + slot * (i + 0.5);
+    const cy = yFor(d.cum);
+    html += `<circle cx="${cx}" cy="${cy}" r="3" fill="#58a6ff"/>`;
+  });
+  svg.innerHTML = html;
+  document.getElementById('weekly-legend').innerHTML = '🟩 日次 P&L (bar) ／ 🔵 累積 (line)';
+
+  // trade list
+  const trades = w.trades || [];
+  const tEl = document.getElementById('weekly-trades');
+  if (!trades.length) tEl.innerHTML = '<div class="empty">trade なし</div>';
+  else {
+    tEl.innerHTML = trades.map(t => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${t.ticker}<span class="badge">${t.strategy}</span></div>
+          <div class="strat">${t.date.slice(5)} · exit ${t.exit||''}</div>
+        </div>
+        <div class="row-r">
+          <div class="price ${pctClass(t.pnl)}">${t.pnl>=0?'+$':'-$'}${Math.abs(t.pnl).toFixed(2)}</div>
+          <div class="pct ${pctClass(t.ret_pct)}">${fmtPct(t.ret_pct)}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  // by strategy
+  const bs = w.by_strategy || [];
+  const sEl = document.getElementById('weekly-bystrat');
+  if (!bs.length) sEl.innerHTML = '<div class="empty">なし</div>';
+  else {
+    sEl.innerHTML = bs.map(s => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker" style="font-size:13px">${s.name}</div>
+          <div class="strat">${s.wins}勝 / ${s.n}件</div>
+        </div>
+        <div class="row-r">
+          <div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div>
+        </div>
+      </div>`).join('');
+  }
+  document.getElementById('weekly-note').textContent = w.note || '';
+}
+
+function renderChamp() {
+  const c = (window.MOBILE_DATA||{}).champ;
+  if (!c) { document.getElementById('champ-buys').innerHTML='<div class="empty">Champ データなし</div>'; return; }
+  const pnlEl = document.getElementById('c-pnl');
+  pnlEl.textContent = (c.weekly_pnl>=0?'+$':'-$') + Math.abs(c.weekly_pnl||0).toFixed(2);
+  pnlEl.className = 'stat-value ' + pctClass(c.weekly_pnl);
+  document.getElementById('c-cost').textContent = '$'+(c.weekly_cost||0).toFixed(0)+' → $'+(c.weekly_value||0).toFixed(0);
+  const buys = c.weekly_buys||[];
+  document.getElementById('champ-buys').innerHTML = buys.map(b=>`
+    <div class="row">
+      <div class="row-l">
+        <div class="ticker">${b.ticker}<span class="badge">${b.shares}株</span></div>
+        <div class="strat">${b.date.slice(5)} · entry $${b.entry.toFixed(2)} → $${b.last.toFixed(2)}</div>
+      </div>
+      <div class="row-r">
+        <div class="price ${pctClass(b.pnl)}">${b.pnl>=0?'+$':'-$'}${Math.abs(b.pnl).toFixed(2)}</div>
+        <div class="pct ${pctClass(b.pnl_pct)}">${fmtPct(b.pnl_pct)}</div>
+      </div>
+    </div>`).join('');
+  document.getElementById('champ-sells').textContent = '5/11 SELL 回収 cash: $'+(c.weekly_sells_cash||0).toFixed(2)+' (cost basis 不明)';
+  const sch = c.schedule_next||[];
+  document.getElementById('champ-sched').innerHTML = sch.length ? sch.map(s=>`<div class="row"><div class="row-l"><div class="ticker">${s.date}</div><div class="strat">${s.plan}</div></div></div>`).join('') : '<div class="empty">予定なし</div>';
 }
 
 function loadAll() {
   renderToday();
   renderPositions();
+  renderWeekly();
+  renderChamp();
   renderIntraday();
   renderStrat();
   const ts = (window.MOBILE_DATA||{}).generated_at || new Date().toISOString();
@@ -325,6 +623,13 @@ if ('serviceWorker' in navigator) {
 }
 
 window.addEventListener('load', loadAll);
+// 自動再読み込み: 5分毎に data.js を新しい?ts= で再フェッチ (PWA cache bypass)
+setInterval(() => {
+  const s = document.createElement('script');
+  s.src = 'data.js?ts=' + Date.now();
+  s.onload = () => { loadAll(); s.remove(); };
+  document.body.appendChild(s);
+}, 300000);
 </script>
 
 </body>
