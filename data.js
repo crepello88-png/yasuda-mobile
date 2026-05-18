@@ -406,26 +406,40 @@ window.MOBILE_DATA = {
   },
   "signals_pending": [
     {
+      "ticker": "NVDA",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback (★ pre-mkt +0.63% 復活)",
+      "ref_price": 225.32,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": true,
+      "shares": 2,
+      "extra": -4
+    },
+    {
       "ticker": "ON",
       "strategy": "HighPullback50_v1",
       "tier": "S+",
-      "trigger": "50d高値 → -3% pullback (★ user 増量 +4)",
+      "trigger": "50d高値 → -3% pullback (NVDA 枠確保で -2)",
       "ref_price": 113.11,
       "target_tp_pct": 0.84,
       "hold": 1,
       "selected": true,
-      "shares": 16,
-      "extra": 4
+      "shares": 14,
+      "extra": 2
     },
     {
       "ticker": "SPXL",
       "strategy": "HighPullback50_v1",
       "tier": "S+",
-      "trigger": "50d高値 → -3% pullback (3x SPY ETF)",
+      "trigger": "50d高値 → -3% pullback (3x SPY ETF、 NVDA 枠確保で -1)",
       "ref_price": 266.6,
       "target_tp_pct": 0.84,
       "hold": 1,
-      "selected": true
+      "selected": true,
+      "shares": 4,
+      "extra": -1
     },
     {
       "ticker": "LIN",
@@ -435,18 +449,8 @@ window.MOBILE_DATA = {
       "ref_price": 506.11,
       "target_tp_pct": 1.36,
       "hold": 1,
-      "selected": true
-    },
-    {
-      "ticker": "NVDA",
-      "strategy": "HighPullback50_v1",
-      "tier": "S+",
-      "trigger": "50d高値 → -3% pullback",
-      "ref_price": 225.32,
-      "target_tp_pct": 0.84,
-      "hold": 1,
-      "selected": false,
-      "skip_reason": "5/20 earnings 2日後 (user 5/18 判断)"
+      "selected": true,
+      "shares": 2
     },
     {
       "ticker": "STRL",
