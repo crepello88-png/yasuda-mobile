@@ -1,7 +1,7 @@
 {
-  "name": "安田 短期 — 場中ダッシュボード",
-  "short_name": "安田 短期",
-  "description": "v20 LIVE 19戦略 + 場中 alpha 6 pattern (ST725 PASS)",
+  "name": "IBKR投資計画",
+  "short_name": "IBKR投資計画",
+  "description": "短期 19戦略 + Champ DCA + 場中 alpha 6 pattern (v20 LIVE)",
   "start_url": "./index.html",
   "display": "standalone",
   "orientation": "portrait",
