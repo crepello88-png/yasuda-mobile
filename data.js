@@ -409,11 +409,13 @@ window.MOBILE_DATA = {
       "ticker": "ON",
       "strategy": "HighPullback50_v1",
       "tier": "S+",
-      "trigger": "50d高値 → -3% pullback",
+      "trigger": "50d高値 → -3% pullback (★ user 増量 +4)",
       "ref_price": 113.11,
       "target_tp_pct": 0.84,
       "hold": 1,
-      "selected": true
+      "selected": true,
+      "shares": 16,
+      "extra": 4
     },
     {
       "ticker": "SPXL",
