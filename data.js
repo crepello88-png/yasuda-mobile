@@ -1,16 +1,516 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T06:06",
+  "generated_at": "2026-05-18T06:07",
   "today_summary": {
-    "netliq": null,
-    "cash": null,
-    "buying_power": null,
-    "stock_value": null,
-    "unrealized_pnl": null,
-    "day_pnl_pct": null,
+    "netliq": 11637.24,
+    "cash": 4237.25,
+    "buying_power": 4237.25,
+    "stock_value": 7398.26,
+    "unrealized_pnl": 8.99,
+    "day_pnl_pct": 0.07725199445916729,
     "account_type": "Cash account",
     "open_positions": 0,
     "vix": null
   },
+  "weekly_pnl": {
+    "capital": 4237,
+    "week_start": "2026-05-11",
+    "week_end": "2026-05-15",
+    "total_pnl_usd": 89.79,
+    "total_pnl_pct": 2.12,
+    "n_trades": 6,
+    "n_wins": 4,
+    "win_rate": 66.7,
+    "days": [
+      {
+        "date": "2026-05-11",
+        "dow": "Mon",
+        "vix": 18.38,
+        "pnl": -6.28,
+        "cum": -6.28,
+        "n": 1,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-12",
+        "dow": "Tue",
+        "vix": 17.99,
+        "pnl": 71.66,
+        "cum": 65.38,
+        "n": 3,
+        "wins": 3
+      },
+      {
+        "date": "2026-05-13",
+        "dow": "Wed",
+        "vix": 17.87,
+        "pnl": 24.41,
+        "cum": 89.79,
+        "n": 2,
+        "wins": 1
+      },
+      {
+        "date": "2026-05-14",
+        "dow": "Thu",
+        "vix": 17.26,
+        "pnl": 0.0,
+        "cum": 89.79,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-15",
+        "dow": "Fri",
+        "vix": 18.43,
+        "pnl": 0.0,
+        "cum": 89.79,
+        "n": 0,
+        "wins": 0
+      }
+    ],
+    "trades": [
+      {
+        "date": "2026-05-11",
+        "ticker": "GOOGL",
+        "strategy": "HighPullback50_v1",
+        "ret_pct": -0.45,
+        "pnl": -6.28,
+        "exit": "hold_end"
+      },
+      {
+        "date": "2026-05-12",
+        "ticker": "GOOGL",
+        "strategy": "HighPullback50_v1",
+        "ret_pct": 2.17,
+        "pnl": 30.37,
+        "exit": "TP+trail"
+      },
+      {
+        "date": "2026-05-12",
+        "ticker": "STRL",
+        "strategy": "HighPullback50_v1",
+        "ret_pct": 0.77,
+        "pnl": 10.77,
+        "exit": "TP+trail"
+      },
+      {
+        "date": "2026-05-12",
+        "ticker": "GOOG",
+        "strategy": "HighPullback50_v1",
+        "ret_pct": 2.18,
+        "pnl": 30.52,
+        "exit": "TP+trail"
+      },
+      {
+        "date": "2026-05-13",
+        "ticker": "STRL",
+        "strategy": "HighPullback50_v1",
+        "ret_pct": 1.89,
+        "pnl": 26.36,
+        "exit": "TP+trail"
+      },
+      {
+        "date": "2026-05-13",
+        "ticker": "YUM",
+        "strategy": "Stoch_Oversold_v1",
+        "ret_pct": -0.28,
+        "pnl": -1.95,
+        "exit": "hold_end"
+      }
+    ],
+    "by_strategy": [
+      {
+        "name": "HighPullback50_v1",
+        "n": 5,
+        "wins": 4,
+        "pnl": 91.74
+      },
+      {
+        "name": "Stoch_Oversold_v1",
+        "n": 1,
+        "wins": 0,
+        "pnl": -1.95
+      }
+    ],
+    "note": "$4,237 capital / max_pos 3 / pos 33%. 5/15 Fri 3 signal は entry 5/18 寄付 = backtest 不能 (来週分)"
+  },
+  "forecast": {
+    "capital_short": 4237,
+    "capital_champ": 7027,
+    "monthly_low": 212,
+    "monthly_mid": 247,
+    "monthly_high": 283,
+    "annual_low_pct": 60,
+    "annual_mid_pct": 70,
+    "annual_high_pct": 80,
+    "annual_low_usd": 2542,
+    "annual_mid_usd": 2966,
+    "annual_high_usd": 3390,
+    "champ_annual_pct": 13,
+    "champ_annual_usd": 913,
+    "_basis": "短期 +60-80%/年 (memory project_19strat_lineup_2026_05_17)、 Champ +12-15%/年 (S&P 履歴 base)、 1 週間実績 +2.12% は bull 強週 outlier",
+    "last_week_actual_pct": 2.12,
+    "last_week_actual_usd": 89.79,
+    "annualize_naive_pct": 110,
+    "growth_trajectory": [
+      {
+        "month": 0,
+        "low": 4237,
+        "mid": 4237,
+        "high": 4237
+      },
+      {
+        "month": 1,
+        "low": 4449,
+        "mid": 4484,
+        "high": 4520
+      },
+      {
+        "month": 2,
+        "low": 4670,
+        "mid": 4746,
+        "high": 4823
+      },
+      {
+        "month": 3,
+        "low": 4903,
+        "mid": 5023,
+        "high": 5147
+      },
+      {
+        "month": 4,
+        "low": 5148,
+        "mid": 5316,
+        "high": 5492
+      },
+      {
+        "month": 5,
+        "low": 5405,
+        "mid": 5626,
+        "high": 5860
+      },
+      {
+        "month": 6,
+        "low": 5675,
+        "mid": 5953,
+        "high": 6253
+      },
+      {
+        "month": 7,
+        "low": 5959,
+        "mid": 6300,
+        "high": 6671
+      },
+      {
+        "month": 8,
+        "low": 6257,
+        "mid": 6667,
+        "high": 7117
+      },
+      {
+        "month": 9,
+        "low": 6570,
+        "mid": 7055,
+        "high": 7593
+      },
+      {
+        "month": 10,
+        "low": 6898,
+        "mid": 7466,
+        "high": 8101
+      },
+      {
+        "month": 11,
+        "low": 7243,
+        "mid": 7901,
+        "high": 8643
+      },
+      {
+        "month": 12,
+        "low": 7605,
+        "mid": 8361,
+        "high": 9221
+      }
+    ],
+    "by_strategy_monthly": [
+      {
+        "name": "Confluence_RSIStoch_v1",
+        "est": 42
+      },
+      {
+        "name": "Confluence_RSIBB_v1",
+        "est": 33
+      },
+      {
+        "name": "HighPullback50_v1",
+        "est": 26
+      },
+      {
+        "name": "Stoch_Oversold_v1",
+        "est": 19
+      },
+      {
+        "name": "Golden_Cross_v1",
+        "est": 15
+      },
+      {
+        "name": "SMA_Stack_v1",
+        "est": 15
+      },
+      {
+        "name": "MACD_Cross_v1",
+        "est": 10
+      },
+      {
+        "name": "Inside_Day_BO_v1",
+        "est": 10
+      },
+      {
+        "name": "Sector_FriPanic_v1",
+        "est": 8
+      },
+      {
+        "name": "VolDryUp_v1",
+        "est": 8
+      },
+      {
+        "name": "BB_Lower_Bounce_v1",
+        "est": 7
+      },
+      {
+        "name": "Pullback_v1",
+        "est": 6
+      },
+      {
+        "name": "Drop5d_BroadPanic",
+        "est": 3
+      },
+      {
+        "name": "Drop5d_ETF7",
+        "est": 3
+      },
+      {
+        "name": "MSTR_Panic20",
+        "est": 3
+      },
+      {
+        "name": "SPY_Panic2_v1",
+        "est": 2
+      },
+      {
+        "name": "VIX_Backward",
+        "est": 2
+      },
+      {
+        "name": "Pharma_Panic_v1",
+        "est": 1
+      },
+      {
+        "name": "Semi_FriPanic_v1",
+        "est": 1
+      }
+    ]
+  },
+  "champ": {
+    "tickers": [
+      "NVDA",
+      "PWR",
+      "COST",
+      "LLY",
+      "GOOG"
+    ],
+    "weekly_buys": [
+      {
+        "date": "2026-05-11",
+        "ticker": "COST",
+        "shares": 1,
+        "entry": 1005.82,
+        "last": 1048.95,
+        "pnl": 43.13,
+        "pnl_pct": 4.29
+      },
+      {
+        "date": "2026-05-11",
+        "ticker": "PWR",
+        "shares": 1,
+        "entry": 749.42,
+        "last": 769.99,
+        "pnl": 20.57,
+        "pnl_pct": 2.74
+      },
+      {
+        "date": "2026-05-13",
+        "ticker": "LLY",
+        "shares": 1,
+        "entry": 993.04,
+        "last": 1004.92,
+        "pnl": 11.88,
+        "pnl_pct": 1.2
+      },
+      {
+        "date": "2026-05-13",
+        "ticker": "GOOG",
+        "shares": 2,
+        "entry": 381.9,
+        "last": 393.32,
+        "pnl": 22.83,
+        "pnl_pct": 2.99
+      },
+      {
+        "date": "2026-05-14",
+        "ticker": "PWR",
+        "shares": 1,
+        "entry": 775.0,
+        "last": 769.99,
+        "pnl": -5.01,
+        "pnl_pct": -0.65
+      },
+      {
+        "date": "2026-05-14",
+        "ticker": "NVDA",
+        "shares": 4,
+        "entry": 229.85,
+        "last": 225.32,
+        "pnl": -18.12,
+        "pnl_pct": -1.97
+      },
+      {
+        "date": "2026-05-15",
+        "ticker": "NVDA",
+        "shares": 6,
+        "entry": 229.76,
+        "last": 225.32,
+        "pnl": -26.64,
+        "pnl_pct": -1.93
+      },
+      {
+        "date": "2026-05-15",
+        "ticker": "GOOG",
+        "shares": 1,
+        "entry": 393.21,
+        "last": 393.32,
+        "pnl": 0.11,
+        "pnl_pct": 0.03
+      }
+    ],
+    "weekly_cost": 6978.27,
+    "weekly_value": 7027.01,
+    "weekly_pnl": 48.74,
+    "weekly_pnl_pct": 0.7,
+    "weekly_sells_cash": 1624.01,
+    "schedule_next": [
+      {
+        "date": "2026-05-18",
+        "plan": "Phase 3: 残 cash で DCA 検討"
+      }
+    ]
+  },
+  "signals_pending": [
+    {
+      "ticker": "ON",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback",
+      "ref_price": 113.11,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": true
+    },
+    {
+      "ticker": "SPXL",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback (3x SPY ETF)",
+      "ref_price": 266.6,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": true
+    },
+    {
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "tier": "S",
+      "trigger": "XLB Fri -2.65% panic → Mon 反発",
+      "ref_price": 506.11,
+      "target_tp_pct": 1.36,
+      "hold": 1,
+      "selected": true
+    },
+    {
+      "ticker": "NVDA",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback",
+      "ref_price": 225.32,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": false,
+      "skip_reason": "5/20 earnings 2日後 (user 5/18 判断)"
+    },
+    {
+      "ticker": "STRL",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback",
+      "ref_price": 848.84,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": false,
+      "skip_reason": "HighPullback50 上限 2 到達"
+    },
+    {
+      "ticker": "UPRO",
+      "strategy": "HighPullback50_v1",
+      "tier": "S+",
+      "trigger": "50d高値 → -3% pullback (3x SPY ETF)",
+      "ref_price": 139.73,
+      "target_tp_pct": 0.84,
+      "hold": 1,
+      "selected": false,
+      "skip_reason": "HighPullback50 上限 2 到達"
+    }
+  ],
+  "vix_trend": [
+    {
+      "date": "2026-05-05",
+      "v": 16.2
+    },
+    {
+      "date": "2026-05-06",
+      "v": 16.85
+    },
+    {
+      "date": "2026-05-07",
+      "v": 17.1
+    },
+    {
+      "date": "2026-05-08",
+      "v": 17.65
+    },
+    {
+      "date": "2026-05-09",
+      "v": 18.05
+    },
+    {
+      "date": "2026-05-11",
+      "v": 18.38
+    },
+    {
+      "date": "2026-05-12",
+      "v": 17.99
+    },
+    {
+      "date": "2026-05-13",
+      "v": 17.87
+    },
+    {
+      "date": "2026-05-14",
+      "v": 17.26
+    },
+    {
+      "date": "2026-05-15",
+      "v": 18.43
+    }
+  ],
   "signals_today": [],
   "positions": [],
   "intraday_patterns": [
@@ -389,8 +889,8 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-18",
-      "netliq": null,
-      "day_pnl": 0,
+      "netliq": 11637.24,
+      "day_pnl": 8.99,
       "cum_pnl_short": 89.79,
       "n_trades": 0,
       "vix": null
