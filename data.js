@@ -13,11 +13,12 @@ window.MOBILE_DATA = {
   },
   "signals_today": [],
   "signals_pending": [
-    {"ticker":"LIN","strategy":"Sector_FriPanic_v1","tier":"S","trigger":"XLB Fri -2.65%","ref_price":472.50,"target_tp_pct":1.36,"hold":1,"selected":true},
-    {"ticker":"NVDA","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":225.32,"target_tp_pct":0.84,"hold":1,"selected":true},
-    {"ticker":"SOXX","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":262.10,"target_tp_pct":0.84,"hold":1,"selected":true},
-    {"ticker":"SMH","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":295.40,"target_tp_pct":0.84,"hold":1,"selected":false},
-    {"ticker":"IWM","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":277.86,"target_tp_pct":0.84,"hold":1,"selected":false}
+    {"ticker":"ON","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":113.11,"target_tp_pct":0.84,"hold":1,"selected":true},
+    {"ticker":"SPXL","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback (3x SPY ETF)","ref_price":266.60,"target_tp_pct":0.84,"hold":1,"selected":true},
+    {"ticker":"LIN","strategy":"Sector_FriPanic_v1","tier":"S","trigger":"XLB Fri -2.65% panic → Mon 反発","ref_price":506.11,"target_tp_pct":1.36,"hold":1,"selected":true},
+    {"ticker":"NVDA","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":225.32,"target_tp_pct":0.84,"hold":1,"selected":false,"skip_reason":"5/20 earnings 2日後 (user 5/18 判断)"},
+    {"ticker":"STRL","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback","ref_price":848.84,"target_tp_pct":0.84,"hold":1,"selected":false,"skip_reason":"HighPullback50 上限 2 到達"},
+    {"ticker":"UPRO","strategy":"HighPullback50_v1","tier":"S+","trigger":"50d高値 → -3% pullback (3x SPY ETF)","ref_price":139.73,"target_tp_pct":0.84,"hold":1,"selected":false,"skip_reason":"HighPullback50 上限 2 到達"}
   ],
   "positions": [],
   "intraday_patterns": [
@@ -142,7 +143,7 @@ window.MOBILE_DATA = {
     {"date":"2026-05-14","netliq":11628.00,"day_pnl":0.00,"cum_pnl_short":89.79,"n_trades":0,"vix":17.26},
     {"date":"2026-05-15","netliq":11637.24,"day_pnl":8.99,"cum_pnl_short":89.79,"n_trades":0,"vix":18.43}
   ],
-  "morning_brief": "# 2026-05-18 (Mon) LIVE 7日目\n\n## 🚀 月曜 候補 (Fri 5/15 trigger)\n\n- **Sector_FriPanic_v1**: LIN (XLB Fri -2.65%)\n- **HighPullback50_v1**: NVDA / SOXX / SMH / IWM\n- max_pos 3 → 上位 3 採用見込み\n\n## ⚙️ v20 設定\n- bracket TP/SL 全 19 戦略 OCA\n- vol_regime_size_mult (VIX 帯別 size)\n- pyramid 2tier (TP1 60% + Trailing 40%)\n- Gap Fade (寄付 -2% で intraday 底狙い)\n\n## ⏰ 朝 8:00 ルーチン\n1. TWS 起動確認\n2. sanity_test_5_18.py 全 41 pass\n3. short_term_executor.py --execute\n4. 寄付後 8:35 fill 確認\n5. 15:00 intraday-exit batch\n6. 5/19 Tue 朝 SELL 自動化 試金石\n\n## 📊 先週 P&L (backtest)\n- 短期: +$89.79 (+2.12%)\n- Champ unrealized: +$48.74\n- 合計: +$138.53",
+  "morning_brief": "# 2026-05-18 (Mon) LIVE 7日目\n\n## 🚀 月曜 BUY 確定 3 件 (dry-run 検証済)\n\n1. **ON** HighPullback50_v1 — 12株 @ $113.11 = $1,357\n2. **SPXL** HighPullback50_v1 — 5株 @ $266.60 = $1,333 (3x SPY ETF)\n3. **LIN** Sector_FriPanic_v1 — 2株 @ $506.11 = $1,012 (XLB Fri -2.65% trigger)\n\n合計投下 $3,702 / 短期 BP $4,237\n\n## ⏭ daily_skip\n- **NVDA** 除外 (5/20 earnings 2日後、 直近 9 回 mean -0.81% で regime weak)\n- STRL/UPRO 自動 skip (HighPullback50 上限 2 到達)\n\n## ⚙️ v20 設定\n- bracket TP/SL 全 19 戦略 OCA\n- vol_regime_size_mult (VIX 17.08 → 15-20 帯)\n- pyramid 2tier (TP1 60% + Trailing 40%)\n- Gap Fade (寄付 -2% で intraday 底狙い)\n- daily_skip + HighPullback50 max 2 (5/18 追加)\n\n## ⏰ 朝 8:00 ルーチン\n1. TWS 起動確認 (port 7496 LIVE)\n2. sanity_test_5_18.py 全 41 pass\n3. Task Scheduler 8:00 が自動実行 (Short Term Auto)\n4. 寄付後 8:35 fill 確認 (ON / SPXL / LIN)\n5. 15:00 intraday-exit batch (今日対象なし)\n6. 5/19 Tue 朝 SELL 自動化 試金石 (3 銘柄全部 hold=1d exit)\n\n## 📊 先週 P&L (backtest)\n- 短期: +$89.79 (+2.12%)\n- Champ unrealized: +$48.74\n- 合計: +$138.53",
   "vix_trend": [
     {"date":"2026-05-05","v":16.20},
     {"date":"2026-05-06","v":16.85},

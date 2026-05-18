@@ -419,11 +419,13 @@ function renderToday() {
   } else {
     pEl.innerHTML = pending.map(p => {
       const selBadge = p.selected ? '<span class="badge fire">採用</span>' : '<span class="badge" style="background:#7d859022;color:#7d8590">drop</span>';
+      const skipNote = p.skip_reason ? `<div class="strat" style="color:#d29922;font-size:10px">⏭ ${p.skip_reason}</div>` : '';
       return `
       <div class="row">
         <div class="row-l">
           <div class="ticker">${p.ticker} <span class="badge">${p.tier||''}</span>${selBadge}</div>
           <div class="strat">${p.strategy} · ${p.trigger||''}</div>
+          ${skipNote}
         </div>
         <div class="row-r">
           <div class="price">${fmt$2(p.ref_price)}</div>
