@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="安田 短期">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>安田 短期 — 場中ダッシュボード</title>
+<style>
+  :root { --bg:#0d1117; --card:#161b22; --line:#30363d; --txt:#e6edf3; --sub:#7d8590;
+          --green:#3fb950; --red:#f85149; --yellow:#d29922; --blue:#58a6ff; }
+  *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+  html,body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
+            font-size:14px;line-height:1.4}
+  body{padding:env(safe-area-inset-top) 0 env(safe-area-inset-bottom)}
+  header{padding:12px 16px;background:var(--card);border-bottom:1px solid var(--line);
+         position:sticky;top:0;z-index:10}
+  .header-row{display:flex;align-items:center;justify-content:space-between}
+  h1{font-size:18px;font-weight:600}
+  .header-sub{font-size:11px;color:var(--sub);margin-top:2px}
+  .refresh{background:var(--blue);color:#fff;border:none;padding:6px 12px;
+           border-radius:6px;font-size:12px;font-weight:600;cursor:pointer}
+  .tabs{display:flex;background:var(--card);border-bottom:1px solid var(--line);
+        position:sticky;top:48px;z-index:9}
+  .tab{flex:1;padding:10px;text-align:center;font-size:13px;color:var(--sub);
+       cursor:pointer;border-bottom:2px solid transparent;font-weight:500}
+  .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
+  main{padding:12px}
+  .section{margin-bottom:16px}
+  .section-title{font-size:11px;text-transform:uppercase;letter-spacing:.5px;
+                  color:var(--sub);margin-bottom:8px;padding:0 4px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:8px;
+        padding:12px;margin-bottom:8px}
+  .row{display:flex;justify-content:space-between;align-items:center;padding:6px 0}
+  .row:not(:last-child){border-bottom:1px solid rgba(255,255,255,.06)}
+  .row-l{display:flex;flex-direction:column;gap:2px}
+  .row-r{text-align:right;display:flex;flex-direction:column;gap:2px}
+  .ticker{font-size:15px;font-weight:600}
+  .strat{font-size:11px;color:var(--sub)}
+  .price{font-size:14px;font-weight:600;font-variant-numeric:tabular-nums}
+  .pct{font-size:12px;font-variant-numeric:tabular-nums}
+  .green{color:var(--green)} .red{color:var(--red)} .yellow{color:var(--yellow)}
+  .empty{text-align:center;color:var(--sub);padding:20px;font-size:13px}
+  .badge{display:inline-block;padding:2px 6px;border-radius:4px;font-size:10px;
+         font-weight:600;background:rgba(88,166,255,.15);color:var(--blue);
+         margin-left:6px}
+  .badge.fire{background:rgba(63,185,80,.15);color:var(--green)}
+  .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+  .stat{background:rgba(255,255,255,.03);border-radius:6px;padding:10px;text-align:center}
+  .stat-label{font-size:10px;color:var(--sub);text-transform:uppercase;letter-spacing:.5px}
+  .stat-value{font-size:18px;font-weight:700;font-variant-numeric:tabular-nums;margin-top:4px}
+  .tab-content{display:none}
+  .tab-content.active{display:block}
+  .footer{padding:20px;text-align:center;color:var(--sub);font-size:10px}
+  .last-update{font-size:10px;color:var(--sub);margin-top:4px}
+  pre{white-space:pre-wrap;font-family:"SF Mono","Menlo",monospace;font-size:11px;
+       color:var(--txt);background:rgba(255,255,255,.02);padding:10px;border-radius:6px}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-row">
+    <div>
+      <h1>安田 短期</h1>
+      <div class="header-sub" id="hdr-sub">v20 LIVE — 場中監視</div>
+    </div>
+    <button class="refresh" onclick="loadAll()">更新</button>
+  </div>
+  <div class="last-update" id="last-update">未取得</div>
+</header>
+
+<div class="tabs">
+  <div class="tab active" data-tab="today" onclick="switchTab('today')">今日</div>
+  <div class="tab" data-tab="positions" onclick="switchTab('positions')">保有</div>
+  <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
+  <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
+</div>
+
+<main>
+
+<!-- Tab: 今日 -->
+<div class="tab-content active" id="tab-today">
+  <div class="section">
+    <div class="section-title">📊 今日のサマリ</div>
+    <div class="card">
+      <div class="stat-grid">
+        <div class="stat">
+          <div class="stat-label">NetLiq</div>
+          <div class="stat-value" id="stat-netliq">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">Day P&L</div>
+          <div class="stat-value" id="stat-pnl">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">保有</div>
+          <div class="stat-value" id="stat-pos">—</div>
+        </div>
+        <div class="stat">
+          <div class="stat-label">VIX</div>
+          <div class="stat-value" id="stat-vix">—</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">🔥 当日 fire signal (寄付 BUY)</div>
+    <div id="signals-today" class="card">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📝 Morning brief</div>
+    <div class="card" id="morning-brief">
+      <pre id="brief-content">読込中...</pre>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 保有 -->
+<div class="tab-content" id="tab-positions">
+  <div class="section">
+    <div class="section-title">💼 寄付戦略 保有</div>
+    <div id="positions-list" class="card">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 場中 -->
+<div class="tab-content" id="tab-intraday">
+  <div class="section">
+    <div class="section-title">⚡ 場中 alpha (ST725 PASS 6 pattern)</div>
+    <div class="card" id="intraday-status">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">📈 場中 保有</div>
+    <div id="intraday-positions" class="card">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 戦略 -->
+<div class="tab-content" id="tab-strat">
+  <div class="section">
+    <div class="section-title">📋 LIVE 戦略 一覧 (v20)</div>
+    <div class="card" id="strategy-list">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<div class="footer">
+  安田 短期 mobile v1 · ST725 PASS 6 場中 · 5/17 fix
+</div>
+
+<script src="data.js"></script>
+<script>
+// ============================================================
+// 携帯アプリ - PWA (GitHub Pages 配信)
+// データは data.js から (Python sync_mobile.py で push)
+// 完全 static、 TWS 直アクセスなし (network 不要)
+// ============================================================
+
+function switchTab(tab) {
+  document.querySelectorAll('.tab').forEach(t => t.classList.toggle('active', t.dataset.tab===tab));
+  document.querySelectorAll('.tab-content').forEach(c => c.classList.toggle('active', c.id==='tab-'+tab));
+}
+
+function fmt$(v) { if (v==null) return '—'; return '$'+v.toLocaleString(undefined,{maximumFractionDigits:0}); }
+function fmt$2(v) { if (v==null) return '—'; return '$'+v.toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
+function fmtPct(v, withSign=true) {
+  if (v==null) return '—';
+  const s = (withSign && v>0?'+':'') + v.toFixed(2) + '%';
+  return s;
+}
+function pctClass(v) { if (v==null) return ''; return v>0?'green':(v<0?'red':''); }
+
+function renderToday() {
+  const d = window.MOBILE_DATA || {};
+  const s = d.today_summary || {};
+  document.getElementById('stat-netliq').textContent = fmt$(s.netliq);
+  const pnl = s.day_pnl;
+  const pnlEl = document.getElementById('stat-pnl');
+  pnlEl.textContent = pnl==null?'—':fmtPct(s.day_pnl_pct||0);
+  pnlEl.className = 'stat-value ' + pctClass(pnl);
+  document.getElementById('stat-pos').textContent = (s.open_positions||0)+'';
+  document.getElementById('stat-vix').textContent = s.vix==null?'—':s.vix.toFixed(2);
+
+  // signals
+  const sigs = d.signals_today || [];
+  const sigEl = document.getElementById('signals-today');
+  if (!sigs.length) {
+    sigEl.innerHTML = '<div class="empty">本日 fire なし</div>';
+  } else {
+    sigEl.innerHTML = sigs.map(s => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${s.ticker} <span class="badge fire">fire</span></div>
+          <div class="strat">${s.strategy}${s.boost_n?' · boost×'+s.boost_n:''}</div>
+        </div>
+        <div class="row-r">
+          <div class="price">${fmt$2(s.ref_price)}</div>
+          <div class="pct ${pctClass(s.target_tp_pct)}">TP +${(s.target_tp_pct||0).toFixed(2)}%</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  // brief
+  document.getElementById('brief-content').textContent = d.morning_brief || '(brief なし)';
+}
+
+function renderPositions() {
+  const d = window.MOBILE_DATA || {};
+  const pos = d.positions || [];
+  const el = document.getElementById('positions-list');
+  if (!pos.length) {
+    el.innerHTML = '<div class="empty">保有なし</div>';
+    return;
+  }
+  el.innerHTML = pos.map(p => {
+    const pnlPct = p.pnl_pct||0;
+    return `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${p.ticker} <span class="badge">${p.strategy||''}</span></div>
+          <div class="strat">${p.entry_date||''} · ${p.shares||0}株 @ ${fmt$2(p.entry_price)}</div>
+        </div>
+        <div class="row-r">
+          <div class="price">${fmt$2(p.current_price)}</div>
+          <div class="pct ${pctClass(pnlPct)}">${fmtPct(pnlPct)}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderIntraday() {
+  const d = window.MOBILE_DATA || {};
+  const pats = d.intraday_patterns || [];
+  const ipos = d.intraday_positions || [];
+
+  const statusEl = document.getElementById('intraday-status');
+  if (!pats.length) {
+    statusEl.innerHTML = '<div class="empty">場中 pattern 未設定</div>';
+  } else {
+    statusEl.innerHTML = pats.map(p => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${p.ticker}</div>
+          <div class="strat">${p.pattern_name}</div>
+        </div>
+        <div class="row-r">
+          <div class="pct ${p.fired?'green':''}">${p.fired?'🔥 FIRE':'待機'}</div>
+          <div class="strat">TP+${p.tp_pct}%</div>
+        </div>
+      </div>
+    `).join('');
+  }
+
+  const posEl = document.getElementById('intraday-positions');
+  if (!ipos.length) {
+    posEl.innerHTML = '<div class="empty">場中保有なし</div>';
+  } else {
+    posEl.innerHTML = ipos.map(p => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${p.ticker} <span class="badge">${p.pattern_id||''}</span></div>
+          <div class="strat">${(p.entry_ts||'').slice(11,16)} · ${p.shares}株 @ ${fmt$2(p.ref_price)}</div>
+        </div>
+        <div class="row-r">
+          <div class="pct ${pctClass(p.pnl_pct)}">${fmtPct(p.pnl_pct)}</div>
+          <div class="strat">${p.status||''}</div>
+        </div>
+      </div>
+    `).join('');
+  }
+}
+
+function renderStrat() {
+  const d = window.MOBILE_DATA || {};
+  const strats = d.strategies || [];
+  const el = document.getElementById('strategy-list');
+  if (!strats.length) {
+    el.innerHTML = '<div class="empty">戦略 list なし</div>';
+    return;
+  }
+  el.innerHTML = strats.map(s => `
+    <div class="row">
+      <div class="row-l">
+        <div class="ticker">${s.name}<span class="badge">${s.tier||''}</span></div>
+        <div class="strat">hold=${s.hold||'-'}d · TP+${(s.tp||0).toFixed(2)}%</div>
+      </div>
+      <div class="row-r">
+        <div class="pct ${pctClass(s.monthly_usd)}">${fmt$2(s.monthly_usd)}/月</div>
+        <div class="strat">win ${(s.win||0).toFixed(0)}%</div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function loadAll() {
+  renderToday();
+  renderPositions();
+  renderIntraday();
+  renderStrat();
+  const ts = (window.MOBILE_DATA||{}).generated_at || new Date().toISOString();
+  document.getElementById('last-update').textContent = '更新: ' + ts.replace('T',' ').slice(0,16);
+}
+
+// PWA service worker (キャッシュで offline 対応)
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('sw.js').catch(()=>{});
+}
+
+window.addEventListener('load', loadAll);
+</script>
+
+</body>
+</html>
