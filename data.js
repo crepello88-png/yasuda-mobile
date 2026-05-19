@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T23:15",
+  "generated_at": "2026-05-18T23:16",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -10,128 +10,6 @@ window.MOBILE_DATA = {
     "account_type": "Cash account",
     "open_positions": 4,
     "vix": null
-  },
-  "weekly_pnl": {
-    "capital": 4237,
-    "week_start": "2026-05-11",
-    "week_end": "2026-05-15",
-    "total_pnl_usd": 89.79,
-    "total_pnl_pct": 2.12,
-    "n_trades": 6,
-    "n_wins": 4,
-    "win_rate": 66.7,
-    "days": [
-      {
-        "date": "2026-05-11",
-        "dow": "Mon",
-        "vix": 18.38,
-        "pnl": -6.28,
-        "cum": -6.28,
-        "n": 1,
-        "wins": 0
-      },
-      {
-        "date": "2026-05-12",
-        "dow": "Tue",
-        "vix": 17.99,
-        "pnl": 71.66,
-        "cum": 65.38,
-        "n": 3,
-        "wins": 3
-      },
-      {
-        "date": "2026-05-13",
-        "dow": "Wed",
-        "vix": 17.87,
-        "pnl": 24.41,
-        "cum": 89.79,
-        "n": 2,
-        "wins": 1
-      },
-      {
-        "date": "2026-05-14",
-        "dow": "Thu",
-        "vix": 17.26,
-        "pnl": 0.0,
-        "cum": 89.79,
-        "n": 0,
-        "wins": 0
-      },
-      {
-        "date": "2026-05-15",
-        "dow": "Fri",
-        "vix": 18.43,
-        "pnl": 0.0,
-        "cum": 89.79,
-        "n": 0,
-        "wins": 0
-      }
-    ],
-    "trades": [
-      {
-        "date": "2026-05-11",
-        "ticker": "GOOGL",
-        "strategy": "HighPullback50_v1",
-        "ret_pct": -0.45,
-        "pnl": -6.28,
-        "exit": "hold_end"
-      },
-      {
-        "date": "2026-05-12",
-        "ticker": "GOOGL",
-        "strategy": "HighPullback50_v1",
-        "ret_pct": 2.17,
-        "pnl": 30.37,
-        "exit": "TP+trail"
-      },
-      {
-        "date": "2026-05-12",
-        "ticker": "STRL",
-        "strategy": "HighPullback50_v1",
-        "ret_pct": 0.77,
-        "pnl": 10.77,
-        "exit": "TP+trail"
-      },
-      {
-        "date": "2026-05-12",
-        "ticker": "GOOG",
-        "strategy": "HighPullback50_v1",
-        "ret_pct": 2.18,
-        "pnl": 30.52,
-        "exit": "TP+trail"
-      },
-      {
-        "date": "2026-05-13",
-        "ticker": "STRL",
-        "strategy": "HighPullback50_v1",
-        "ret_pct": 1.89,
-        "pnl": 26.36,
-        "exit": "TP+trail"
-      },
-      {
-        "date": "2026-05-13",
-        "ticker": "YUM",
-        "strategy": "Stoch_Oversold_v1",
-        "ret_pct": -0.28,
-        "pnl": -1.95,
-        "exit": "hold_end"
-      }
-    ],
-    "by_strategy": [
-      {
-        "name": "HighPullback50_v1",
-        "n": 5,
-        "wins": 4,
-        "pnl": 91.74
-      },
-      {
-        "name": "Stoch_Oversold_v1",
-        "n": 1,
-        "wins": 0,
-        "pnl": -1.95
-      }
-    ],
-    "note": "$4,237 capital / max_pos 3 / pos 33%. 5/15 Fri 3 signal は entry 5/18 寄付 = backtest 不能 (来週分)"
   },
   "forecast": {
     "capital_short": 4237,
@@ -517,6 +395,66 @@ window.MOBILE_DATA = {
       "v": 18.43
     }
   ],
+  "weekly_pnl": {
+    "capital": 11618.0,
+    "week_start": "2026-05-12",
+    "week_end": "2026-05-18",
+    "total_pnl_usd": 14.16,
+    "total_pnl_pct": 0.12,
+    "n_trades": 6,
+    "n_wins": 3,
+    "win_rate": 60.0,
+    "days": [
+      {
+        "date": "2026-05-12",
+        "dow": "Tue",
+        "vix": 17.99,
+        "pnl": 71.66,
+        "cum": 71.66,
+        "n": 3,
+        "wins": 1
+      },
+      {
+        "date": "2026-05-13",
+        "dow": "Wed",
+        "vix": 17.87,
+        "pnl": 24.41,
+        "cum": 96.07,
+        "n": 2,
+        "wins": 1
+      },
+      {
+        "date": "2026-05-14",
+        "dow": "Thu",
+        "vix": 17.26,
+        "pnl": 0.0,
+        "cum": 96.07,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-15",
+        "dow": "Fri",
+        "vix": 18.43,
+        "pnl": 8.99,
+        "cum": 105.06,
+        "n": 0,
+        "wins": 1
+      },
+      {
+        "date": "2026-05-18",
+        "dow": "Mon",
+        "vix": null,
+        "pnl": -90.9,
+        "cum": 14.16,
+        "n": 1,
+        "wins": 0
+      }
+    ],
+    "trades": [],
+    "by_strategy": [],
+    "note": "daily_history から動的生成 (直近 5 営業日)"
+  },
   "signals_today": [
     {
       "ticker": "NVDA",
@@ -996,7 +934,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11460.39,
       "day_pnl": -90.9,
-      "cum_pnl_short": -1182.81,
+      "cum_pnl_short": -1273.71,
       "n_trades": 1,
       "vix": null
     }
@@ -1007,31 +945,31 @@ window.MOBILE_DATA = {
       "ts": "2026-05-18T23:15:03",
       "ok": true,
       "note": "",
-      "age_min": 0.16321136666666666
+      "age_min": 1.9132039666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-18T23:03:36",
+      "ts": "2026-05-18T23:15:14",
       "ok": true,
-      "note": "26,952 B",
-      "age_min": 11.613211366666667
+      "note": "26,951 B",
+      "age_min": 1.7298706333333334
     },
     "verify_claims": {
       "ts": "2026-05-18T22:01:35",
       "ok": true,
       "note": "7p/0f",
-      "age_min": 73.62987803333334
+      "age_min": 75.37987063333334
     },
     "intraday_cron": {
-      "ts": "2026-05-18T23:00:16",
+      "ts": "2026-05-18T23:15:15",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.9465447
+      "age_min": 1.7132039666666665
     },
     "intraday_executor_scan": {
       "ts": "2026-05-18T23:15:02",
       "ok": true,
       "note": "",
-      "age_min": 0.17987803333333333
+      "age_min": 1.9298706333333333
     }
   }
 };
