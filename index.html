@@ -472,7 +472,11 @@ function renderPositions() {
     return;
   }
   el.innerHTML = pos.map(p => {
-    const pnlPct = p.pnl_pct||0;
+    const hasPnl = p.pnl_pct != null;
+    const pnlPct = p.pnl_pct;
+    const pnlStr = hasPnl ? fmtPct(pnlPct) : '—';
+    const pnlCls = hasPnl ? pctClass(pnlPct) : '';
+    const curStr = p.current_price != null ? fmt$2(p.current_price) : '価格取得中';
     return `
       <div class="row">
         <div class="row-l">
@@ -480,8 +484,8 @@ function renderPositions() {
           <div class="strat">${p.entry_date||''} · ${p.shares||0}株 @ ${fmt$2(p.entry_price)}</div>
         </div>
         <div class="row-r">
-          <div class="price">${fmt$2(p.current_price)}</div>
-          <div class="pct ${pctClass(pnlPct)}">${fmtPct(pnlPct)}</div>
+          <div class="price">${curStr}</div>
+          <div class="pct ${pnlCls}">${pnlStr}</div>
         </div>
       </div>`;
   }).join('');
