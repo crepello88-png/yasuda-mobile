@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T23:24",
+  "generated_at": "2026-05-18T23:27",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -8,7 +8,7 @@ window.MOBILE_DATA = {
     "unrealized_pnl": -75.99,
     "day_pnl_pct": -0.6630664401473249,
     "account_type": "Cash account",
-    "open_positions": 4,
+    "open_positions": 3,
     "vix": null
   },
   "forecast": {
@@ -401,7 +401,7 @@ window.MOBILE_DATA = {
     "week_end": "2026-05-18",
     "total_pnl_usd": 14.16,
     "total_pnl_pct": 0.12,
-    "n_trades": 6,
+    "n_trades": 7,
     "n_wins": 3,
     "win_rate": 60.0,
     "days": [
@@ -447,7 +447,7 @@ window.MOBILE_DATA = {
         "vix": null,
         "pnl": -90.9,
         "cum": 14.16,
-        "n": 1,
+        "n": 2,
         "wins": 0
       }
     ],
@@ -456,13 +456,6 @@ window.MOBILE_DATA = {
     "note": "daily_history から動的生成 (直近 5 営業日)"
   },
   "signals_today": [
-    {
-      "ticker": "NVDA",
-      "strategy": "HighPullback50_v1",
-      "ref_price": 226.62,
-      "target_tp_pct": 0.84,
-      "boost_n": 1.0
-    },
     {
       "ticker": "SPXL",
       "strategy": "HighPullback50_v1",
@@ -480,25 +473,6 @@ window.MOBILE_DATA = {
   ],
   "positions": [
     {
-      "ticker": "NVDA",
-      "strategy": "HighPullback50_v1",
-      "entry_date": "2026-05-18",
-      "entry_price": 226.62,
-      "shares": 2,
-      "entry_value": 453.24,
-      "stop_loss_price": 203.96,
-      "hold_days": 1,
-      "exit_style": "BRACKET",
-      "status": "open",
-      "bracket": true,
-      "take_profit_pct": 0.84,
-      "take_profit_price": 228.52,
-      "size_multiplier": 1.0,
-      "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $226.62 (system MOO 失敗後)",
-      "current_price": null,
-      "pnl_pct": null
-    },
-    {
       "ticker": "SPXL",
       "strategy": "HighPullback50_v1",
       "entry_date": "2026-05-18",
@@ -514,8 +488,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 268.49,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:38 user 手動 BUY @ $266.25",
-      "current_price": null,
-      "pnl_pct": null
+      "current_price": 265.9599914550781,
+      "pnl_pct": -0.10892339715375954
     },
     {
       "ticker": "LIN",
@@ -533,8 +507,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 514.05,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $507.15",
-      "current_price": null,
-      "pnl_pct": null
+      "current_price": 510.9700012207031,
+      "pnl_pct": 0.753229068461625
     },
     {
       "ticker": "IP",
@@ -552,8 +526,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 30.55702569007873,
       "size_multiplier": 1.0,
       "_test_note": "5/18 夜 LIVE BUY テスト (1 株、 user 怒り後の場中監視検証用)",
-      "current_price": null,
-      "pnl_pct": null
+      "current_price": 30.405000686645508,
+      "pnl_pct": 0.0
     }
   ],
   "intraday_patterns": [
@@ -934,8 +908,8 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11460.39,
       "day_pnl": -90.9,
-      "cum_pnl_short": -1364.6100000000001,
-      "n_trades": 1,
+      "cum_pnl_short": -1455.5100000000002,
+      "n_trades": 2,
       "vix": null
     }
   ],
@@ -945,31 +919,31 @@ window.MOBILE_DATA = {
       "ts": "2026-05-18T23:15:03",
       "ok": true,
       "note": "",
-      "age_min": 9.51806435
+      "age_min": 12.585109783333333
     },
     "sync_mobile": {
-      "ts": "2026-05-18T23:16:59",
+      "ts": "2026-05-18T23:24:35",
       "ok": true,
       "note": "25,486 B",
-      "age_min": 7.584731016666667
+      "age_min": 3.0517764499999998
     },
     "verify_claims": {
       "ts": "2026-05-18T22:01:35",
       "ok": true,
       "note": "7p/0f",
-      "age_min": 82.98473101666667
+      "age_min": 86.05177645
     },
     "intraday_cron": {
       "ts": "2026-05-18T23:15:15",
       "ok": true,
       "note": "bat completed",
-      "age_min": 9.318064349999998
+      "age_min": 12.385109783333332
     },
     "intraday_executor_scan": {
       "ts": "2026-05-18T23:15:02",
       "ok": true,
       "note": "",
-      "age_min": 9.534731016666665
+      "age_min": 12.60177645
     }
   }
 };
