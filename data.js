@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T21:58",
+  "generated_at": "2026-05-18T22:00",
   "today_summary": {
     "netliq": 11637.24,
     "cash": 4237.25,
@@ -996,7 +996,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11637.24,
       "day_pnl": -90.9,
-      "cum_pnl_short": -92.01,
+      "cum_pnl_short": -182.91000000000003,
       "n_trades": 1,
       "vix": null
     }
