@@ -1,6 +1,7 @@
 // Service Worker - IBKR投資計画 mobile
-// v3 (5/18): index.html / manifest を network-first 化、 静的 asset のみ cache-first
-const CACHE = 'ibkr-plan-v3';
+// v4 (5/18 夜): data.js は network-only (cache 一切返さない)、 index.html も毎回 network
+// iOS PWA standalone mode の "古い data.js 表示" を根絶
+const CACHE = 'ibkr-plan-v4';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -17,11 +18,18 @@ self.addEventListener('activate', e => {
 
 self.addEventListener('fetch', e => {
   const url = e.request.url;
-  // network-first: data.js / index.html / manifest.json (常に最新)
-  const networkFirst = url.includes('data.js') || url.endsWith('/') || url.endsWith('/index.html') || url.includes('manifest.json');
+  // network-only: data.js は絶対 cache 返さない (古い NetLiq 等の表示防止)
+  if (url.includes('data.js')) {
+    e.respondWith(
+      fetch(e.request, { cache: 'no-store' }).catch(() => caches.match(e.request))
+    );
+    return;
+  }
+  // network-first: index.html / manifest.json (cache fallback あり)
+  const networkFirst = url.endsWith('/') || url.endsWith('/index.html') || url.includes('manifest.json');
   if (networkFirst) {
     e.respondWith(
-      fetch(e.request).then(r => {
+      fetch(e.request, { cache: 'no-store' }).then(r => {
         if (r && r.ok) {
           const c = r.clone();
           caches.open(CACHE).then(cache => cache.put(e.request, c));
@@ -30,7 +38,7 @@ self.addEventListener('fetch', e => {
       }).catch(() => caches.match(e.request))
     );
   } else {
-    // cache-first: 静的 asset
+    // cache-first: 静的 asset (icon 等)
     e.respondWith(caches.match(e.request).then(r => r || fetch(e.request)));
   }
 });
