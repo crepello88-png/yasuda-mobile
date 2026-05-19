@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T06:07",
+  "generated_at": "2026-05-18T21:52",
   "today_summary": {
     "netliq": 11637.24,
     "cash": 4237.25,
@@ -8,7 +8,7 @@ window.MOBILE_DATA = {
     "unrealized_pnl": 8.99,
     "day_pnl_pct": 0.07725199445916729,
     "account_type": "Cash account",
-    "open_positions": 0,
+    "open_positions": 4,
     "vix": null
   },
   "weekly_pnl": {
@@ -517,8 +517,107 @@ window.MOBILE_DATA = {
       "v": 18.43
     }
   ],
-  "signals_today": [],
-  "positions": [],
+  "signals_today": [
+    {
+      "ticker": "NVDA",
+      "strategy": "HighPullback50_v1",
+      "ref_price": 226.62,
+      "target_tp_pct": 0.84,
+      "boost_n": 1.0
+    },
+    {
+      "ticker": "SPXL",
+      "strategy": "HighPullback50_v1",
+      "ref_price": 266.25,
+      "target_tp_pct": 0.84,
+      "boost_n": 1.0
+    },
+    {
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "ref_price": 507.15,
+      "target_tp_pct": 1.36,
+      "boost_n": 1.0
+    }
+  ],
+  "positions": [
+    {
+      "ticker": "NVDA",
+      "strategy": "HighPullback50_v1",
+      "entry_date": "2026-05-18",
+      "entry_price": 226.62,
+      "shares": 2,
+      "entry_value": 453.24,
+      "stop_loss_price": 203.96,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": true,
+      "take_profit_pct": 0.84,
+      "take_profit_price": 228.52,
+      "size_multiplier": 1.0,
+      "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $226.62 (system MOO 失敗後)",
+      "current_price": null,
+      "pnl_pct": null
+    },
+    {
+      "ticker": "SPXL",
+      "strategy": "HighPullback50_v1",
+      "entry_date": "2026-05-18",
+      "entry_price": 266.25,
+      "shares": 4,
+      "entry_value": 1065.0,
+      "stop_loss_price": 239.62,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": true,
+      "take_profit_pct": 0.84,
+      "take_profit_price": 268.49,
+      "size_multiplier": 1.0,
+      "_actual_fill_note": "5/18 8:38 user 手動 BUY @ $266.25",
+      "current_price": null,
+      "pnl_pct": null
+    },
+    {
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "entry_date": "2026-05-18",
+      "entry_price": 507.15,
+      "shares": 2,
+      "entry_value": 1014.3,
+      "stop_loss_price": 456.44,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": true,
+      "take_profit_pct": 1.36,
+      "take_profit_price": 514.05,
+      "size_multiplier": 1.0,
+      "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $507.15",
+      "current_price": null,
+      "pnl_pct": null
+    },
+    {
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "entry_date": "2026-05-19",
+      "entry_price": 30.405000686645508,
+      "shares": 1,
+      "entry_value": 30.405000686645508,
+      "stop_loss_price": 27.36450061798096,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": true,
+      "take_profit_pct": 0.5,
+      "take_profit_price": 30.55702569007873,
+      "size_multiplier": 1.0,
+      "_test_note": "5/18 夜 LIVE BUY テスト (1 株、 user 怒り後の場中監視検証用)",
+      "current_price": null,
+      "pnl_pct": null
+    }
+  ],
   "intraday_patterns": [
     {
       "pattern_id": "T1_COIN_surge",
@@ -896,9 +995,9 @@ window.MOBILE_DATA = {
     {
       "date": "2026-05-18",
       "netliq": 11637.24,
-      "day_pnl": 8.99,
-      "cum_pnl_short": 89.79,
-      "n_trades": 0,
+      "day_pnl": -90.9,
+      "cum_pnl_short": -1.1099999999999994,
+      "n_trades": 1,
       "vix": null
     }
   ],
