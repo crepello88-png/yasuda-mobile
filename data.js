@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T06:32",
+  "generated_at": "2026-05-19T06:35",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -481,8 +481,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 268.49,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:38 user 手動 BUY @ $266.25",
-      "current_price": 265.9599914550781,
-      "pnl_pct": -0.10892339715375954,
+      "current_price": null,
+      "pnl_pct": null,
       "exit_rules": {
         "tp1_pct": 0.504,
         "tp1_price": 267.5919,
@@ -511,8 +511,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 514.05,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $507.15",
-      "current_price": 510.9700012207031,
-      "pnl_pct": 0.753229068461625,
+      "current_price": null,
+      "pnl_pct": null,
       "exit_rules": {
         "tp1_pct": 0.8160000000000001,
         "tp1_price": 511.28834399999994,
@@ -541,8 +541,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 30.55702569007873,
       "size_multiplier": 1.0,
       "_test_note": "5/18 夜 LIVE BUY テスト (1 株、 user 怒り後の場中監視検証用)",
-      "current_price": 30.405000686645508,
-      "pnl_pct": 0.0,
+      "current_price": null,
+      "pnl_pct": null,
       "exit_rules": {
         "tp1_pct": 0.3,
         "tp1_price": 30.49621568870544,
@@ -1117,67 +1117,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T06:30:03",
       "ok": true,
       "note": "",
-      "age_min": 2.931766183333333
+      "age_min": 5.228233933333333
     },
     "sync_mobile": {
-      "ts": "2026-05-19T06:30:45",
+      "ts": "2026-05-19T06:33:00",
       "ok": true,
-      "note": "33,671 B",
-      "age_min": 2.2317661833333333
+      "note": "33,662 B",
+      "age_min": 2.2782339333333335
     },
     "verify_claims": {
       "ts": "2026-05-19T06:32:20",
       "ok": true,
       "note": "20p/0f",
-      "age_min": 0.6484328500000001
+      "age_min": 2.9449006
     },
     "intraday_cron": {
       "ts": "2026-05-19T06:30:19",
       "ok": true,
       "note": "bat completed",
-      "age_min": 2.6650995166666664
+      "age_min": 4.961567266666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T06:30:02",
       "ok": true,
       "note": "",
-      "age_min": 2.94843285
+      "age_min": 5.244900599999999
     },
     "vix_regime": {
       "ts": "2026-05-19T06:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 2.931766183333333
+      "age_min": 5.228233933333333
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 405.94843285
+      "age_min": 408.2449006
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 405.74843285000003
+      "age_min": 408.0449006
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 405.66509951666666
+      "age_min": 407.9615672666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 395.66509951666666
+      "age_min": 397.9615672666667
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 383.58176618333334
+      "age_min": 385.8782339333333
     }
   },
   "regime": {
