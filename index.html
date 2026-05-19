@@ -123,21 +123,21 @@
   </div>
 
   <div class="section">
-    <div class="section-title">🎯 寄付前 候補 (Fri EOD trigger)</div>
+    <div class="section-title">🎯 寄付前候補 (金曜EOD trigger)</div>
     <div id="signals-pending" class="card">
       <div class="empty">読込中...</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">🔥 当日 fire (寄付 BUY 後 state)</div>
+    <div class="section-title">🔥 本日の発注 (寄付買付後)</div>
     <div id="signals-today" class="card">
       <div class="empty">読込中...</div>
     </div>
   </div>
 
   <div class="section">
-    <div class="section-title">📝 Morning brief</div>
+    <div class="section-title">📝 本日の朝メモ</div>
     <div class="card" id="morning-brief">
       <pre id="brief-content">読込中...</pre>
     </div>
@@ -422,7 +422,7 @@ function renderToday() {
     pEl.innerHTML = '<div class="empty">候補なし</div>';
   } else {
     pEl.innerHTML = pending.map(p => {
-      const selBadge = p.selected ? '<span class="badge fire">採用</span>' : '<span class="badge" style="background:#7d859022;color:#7d8590">drop</span>';
+      const selBadge = p.selected ? '<span class="badge fire">採用</span>' : '<span class="badge" style="background:#7d859022;color:#7d8590">見送</span>';
       const skipNote = p.skip_reason ? `<div class="strat" style="color:#d29922;font-size:10px">⏭ ${p.skip_reason}</div>` : '';
       return `
       <div class="row">
@@ -433,7 +433,7 @@ function renderToday() {
         </div>
         <div class="row-r">
           <div class="price">${fmt$2(p.ref_price)}</div>
-          <div class="pct green">TP+${(p.target_tp_pct||0).toFixed(2)}% · ${p.hold}d</div>
+          <div class="pct green">利確+${(p.target_tp_pct||0).toFixed(2)}% · 保有${p.hold}日</div>
         </div>
       </div>`;
     }).join('');
@@ -443,24 +443,24 @@ function renderToday() {
   const sigs = d.signals_today || [];
   const sigEl = document.getElementById('signals-today');
   if (!sigs.length) {
-    sigEl.innerHTML = '<div class="empty">本日 fire なし</div>';
+    sigEl.innerHTML = '<div class="empty">本日の発注なし</div>';
   } else {
     sigEl.innerHTML = sigs.map(s => `
       <div class="row">
         <div class="row-l">
-          <div class="ticker">${s.ticker} <span class="badge fire">fire</span></div>
-          <div class="strat">${s.strategy}${s.boost_n?' · boost×'+s.boost_n:''}</div>
+          <div class="ticker">${s.ticker} <span class="badge fire">発注済</span></div>
+          <div class="strat">${s.strategy}${s.boost_n?' · 倍率×'+s.boost_n:''}</div>
         </div>
         <div class="row-r">
           <div class="price">${fmt$2(s.ref_price)}</div>
-          <div class="pct ${pctClass(s.target_tp_pct)}">TP +${(s.target_tp_pct||0).toFixed(2)}%</div>
+          <div class="pct ${pctClass(s.target_tp_pct)}">利確 +${(s.target_tp_pct||0).toFixed(2)}%</div>
         </div>
       </div>
     `).join('');
   }
 
-  // brief
-  document.getElementById('brief-content').textContent = d.morning_brief || '(brief なし)';
+  // 朝メモ
+  document.getElementById('brief-content').textContent = d.morning_brief || '(本日の朝メモ なし)';
 }
 
 function renderPositions() {
