@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T22:30",
+  "generated_at": "2026-05-18T22:33",
   "today_summary": {
     "netliq": 11637.24,
     "cash": 4237.25,
@@ -996,7 +996,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11637.24,
       "day_pnl": -90.9,
-      "cum_pnl_short": -728.31,
+      "cum_pnl_short": -819.2099999999999,
       "n_trades": 1,
       "vix": null
     }
@@ -1007,31 +1007,31 @@ window.MOBILE_DATA = {
       "ts": "2026-05-18T22:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.172154
+      "age_min": 3.023397666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-18T22:29:35",
+      "ts": "2026-05-18T22:30:15",
       "ok": true,
-      "note": "26,936 B",
-      "age_min": 0.6388206666666666
+      "note": "26,946 B",
+      "age_min": 2.8233976666666667
     },
     "verify_claims": {
       "ts": "2026-05-18T22:01:35",
       "ok": true,
       "note": "7p/0f",
-      "age_min": 28.638820666666668
+      "age_min": 31.490064333333333
     },
     "intraday_cron": {
-      "ts": "2026-05-18T22:15:16",
+      "ts": "2026-05-18T22:30:15",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.955487333333334
+      "age_min": 2.8233976666666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-18T22:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.18882066666666666
+      "age_min": 3.0400643333333335
     }
   }
 };
