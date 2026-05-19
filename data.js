@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T00:00",
+  "generated_at": "2026-05-19T00:04",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -482,7 +482,18 @@ window.MOBILE_DATA = {
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:38 user 手動 BUY @ $266.25",
       "current_price": 265.9599914550781,
-      "pnl_pct": -0.10892339715375954
+      "pnl_pct": -0.10892339715375954,
+      "exit_rules": {
+        "tp1_pct": 0.504,
+        "tp1_price": 267.5919,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 258.2625,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 239.625,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
     },
     {
       "ticker": "LIN",
@@ -501,7 +512,18 @@ window.MOBILE_DATA = {
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $507.15",
       "current_price": 510.9700012207031,
-      "pnl_pct": 0.753229068461625
+      "pnl_pct": 0.753229068461625,
+      "exit_rules": {
+        "tp1_pct": 0.8160000000000001,
+        "tp1_price": 511.28834399999994,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 491.9355,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 456.435,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
     },
     {
       "ticker": "IP",
@@ -520,7 +542,18 @@ window.MOBILE_DATA = {
       "size_multiplier": 1.0,
       "_test_note": "5/18 夜 LIVE BUY テスト (1 株、 user 怒り後の場中監視検証用)",
       "current_price": 30.405000686645508,
-      "pnl_pct": 0.0
+      "pnl_pct": 0.0,
+      "exit_rules": {
+        "tp1_pct": 0.3,
+        "tp1_price": 30.49621568870544,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 29.49285066604614,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 27.36450061798096,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
     }
   ],
   "intraday_patterns": [
@@ -960,61 +993,61 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T00:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2202285333333333
+      "age_min": 4.88860215
     },
     "sync_mobile": {
-      "ts": "2026-05-18T23:51:44",
+      "ts": "2026-05-19T00:00:18",
       "ok": true,
-      "note": "25,907 B",
-      "age_min": 8.5368952
+      "note": "27,107 B",
+      "age_min": 4.63860215
     },
     "verify_claims": {
       "ts": "2026-05-18T23:51:17",
       "ok": true,
       "note": "11p/0f",
-      "age_min": 8.9868952
+      "age_min": 13.655268816666668
     },
     "intraday_cron": {
-      "ts": "2026-05-18T23:45:18",
+      "ts": "2026-05-19T00:00:18",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.970228533333334
+      "age_min": 4.63860215
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T00:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.2368952
+      "age_min": 4.905268816666666
     },
     "vix_regime": {
       "ts": "2026-05-19T00:00:03",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=19.14",
-      "age_min": 0.2202285333333333
+      "age_min": 4.88860215
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 13.2368952
+      "age_min": 17.905268816666666
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 13.0368952
+      "age_min": 17.705268816666667
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 12.953561866666666
+      "age_min": 17.621935483333335
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 2.9535618666666665
+      "age_min": 7.621935483333333
     }
   },
   "regime": {
@@ -1034,5 +1067,35 @@ window.MOBILE_DATA = {
     "regime": "NEUTRAL",
     "note": "通常 — 2/4 pass",
     "data_freshness_days": 4
+  },
+  "alerts_recent": [
+    {
+      "ts": "2026-05-18T23:57:19",
+      "severity": "INFO",
+      "source": "morning_preopen",
+      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 11 件 全 PASS | 💼 NetLiq $11,460、 cash $1,610 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
+    },
+    {
+      "ts": "2026-05-18T23:47:19",
+      "severity": "LOW",
+      "source": "import_test",
+      "message": "sanity import path test"
+    },
+    {
+      "ts": "2026-05-18T23:47:14",
+      "severity": "CRITICAL",
+      "source": "executor_sim",
+      "message": "MOO reject sim"
+    },
+    {
+      "ts": "2026-05-18T23:47:02",
+      "severity": "LOW",
+      "source": "test",
+      "message": "test alert from claude code 5/18 night"
+    }
+  ],
+  "post_mortem": {
+    "file": "weekly_post_mortem_2026-05-18.md",
+    "content": "# Weekly Post-Mortem 2026-05-18 (counterfactual 直近 7 日)\n\n**Task #102 自動出力** — 場中 SL 売却 vs hold-end の比較で SL rule の週次勝敗を判定。\n\n## 📊 Summary\n\n- 期間: 過去 **7** 日 (closed_positions 1 件 対象、 うち場中 SL 系 **1** 件)\n- 場中 SL 実 P&L: **$-90.90**\n- 引け hold 仮想: **$-59.55**\n- 戦略 rule 通り hold (N日後 Close) 仮想: **$+0.00**\n- hold-引け の方が良かった件数: **1 / 1**\n- hold-rule の方が良かった件数: **0 / 1**\n\n## 🎯 今週判定: **LOSS**\n\n> 場中 SL 売却 で $31 (引け) / $91 (rule) の機会損失\n\n## 🔍 Trade-by-trade counterfactual\n\n| Ticker | Strat | Exit reason | 実 P&L | 引け hold P&L | rule hold P&L | 救済可? |\n|---|---|---|---:|---:|---:|---|\n| ON | HighPullback50_v1 | user_manual_-3%_intraday_SL | $-90.90 | $-59.55 | ? | **+$31** 救済 |\n\n## 📝 個別 narrative\n\n- **ON** (HighPullback50_v1, 2026-05-18 entry → 2026-05-18 user_manual_-3%_intraday_SL): 実 $-91 (-5.29%)、 引け hold なら $-60 (-3.50%) = **$31 救済可**\n\n---\n\n_generated by `weekly_post_mortem.py` @ 2026-05-18 23:47:53 CT_\n"
   }
 };

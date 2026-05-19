@@ -314,6 +314,13 @@
     <div class="section-title">📝 日次 ログ</div>
     <div class="card" id="history-list" style="font-size:12px"></div>
   </div>
+
+  <div class="section">
+    <div class="section-title">🔍 週次 振り返り (counterfactual)</div>
+    <div class="card" id="post-mortem-card">
+      <pre id="post-mortem-content" style="font-size:11px">読込中...</pre>
+    </div>
+  </div>
 </div>
 
 <!-- Tab: 場中 -->
@@ -351,6 +358,12 @@
     </div>
     <div style="font-size:10px;color:var(--sub);text-align:center;margin-top:6px" id="heartbeat-note">
       場中 (CT 8:30-15:00): 緑≤15min, 黄≤30min, 赤>30min ／ 場外: 24h 以内 OK
+    </div>
+  </div>
+  <div class="section">
+    <div class="section-title">🚨 直近 アラート 履歴</div>
+    <div class="card" id="alerts-list">
+      <div class="empty">読込中...</div>
     </div>
   </div>
 </div>
@@ -517,15 +530,34 @@ function renderPositions() {
     const pnlStr = hasPnl ? fmtPct(pnlPct) : '—';
     const pnlCls = hasPnl ? pctClass(pnlPct) : '';
     const curStr = p.current_price != null ? fmt$2(p.current_price) : '価格取得中';
+    const r = p.exit_rules || {};
+    const tp1Line = r.tp1_pct != null
+      ? `<div class="strat" style="color:var(--green);font-size:11px">↑ 利確 +${(r.tp1_pct||0).toFixed(2)}% @ ${fmt$2(r.tp1_price)} ・ trail ${(r.trail_pct||0).toFixed(2)}% chase</div>`
+      : '';
+    const intraSlLine = r.intraday_sl_exempt
+      ? `<div class="strat" style="color:#7d8590;font-size:11px">⏭ 場中SL 除外 (${r.exempt_reason||'長期保有'})</div>`
+      : (r.intraday_sl_pct != null
+          ? `<div class="strat" style="color:var(--red);font-size:11px">↓ 場中SL ${(r.intraday_sl_pct||0).toFixed(1)}% @ ${fmt$2(r.intraday_sl_price)} 自動売り</div>`
+          : '');
+    const stpLine = r.catastrophic_stp_pct != null
+      ? `<div class="strat" style="color:#d29922;font-size:10px">⚠ 暴落STP ${(r.catastrophic_stp_pct||0).toFixed(0)}% @ ${fmt$2(r.catastrophic_stp_price)}</div>`
+      : '';
     return `
-      <div class="row">
-        <div class="row-l">
-          <div class="ticker">${p.ticker} <span class="badge">${p.strategy||''}</span></div>
-          <div class="strat">${p.entry_date||''} · ${p.shares||0}株 @ ${fmt$2(p.entry_price)}</div>
+      <div class="row" style="display:block;padding:8px 0">
+        <div style="display:flex;justify-content:space-between;align-items:center">
+          <div class="row-l">
+            <div class="ticker">${p.ticker} <span class="badge">${p.strategy||''}</span></div>
+            <div class="strat">${p.entry_date||''} · ${p.shares||0}株 @ ${fmt$2(p.entry_price)}</div>
+          </div>
+          <div class="row-r">
+            <div class="price">${curStr}</div>
+            <div class="pct ${pnlCls}">${pnlStr}</div>
+          </div>
         </div>
-        <div class="row-r">
-          <div class="price">${curStr}</div>
-          <div class="pct ${pnlCls}">${pnlStr}</div>
+        <div style="margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.08)">
+          ${tp1Line}
+          ${intraSlLine}
+          ${stpLine}
         </div>
       </div>`;
   }).join('');
@@ -981,6 +1013,45 @@ function renderMonitor() {
   }
 }
 
+function renderAlerts() {
+  const d = window.MOBILE_DATA || {};
+  const alerts = d.alerts_recent || [];
+  const el = document.getElementById('alerts-list');
+  if (!el) return;
+  if (!alerts.length) {
+    el.innerHTML = '<div class="empty">直近 アラートなし (全 OK)</div>';
+    return;
+  }
+  el.innerHTML = alerts.map(a => {
+    const sevCol = (a.severity||'').toLowerCase() === 'critical' ? '#f85149' :
+                   (a.severity||'').toLowerCase() === 'high' ? '#d29922' :
+                   (a.severity||'').toLowerCase() === 'info' ? '#58a6ff' : '#7d8590';
+    const ts = (a.ts||'').replace('T', ' ').slice(0,16);
+    return `
+      <div class="row">
+        <div class="row-l" style="max-width:75%">
+          <div class="ticker" style="font-size:12px;color:${sevCol}">[${a.severity}] ${a.source}</div>
+          <div class="strat" style="font-size:10px;white-space:pre-wrap;color:var(--txt)">${(a.message||'').slice(0,200)}</div>
+        </div>
+        <div class="row-r">
+          <div class="strat" style="font-size:10px">${ts}</div>
+        </div>
+      </div>`;
+  }).join('');
+}
+
+function renderPostMortem() {
+  const d = window.MOBILE_DATA || {};
+  const pm = d.post_mortem;
+  const el = document.getElementById('post-mortem-content');
+  if (!el) return;
+  if (!pm || !pm.content) {
+    el.textContent = '(週次 振り返り 未生成 — 日曜 22:00 cron で生成)';
+    return;
+  }
+  el.textContent = `[${pm.file}]\n\n${pm.content}`;
+}
+
 function loadAll() {
   renderRegime();
   renderToday();
@@ -992,6 +1063,8 @@ function loadAll() {
   renderIntraday();
   renderStrat();
   renderMonitor();
+  renderAlerts();
+  renderPostMortem();
   const ts = (window.MOBILE_DATA||{}).generated_at || new Date().toISOString();
   document.getElementById('last-update').textContent = '更新: ' + ts.replace('T',' ').slice(0,16);
 }
