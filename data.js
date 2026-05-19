@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T00:30",
+  "generated_at": "2026-05-19T00:41",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -1023,67 +1023,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T00:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.23776076666666668
+      "age_min": 11.34338205
     },
     "sync_mobile": {
-      "ts": "2026-05-19T00:29:24",
+      "ts": "2026-05-19T00:30:19",
       "ok": true,
-      "note": "31,464 B",
-      "age_min": 0.8877607666666666
+      "note": "31,465 B",
+      "age_min": 11.076715383333333
     },
     "verify_claims": {
       "ts": "2026-05-19T00:18:21",
       "ok": true,
       "note": "14p/0f",
-      "age_min": 11.937760766666665
+      "age_min": 23.043382049999998
     },
     "intraday_cron": {
-      "ts": "2026-05-19T00:15:21",
+      "ts": "2026-05-19T00:30:19",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.937760766666665
+      "age_min": 11.076715383333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T00:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.25442743333333334
+      "age_min": 11.360048716666666
     },
     "vix_regime": {
       "ts": "2026-05-19T00:30:03",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=19.14",
-      "age_min": 0.23776076666666668
+      "age_min": 11.34338205
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 43.25442743333333
+      "age_min": 54.36004871666667
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 43.05442743333333
+      "age_min": 54.160048716666665
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 42.971094099999995
+      "age_min": 54.07671538333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 32.9710941
+      "age_min": 44.07671538333333
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 20.887760766666666
+      "age_min": 31.993382049999997
     }
   },
   "regime": {
