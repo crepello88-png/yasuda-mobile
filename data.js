@@ -1117,67 +1117,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T06:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.39967548333333336
+      "age_min": 0.6828493000000001
     },
     "sync_mobile": {
-      "ts": "2026-05-19T06:30:19",
+      "ts": "2026-05-19T06:30:29",
       "ok": true,
-      "note": "33,661 B",
-      "age_min": 0.13300881666666667
+      "note": "33,659 B",
+      "age_min": 0.24951596666666667
     },
     "verify_claims": {
       "ts": "2026-05-19T01:07:10",
       "ok": true,
       "note": "16p/0f",
-      "age_min": 323.28300881666667
+      "age_min": 323.56618263333337
     },
     "intraday_cron": {
       "ts": "2026-05-19T06:30:19",
       "ok": true,
       "note": "bat completed",
-      "age_min": 0.13300881666666667
+      "age_min": 0.41618263333333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T06:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.41634215
+      "age_min": 0.6995159666666667
     },
     "vix_regime": {
       "ts": "2026-05-19T06:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.39967548333333336
+      "age_min": 0.6828493000000001
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 403.41634215
+      "age_min": 403.6995159666667
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 403.21634215
+      "age_min": 403.4995159666667
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 403.1330088166667
+      "age_min": 403.41618263333334
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 393.1330088166667
+      "age_min": 393.41618263333334
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 381.0496754833333
+      "age_min": 381.3328493
     }
   },
   "regime": {
