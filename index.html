@@ -88,6 +88,13 @@
 
 <!-- Tab: 今日 -->
 <div class="tab-content active" id="tab-today">
+  <div class="section" id="regime-section" style="display:none">
+    <div class="section-title">🌡 場の状態 (regime detector)</div>
+    <div class="card" id="regime-card" style="padding:14px">
+      <div id="regime-banner" style="font-size:15px;font-weight:700;text-align:center;padding:8px;border-radius:6px;margin-bottom:8px">—</div>
+      <div id="regime-detail" style="font-size:11px;color:var(--sub);line-height:1.6"></div>
+    </div>
+  </div>
   <div class="section">
     <div class="section-title">💼 TWS 口座 (Cash account)</div>
     <div class="card">
@@ -375,6 +382,39 @@ function fmtPct(v, withSign=true) {
   return s;
 }
 function pctClass(v) { if (v==null) return ''; return v>0?'green':(v<0?'red':''); }
+
+function renderRegime() {
+  const d = window.MOBILE_DATA || {};
+  const r = d.regime;
+  const sec = document.getElementById('regime-section');
+  if (!r) { sec.style.display = 'none'; return; }
+  sec.style.display = '';
+  const banner = document.getElementById('regime-banner');
+  const detail = document.getElementById('regime-detail');
+  const reg = r.regime || 'NEUTRAL';
+  const STYLE = {
+    'PRIME':     {bg:'rgba(63,185,80,.20)', col:'#3fb950', label:'🌟 PRIME 場 — 4/1-5/15 級の好機'},
+    'GOOD':      {bg:'rgba(63,185,80,.12)', col:'#3fb950', label:'📈 GOOD — 良好'},
+    'NEUTRAL':   {bg:'rgba(125,133,144,.15)', col:'#7d8590', label:'○ NEUTRAL — 通常'},
+    'DEFENSIVE': {bg:'rgba(210,153,34,.18)', col:'#d29922', label:'⚠ DEFENSIVE — 防御'},
+    'PANIC':     {bg:'rgba(248,81,73,.20)', col:'#f85149', label:'🚨 PANIC — パニック'},
+  };
+  const st = STYLE[reg] || STYLE['NEUTRAL'];
+  banner.textContent = st.label + '  (score ' + (r.score==null?'—':r.score) + '/4)';
+  banner.style.background = st.bg;
+  banner.style.color = st.col;
+  // 4 conditions detail
+  const C = [
+    ['VIX 17-19',                      r.c1_vix_17_19,                  r.vix!=null?('VIX '+r.vix.toFixed(2)):''],
+    ['SPY uptrend + not extended',     r.c2_spy_uptrend_not_extended,   '50d>200d & 10d '+(r.spy_10d_return_pct!=null?r.spy_10d_return_pct.toFixed(1)+'%':'')],
+    ['SMH > SPY (Semis leading)',      r.c3_semis_leading,              'SMH 10d '+(r.smh_10d_return_pct!=null?r.smh_10d_return_pct.toFixed(1)+'%':'')+' vs SPY '+(r.spy_10d_return_pct!=null?r.spy_10d_return_pct.toFixed(1)+'%':'')],
+    ['Volume dry-up (5d/20d<0.85)',    r.c4_vol_dry_up,                 'vol_ratio '+(r.spy_vol_ratio_5d_20d!=null?r.spy_vol_ratio_5d_20d.toFixed(2):'—')],
+  ];
+  detail.innerHTML = C.map(c => {
+    const mark = c[1] ? '<span style="color:#3fb950">✓</span>' : '<span style="color:#7d8590">·</span>';
+    return `<div>${mark} ${c[0]} <span style="color:#7d8590">— ${c[2]}</span></div>`;
+  }).join('') + (r.note ? `<div style="margin-top:6px;color:${st.col}">${r.note}</div>` : '');
+}
 
 function renderToday() {
   const d = window.MOBILE_DATA || {};
@@ -942,6 +982,7 @@ function renderMonitor() {
 }
 
 function loadAll() {
+  renderRegime();
   renderToday();
   renderPositions();
   renderWeekly();
