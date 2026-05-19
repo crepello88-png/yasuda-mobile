@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T00:15",
+  "generated_at": "2026-05-19T00:28",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -759,6 +759,26 @@ window.MOBILE_DATA = {
       "hold": null
     },
     {
+      "name": "EarnCascade_SOXX_up5_h5",
+      "tier": "-",
+      "priority": 85,
+      "tp": 2.5,
+      "sl": -10.0,
+      "monthly_usd": 12.5,
+      "win": 75.0,
+      "hold": null
+    },
+    {
+      "name": "EarnCascade_SMH_up5_h5",
+      "tier": "-",
+      "priority": 82,
+      "tp": 2.5,
+      "sl": -10.0,
+      "monthly_usd": 12.5,
+      "win": 75.0,
+      "hold": null
+    },
+    {
       "name": "Stoch_Oversold_v1",
       "tier": "S+",
       "priority": 80,
@@ -766,6 +786,16 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 44.0,
       "win": 54.0,
+      "hold": null
+    },
+    {
+      "name": "EarnCascade_SMH_down5_h10",
+      "tier": "-",
+      "priority": 75,
+      "tp": 2.5,
+      "sl": -10.0,
+      "monthly_usd": 7.5,
+      "win": 75.0,
       "hold": null
     },
     {
@@ -993,67 +1023,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T00:15:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2582456
+      "age_min": 13.4187052
     },
     "sync_mobile": {
-      "ts": "2026-05-19T00:04:58",
+      "ts": "2026-05-19T00:15:21",
       "ok": true,
-      "note": "30,464 B",
-      "age_min": 10.341578933333333
+      "note": "30,817 B",
+      "age_min": 13.118705199999999
     },
     "verify_claims": {
-      "ts": "2026-05-19T00:07:13",
+      "ts": "2026-05-19T00:18:21",
       "ok": true,
-      "note": "13p/0f",
-      "age_min": 8.091578933333333
+      "note": "14p/0f",
+      "age_min": 10.118705199999999
     },
     "intraday_cron": {
-      "ts": "2026-05-19T00:00:18",
+      "ts": "2026-05-19T00:15:21",
       "ok": true,
       "note": "bat completed",
-      "age_min": 15.0082456
+      "age_min": 13.118705199999999
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T00:15:02",
       "ok": true,
       "note": "",
-      "age_min": 0.2749122666666667
+      "age_min": 13.435371866666665
     },
     "vix_regime": {
       "ts": "2026-05-19T00:15:03",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=19.14",
-      "age_min": 0.2582456
+      "age_min": 13.4187052
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 28.274912266666668
+      "age_min": 41.435371866666664
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 28.07491226666667
+      "age_min": 41.23537186666667
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 27.991578933333336
+      "age_min": 41.15203853333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 17.991578933333336
+      "age_min": 31.152038533333332
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 5.9082456
+      "age_min": 19.0687052
     }
   },
   "regime": {
