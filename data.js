@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T22:02",
+  "generated_at": "2026-05-18T22:05",
   "today_summary": {
     "netliq": 11637.24,
     "cash": 4237.25,
@@ -996,7 +996,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11637.24,
       "day_pnl": -90.9,
-      "cum_pnl_short": -273.81000000000006,
+      "cum_pnl_short": -364.71000000000004,
       "n_trades": 1,
       "vix": null
     }
@@ -1007,31 +1007,25 @@ window.MOBILE_DATA = {
       "ts": "2026-05-18T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 2.2439912000000004
+      "age_min": 5.60081535
     },
     "sync_mobile": {
-      "ts": "2026-05-18T22:00:14",
+      "ts": "2026-05-18T22:02:19",
       "ok": true,
-      "note": "26,183 B",
-      "age_min": 2.060657866666667
+      "note": "26,977 B",
+      "age_min": 3.3341486833333334
     },
     "verify_claims": {
       "ts": "2026-05-18T22:01:35",
       "ok": true,
       "note": "7p/0f",
-      "age_min": 0.7106578666666666
+      "age_min": 4.067482016666667
     },
     "intraday_cron": {
       "ts": "2026-05-18T22:01:34",
       "ok": true,
       "note": "initial seed before first cron fire",
-      "age_min": 0.7273245333333332
-    },
-    "test_dummy": {
-      "ts": "2026-05-18T22:02:00",
-      "ok": true,
-      "note": "agent test",
-      "age_min": 0.2939912
+      "age_min": 4.084148683333334
     }
   }
 };
