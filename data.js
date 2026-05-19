@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T22:13",
+  "generated_at": "2026-05-18T22:15",
   "today_summary": {
     "netliq": 11637.24,
     "cash": 4237.25,
@@ -996,7 +996,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-18",
       "netliq": 11637.24,
       "day_pnl": -90.9,
-      "cum_pnl_short": -455.61,
+      "cum_pnl_short": -546.51,
       "n_trades": 1,
       "vix": null
     }
@@ -1004,28 +1004,34 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING_BRIEF 2026-05-18 (Monday — LIVE 7 日目)\n\n## 🎯 今日のミッション\n\n**21 戦略 + 拡張 ticker 拡張 適用 1 日目**、 + **SELL 自動化 fix の 実戦テスト**。\n\n---\n\n## 🚀 5/18 月曜 候補 (Fri 5/15 EOD trigger)\n\n合計 **12 signals fire**、 Tier 優先 + max_positions=5 で 上位 5 採用見込み:\n\n| 順 | 戦略 (Tier) | 銘柄 | mid yield |\n|---:|---|---|---:|\n| 1 | **Sector_FriPanic_v1** (S+) | LIN (XLB Fri-2.65%) | 33% |\n| 2 | HighPullback50_v1 (S+) | NVDA | 32% |\n| 3 | HighPullback50_v1 (S+) | SOXX | 32% |\n| 4 | HighPullback50_v1 (S+) | SMH | 32% |\n| 5 | HighPullback50_v1 (S+) | IWM | 32% |\n| --(drop)-- | HighPullback50 | ON / SPXL / STRL / UPRO | (max超過) |\n| --(drop)-- | Stoch_Oversold (S) | ANET / RBC / GLD | (max超過) |\n\n**注意**: AVGO の Semi_FriPanic_v1 が SMH chg5 -3.47% で fire 確定、 ただし watchlist 確認必要 (debug 中)。\n\n### 設定 (元のまま)\n\n- **max_positions**: 3\n- **pos_size_pct**: 33% (1 ポジ ≈ $1,398)\n- 月曜は 上位 3 銘柄 のみ entry (NVDA/SOXX/SMH HighPullback50)、 残り signal は 翌日 fresh 化 で再評価\n\n---\n\n## 🚨 重要 fix (5/17 13:30)\n\n### SELL 自動化 改善 (#101 critical)\n\n**問題**: 「sell完了は私が手動で売ってます」 — 過去 6 日で auto SELL 一度も成功してない。\n\n**根因**:\n- MOO TIF=OPG → err10311 (NASDAQ direct routing reject) 連発\n- MKT DAY fallback でも 拒否されてた可能性\n- Fill 確認なし、 silent fail で manual 介入が必要だった\n\n**修正内容** (place_moo 関数):\n1. **Step 1** MOO TIF=OPG (現状維持)\n2. **Step 2** 拒否時 MKT TIF=DAY (現状維持)\n3. **Step 3 NEW** 拒否時 **LMT aggressive** 投入 (SELL: ref × 0.95、 BUY: ref × 1.05)\n   - 5% 不利な指値 = 必ず約定狙い、 slippage cap 効果も\n   - ref_price は state の entry_price から取得 (近似)\n4. 各 Step で 2 秒 wait + status print = ログから確認可能\n\n→ **明日朝 8:04 に Sector_FriPanic LIN exit (5/18 Mon は entry なので exit はない、 5/19 Tue で SELL 試金石)**\n\n---\n\n## 📊 反芻結果 (全 STABLE)\n\nST717/718 直近 12mo OOS:\n\n| 戦略 | full Sh | l12 Sh | trend |\n|---|---:|---:|---|\n| Confluence_RSIStoch_v1 | +4.72 | **+7.98** | 上昇 |\n| HighPullback50_v1 | +2.70 | **+5.50** | 上昇 |\n| Stoch_Oversold_v1 | +2.46 | **+4.45** | 上昇 |\n| Confluence_RSIBB_v1 | +2.81 | **+6.36** | 上昇 |\n| BB_Lower_Bounce_v1 | +2.31 | **+11.26** | 急上昇 |\n| Inside_Day_BO_v1 | +2.08 | **+11.83** | 急上昇 (NVDA driven) |\n\n全 ✓ STABLE、 直近 ヶ月は 過去より 強い regime。\n\n---\n\n## ⏰ 朝 8:00 ルーチン\n\n1. **TWS 起動確認** (5/16/17 接続失敗あり、 ログイン状態 + API ON 確認)\n2. **`python sanity_test_5_18.py`** で 全 42 test pass 確認\n3. **`python short_term_executor.py --execute`** 実行 (寄付前 8:04 CT 想定)\n4. **ログ 確認**: SELL は今日なし、 BUY 5 件 (LIN/NVDA/SOXX/SMH/IWM 想定)\n5. **8:35 CT** 寄付後 15 分、 TWS で BUY fill 確認\n6. **15:00 CT** intraday-exit batch 確認 (MOC SELL 対象なし today)\n7. **5/19 Tue 朝 8:04** 5/18 BUY 分の SELL (HighPullback50/Stoch hold=1 → 翌日 exit) — **ここが SELL 自動化 fix の試金石**\n\n---\n\n## 💡 5/18 〜 5/22 週間予定\n\n- **5/18 Mon**: 21 戦略 LIVE 開始、 BUY 5 件 (Sector_FriPanic + HighPullback50)\n- **5/19 Tue**: SELL fix の 初実戦、 RSI35_Trend 火曜 skip (Tier table 参照)\n- **5/20 Wed**: Confluence_RSIStoch/RSIBB May skip 解除？ (June 入りまで適用)\n- **5/22 Fri**: Sector_FriPanic 次の signal 機会、 月入金 ($1,800 Champ DCA)\n\n---\n\n## ⚠ 既知の concern\n\n1. **5/16-17 TWS 接続失敗** — 朝 6:00 CT 起動 + ログイン状態 維持必須\n2. **May skip filter** で Confluence 系 一時 silenced — June から 復活\n3. **SELL fix 未テスト LIVE** — 明日 dry-r",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-18T22:00:03",
+      "ts": "2026-05-18T22:15:03",
       "ok": true,
       "note": "",
-      "age_min": 13.337037183333333
+      "age_min": 0.19036125
     },
     "sync_mobile": {
-      "ts": "2026-05-18T22:05:40",
+      "ts": "2026-05-18T22:13:25",
       "ok": true,
-      "note": "26,827 B",
-      "age_min": 7.720370516666667
+      "note": "26,817 B",
+      "age_min": 1.8236945833333331
     },
     "verify_claims": {
       "ts": "2026-05-18T22:01:35",
       "ok": true,
       "note": "7p/0f",
-      "age_min": 11.80370385
+      "age_min": 13.657027916666667
     },
     "intraday_cron": {
       "ts": "2026-05-18T22:01:34",
       "ok": true,
       "note": "initial seed before first cron fire",
-      "age_min": 11.820370516666665
+      "age_min": 13.673694583333335
+    },
+    "intraday_executor_scan": {
+      "ts": "2026-05-18T22:15:02",
+      "ok": true,
+      "note": "",
+      "age_min": 0.20702791666666667
     }
   }
 };
