@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-18T23:51",
+  "generated_at": "2026-05-19T00:00",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -396,30 +396,21 @@ window.MOBILE_DATA = {
     }
   ],
   "weekly_pnl": {
-    "capital": 11618.0,
-    "week_start": "2026-05-12",
-    "week_end": "2026-05-18",
-    "total_pnl_usd": 14.16,
-    "total_pnl_pct": 0.12,
-    "n_trades": 7,
-    "n_wins": 3,
-    "win_rate": 60.0,
+    "capital": 11650.0,
+    "week_start": "2026-05-13",
+    "week_end": "2026-05-19",
+    "total_pnl_usd": -133.49,
+    "total_pnl_pct": -1.15,
+    "n_trades": 4,
+    "n_wins": 2,
+    "win_rate": 40.0,
     "days": [
-      {
-        "date": "2026-05-12",
-        "dow": "Tue",
-        "vix": 17.99,
-        "pnl": 71.66,
-        "cum": 71.66,
-        "n": 3,
-        "wins": 1
-      },
       {
         "date": "2026-05-13",
         "dow": "Wed",
         "vix": 17.87,
         "pnl": 24.41,
-        "cum": 96.07,
+        "cum": 24.41,
         "n": 2,
         "wins": 1
       },
@@ -428,7 +419,7 @@ window.MOBILE_DATA = {
         "dow": "Thu",
         "vix": 17.26,
         "pnl": 0.0,
-        "cum": 96.07,
+        "cum": 24.41,
         "n": 0,
         "wins": 0
       },
@@ -437,7 +428,7 @@ window.MOBILE_DATA = {
         "dow": "Fri",
         "vix": 18.43,
         "pnl": 8.99,
-        "cum": 105.06,
+        "cum": 33.4,
         "n": 0,
         "wins": 1
       },
@@ -446,8 +437,17 @@ window.MOBILE_DATA = {
         "dow": "Mon",
         "vix": null,
         "pnl": -90.9,
-        "cum": 14.16,
+        "cum": -57.5,
         "n": 2,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-19",
+        "dow": "Tue",
+        "vix": null,
+        "pnl": -75.99,
+        "cum": -133.49,
+        "n": 0,
         "wins": 0
       }
     ],
@@ -457,17 +457,10 @@ window.MOBILE_DATA = {
   },
   "signals_today": [
     {
-      "ticker": "SPXL",
-      "strategy": "HighPullback50_v1",
-      "ref_price": 266.25,
-      "target_tp_pct": 0.84,
-      "boost_n": 1.0
-    },
-    {
-      "ticker": "LIN",
-      "strategy": "Sector_FriPanic_v1",
-      "ref_price": 507.15,
-      "target_tp_pct": 1.36,
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "ref_price": 30.405000686645508,
+      "target_tp_pct": 2.0,
       "boost_n": 1.0
     }
   ],
@@ -657,6 +650,46 @@ window.MOBILE_DATA = {
       "pattern_name": "PLTR vwap_reclaim thr=0",
       "tp_pct": 0.18,
       "sl_pct": -3.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "ORB1_MSTR_30m",
+      "ticker": "MSTR",
+      "pattern_name": "MSTR orb_30m_break thr=0",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "ORB2_MSTR_30m_60min",
+      "ticker": "MSTR",
+      "pattern_name": "MSTR orb_30m_break thr=0",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "ORB3_AMZN_15m",
+      "ticker": "AMZN",
+      "pattern_name": "AMZN orb_15m_break thr=0",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "ORB4_AGL_15m",
+      "ticker": "AGL",
+      "pattern_name": "AGL orb_15m_break thr=0",
+      "tp_pct": 1.0,
+      "sl_pct": -0.5,
+      "fired": false
+    },
+    {
+      "pattern_id": "ORB5_AMZN_30m_120min",
+      "ticker": "AMZN",
+      "pattern_name": "AMZN orb_30m_break thr=0",
+      "tp_pct": 0.5,
+      "sl_pct": -2.0,
       "fired": false
     }
   ],
@@ -911,67 +944,81 @@ window.MOBILE_DATA = {
       "cum_pnl_short": -1819.1100000000006,
       "n_trades": 2,
       "vix": null
+    },
+    {
+      "date": "2026-05-19",
+      "netliq": 11460.39,
+      "day_pnl": -75.99,
+      "cum_pnl_short": -1819.1100000000006,
+      "n_trades": 0,
+      "vix": null
     }
   ],
   "morning_brief": "# MORNING_BRIEF 2026-05-18 (Monday — LIVE 7 日目)\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 22:00 CT)\n\n- audit 走行: **2026-05-18T22:01**\n- PASS: **7** / FAIL: **0** / SKIP: 0\n- ✅ 全 claim PASS、 system 健全\n\n<!-- AUDIT_SECTION_END -->\n\n## 🎯 今日のミッション\n\n**21 戦略 + 拡張 ticker 拡張 適用 1 日目**、 + **SELL 自動化 fix の 実戦テスト**。\n\n---\n\n## 🚀 5/18 月曜 候補 (Fri 5/15 EOD trigger)\n\n合計 **12 signals fire**、 Tier 優先 + max_positions=5 で 上位 5 採用見込み:\n\n| 順 | 戦略 (Tier) | 銘柄 | mid yield |\n|---:|---|---|---:|\n| 1 | **Sector_FriPanic_v1** (S+) | LIN (XLB Fri-2.65%) | 33% |\n| 2 | HighPullback50_v1 (S+) | NVDA | 32% |\n| 3 | HighPullback50_v1 (S+) | SOXX | 32% |\n| 4 | HighPullback50_v1 (S+) | SMH | 32% |\n| 5 | HighPullback50_v1 (S+) | IWM | 32% |\n| --(drop)-- | HighPullback50 | ON / SPXL / STRL / UPRO | (max超過) |\n| --(drop)-- | Stoch_Oversold (S) | ANET / RBC / GLD | (max超過) |\n\n**注意**: AVGO の Semi_FriPanic_v1 が SMH chg5 -3.47% で fire 確定、 ただし watchlist 確認必要 (debug 中)。\n\n### 設定 (元のまま)\n\n- **max_positions**: 3\n- **pos_size_pct**: 33% (1 ポジ ≈ $1,398)\n- 月曜は 上位 3 銘柄 のみ entry (NVDA/SOXX/SMH HighPullback50)、 残り signal は 翌日 fresh 化 で再評価\n\n---\n\n## 🚨 重要 fix (5/17 13:30)\n\n### SELL 自動化 改善 (#101 critical)\n\n**問題**: 「sell完了は私が手動で売ってます」 — 過去 6 日で auto SELL 一度も成功してない。\n\n**根因**:\n- MOO TIF=OPG → err10311 (NASDAQ direct routing reject) 連発\n- MKT DAY fallback でも 拒否されてた可能性\n- Fill 確認なし、 silent fail で manual 介入が必要だった\n\n**修正内容** (place_moo 関数):\n1. **Step 1** MOO TIF=OPG (現状維持)\n2. **Step 2** 拒否時 MKT TIF=DAY (現状維持)\n3. **Step 3 NEW** 拒否時 **LMT aggressive** 投入 (SELL: ref × 0.95、 BUY: ref × 1.05)\n   - 5% 不利な指値 = 必ず約定狙い、 slippage cap 効果も\n   - ref_price は state の entry_price から取得 (近似)\n4. 各 Step で 2 秒 wait + status print = ログから確認可能\n\n→ **明日朝 8:04 に Sector_FriPanic LIN exit (5/18 Mon は entry なので exit はない、 5/19 Tue で SELL 試金石)**\n\n---\n\n## 📊 反芻結果 (全 STABLE)\n\nST717/718 直近 12mo OOS:\n\n| 戦略 | full Sh | l12 Sh | trend |\n|---|---:|---:|---|\n| Confluence_RSIStoch_v1 | +4.72 | **+7.98** | 上昇 |\n| HighPullback50_v1 | +2.70 | **+5.50** | 上昇 |\n| Stoch_Oversold_v1 | +2.46 | **+4.45** | 上昇 |\n| Confluence_RSIBB_v1 | +2.81 | **+6.36** | 上昇 |\n| BB_Lower_Bounce_v1 | +2.31 | **+11.26** | 急上昇 |\n| Inside_Day_BO_v1 | +2.08 | **+11.83** | 急上昇 (NVDA driven) |\n\n全 ✓ STABLE、 直近 ヶ月は 過去より 強い regime。\n\n---\n\n## ⏰ 朝 8:00 ルーチン\n\n1. **TWS 起動確認** (5/16/17 接続失敗あり、 ログイン状態 + API ON 確認)\n2. **`python sanity_test_5_18.py`** で 全 42 test pass 確認\n3. **`python short_term_executor.py --execute`** 実行 (寄付前 8:04 CT 想定)\n4. **ログ 確認**: SELL は今日なし、 BUY 5 件 (LIN/NVDA/SOXX/SMH/IWM 想定)\n5. **8:35 CT** 寄付後 15 分、 TWS で BUY fill 確認\n6. **15:00 CT** intraday-exit batch 確認 (MOC SELL 対象なし today)\n7. **5/19 Tue 朝 8:04** 5/18 BUY 分の SELL (HighPullback50/Stoch hold=1 → 翌日 exit) — **ここが SELL 自動化 fix の試金石**\n\n---\n\n## 💡 5/18 〜 5/22 週間予定\n\n- **5/18 Mon**: 21 戦略 LIVE 開始、 BUY 5 件 (Sector_FriPanic + HighPullback50)\n- **5/19 Tue**: SELL fix の 初実戦、 RSI35_Trend 火曜 skip (Tier table 参照)\n- **5/20 Wed**: Confluence_RSIStoch/RSIBB May skip 解除？ (June 入りまで適用)\n- **5/22 Fri**: Sector_FriPanic 次の signal 機会、 月入金 ($1,",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-18T23:45:03",
+      "ts": "2026-05-19T00:00:03",
       "ok": true,
       "note": "",
-      "age_min": 6.6614702333333335
+      "age_min": 0.2202285333333333
     },
     "sync_mobile": {
-      "ts": "2026-05-18T23:47:21",
+      "ts": "2026-05-18T23:51:44",
       "ok": true,
-      "note": "25,905 B",
-      "age_min": 4.361470233333334
+      "note": "25,907 B",
+      "age_min": 8.5368952
     },
     "verify_claims": {
       "ts": "2026-05-18T23:51:17",
       "ok": true,
       "note": "11p/0f",
-      "age_min": 0.4281369
+      "age_min": 8.9868952
     },
     "intraday_cron": {
       "ts": "2026-05-18T23:45:18",
       "ok": true,
       "note": "bat completed",
-      "age_min": 6.4114702333333335
+      "age_min": 14.970228533333334
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-18T23:45:02",
+      "ts": "2026-05-19T00:00:02",
       "ok": true,
       "note": "",
-      "age_min": 6.6781369
+      "age_min": 0.2368952
     },
     "vix_regime": {
-      "ts": "2026-05-18T23:45:02",
+      "ts": "2026-05-19T00:00:03",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=19.14",
-      "age_min": 6.6781369
+      "age_min": 0.2202285333333333
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 4.6781369
+      "age_min": 13.2368952
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 4.4781369
+      "age_min": 13.0368952
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 4.394803566666667
+      "age_min": 12.953561866666666
+    },
+    "morning_preopen_notify": {
+      "ts": "2026-05-18T23:57:19",
+      "ok": true,
+      "note": "9 blocks",
+      "age_min": 2.9535618666666665
     }
   },
   "regime": {
-    "ts": "2026-05-18T23:45:02",
+    "ts": "2026-05-19T00:00:03",
     "vix": 19.14,
     "spy_close": 739.17,
     "spy_10d_return_pct": 2.57,
@@ -986,6 +1033,6 @@ window.MOBILE_DATA = {
     "score": 2,
     "regime": "NEUTRAL",
     "note": "通常 — 2/4 pass",
-    "data_freshness_days": 3
+    "data_freshness_days": 4
   }
 };
