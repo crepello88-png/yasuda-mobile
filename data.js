@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T00:45",
+  "generated_at": "2026-05-19T00:56",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -724,6 +724,46 @@ window.MOBILE_DATA = {
       "tp_pct": 0.5,
       "sl_pct": -2.0,
       "fired": false
+    },
+    {
+      "pattern_id": "CA1_VIX_SOXX_30m",
+      "ticker": "SOXX",
+      "pattern_name": "SOXX cross_asset_lead_lag thr=-2.1",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "CA2_USO_XLE_120m",
+      "ticker": "XLE",
+      "pattern_name": "XLE cross_asset_lead_lag thr=1.3",
+      "tp_pct": 0.5,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "CA3_USO_XOM_60m",
+      "ticker": "XOM",
+      "pattern_name": "XOM cross_asset_lead_lag thr=1.3",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "CA4_USO_XOM_120m",
+      "ticker": "XOM",
+      "pattern_name": "XOM cross_asset_lead_lag thr=1.3",
+      "tp_pct": 0.5,
+      "sl_pct": -2.0,
+      "fired": false
+    },
+    {
+      "pattern_id": "CA5_USO_XLE_60m",
+      "ticker": "XLE",
+      "pattern_name": "XLE cross_asset_lead_lag thr=1.3",
+      "tp_pct": 0.3,
+      "sl_pct": -2.0,
+      "fired": false
     }
   ],
   "intraday_positions": [],
@@ -1023,67 +1063,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T00:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.19640923333333332
+      "age_min": 11.592140116666666
     },
     "sync_mobile": {
-      "ts": "2026-05-19T00:41:25",
+      "ts": "2026-05-19T00:45:16",
       "ok": true,
-      "note": "31,455 B",
-      "age_min": 3.829742566666667
+      "note": "31,445 B",
+      "age_min": 11.37547345
     },
     "verify_claims": {
-      "ts": "2026-05-19T00:18:21",
+      "ts": "2026-05-19T00:55:37",
       "ok": true,
-      "note": "14p/0f",
-      "age_min": 26.896409233333333
+      "note": "15p/0f",
+      "age_min": 1.02547345
     },
     "intraday_cron": {
-      "ts": "2026-05-19T00:30:19",
+      "ts": "2026-05-19T00:45:16",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.929742566666667
+      "age_min": 11.37547345
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T00:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.2130759
+      "age_min": 11.608806783333334
     },
     "vix_regime": {
       "ts": "2026-05-19T00:45:03",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=19.14",
-      "age_min": 0.19640923333333332
+      "age_min": 11.592140116666666
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 58.2130759
+      "age_min": 69.60880678333334
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 58.0130759
+      "age_min": 69.40880678333333
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 57.92974256666666
+      "age_min": 69.32547344999999
     },
     "morning_preopen_notify": {
       "ts": "2026-05-18T23:57:19",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 47.92974256666666
+      "age_min": 59.32547345
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 35.84640923333333
+      "age_min": 47.24214011666666
     }
   },
   "regime": {
