@@ -1,16 +1,70 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T21:00",
+  "generated_at": "2026-05-19T21:08",
   "today_summary": {
-    "netliq": 11460.39,
-    "cash": 1609.84,
-    "buying_power": 1609.84,
-    "stock_value": 9848.82,
-    "unrealized_pnl": -75.99,
-    "day_pnl_pct": -0.6630664401473249,
-    "account_type": "Cash account",
+    "netliq": 11397.4,
+    "cash": 697.57,
+    "available_funds": 697.57,
+    "excess_liquidity": 697.57,
+    "settled_cash": 697.57,
+    "buying_power": 697.57,
+    "stock_value": 10698.1,
+    "unrealized_pnl": -138.02,
+    "realized_pnl": -0.96,
+    "day_pnl_pct": -1.2109779423377263,
+    "account_type": "INDIVIDUAL",
     "open_positions": 9,
-    "vix": null
+    "open_orders_count": 0,
+    "fills_today_count": 4,
+    "vix": null,
+    "data_source": "TWS_direct_v2"
   },
+  "tws_open_orders": [],
+  "tws_fills_today": [
+    {
+      "symbol": "IP",
+      "time": "2026-05-19 13:30:01+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 30.25,
+      "avgPrice": 30.25,
+      "orderId": 4,
+      "commission": 0.303503,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "VRTX",
+      "time": "2026-05-19 18:15:14+00:00",
+      "side": "BOT",
+      "shares": 2.0,
+      "price": 439.88,
+      "avgPrice": 439.88,
+      "orderId": 13,
+      "commission": 1.000006,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "PLTR",
+      "time": "2026-05-19 19:17:13+00:00",
+      "side": "BOT",
+      "shares": 3.0,
+      "price": 135.11,
+      "avgPrice": 135.11,
+      "orderId": 49,
+      "commission": 1.000009,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "PLTR",
+      "time": "2026-05-19 19:32:22+00:00",
+      "side": "SLD",
+      "shares": 3.0,
+      "price": 135.46,
+      "avgPrice": 135.46,
+      "orderId": 50,
+      "commission": 1.008965,
+      "realizedPnL": -0.958974
+    }
+  ],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
@@ -399,8 +453,8 @@ window.MOBILE_DATA = {
     "capital": 11650.0,
     "week_start": "2026-05-13",
     "week_end": "2026-05-19",
-    "total_pnl_usd": -133.49,
-    "total_pnl_pct": -1.15,
+    "total_pnl_usd": -195.52,
+    "total_pnl_pct": -1.68,
     "n_trades": 4,
     "n_wins": 2,
     "win_rate": 40.0,
@@ -445,8 +499,8 @@ window.MOBILE_DATA = {
         "date": "2026-05-19",
         "dow": "Tue",
         "vix": null,
-        "pnl": -75.99,
-        "cum": -133.49,
+        "pnl": -138.02,
+        "cum": -195.52,
         "n": 0,
         "wins": 0
       }
@@ -597,8 +651,11 @@ window.MOBILE_DATA = {
       "exit_style": "LONG_TERM",
       "status": "open",
       "bracket": false,
-      "_source": "tws_bridge_positions",
+      "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
+      "_market_value": 1432.0,
+      "_unreal_pnl": -94.42,
+      "_market_price": 716.0,
       "current_price": 714.280029296875,
       "pnl_pct": -6.411075680759559,
       "exit_rules": {
@@ -624,8 +681,11 @@ window.MOBILE_DATA = {
       "exit_style": "LONG_TERM",
       "status": "open",
       "bracket": false,
-      "_source": "tws_bridge_positions",
+      "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
+      "_market_value": 1094.0,
+      "_unreal_pnl": 87.18,
+      "_market_price": 1094.0,
       "current_price": 1094.9000244140625,
       "pnl_pct": 8.748338770988106,
       "exit_rules": {
@@ -651,8 +711,11 @@ window.MOBILE_DATA = {
       "exit_style": "LONG_TERM",
       "status": "open",
       "bracket": false,
-      "_source": "tws_bridge_positions",
+      "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
+      "_market_value": 2658.48,
+      "_unreal_pnl": -97.76,
+      "_market_price": 221.5399933,
       "current_price": 220.6300048828125,
       "pnl_pct": -3.9430509308896577,
       "exit_rules": {
@@ -678,8 +741,11 @@ window.MOBILE_DATA = {
       "exit_style": "LONG_TERM",
       "status": "open",
       "bracket": false,
-      "_source": "tws_bridge_positions",
+      "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
+      "_market_value": 1540.0,
+      "_unreal_pnl": -16.93,
+      "_market_price": 385.0,
       "current_price": 384.9150085449219,
       "pnl_pct": -1.1092320027433877,
       "exit_rules": {
@@ -705,8 +771,11 @@ window.MOBILE_DATA = {
       "exit_style": "LONG_TERM",
       "status": "open",
       "bracket": false,
-      "_source": "tws_bridge_positions",
+      "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
+      "_market_value": 1018.13,
+      "_unreal_pnl": 21.03,
+      "_market_price": 1018.1300049,
       "current_price": 1021.4099731445312,
       "pnl_pct": 2.4380677108144955,
       "exit_rules": {
@@ -1144,92 +1213,92 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-19",
-      "netliq": 11460.39,
-      "day_pnl": -75.99,
+      "netliq": 11397.4,
+      "day_pnl": -138.02,
       "cum_pnl_short": -1863.9450448608404,
       "n_trades": 0,
       "vix": null
     }
   ],
-  "morning_brief": "# MORNING_BRIEF 2026-05-18 (Monday — LIVE 7 日目)\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 22:00 CT)\n\n- audit 走行: **2026-05-18T22:01**\n- PASS: **7** / FAIL: **0** / SKIP: 0\n- ✅ 全 claim PASS、 system 健全\n\n<!-- AUDIT_SECTION_END -->\n\n## 🎯 今日のミッション\n\n**21 戦略 + 拡張 ticker 拡張 適用 1 日目**、 + **SELL 自動化 fix の 実戦テスト**。\n\n---\n\n## 🚀 5/18 月曜 候補 (Fri 5/15 EOD trigger)\n\n合計 **12 signals fire**、 Tier 優先 + max_positions=5 で 上位 5 採用見込み:\n\n| 順 | 戦略 (Tier) | 銘柄 | mid yield |\n|---:|---|---|---:|\n| 1 | **Sector_FriPanic_v1** (S+) | LIN (XLB Fri-2.65%) | 33% |\n| 2 | HighPullback50_v1 (S+) | NVDA | 32% |\n| 3 | HighPullback50_v1 (S+) | SOXX | 32% |\n| 4 | HighPullback50_v1 (S+) | SMH | 32% |\n| 5 | HighPullback50_v1 (S+) | IWM | 32% |\n| --(drop)-- | HighPullback50 | ON / SPXL / STRL / UPRO | (max超過) |\n| --(drop)-- | Stoch_Oversold (S) | ANET / RBC / GLD | (max超過) |\n\n**注意**: AVGO の Semi_FriPanic_v1 が SMH chg5 -3.47% で fire 確定、 ただし watchlist 確認必要 (debug 中)。\n\n### 設定 (元のまま)\n\n- **max_positions**: 3\n- **pos_size_pct**: 33% (1 ポジ ≈ $1,398)\n- 月曜は 上位 3 銘柄 のみ entry (NVDA/SOXX/SMH HighPullback50)、 残り signal は 翌日 fresh 化 で再評価\n\n---\n\n## 🚨 重要 fix (5/17 13:30)\n\n### SELL 自動化 改善 (#101 critical)\n\n**問題**: 「sell完了は私が手動で売ってます」 — 過去 6 日で auto SELL 一度も成功してない。\n\n**根因**:\n- MOO TIF=OPG → err10311 (NASDAQ direct routing reject) 連発\n- MKT DAY fallback でも 拒否されてた可能性\n- Fill 確認なし、 silent fail で manual 介入が必要だった\n\n**修正内容** (place_moo 関数):\n1. **Step 1** MOO TIF=OPG (現状維持)\n2. **Step 2** 拒否時 MKT TIF=DAY (現状維持)\n3. **Step 3 NEW** 拒否時 **LMT aggressive** 投入 (SELL: ref × 0.95、 BUY: ref × 1.05)\n   - 5% 不利な指値 = 必ず約定狙い、 slippage cap 効果も\n   - ref_price は state の entry_price から取得 (近似)\n4. 各 Step で 2 秒 wait + status print = ログから確認可能\n\n→ **明日朝 8:04 に Sector_FriPanic LIN exit (5/18 Mon は entry なので exit はない、 5/19 Tue で SELL 試金石)**\n\n---\n\n## 📊 反芻結果 (全 STABLE)\n\nST717/718 直近 12mo OOS:\n\n| 戦略 | full Sh | l12 Sh | trend |\n|---|---:|---:|---|\n| Confluence_RSIStoch_v1 | +4.72 | **+7.98** | 上昇 |\n| HighPullback50_v1 | +2.70 | **+5.50** | 上昇 |\n| Stoch_Oversold_v1 | +2.46 | **+4.45** | 上昇 |\n| Confluence_RSIBB_v1 | +2.81 | **+6.36** | 上昇 |\n| BB_Lower_Bounce_v1 | +2.31 | **+11.26** | 急上昇 |\n| Inside_Day_BO_v1 | +2.08 | **+11.83** | 急上昇 (NVDA driven) |\n\n全 ✓ STABLE、 直近 ヶ月は 過去より 強い regime。\n\n---\n\n## ⏰ 朝 8:00 ルーチン\n\n1. **TWS 起動確認** (5/16/17 接続失敗あり、 ログイン状態 + API ON 確認)\n2. **`python sanity_test_5_18.py`** で 全 42 test pass 確認\n3. **`python short_term_executor.py --execute`** 実行 (寄付前 8:04 CT 想定)\n4. **ログ 確認**: SELL は今日なし、 BUY 5 件 (LIN/NVDA/SOXX/SMH/IWM 想定)\n5. **8:35 CT** 寄付後 15 分、 TWS で BUY fill 確認\n6. **15:00 CT** intraday-exit batch 確認 (MOC SELL 対象なし today)\n7. **5/19 Tue 朝 8:04** 5/18 BUY 分の SELL (HighPullback50/Stoch hold=1 → 翌日 exit) — **ここが SELL 自動化 fix の試金石**\n\n---\n\n## 💡 5/18 〜 5/22 週間予定\n\n- **5/18 Mon**: 21 戦略 LIVE 開始、 BUY 5 件 (Sector_FriPanic + HighPullback50)\n- **5/19 Tue**: SELL fix の 初実戦、 RSI35_Trend 火曜 skip (Tier table 参照)\n- **5/20 Wed**: Confluence_RSIStoch/RSIBB May skip 解除？ (June 入りまで適用)\n- **5/22 Fri**: Sector_FriPanic 次の signal 機会、 月入金 ($1,",
+  "morning_brief": "# MORNING BRIEF — 2026-05-20 (水) 朝\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 5/19 22:00 CT)\n\n- verify_claims: **27 PASS / 0 FAIL** (新規 commission_floor 含む)\n- 全 claim PASS、 構造的健全\n<!-- AUDIT_SECTION_END -->\n\n## 🚨 5/20 朝の絶対確認 (5/19 夜 silent fail 5 種 復旧)\n\n### 1. user admin 手動 ITEM (まだ未完了)\n\nPowerShell 「管理者として実行」 で:\n```powershell\nSet-ScheduledTask -TaskName 'Short Term Auto' -Trigger (New-ScheduledTaskTrigger -Daily -At 8:25AM)\nEnable-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit'\nSet-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit' -Trigger (New-ScheduledTaskTrigger -Daily -At 2:50PM)\n# bridge 再起動\nGet-Process python | Where-Object { $_.CommandLine -match 'tws_bridge' } | Stop-Process -Force\nStart-Process -FilePath \"C:\\Users\\crepe\\Documents\\yasuda_quant\\tws_bridge.bat\"\n```\n\n### 2. 7:30 CT 〜 Champ DCA $1,160 自動発注\n\n`yasuda_quant/champ_dca_schedule.json` 5/20 entry:\n- **PWR 1 株** (~$763)\n- **GOOG 1 株** (~$389)\n- 合計 ~$1,152 (予算 $1,160 の 99.3%)\n\n### 3. 8:25 CT 〜 Short Term Auto (force_sell 4 銘柄)\n\n`monitor_config.json` daily_force_sell 2026-05-20:\n\n| 銘柄 | qty | 取得 | 5/19 close | 想定 -$ |\n|---|---|---|---|---|\n| SPXL | 4 | $266.50 | $260.70 | -$23 |\n| LIN | 2 | $507.65 | $506.07 | -$3 |\n| IP | 1 | $30.25 | $29.38 | -$1 |\n| VRTX | 2 | $439.88 | $434.31 | -$11 |\n\n合計想定実損 **約 -$38** (5/19 unrealized から悪化なしの前提)\n\n### 4. 8:35 CT TWS UI 手動確認\n\n- 4 銘柄全部 positions から消えてるか目視確認\n- Champ 5 銘柄 (NVDA 12+ / PWR 2→3 / COST 1 / GOOG 4→5 / LLY 1) が新数に\n- もし IP が **空売り reject (Error 201)** 再発したら手動 SELL 1株 即実行\n\n### 5. 9:00 CT verify_claims 確認\n\n```bash\ncd C:\\Users\\crepe\\Documents\\yasuda_short && python verify_claims.py\n```\n27 PASS なら system 健全。 FAIL あれば即対応。\n\n## 🔴 5/19 夜 発覚 silent fail 5 種 (全 fix 配線済)\n\n| # | 障害 | root cause | 修復 |\n|---|---|---|---|\n| 1 | 朝 TWS connect fail | 8:05 CT TWS auto-start 遅延 | bat 8:25 shift + executor 5×60s retry + critical alert |\n| 2 | IP order Inactive | bridge cache bug → monitor が空売り扱いで Error 201 | bridge 3-source merge + monitor SELL 前 TWS shares 確認 (TODO) |\n| 3 | VRTX 場引超え保有 | intraday hold_min timeout 未実装 + 14:55 force_close 走らず | hold_min exit logic + force_close 条件 18min に拡大 |\n| 4 | bridge IP/VRTX 漏れ | reqPositions 1-2 株小サイズ漏れ | 3 source merge (reqPositions + reqAccountUpdates + 当日 fills) |\n| 5 | **PLTR commission 負け** | TP +0.18% < commission 0.50% で spec 破綻 | **17 intraday patterns disable** (TP<=0.30%) |\n\n## 💰 commission floor 監査 結果\n\n- 配線中 enabled patterns: **12 件** (7 OK + 5 warn)、 旧 29 から削減\n- OK: T1/T2/T3/T10_surge, ORB4_AGL, VC1_KBR, VC2_VNO (TP >= 0.50%)\n- WARN: T8_PLTR_rsi20, ORB5, CA2, CA4, VC3_PRIM (TP 0.30-0.50%)\n- disable: V1-V10 vwap 全, T9_VRTX, ORB1/2/3, CA1/3/5 (17 件)\n\n## 📋 今週まとめ\n\n| 日 | 主要事象 | 実 net |\n|---|---|---|\n| 5/18 (月) | ON -$91 (silent fail user 手動 cut) | -$91 |\n| 5/19 (火) | PLTR commission 負け -$0.96 + force_sell 残 (5/20 処分予定) -$38 想定 | -$39 |\n| **5/20 (水)** | force_sell 4 + Champ DCA + commission 監査済 patterns のみ場中走行 | TBD |\n\n## 🌙 5/19 夜間自走 結果 (overnight findings)\n\n- 109 PASS 候補中、 user 承認 7 件 wire ",
   "heartbeats": {
     "intraday_position_monitor": {
       "ts": "2026-05-19T21:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.4369172666666667
+      "age_min": 8.381609016666667
     },
     "sync_mobile": {
-      "ts": "2026-05-19T20:48:34",
+      "ts": "2026-05-19T21:00:31",
       "ok": true,
-      "note": "50,099 B",
-      "age_min": 11.920250600000001
+      "note": "46,700 B",
+      "age_min": 7.9149423500000005
     },
     "verify_claims": {
       "ts": "2026-05-19T20:51:26",
       "ok": true,
       "note": "27p/0f",
-      "age_min": 9.053583933333334
+      "age_min": 16.998275683333333
     },
     "intraday_cron": {
-      "ts": "2026-05-19T20:45:20",
+      "ts": "2026-05-19T21:00:31",
       "ok": true,
       "note": "bat completed",
-      "age_min": 15.153583933333334
+      "age_min": 7.9149423500000005
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T21:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.45358393333333336
+      "age_min": 8.398275683333333
     },
     "vix_regime": {
       "ts": "2026-05-19T21:00:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.4369172666666667
+      "age_min": 8.381609016666667
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1273.4535839333332
+      "age_min": 1281.3982756833332
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1273.2535839333332
+      "age_min": 1281.1982756833333
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1273.1702506
+      "age_min": 1281.1149423499999
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 780.4369172666667
+      "age_min": 788.3816090166667
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1251.0869172666667
+      "age_min": 1259.0316090166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 762.0869172666667
+      "age_min": 770.0316090166667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 762.0869172666667
+      "age_min": 770.0316090166667
     }
   },
   "regime": {
