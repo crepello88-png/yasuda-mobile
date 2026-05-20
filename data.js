@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T21:15",
+  "generated_at": "2026-05-19T21:30",
   "today_summary": {
     "netliq": 11397.4,
     "cash": 697.57,
@@ -1220,89 +1220,89 @@ window.MOBILE_DATA = {
       "vix": null
     }
   ],
-  "morning_brief": "# MORNING BRIEF — 2026-05-20 (水) 朝\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 5/19 22:00 CT)\n\n- verify_claims: **27 PASS / 0 FAIL** (新規 commission_floor 含む)\n- 全 claim PASS、 構造的健全\n<!-- AUDIT_SECTION_END -->\n\n## 🚨 5/20 朝の絶対確認 (5/19 夜 silent fail 5 種 復旧)\n\n### 1. user admin 手動 ITEM (まだ未完了)\n\nPowerShell 「管理者として実行」 で:\n```powershell\nSet-ScheduledTask -TaskName 'Short Term Auto' -Trigger (New-ScheduledTaskTrigger -Daily -At 8:25AM)\nEnable-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit'\nSet-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit' -Trigger (New-ScheduledTaskTrigger -Daily -At 2:50PM)\n# bridge 再起動\nGet-Process python | Where-Object { $_.CommandLine -match 'tws_bridge' } | Stop-Process -Force\nStart-Process -FilePath \"C:\\Users\\crepe\\Documents\\yasuda_quant\\tws_bridge.bat\"\n```\n\n### 2. 7:30 CT 〜 Champ DCA $1,160 自動発注\n\n`yasuda_quant/champ_dca_schedule.json` 5/20 entry:\n- **PWR 1 株** (~$763)\n- **GOOG 1 株** (~$389)\n- 合計 ~$1,152 (予算 $1,160 の 99.3%)\n\n### 3. 8:25 CT 〜 Short Term Auto (force_sell 4 銘柄)\n\n`monitor_config.json` daily_force_sell 2026-05-20:\n\n| 銘柄 | qty | 取得 | 5/19 close | 想定 -$ |\n|---|---|---|---|---|\n| SPXL | 4 | $266.50 | $260.70 | -$23 |\n| LIN | 2 | $507.65 | $506.07 | -$3 |\n| IP | 1 | $30.25 | $29.38 | -$1 |\n| VRTX | 2 | $439.88 | $434.31 | -$11 |\n\n合計想定実損 **約 -$38** (5/19 unrealized から悪化なしの前提)\n\n### 4. 8:35 CT TWS UI 手動確認\n\n- 4 銘柄全部 positions から消えてるか目視確認\n- Champ 5 銘柄 (NVDA 12+ / PWR 2→3 / COST 1 / GOOG 4→5 / LLY 1) が新数に\n- もし IP が **空売り reject (Error 201)** 再発したら手動 SELL 1株 即実行\n\n### 5. 9:00 CT verify_claims 確認\n\n```bash\ncd C:\\Users\\crepe\\Documents\\yasuda_short && python verify_claims.py\n```\n27 PASS なら system 健全。 FAIL あれば即対応。\n\n## 🔴 5/19 夜 発覚 silent fail 5 種 (全 fix 配線済)\n\n| # | 障害 | root cause | 修復 |\n|---|---|---|---|\n| 1 | 朝 TWS connect fail | 8:05 CT TWS auto-start 遅延 | bat 8:25 shift + executor 5×60s retry + critical alert |\n| 2 | IP order Inactive | bridge cache bug → monitor が空売り扱いで Error 201 | bridge 3-source merge + monitor SELL 前 TWS shares 確認 (TODO) |\n| 3 | VRTX 場引超え保有 | intraday hold_min timeout 未実装 + 14:55 force_close 走らず | hold_min exit logic + force_close 条件 18min に拡大 |\n| 4 | bridge IP/VRTX 漏れ | reqPositions 1-2 株小サイズ漏れ | 3 source merge (reqPositions + reqAccountUpdates + 当日 fills) |\n| 5 | **PLTR commission 負け** | TP +0.18% < commission 0.50% で spec 破綻 | **17 intraday patterns disable** (TP<=0.30%) |\n\n## 💰 commission floor 監査 結果\n\n- 配線中 enabled patterns: **12 件** (7 OK + 5 warn)、 旧 29 から削減\n- OK: T1/T2/T3/T10_surge, ORB4_AGL, VC1_KBR, VC2_VNO (TP >= 0.50%)\n- WARN: T8_PLTR_rsi20, ORB5, CA2, CA4, VC3_PRIM (TP 0.30-0.50%)\n- disable: V1-V10 vwap 全, T9_VRTX, ORB1/2/3, CA1/3/5 (17 件)\n\n## 📋 今週まとめ\n\n| 日 | 主要事象 | 実 net |\n|---|---|---|\n| 5/18 (月) | ON -$91 (silent fail user 手動 cut) | -$91 |\n| 5/19 (火) | PLTR commission 負け -$0.96 + force_sell 残 (5/20 処分予定) -$38 想定 | -$39 |\n| **5/20 (水)** | force_sell 4 + Champ DCA + commission 監査済 patterns のみ場中走行 | TBD |\n\n## 🌙 5/19 夜間自走 結果 (overnight findings)\n\n- 109 PASS 候補中、 user 承認 7 件 wire ",
+  "morning_brief": "# MORNING BRIEF — 2026-05-20 (水) 朝\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 5/19 22:00 CT)\n\n- verify_claims: **27 PASS / 0 FAIL** (新規 commission_floor 含む)\n- 全 claim PASS、 構造的健全\n<!-- AUDIT_SECTION_END -->\n\n## 🚨 5/20 朝の絶対確認 (5/19 夜 silent fail 5 種 復旧)\n\n### 1. user admin 手動 ITEM (まだ未完了)\n\nPowerShell 「管理者として実行」 で:\n```powershell\nSet-ScheduledTask -TaskName 'Short Term Auto' -Trigger (New-ScheduledTaskTrigger -Daily -At 8:25AM)\nEnable-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit'\nSet-ScheduledTask -TaskName 'yasuda_short_intraday_MOC_exit' -Trigger (New-ScheduledTaskTrigger -Daily -At 2:50PM)\n# bridge 再起動\nGet-Process python | Where-Object { $_.CommandLine -match 'tws_bridge' } | Stop-Process -Force\nStart-Process -FilePath \"C:\\Users\\crepe\\Documents\\yasuda_quant\\tws_bridge.bat\"\n```\n\n### 2. 7:30 CT 〜 Champ DCA **取消** (5/19 夜 user 決定)\n\nuser 明示「26日以降にやります」: $9,400 取引可能になる **5/26 (火) settle 後**から再開。 `champ_dca_schedule.json` 5/20 entry は `_2026-05-20_cancelled` marker、 発注なし。\n\n5/26 以降の plan: $9,400 settle 後 ~$10,100 余力で PWR/COST/LLY 等 高額銘柄を段階配備 (5/22 月次 $1,800 入金は無し、 user 訂正済)\n\n### 3. 8:25 CT 〜 Short Term Auto (force_sell 4 銘柄)\n\n`monitor_config.json` daily_force_sell 2026-05-20:\n\n| 銘柄 | qty | 取得 | 5/19 close | 想定 -$ |\n|---|---|---|---|---|\n| SPXL | 4 | $266.50 | $260.70 | -$23 |\n| LIN | 2 | $507.65 | $506.07 | -$3 |\n| IP | 1 | $30.25 | $29.38 | -$1 |\n| VRTX | 2 | $439.88 | $434.31 | -$11 |\n\n合計想定実損 **約 -$38** (5/19 unrealized から悪化なしの前提)\n\n### 4. 8:35 CT TWS UI 手動確認\n\n- 4 銘柄全部 positions から消えてるか目視確認\n- Champ 5 銘柄 (NVDA 12+ / PWR 2→3 / COST 1 / GOOG 4→5 / LLY 1) が新数に\n- もし IP が **空売り reject (Error 201)** 再発したら手動 SELL 1株 即実行\n\n### 5. 9:00 CT verify_claims 確認\n\n```bash\ncd C:\\Users\\crepe\\Documents\\yasuda_short && python verify_claims.py\n```\n27 PASS なら system 健全。 FAIL あれば即対応。\n\n## 🔴 5/19 夜 発覚 silent fail 5 種 (全 fix 配線済)\n\n| # | 障害 | root cause | 修復 |\n|---|---|---|---|\n| 1 | 朝 TWS connect fail | 8:05 CT TWS auto-start 遅延 | bat 8:25 shift + executor 5×60s retry + critical alert |\n| 2 | IP order Inactive | bridge cache bug → monitor が空売り扱いで Error 201 | bridge 3-source merge + monitor SELL 前 TWS shares 確認 (TODO) |\n| 3 | VRTX 場引超え保有 | intraday hold_min timeout 未実装 + 14:55 force_close 走らず | hold_min exit logic + force_close 条件 18min に拡大 |\n| 4 | bridge IP/VRTX 漏れ | reqPositions 1-2 株小サイズ漏れ | 3 source merge (reqPositions + reqAccountUpdates + 当日 fills) |\n| 5 | **PLTR commission 負け** | TP +0.18% < commission 0.50% で spec 破綻 | **17 intraday patterns disable** (TP<=0.30%) |\n\n## 💰 commission floor 監査 結果\n\n- 配線中 enabled patterns: **12 件** (7 OK + 5 warn)、 旧 29 から削減\n- OK: T1/T2/T3/T10_surge, ORB4_AGL, VC1_KBR, VC2_VNO (TP >= 0.50%)\n- WARN: T8_PLTR_rsi20, ORB5, CA2, CA4, VC3_PRIM (TP 0.30-0.50%)\n- disable: V1-V10 vwap 全, T9_VRTX, ORB1/2/3, CA1/3/5 (17 件)\n\n## 📋 今週まとめ\n\n| 日 | 主要事象 | 実 net |\n|---|---|---|\n| 5/18 (月) | ON -$91 (silent fail user 手動 cut) | -$91 |\n| 5/19 (火) | PLTR commission 負け -$0.96 + force_sell 残 (5/20 処分予定) -$38 想定 | -$39 |\n| **5/20 (水)** | force_sell 4 +",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-19T21:15:03",
+      "ts": "2026-05-19T21:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.3958843166666667
+      "age_min": 0.32954418333333335
     },
     "sync_mobile": {
-      "ts": "2026-05-19T21:08:28",
+      "ts": "2026-05-19T21:15:28",
       "ok": true,
-      "note": "48,185 B",
-      "age_min": 6.97921765
+      "note": "48,173 B",
+      "age_min": 14.912877516666667
     },
     "verify_claims": {
       "ts": "2026-05-19T20:51:26",
       "ok": true,
       "note": "27p/0f",
-      "age_min": 24.01255098333333
+      "age_min": 38.94621085000001
     },
     "intraday_cron": {
-      "ts": "2026-05-19T21:00:31",
+      "ts": "2026-05-19T21:15:28",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.92921765
+      "age_min": 14.912877516666667
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-19T21:15:02",
+      "ts": "2026-05-19T21:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.41255098333333334
+      "age_min": 0.34621085
     },
     "vix_regime": {
-      "ts": "2026-05-19T21:15:03",
+      "ts": "2026-05-19T21:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.3958843166666667
+      "age_min": 0.32954418333333335
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1288.4125509833332
+      "age_min": 1303.34621085
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1288.2125509833334
+      "age_min": 1303.1462108500002
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1288.1292176499999
+      "age_min": 1303.0628775166667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 795.3958843166668
+      "age_min": 810.3295441833333
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1266.0458843166666
+      "age_min": 1280.9795441833335
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 777.0458843166667
+      "age_min": 791.9795441833334
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 777.0458843166667
+      "age_min": 791.9795441833334
     }
   },
   "regime": {
-    "ts": "2026-05-19T21:15:03",
+    "ts": "2026-05-19T21:30:03",
     "vix": 18.24,
     "spy_close": 738.65,
     "spy_10d_return_pct": 2.87,
