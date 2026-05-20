@@ -663,8 +663,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 0.84,
       "take_profit_price": 390.92,
       "size_multiplier": 1.0,
-      "current_price": 384.8399963378906,
-      "pnl_pct": -0.6274701531513771,
+      "current_price": 384.9700012207031,
+      "pnl_pct": -0.5939005808084374,
       "exit_rules": {
         "tp1_pct": 0.504,
         "tp1_price": 389.22184079999994,
@@ -692,8 +692,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 0.91,
       "take_profit_price": 225.52,
       "size_multiplier": 0.5,
-      "current_price": 238.86749267578125,
-      "pnl_pct": 4.766444156044414,
+      "current_price": 238.6699981689453,
+      "pnl_pct": 4.679823758309354,
       "exit_rules": {
         "tp1_pct": 0.546,
         "tp1_price": 229.24488,
@@ -721,8 +721,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 68.56,
       "size_multiplier": 1.0,
-      "current_price": 68.62000274658203,
-      "pnl_pct": 0.986023173777828,
+      "current_price": 68.64510345458984,
+      "pnl_pct": 1.0229631414125695,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 68.7654,
@@ -751,8 +751,8 @@ window.MOBILE_DATA = {
       "_market_value": 1433.29,
       "_unreal_pnl": -93.13,
       "_market_price": 716.64483645,
-      "current_price": 715.469970703125,
-      "pnl_pct": -6.255162969153316,
+      "current_price": 715.844970703125,
+      "pnl_pct": -6.206028392824392,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -811,8 +811,8 @@ window.MOBILE_DATA = {
       "_market_value": 2691.12,
       "_unreal_pnl": -65.12,
       "_market_price": 224.2599945,
-      "current_price": 224.5399932861328,
-      "pnl_pct": -2.240736669190191,
+      "current_price": 224.60989379882812,
+      "pnl_pct": -2.210303682498016,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -841,8 +841,8 @@ window.MOBILE_DATA = {
       "_market_value": 1526.42,
       "_unreal_pnl": -30.51,
       "_market_price": 381.60577395,
-      "current_price": 381.8800048828125,
-      "pnl_pct": -1.8889725593796758,
+      "current_price": 382.1499938964844,
+      "pnl_pct": -1.8196081014600907,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -871,8 +871,8 @@ window.MOBILE_DATA = {
       "_market_value": 1006.35,
       "_unreal_pnl": 9.25,
       "_market_price": 1006.3499756,
-      "current_price": 1006.9500122070312,
-      "pnl_pct": 0.9878660321964938,
+      "current_price": 1006.4199829101562,
+      "pnl_pct": 0.9347089469618153,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -4334,73 +4334,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T12:00:27",
       "ok": true,
       "note": "",
-      "age_min": 0.05376716666666667
+      "age_min": 0.28244281666666665
     },
     "sync_mobile": {
-      "ts": "2026-05-20T11:45:50",
+      "ts": "2026-05-20T12:00:34",
       "ok": true,
-      "note": "156,302 B",
-      "age_min": 14.670433833333334
+      "note": "156,305 B",
+      "age_min": 0.16577615
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 326.8037671666667
+      "age_min": 327.0324428166667
     },
     "intraday_cron": {
       "ts": "2026-05-20T11:45:50",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.670433833333334
+      "age_min": 14.899109483333332
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T12:00:11",
       "ok": true,
       "note": "",
-      "age_min": 0.32043383333333336
+      "age_min": 0.5491094833333333
     },
     "vix_regime": {
       "ts": "2026-05-20T12:00:27",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.05376716666666667
+      "age_min": 0.28244281666666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 240.42043383333333
+      "age_min": 240.64910948333332
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 666.5537671666666
+      "age_min": 666.7824428166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 220.4871005
+      "age_min": 220.71577614999998
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 220.4871005
+      "age_min": 220.71577614999998
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 208.17043383333333
+      "age_min": 208.39910948333332
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 205.35376716666667
+      "age_min": 205.58244281666666
     }
   },
   "regime": {
@@ -4516,8 +4516,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 384.8399963378906,
-      "unrealized_pct": -0.63,
+      "current_price": 384.9700012207031,
+      "unrealized_pct": -0.59,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -4555,8 +4555,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 238.86749267578125,
-      "unrealized_pct": 4.77,
+      "current_price": 238.6699981689453,
+      "unrealized_pct": 4.68,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -4594,8 +4594,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 68.62000274658203,
-      "unrealized_pct": 0.99,
+      "current_price": 68.64510345458984,
+      "unrealized_pct": 1.02,
       "force_sell_today": null,
       "silent_fail_note": null
     }
