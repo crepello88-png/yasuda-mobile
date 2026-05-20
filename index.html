@@ -408,7 +408,11 @@ function fmtPct(v, withSign=true) {
   const s = (withSign && v>0?'+':'') + v.toFixed(2) + '%';
   return s;
 }
-function pctClass(v) { if (v==null) return ''; return v>0?'green':(v<0?'red':''); }
+// 5/19 夜 user 要望「日本式 (赤=プラス / 緑=マイナス)」 → 反転
+// 米国式: 緑=プラス / 赤=マイナス (旧)
+// 日本式: 赤=プラス / 緑=マイナス (新)
+// .green / .red CSS class はそのまま、 関数 return を反転 (P&L 専用、 system 健全色は別経路)
+function pctClass(v) { if (v==null) return ''; return v>0?'red':(v<0?'green':''); }
 
 function renderRegime() {
   const d = window.MOBILE_DATA || {};
