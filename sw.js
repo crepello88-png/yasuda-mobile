@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v11 (5/19 夜): PC 広 viewport stretch 修正 — body/header/tabs max-width:600px 中央寄せ。 Champ タブ 銘柄別詳細 削除 (user 不要、 portfolio 集計のみ残す)。
 // v10 (5/19 夜): P&L 色 日本式に反転 (赤=プラス / 緑=マイナス)、 米国式 緑=プラス は user 要望で破棄。
 // v9 (5/19 夜): header/tabs 固定で content 重なり修正 — 明示 height (header 56px + tabs 48px) で body padding-top:calc(env+110px)、 字が隠れない。
 // v8 (5/19 夜): Champ タブ 投信スタイル — 5 銘柄 avg/現在/損益 + 取得元本/評価額/含み損益 集計表示、 出口タブから Champ 除外。
@@ -6,7 +7,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v10';
+const CACHE = 'ibkr-plan-v11';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {

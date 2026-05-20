@@ -15,10 +15,12 @@
   *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
   html,body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
             font-size:14px;line-height:1.4}
-  /* 5/19 夜: header / tabs 固定で文字 隠れる事案対策、 明示高さ + 大目 padding-top */
-  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 110px)}
+  /* 5/19 夜: header / tabs 固定で文字 隠れる事案対策、 明示高さ + 大目 padding-top
+     + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ */
+  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 110px);
+       max-width:600px;margin:0 auto;position:relative}
   header{padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line);
-         position:fixed;top:0;left:0;right:0;z-index:10;
+         position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:600px;z-index:10;
          height:calc(env(safe-area-inset-top) + 56px);box-sizing:border-box;
          padding-top:calc(env(safe-area-inset-top) + 10px)}
   .header-row{display:flex;align-items:center;justify-content:space-between}
@@ -27,7 +29,8 @@
   .refresh{background:var(--blue);color:#fff;border:none;padding:6px 12px;
            border-radius:6px;font-size:12px;font-weight:600;cursor:pointer}
   .tabs{display:flex;background:var(--card);border-bottom:1px solid var(--line);
-        position:fixed;top:calc(env(safe-area-inset-top) + 56px);left:0;right:0;z-index:9;
+        position:fixed;top:calc(env(safe-area-inset-top) + 56px);left:50%;transform:translateX(-50%);
+        width:100%;max-width:600px;z-index:9;
         height:48px;overflow-x:auto;-webkit-overflow-scrolling:touch}
   .tab{flex:1;padding:10px;text-align:center;font-size:13px;color:var(--sub);
        cursor:pointer;border-bottom:2px solid transparent;font-weight:500}
@@ -274,10 +277,6 @@
   <div class="section">
     <div class="section-title">🏆 Champ DCA 5 銘柄 (投信スタイル)</div>
     <div class="card" id="champ-portfolio"><div class="empty">読込中...</div></div>
-  </div>
-  <div class="section">
-    <div class="section-title">📊 銘柄別 詳細</div>
-    <div class="card" id="champ-tickers"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
     <div class="section-title">📋 週次 BUY 明細</div>
