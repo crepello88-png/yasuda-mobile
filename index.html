@@ -91,7 +91,6 @@
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
   <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
   <div class="tab" data-tab="short" onclick="switchTab('short')">短期</div>
-  <div class="tab" data-tab="trades" onclick="switchTab('trades')">約定</div>
   <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">短vs長</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
 </div>
@@ -333,6 +332,12 @@
   </div>
 
   <div class="section">
+    <div class="section-title">📜 約定履歴 (closed trades + TWS fills)</div>
+    <div id="trades-summary" class="card" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
+    <div id="trades-list" class="card"><div class="empty">読込中...</div></div>
+  </div>
+
+  <div class="section">
     <div class="section-title">🔍 週次 振り返り (counterfactual)</div>
     <div class="card" id="post-mortem-card">
       <pre id="post-mortem-content" style="font-size:11px">読込中...</pre>
@@ -407,14 +412,7 @@
   </div>
 </div>
 
-<!-- Tab: 約定 (5/19 夜 user 「トレード詳細は別タブで約定履歴」 で追加) -->
-<div class="tab-content" id="tab-trades">
-  <div class="section">
-    <div class="section-title">📜 約定履歴 (closed trades + TWS fills)</div>
-    <div id="trades-summary" class="card" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
-    <div id="trades-list" class="card"><div class="empty">読込中...</div></div>
-  </div>
-</div>
+<!-- 約定 tab 廃止: 5/19 夜 user 「履歴の日次ログの所に約定タブの内容移して約定タブ消して」 → 履歴 tab 内に統合済 -->
 
 <!-- Tab: 短期 vs 長期 (5/19 夜 user 「VS わかるタブ」 で追加) -->
 <div class="tab-content" id="tab-svsl">
@@ -1739,7 +1737,7 @@ function loadAll() {
   safeRun('trackerStrategies', renderTrackerStrategies);
   safeRun('tickers', renderTickers);
   safeRun('short', renderShortTab);
-  safeRun('trades', renderTrades);
+  safeRun('trades', renderTrades);  // 約定 tab 廃止後も 履歴 tab 内の trades-list / trades-summary を render
   safeRun('svsl', renderShortVsLong);
   safeRun('monitor', renderMonitor);
   safeRun('alerts', renderAlerts);
