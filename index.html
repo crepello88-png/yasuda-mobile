@@ -938,35 +938,61 @@ function renderHistory() {
     }
   }
 
-  // List (newest first) — 5/19 夜 user 「日次ログは何の銘柄か見えない」 fix: ticker info 追加
+  // List (newest first) — 5/19 夜 user 「もっと深く掘れないの？日次ログ」 → trade ごとの戦略/entry→exit/理由/commission 全表示
   const allTradesByDate = {};
-  ((window.MOBILE_DATA||{}).all_trades || []).forEach(t => {
-    if (t.source === 'tws_executions') return;
+  const allFillsByDate = {};
+  const md = window.MOBILE_DATA || {};
+  (md.all_trades || []).forEach(t => {
     const dk = (t.date||'').slice(0,10);
     if (!dk) return;
-    (allTradesByDate[dk] = allTradesByDate[dk] || []).push(t);
+    if (t.source === 'tws_executions') {
+      (allFillsByDate[dk] = allFillsByDate[dk] || []).push(t);
+    } else {
+      (allTradesByDate[dk] = allTradesByDate[dk] || []).push(t);
+    }
   });
   const list = [...h].reverse();
+  const fmtDelta = (v) => (v>=0?'+$':'-$') + Math.abs(v).toFixed(2);
   document.getElementById('history-list').innerHTML = list.map(d => {
     const pnl = d.day_pnl||0;
-    const tickers = (allTradesByDate[d.date] || []);
-    const tickerLine = tickers.length
-      ? tickers.map(t => {
-          const p = t.pnl_usd || 0;
-          const sign = p>=0?'+':'-';
-          return `<span class="${pctClass(p)}">${t.ticker} ${sign}$${Math.abs(p).toFixed(2)}</span>`;
-        }).join(' · ')
+    const trades = (allTradesByDate[d.date] || []);
+    const fills = (allFillsByDate[d.date] || []);
+    // trade detail rows
+    const tradeRows = trades.map(t => {
+      const p = t.pnl_usd || 0;
+      const gross = t.pnl_gross != null ? `gross ${fmtDelta(t.pnl_gross)}` : '';
+      const comm = t.commission != null ? `comm $${(t.commission||0).toFixed(2)}` : '';
+      const meta = [gross, comm].filter(Boolean).join(' · ');
+      const exitInfo = (t.entry_price && t.exit_price)
+        ? `${(t.shares||0)}株 @ $${(t.entry_price||0).toFixed(2)} → $${(t.exit_price||0).toFixed(2)}`
+        : `${t.shares||0}株`;
+      const reason = (t.exit_reason||'').slice(0,30);
+      return `<div style="padding:4px 0 4px 12px;border-left:2px solid var(--line);margin:4px 0">
+        <div style="display:flex;justify-content:space-between;font-size:11px">
+          <span><b>${t.ticker}</b> <span class="strat" style="display:inline">${(t.strategy||'').slice(0,22)}</span></span>
+          <span class="${pctClass(p)}" style="font-weight:600">${fmtDelta(p)}</span>
+        </div>
+        <div class="strat" style="font-size:10px;margin-top:2px">${exitInfo} · ${reason}</div>
+        ${meta ? `<div class="strat" style="font-size:9px;color:var(--sub)">${meta}</div>` : ''}
+      </div>`;
+    }).join('');
+    // fills detail (BUY/SELL raw、 trade と重複あるが補足情報)
+    const fillsLine = fills.length
+      ? `<div class="strat" style="font-size:9px;margin-top:4px;color:var(--sub)">TWS fills: ${fills.length} 件 (${fills.map(f=>`${f.ticker} ${(f.shares||0)}株@$${(f.entry_price||0).toFixed(2)}`).join(' / ')})</div>`
       : '';
-    return `<div class="row">
-      <div class="row-l">
-        <div class="ticker" style="font-size:12px">${d.date}<span class="badge">${d.n_trades||0}件</span></div>
-        <div class="strat">NetLiq ${fmt$2(d.netliq)} · VIX ${(d.vix||0).toFixed(2)}</div>
-        ${tickerLine ? `<div class="strat" style="font-size:10px;margin-top:2px">${tickerLine}</div>` : ''}
+    return `<div style="border-bottom:1px solid var(--line);padding:8px 0">
+      <div style="display:flex;justify-content:space-between">
+        <div>
+          <div class="ticker" style="font-size:12px">${d.date}<span class="badge">${d.n_trades||0}件</span></div>
+          <div class="strat">NetLiq ${fmt$2(d.netliq)} · VIX ${(d.vix||0).toFixed(2)}</div>
+        </div>
+        <div style="text-align:right">
+          <div class="price ${pctClass(pnl)}">${fmtDelta(pnl)}</div>
+          <div class="strat">累積 ${(d.cum_pnl_short||0)>=0?'+':''}$${(d.cum_pnl_short||0).toFixed(2)}</div>
+        </div>
       </div>
-      <div class="row-r">
-        <div class="price ${pctClass(pnl)}">${pnl>=0?'+$':'-$'}${Math.abs(pnl).toFixed(2)}</div>
-        <div class="strat">累積 ${(d.cum_pnl_short||0)>=0?'+':''}$${(d.cum_pnl_short||0).toFixed(0)}</div>
-      </div>
+      ${tradeRows}
+      ${fillsLine}
     </div>`;
   }).join('');
 }
