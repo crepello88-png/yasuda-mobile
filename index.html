@@ -374,7 +374,16 @@
   IBKR投資計画 mobile · 短期 19戦略 + Champ DCA + 場中 6 paper
 </div>
 
-<script src="data.js"></script>
+<script>
+// 5/19 夜 fix: data.js は 必ず cache-bust 付きで動的読込 (iOS PWA cached 古い data.js 排除)。
+// この dynamic loader が失敗すれば loadAll() で「⚠ データ取得失敗」 表示が出る。
+(function(){
+  var s = document.createElement('script');
+  s.src = 'data.js?ts=' + Date.now();
+  s.onerror = function(){ console.error('data.js load failed'); };
+  document.head.appendChild(s);
+})();
+</script>
 <script>
 // ============================================================
 // 携帯アプリ - PWA (GitHub Pages 配信)
@@ -764,60 +773,62 @@ function renderHistory() {
   document.getElementById('h-win-days').textContent = winDays + '/' + h.length;
 
   // SVG: dual line (NetLiq + cum P&L)
+  // 5/19 夜 fix: history-chart 要素は HTML 不在 → 全 SVG block を null 防御。
+  // この null TypeError が renderHistory 内クラッシュ → loadAll 後続停止 → 「読込中」 stuck の根本原因だった。
   const svg = document.getElementById('history-chart');
-  const W=360, H=220, padL=42, padR=42, padT=14, padB=30;
-  const cw=W-padL-padR, ch=H-padT-padB;
-  const netliqs = h.map(d=>d.netliq).filter(v=>v!=null);
-  const cums = h.map(d=>d.cum_pnl_short||0);
-  if (!netliqs.length) { svg.innerHTML=''; return; }
-  const nMin = Math.min(...netliqs)*0.998, nMax = Math.max(...netliqs)*1.002;
-  const cMin = Math.min(0, ...cums), cMax = Math.max(...cums, 10);
-  const nRng = nMax-nMin || 1, cRng = cMax-cMin || 1;
-  const stepX = h.length > 1 ? cw/(h.length-1) : cw;
-  const yNet = v => padT + ch - (v-nMin)/nRng*ch;
-  const yCum = v => padT + ch - (v-cMin)/cRng*ch;
-  let html = '';
-  // grid
-  for (let i=0;i<=4;i++) {
-    const y = padT + ch*(i/4);
-    html += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>`;
-    const nv = nMax - nRng*(i/4);
-    const cv = cMax - cRng*(i/4);
-    html += `<text x="${padL-4}" y="${y+3}" fill="#58a6ff" font-size="9" text-anchor="end">$${(nv/1000).toFixed(2)}k</text>`;
-    html += `<text x="${W-padR+4}" y="${y+3}" fill="#3fb950" font-size="9">${cv>=0?'+':''}$${cv.toFixed(0)}</text>`;
-  }
-  // x axis labels
-  h.forEach((d,i)=>{
-    if (h.length <= 10 || i%Math.ceil(h.length/8)===0) {
-      const x = padL + stepX*i;
-      html += `<text x="${x}" y="${H-padB+14}" fill="#7d8590" font-size="9" text-anchor="middle">${d.date.slice(5)}</text>`;
+  if (svg) {
+    const W=360, H=220, padL=42, padR=42, padT=14, padB=30;
+    const cw=W-padL-padR, ch=H-padT-padB;
+    const netliqs = h.map(d=>d.netliq).filter(v=>v!=null);
+    const cums = h.map(d=>d.cum_pnl_short||0);
+    if (netliqs.length) {
+      const nMin = Math.min(...netliqs)*0.998, nMax = Math.max(...netliqs)*1.002;
+      const cMin = Math.min(0, ...cums), cMax = Math.max(...cums, 10);
+      const nRng = nMax-nMin || 1, cRng = cMax-cMin || 1;
+      const stepX = h.length > 1 ? cw/(h.length-1) : cw;
+      const yNet = v => padT + ch - (v-nMin)/nRng*ch;
+      const yCum = v => padT + ch - (v-cMin)/cRng*ch;
+      let html = '';
+      for (let i=0;i<=4;i++) {
+        const y = padT + ch*(i/4);
+        html += `<line x1="${padL}" y1="${y}" x2="${W-padR}" y2="${y}" stroke="#30363d" stroke-width="0.5" stroke-dasharray="2,2"/>`;
+        const nv = nMax - nRng*(i/4);
+        const cv = cMax - cRng*(i/4);
+        html += `<text x="${padL-4}" y="${y+3}" fill="#58a6ff" font-size="9" text-anchor="end">$${(nv/1000).toFixed(2)}k</text>`;
+        html += `<text x="${W-padR+4}" y="${y+3}" fill="#3fb950" font-size="9">${cv>=0?'+':''}$${cv.toFixed(0)}</text>`;
+      }
+      h.forEach((d,i)=>{
+        if (h.length <= 10 || i%Math.ceil(h.length/8)===0) {
+          const x = padL + stepX*i;
+          html += `<text x="${x}" y="${H-padB+14}" fill="#7d8590" font-size="9" text-anchor="middle">${d.date.slice(5)}</text>`;
+        }
+      });
+      let pdN = '';
+      h.forEach((d,i)=>{
+        if (d.netliq==null) return;
+        const x = padL + stepX*i;
+        pdN += (pdN===''?'M':'L') + x + ',' + yNet(d.netliq) + ' ';
+      });
+      html += `<path d="${pdN}" stroke="#58a6ff" stroke-width="2" fill="none"/>`;
+      let pdC = '';
+      h.forEach((d,i)=>{
+        const x = padL + stepX*i;
+        pdC += (i===0?'M':'L') + x + ',' + yCum(d.cum_pnl_short||0) + ' ';
+      });
+      const y0 = yCum(0);
+      let area = pdC + `L${padL+stepX*(h.length-1)},${y0} L${padL},${y0} Z`;
+      html += `<path d="${area}" fill="#3fb950" opacity="0.10"/>`;
+      html += `<path d="${pdC}" stroke="#3fb950" stroke-width="2" fill="none"/>`;
+      h.forEach((d,i)=>{
+        const x = padL + stepX*i;
+        if (d.netliq!=null) html += `<circle cx="${x}" cy="${yNet(d.netliq)}" r="2.5" fill="#58a6ff"/>`;
+        html += `<circle cx="${x}" cy="${yCum(d.cum_pnl_short||0)}" r="2.5" fill="#3fb950"/>`;
+      });
+      svg.innerHTML = html;
+    } else {
+      svg.innerHTML = '';
     }
-  });
-  // NetLiq line
-  let pdN = '';
-  h.forEach((d,i)=>{
-    if (d.netliq==null) return;
-    const x = padL + stepX*i;
-    pdN += (pdN===''?'M':'L') + x + ',' + yNet(d.netliq) + ' ';
-  });
-  html += `<path d="${pdN}" stroke="#58a6ff" stroke-width="2" fill="none"/>`;
-  // Cum P&L line (filled area)
-  let pdC = '';
-  h.forEach((d,i)=>{
-    const x = padL + stepX*i;
-    pdC += (i===0?'M':'L') + x + ',' + yCum(d.cum_pnl_short||0) + ' ';
-  });
-  const y0 = yCum(0);
-  let area = pdC + `L${padL+stepX*(h.length-1)},${y0} L${padL},${y0} Z`;
-  html += `<path d="${area}" fill="#3fb950" opacity="0.10"/>`;
-  html += `<path d="${pdC}" stroke="#3fb950" stroke-width="2" fill="none"/>`;
-  // dots
-  h.forEach((d,i)=>{
-    const x = padL + stepX*i;
-    if (d.netliq!=null) html += `<circle cx="${x}" cy="${yNet(d.netliq)}" r="2.5" fill="#58a6ff"/>`;
-    html += `<circle cx="${x}" cy="${yCum(d.cum_pnl_short||0)}" r="2.5" fill="#3fb950"/>`;
-  });
-  svg.innerHTML = html;
+  }
 
   // List (newest first)
   const list = [...h].reverse();
@@ -1053,20 +1064,37 @@ function renderPostMortem() {
 }
 
 function loadAll() {
-  renderRegime();
-  renderToday();
-  renderPositions();
-  renderWeekly();
-  renderForecast();
-  renderChamp();
-  renderHistory();
-  renderIntraday();
-  renderStrat();
-  renderMonitor();
-  renderAlerts();
-  renderPostMortem();
+  // 5/19 夜 fix: 個別 render 失敗で全体が止まらないよう try/catch で隔離。
+  // renderHistory null クラッシュ → 「読込中」 stuck だった失敗を二度と再発させない。
+  const safeRun = (name, fn) => {
+    try { fn(); } catch (e) {
+      console.error('[render error]', name, e);
+    }
+  };
+  safeRun('regime', renderRegime);
+  safeRun('today', renderToday);
+  safeRun('positions', renderPositions);
+  safeRun('weekly', renderWeekly);
+  safeRun('forecast', renderForecast);
+  safeRun('champ', renderChamp);
+  safeRun('history', renderHistory);
+  safeRun('intraday', renderIntraday);
+  safeRun('strat', renderStrat);
+  safeRun('monitor', renderMonitor);
+  safeRun('alerts', renderAlerts);
+  safeRun('postMortem', renderPostMortem);
   const ts = (window.MOBILE_DATA||{}).generated_at || new Date().toISOString();
-  document.getElementById('last-update').textContent = '更新: ' + ts.replace('T',' ').slice(0,16);
+  const lu = document.getElementById('last-update');
+  if (lu) {
+    // データなし時の警告表示
+    if (!window.MOBILE_DATA) {
+      lu.textContent = '⚠ データ取得失敗 — 右上 更新 ボタン';
+      lu.style.color = '#f85149';
+    } else {
+      lu.textContent = '更新: ' + ts.replace('T',' ').slice(0,16);
+      lu.style.color = '';
+    }
+  }
 }
 
 // 強力リロード: cache/SW 全クリア + cache-busting URL でリロード
@@ -1108,12 +1136,27 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-window.addEventListener('load', loadAll);
+// 5/19 夜 fix: data.js が dynamic 読込で window.load より遅延する可能性 → load 後 + 300ms 再実行で確実に MOBILE_DATA を見る。
+window.addEventListener('load', () => {
+  loadAll();
+  // data.js が遅延 load された場合の retry
+  setTimeout(loadAll, 300);
+  setTimeout(loadAll, 1500);
+});
 // 自動再読み込み: 5分毎に data.js を新しい?ts= で再フェッチ (PWA cache bypass)
 setInterval(() => {
   const s = document.createElement('script');
   s.src = 'data.js?ts=' + Date.now();
   s.onload = () => { loadAll(); s.remove(); };
+  s.onerror = () => {
+    // fetch 失敗 → last-update に警告表示
+    const lu = document.getElementById('last-update');
+    if (lu) {
+      lu.textContent = '⚠ データ更新失敗 (network) — 右上更新';
+      lu.style.color = '#f85149';
+    }
+    s.remove();
+  };
   document.body.appendChild(s);
 }, 300000);
 </script>

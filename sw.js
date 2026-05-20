@@ -1,7 +1,7 @@
 // Service Worker - IBKR投資計画 mobile
-// v4 (5/18 夜): data.js は network-only (cache 一切返さない)、 index.html も毎回 network
-// iOS PWA standalone mode の "古い data.js 表示" を根絶
-const CACHE = 'ibkr-plan-v4';
+// v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
+// 旧 v4 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
+const CACHE = 'ibkr-plan-v5';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
