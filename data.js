@@ -4359,73 +4359,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T15:15:09",
       "ok": true,
       "note": "",
-      "age_min": 0.33872891666666666
+      "age_min": 0.5069229166666667
     },
     "sync_mobile": {
-      "ts": "2026-05-20T15:00:47",
+      "ts": "2026-05-20T15:15:34",
       "ok": true,
-      "note": "159,711 B",
-      "age_min": 14.705395583333335
+      "note": "161,159 B",
+      "age_min": 0.09025625
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 521.7887289166667
+      "age_min": 521.9569229166667
     },
     "intraday_cron": {
       "ts": "2026-05-20T15:00:48",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.688728916666667
+      "age_min": 14.856922916666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T15:15:08",
       "ok": true,
       "note": "",
-      "age_min": 0.3553955833333333
+      "age_min": 0.5235895833333334
     },
     "vix_regime": {
       "ts": "2026-05-20T15:15:09",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.33872891666666666
+      "age_min": 0.5069229166666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 435.40539558333336
+      "age_min": 435.57358958333333
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 861.5387289166666
+      "age_min": 861.7069229166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 415.47206225
+      "age_min": 415.64025625
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 415.47206225
+      "age_min": 415.64025625
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 403.15539558333336
+      "age_min": 403.32358958333333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 400.3387289166667
+      "age_min": 400.50692291666667
     }
   },
   "regime": {
@@ -4631,7 +4631,7 @@ window.MOBILE_DATA = {
       "qty": 31,
       "entry_price": 31.49,
       "entry_ts": "2026-05-20T15:00:13.151780",
-      "held_min": 15.3,
+      "held_min": 15.4,
       "hold_min": 60.0,
       "bracket": {
         "tp_pct": 1.5,
@@ -4654,7 +4654,7 @@ window.MOBILE_DATA = {
         },
         {
           "type": "hold_min_timeout",
-          "due": "hold_min=60min、 経過=15.3min",
+          "due": "hold_min=60min、 経過=15.4min",
           "status": "未到達"
         },
         {
@@ -4675,7 +4675,7 @@ window.MOBILE_DATA = {
       "qty": 9,
       "entry_price": 106.65,
       "entry_ts": "2026-05-20T15:15:08.752074",
-      "held_min": 0.3,
+      "held_min": 0.5,
       "hold_min": 120.0,
       "bracket": {
         "tp_pct": 0.5,
@@ -4698,7 +4698,7 @@ window.MOBILE_DATA = {
         },
         {
           "type": "hold_min_timeout",
-          "due": "hold_min=120min、 経過=0.3min",
+          "due": "hold_min=120min、 経過=0.5min",
           "status": "未到達"
         },
         {
