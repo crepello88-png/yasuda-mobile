@@ -75,7 +75,10 @@
       <h1>IBKR投資計画</h1>
       <div class="header-sub" id="hdr-sub">v20 LIVE · 短期 19 戦略 · 場中 6 paper</div>
     </div>
-    <button class="refresh" onclick="hardRefresh()">更新</button>
+    <div style="display:flex;gap:4px">
+      <button class="refresh" onclick="reportToCROCO()" style="background:var(--yellow);color:#0d1117">📮 報告</button>
+      <button class="refresh" onclick="hardRefresh()">更新</button>
+    </div>
   </div>
   <div class="last-update" id="last-update">未取得</div>
 </header>
@@ -1799,6 +1802,75 @@ function loadAll() {
 }
 
 // 強力リロード: cache/SW 全クリア + cache-busting URL でリロード
+// 5/19 夜 user 「スマホからエラー出てるぞ！ 単一コマンド送りたい」 → GitHub Issue 経由 で報告
+function reportToCROCO() {
+  // Quick template 選択 (1 タップで送れる) or 自由入力
+  const templates = [
+    '🚨 売れてないぞ！',
+    '⚠ 約定 おかしい',
+    '💸 PnL 数字 変',
+    '📱 PWA エラー / 表示崩れ',
+    '🔍 確認お願い',
+    '✏ 自由入力'
+  ];
+  const choice = prompt(
+    'クロコー (Claude) に送るメッセージ\n\n' +
+    '番号でテンプレ選択 or 自由文章 入力:\n' +
+    '1: ' + templates[0] + '\n' +
+    '2: ' + templates[1] + '\n' +
+    '3: ' + templates[2] + '\n' +
+    '4: ' + templates[3] + '\n' +
+    '5: ' + templates[4] + '\n' +
+    '6: ' + templates[5] + ' (自由入力)\n' +
+    '\n番号 or テキスト:',
+    ''
+  );
+  if (!choice) return;
+  let msg;
+  const n = parseInt(choice);
+  if (n >= 1 && n <= 5) msg = templates[n-1];
+  else if (n === 6) {
+    const free = prompt('自由入力メッセージ:', '');
+    if (!free) return;
+    msg = free;
+  } else {
+    msg = choice;  // テキスト直入力
+  }
+  // Context auto-collect
+  const now = new Date();
+  const ts = now.toISOString().slice(0,16).replace('T',' ');
+  const md = window.MOBILE_DATA || {};
+  const gen = md.generated_at || '?';
+  const s = md.today_summary || {};
+  const activeTab = document.querySelector('.tab.active')?.textContent || '?';
+  const title = '[PWA報告] ' + ts + ' ' + msg.slice(0,40);
+  const body = [
+    '## メッセージ',
+    msg,
+    '',
+    '## 自動 Context',
+    '- 報告時刻: ' + ts + ' (browser local)',
+    '- data.js generated_at: ' + gen,
+    '- 表示中タブ: ' + activeTab,
+    '- NetLiq: $' + (s.netliq || '?'),
+    '- Cash (Available): $' + (s.cash || '?'),
+    '- unrealized: $' + (s.unrealized_pnl || '?'),
+    '- 短期 open: ' + (s.open_positions || 0) + ' 件',
+    '- データソース: ' + (s.data_source || '?'),
+    '- UA: ' + (navigator.userAgent.slice(0,100)),
+    '',
+    '## クロコー アクション',
+    '- このメッセージを読んで対応をお願いします',
+    '- 完了したら issue close + reply'
+  ].join('\n');
+  // GitHub Issue Create URL 経由 (PAT 不要、 user の GitHub login で投稿)
+  const url = 'https://github.com/crepello88-png/yasuda_short/issues/new'
+    + '?title=' + encodeURIComponent(title)
+    + '&body=' + encodeURIComponent(body)
+    + '&labels=' + encodeURIComponent('pwa-report');
+  window.open(url, '_blank');
+}
+
 async function hardRefresh() {
   try {
     if ('caches' in window) {

@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v25 (5/19 夜): 📮 報告 ボタン 追加 (header)。 PWA から GitHub Issue 経由で クロコー (Claude) に報告 — 6 テンプレ (売れてない/約定変/PnL変/UI崩れ/確認/自由入力) + 自動 context (data.js timestamp / NetLiq / 表示タブ等) 添付。
 // v24 (5/19 夜): タブ順序 user 指定順に並び替え (今日/保有/出口/履歴/週次/Champ/短期/短vs長/場中/監視/戦略/銘柄)。
 // v23 (5/19 夜): 日次ログ 深掘り (user 「もっと深く掘れないの？」) — trade 毎の 戦略 / 株数 / entry→exit / exit_reason / commission / gross/net 全表示、 TWS fills も補足。
 // v22 (5/19 夜): 日次ログに ticker 別 P&L 追加 (user 「日次ログは何の銘柄か見えない」 fix)、 all_trades を date 別 group で 該当日 ticker + net P&L 表示。
@@ -20,7 +21,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v24';
+const CACHE = 'ibkr-plan-v25';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
