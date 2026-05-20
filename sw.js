@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v19 (5/19 夜): manifest icon (icon-192.png + icon-512.png) 不在 fix で 生成、 last-good today_summary preserve で TWS 直 fail 時の None 上書き 防止、 tws_direct connect retry 3 回 + clientId ずらし。
 // v18 (5/19 夜): 週次 trade 詳細 section 完全削除 (user 「見た目汚いいらない」)、 戦略別 内訳 のみ残す。
 // v17 (5/19 夜): 週次 trade 詳細 / 戦略別 NaN/undefined fix (field 名 t.pnl → t.pnl_usd, s.name → s.strategy)、 trade 詳細は短期 タブへ誘導 (user 「トレード詳細は短期タブへ」)。
 // v16 (5/19 夜): 週次 tab に 長期 unreal + 短期 realized 合計 section 追加 (user 「週次が長期と短期の合計」 で確定)。
@@ -14,7 +15,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v18';
+const CACHE = 'ibkr-plan-v19';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
