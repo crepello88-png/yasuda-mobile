@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T20:00",
+  "generated_at": "2026-05-19T20:11",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -910,6 +910,16 @@ window.MOBILE_DATA = {
       "hold": null
     },
     {
+      "name": "CFO_Solo_PBuy_v1",
+      "tier": "S",
+      "priority": 60,
+      "tp": 2.5,
+      "sl": -10.0,
+      "monthly_usd": 12.4,
+      "win": 58.0,
+      "hold": null
+    },
+    {
       "name": "VolDryUp_v1",
       "tier": "S-",
       "priority": 58,
@@ -1093,7 +1103,7 @@ window.MOBILE_DATA = {
       "date": "2026-05-19",
       "netliq": 11460.39,
       "day_pnl": -0.9150009155273438,
-      "cum_pnl_short": -1861.2000421142584,
+      "cum_pnl_short": -1862.1150430297857,
       "n_trades": 1,
       "vix": null
     }
@@ -1104,79 +1114,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T20:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.18516091666666668
+      "age_min": 11.629962183333333
     },
     "sync_mobile": {
-      "ts": "2026-05-19T19:45:17",
+      "ts": "2026-05-19T20:00:16",
       "ok": true,
-      "note": "34,232 B",
-      "age_min": 14.951827583333333
+      "note": "34,247 B",
+      "age_min": 11.413295516666667
     },
     "verify_claims": {
-      "ts": "2026-05-19T06:32:20",
+      "ts": "2026-05-19T20:10:03",
       "ok": true,
-      "note": "20p/0f",
-      "age_min": 807.9018275833333
+      "note": "21p/0f",
+      "age_min": 1.6299621833333333
     },
     "intraday_cron": {
-      "ts": "2026-05-19T19:45:17",
+      "ts": "2026-05-19T20:00:16",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.951827583333333
+      "age_min": 11.413295516666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T20:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.20182758333333334
+      "age_min": 11.64662885
     },
     "vix_regime": {
       "ts": "2026-05-19T20:00:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.18516091666666668
+      "age_min": 11.629962183333333
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1213.2018275833332
+      "age_min": 1224.64662885
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1213.0018275833331
+      "age_min": 1224.44662885
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1212.9184942499999
+      "age_min": 1224.3632955166665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 720.1851609166666
+      "age_min": 731.6299621833333
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1190.8351609166666
+      "age_min": 1202.2799621833333
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 701.8351609166667
+      "age_min": 713.2799621833333
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 701.8351609166667
+      "age_min": 713.2799621833333
     }
   },
   "regime": {
