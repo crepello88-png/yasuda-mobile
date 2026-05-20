@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T20:30",
+  "generated_at": "2026-05-19T20:44",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -8,7 +8,7 @@ window.MOBILE_DATA = {
     "unrealized_pnl": -75.99,
     "day_pnl_pct": -0.6630664401473249,
     "account_type": "Cash account",
-    "open_positions": 2,
+    "open_positions": 4,
     "vix": null
   },
   "forecast": {
@@ -399,9 +399,9 @@ window.MOBILE_DATA = {
     "capital": 11650.0,
     "week_start": "2026-05-13",
     "week_end": "2026-05-19",
-    "total_pnl_usd": -58.42,
-    "total_pnl_pct": -0.5,
-    "n_trades": 5,
+    "total_pnl_usd": -133.49,
+    "total_pnl_pct": -1.15,
+    "n_trades": 4,
     "n_wins": 2,
     "win_rate": 40.0,
     "days": [
@@ -445,9 +445,9 @@ window.MOBILE_DATA = {
         "date": "2026-05-19",
         "dow": "Tue",
         "vix": null,
-        "pnl": -0.9150009155273438,
-        "cum": -58.42,
-        "n": 1,
+        "pnl": -75.99,
+        "cum": -133.49,
+        "n": 0,
         "wins": 0
       }
     ],
@@ -455,7 +455,22 @@ window.MOBILE_DATA = {
     "by_strategy": [],
     "note": "daily_history から動的生成 (直近 5 営業日)"
   },
-  "signals_today": [],
+  "signals_today": [
+    {
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "ref_price": 30.25,
+      "target_tp_pct": 2.0,
+      "boost_n": null
+    },
+    {
+      "ticker": "VRTX",
+      "strategy": "Intraday_T9_rsi20",
+      "ref_price": 439.88,
+      "target_tp_pct": 2.0,
+      "boost_n": null
+    }
+  ],
   "positions": [
     {
       "ticker": "SPXL",
@@ -513,6 +528,60 @@ window.MOBILE_DATA = {
         "intraday_sl_price": 491.9355,
         "catastrophic_stp_pct": -10.0,
         "catastrophic_stp_price": 456.435,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "entry_date": "2026-05-19",
+      "entry_price": 30.25,
+      "shares": 1,
+      "entry_value": 30.25,
+      "stop_loss_price": 29.34,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": false,
+      "_5_19_silent_fail_note": "5/19 朝 8:30 寄付 BUY @ $30.25 NYSE 約定確認 (TWS UI screenshot)。 monitor 8:45:19 SELL orderId=9 status=Inactive で TWS reject、 約定せず。 当初 state 記録は誤り (closed_intraday_sl, -$0.92 record)。 5/20 朝 MOO SELL に force_sell 配線で再 trigger。",
+      "current_price": 29.3799991607666,
+      "pnl_pct": -2.8760358321765267,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 30.25,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 29.342499999999998,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 27.225,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "VRTX",
+      "strategy": "Intraday_T9_rsi20",
+      "entry_date": "2026-05-19",
+      "entry_price": 439.88,
+      "shares": 2,
+      "entry_value": 879.76,
+      "stop_loss_price": 426.68,
+      "hold_days": 1,
+      "exit_style": "BRACKET",
+      "status": "open",
+      "bracket": false,
+      "_5_19_silent_fail_note": "5/19 13:15:14 intraday BUY @ $439.88 IBKRATS 約定 (TWS UI)、 bracket TP/SL hit せず、 hold_min=30 timeout exit logic 未実装、 14:55 force_close も走らず → 場引まで保有 → overnight 持越 (intraday 戦略 spec 違反)。 5/20 朝 MOO SELL に force_sell 配線。",
+      "current_price": 434.4800109863281,
+      "pnl_pct": -1.2276050317522658,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 439.88,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 426.68359999999996,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 395.892,
         "intraday_sl_exempt": false,
         "exempt_reason": null
       }
@@ -752,32 +821,7 @@ window.MOBILE_DATA = {
       "fired": false
     }
   ],
-  "intraday_positions": [
-    {
-      "pattern_id": "T9_VRTX_rsi20",
-      "ticker": "VRTX",
-      "pattern": "rsi20",
-      "shares": 2,
-      "entry_ts": "2026-05-19T13:15:08.182300",
-      "ref_price": 438.63,
-      "tp_pct": 0.27,
-      "sl_pct": -3.0,
-      "hold_min": 30,
-      "status": "open"
-    },
-    {
-      "pattern_id": "V10_PLTR_vwap",
-      "ticker": "PLTR",
-      "pattern": "vwap_reclaim",
-      "shares": 3,
-      "entry_ts": "2026-05-19T14:17:07.520156",
-      "ref_price": 135.22,
-      "tp_pct": 0.18,
-      "sl_pct": -3.0,
-      "hold_min": 60,
-      "status": "open"
-    }
-  ],
+  "intraday_positions": [],
   "strategies": [
     {
       "name": "Confluence_RSIStoch_v1",
@@ -1102,9 +1146,9 @@ window.MOBILE_DATA = {
     {
       "date": "2026-05-19",
       "netliq": 11460.39,
-      "day_pnl": -0.9150009155273438,
+      "day_pnl": -75.99,
       "cum_pnl_short": -1863.9450448608404,
-      "n_trades": 1,
+      "n_trades": 0,
       "vix": null
     }
   ],
@@ -1114,79 +1158,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T20:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.1976849
+      "age_min": 14.602858766666666
     },
     "sync_mobile": {
-      "ts": "2026-05-19T20:15:16",
+      "ts": "2026-05-19T20:30:17",
       "ok": true,
-      "note": "34,384 B",
-      "age_min": 14.981018233333334
+      "note": "34,394 B",
+      "age_min": 14.369525433333333
     },
     "verify_claims": {
-      "ts": "2026-05-19T20:12:09",
+      "ts": "2026-05-19T20:44:10",
       "ok": true,
-      "note": "21p/0f",
-      "age_min": 18.0976849
+      "note": "26p/0f",
+      "age_min": 0.4861921
     },
     "intraday_cron": {
-      "ts": "2026-05-19T20:15:16",
+      "ts": "2026-05-19T20:30:17",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.981018233333334
+      "age_min": 14.369525433333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T20:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.21435156666666666
+      "age_min": 14.619525433333333
     },
     "vix_regime": {
       "ts": "2026-05-19T20:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.1976849
+      "age_min": 14.602858766666666
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1243.214351566667
+      "age_min": 1257.6195254333334
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1243.0143515666668
+      "age_min": 1257.4195254333333
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1242.9310182333334
+      "age_min": 1257.3361921
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 750.1976849
+      "age_min": 764.6028587666666
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1220.8476849
+      "age_min": 1235.2528587666668
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 731.8476849
+      "age_min": 746.2528587666667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 731.8476849
+      "age_min": 746.2528587666667
     }
   },
   "regime": {
@@ -1254,5 +1298,163 @@ window.MOBILE_DATA = {
   "post_mortem": {
     "file": "weekly_post_mortem_2026-05-18.md",
     "content": "# Weekly Post-Mortem 2026-05-18 (counterfactual 直近 7 日)\n\n**Task #102 自動出力** — 場中 SL 売却 vs hold-end の比較で SL rule の週次勝敗を判定。\n\n## 📊 Summary\n\n- 期間: 過去 **7** 日 (closed_positions 1 件 対象、 うち場中 SL 系 **1** 件)\n- 場中 SL 実 P&L: **$-90.90**\n- 引け hold 仮想: **$-59.55**\n- 戦略 rule 通り hold (N日後 Close) 仮想: **$+0.00**\n- hold-引け の方が良かった件数: **1 / 1**\n- hold-rule の方が良かった件数: **0 / 1**\n\n## 🎯 今週判定: **LOSS**\n\n> 場中 SL 売却 で $31 (引け) / $91 (rule) の機会損失\n\n## 🔍 Trade-by-trade counterfactual\n\n| Ticker | Strat | Exit reason | 実 P&L | 引け hold P&L | rule hold P&L | 救済可? |\n|---|---|---|---:|---:|---:|---|\n| ON | HighPullback50_v1 | user_manual_-3%_intraday_SL | $-90.90 | $-59.55 | ? | **+$31** 救済 |\n\n## 📝 個別 narrative\n\n- **ON** (HighPullback50_v1, 2026-05-18 entry → 2026-05-18 user_manual_-3%_intraday_SL): 実 $-91 (-5.29%)、 引け hold なら $-60 (-3.50%) = **$31 救済可**\n\n---\n\n_generated by `weekly_post_mortem.py` @ 2026-05-18 23:47:53 CT_\n"
-  }
+  },
+  "exit_plans": [
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "SPXL",
+      "strategy": "HighPullback50_v1",
+      "qty": 4,
+      "entry_price": 266.25,
+      "entry_date": "2026-05-18",
+      "days_held": 1,
+      "hold_days": 1,
+      "bracket": {
+        "tp_pct": 0.84,
+        "tp_price": 268.49,
+        "sl_pct": -10.0,
+        "sl_price": 239.62
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 268.49,
+          "target_pct": 0.84,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 239.62,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=1、 経過=1d",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 260.70001220703125,
+      "unrealized_pct": -2.08,
+      "force_sell_today": null,
+      "silent_fail_note": "5/18 8:38 user 手動 BUY @ $266.25"
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "qty": 2,
+      "entry_price": 507.15,
+      "entry_date": "2026-05-18",
+      "days_held": 1,
+      "hold_days": 1,
+      "bracket": {
+        "tp_pct": 1.36,
+        "tp_price": 514.05,
+        "sl_pct": -10.0,
+        "sl_price": 456.44
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 514.05,
+          "target_pct": 1.36,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 456.44,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=1、 経過=1d",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 506.07000732421875,
+      "unrealized_pct": -0.21,
+      "force_sell_today": null,
+      "silent_fail_note": "5/18 8:37 user 手動 BUY @ $507.15"
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "qty": 1,
+      "entry_price": 30.25,
+      "entry_date": "2026-05-19",
+      "days_held": 0,
+      "hold_days": 1,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 30.86,
+        "sl_pct": -10.0,
+        "sl_price": 27.23
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 30.86,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 27.23,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=1、 経過=0d",
+          "status": "未到達"
+        }
+      ],
+      "current_price": 29.3799991607666,
+      "unrealized_pct": -2.88,
+      "force_sell_today": null,
+      "silent_fail_note": "5/19 朝 8:30 寄付 BUY @ $30.25 NYSE 約定確認 (TWS UI screenshot)。 monitor 8:45:19 SELL orderId=9 status=Inactive で TWS reject、 約定せず。 当初 state 記録は誤り (closed_intraday_sl, -$0.92 record)。 5/20 朝 MOO SELL に force_sell 配線で再 trigger。"
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "VRTX",
+      "strategy": "Intraday_T9_rsi20",
+      "qty": 2,
+      "entry_price": 439.88,
+      "entry_date": "2026-05-19",
+      "days_held": 0,
+      "hold_days": 1,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 448.68,
+        "sl_pct": -10.0,
+        "sl_price": 395.89
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 448.68,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 395.89,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=1、 経過=0d",
+          "status": "未到達"
+        }
+      ],
+      "current_price": 434.4800109863281,
+      "unrealized_pct": -1.23,
+      "force_sell_today": null,
+      "silent_fail_note": "5/19 13:15:14 intraday BUY @ $439.88 IBKRATS 約定 (TWS UI)、 bracket TP/SL hit せず、 hold_min=30 timeout exit logic 未実装、 14:55 force_close も走らず → 場引まで保有 → overnight 持越 (intraday 戦略 spec 違反)。 5/20 朝 MOO SELL に force_sell 配線。"
+    }
+  ]
 };
