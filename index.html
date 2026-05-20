@@ -89,6 +89,7 @@
   <div class="tab" data-tab="history" onclick="switchTab('history')">履歴</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
+  <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
 </div>
 
@@ -359,6 +360,27 @@
   <div class="section">
     <div class="section-title">📋 LIVE 戦略 19 件 (v20)</div>
     <div class="card" id="strategy-list">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+  <!-- 5/19 夜 引越: tracker_data.js STRATEGIES_DATA から詳細 card 表示 -->
+  <div class="section">
+    <div class="section-title">📚 全戦略 詳細 (yasuda_quant 統合)</div>
+    <div class="card" id="tracker-strategies-summary" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px" id="tracker-strat-filters"></div>
+    <div id="tracker-strategies-list">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 銘柄 (5/19 夜 tracker 引越し新規追加) -->
+<div class="tab-content" id="tab-tickers">
+  <div class="section">
+    <div class="section-title">📋 100銘柄 watchlist (yasuda_quant 統合)</div>
+    <div class="card" id="tickers-summary" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px" id="tickers-filters"></div>
+    <div id="tickers-list">
       <div class="empty">読込中...</div>
     </div>
   </div>
@@ -1319,6 +1341,186 @@ function renderExitPlans() {
   listEl.innerHTML = html;
 }
 
+// 5/19 夜 引越: tracker_data.js STRATEGIES_DATA を「戦略」 tab に詳細 card 表示。
+// filter: Tier 別 (SS+ / SS / S+ / S / その他) と LIVE フラグ。
+let _trackerStratFilter = { tier: 'ALL', liveOnly: false };
+function renderTrackerStrategies() {
+  const d = window.MOBILE_DATA || {};
+  const strats = d.tracker_strategies || [];
+  const listEl = document.getElementById('tracker-strategies-list');
+  const sumEl = document.getElementById('tracker-strategies-summary');
+  const filEl = document.getElementById('tracker-strat-filters');
+  if (!listEl) return;
+  if (!strats.length) {
+    listEl.innerHTML = '<div class="empty">tracker_strategies なし (sync_mobile が yasuda_quant/tracker_data.js を読めていない可能性)</div>';
+    if (sumEl) sumEl.textContent = '';
+    return;
+  }
+  // Tier カウント
+  const byTier = {};
+  strats.forEach(s => {
+    const t = s.tier || '-';
+    byTier[t] = (byTier[t]||0) + 1;
+  });
+  // LIVE 配線済 カウント
+  const liveN = strats.filter(s => (s.live||'').indexOf('✅') >= 0).length;
+  if (sumEl) {
+    const tiers = Object.keys(byTier).sort().map(t => `${t}=${byTier[t]}`).join(' / ');
+    sumEl.innerHTML = `全 ${strats.length} 件 (LIVE 配線 ${liveN} / Tier: ${tiers})`;
+  }
+  // filter UI
+  if (filEl) {
+    const tierList = ['ALL'].concat(Object.keys(byTier).sort());
+    filEl.innerHTML = tierList.map(t => {
+      const active = t === _trackerStratFilter.tier;
+      const bg = active ? 'var(--blue)' : 'rgba(255,255,255,.05)';
+      const col = active ? '#fff' : 'var(--sub)';
+      return `<span onclick="_setTrackerStratFilter('tier','${t}')" style="cursor:pointer;background:${bg};color:${col};padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600">${t}${t==='ALL'?'':' ('+byTier[t]+')'}</span>`;
+    }).join('') + (() => {
+      const active = _trackerStratFilter.liveOnly;
+      const bg = active ? 'var(--green)' : 'rgba(255,255,255,.05)';
+      const col = active ? '#fff' : 'var(--sub)';
+      return `<span onclick="_setTrackerStratFilter('live',null)" style="cursor:pointer;background:${bg};color:${col};padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600">LIVE only (${liveN})</span>`;
+    })();
+  }
+  // filter 適用
+  let filtered = strats;
+  if (_trackerStratFilter.tier !== 'ALL') {
+    filtered = filtered.filter(s => (s.tier||'-') === _trackerStratFilter.tier);
+  }
+  if (_trackerStratFilter.liveOnly) {
+    filtered = filtered.filter(s => (s.live||'').indexOf('✅') >= 0);
+  }
+  if (!filtered.length) {
+    listEl.innerHTML = '<div class="card"><div class="empty">filter 条件 該当なし</div></div>';
+    return;
+  }
+  // Tier 色
+  const tierColor = (t) => {
+    const T = (t||'').toUpperCase();
+    if (T === 'SS+' || T === 'SS') return '#f85149';
+    if (T === 'S+') return '#d29922';
+    if (T === 'S' || T === 'S-') return '#58a6ff';
+    if (T.startsWith('A')) return '#3fb950';
+    return '#7d8590';
+  };
+  listEl.innerHTML = filtered.map(s => {
+    const live = s.live || '';
+    const isLive = live.indexOf('✅') >= 0;
+    const tcol = tierColor(s.tier);
+    return `
+      <div class="card" style="margin-bottom:8px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+          <div style="flex:1;min-width:0">
+            <div class="ticker" style="font-size:14px">${s.name||''}</div>
+            <div class="strat" style="margin-top:2px">${s.cat||''}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <span class="badge" style="background:${tcol}22;color:${tcol};font-weight:700">${s.tier||'-'}</span>
+          </div>
+        </div>
+        <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08);font-size:11px;line-height:1.6">
+          <div><span style="color:var(--sub)">hold:</span> ${s.hold||'-'}</div>
+          <div><span style="color:var(--sub)">freq:</span> ${s.freq||'-'}</div>
+          <div><span style="color:var(--sub)">tickers:</span> ${s.tickers||'-'}</div>
+          <div><span style="color:var(--sub)">Sh / win:</span> ${s.sharpe||'-'}</div>
+          <div><span style="color:var(--sub)">condition:</span> ${s.condition||'-'}</div>
+          <div style="margin-top:4px;color:${isLive?'var(--green)':'var(--sub)'};font-weight:600">${live||'(状態 不明)'}</div>
+        </div>
+        ${s.memo ? `<div style="margin-top:6px;font-size:10px;color:var(--sub);line-height:1.5;font-style:italic">📝 ${s.memo}</div>` : ''}
+      </div>`;
+  }).join('');
+}
+function _setTrackerStratFilter(kind, val) {
+  if (kind === 'tier') _trackerStratFilter.tier = val;
+  else if (kind === 'live') _trackerStratFilter.liveOnly = !_trackerStratFilter.liveOnly;
+  renderTrackerStrategies();
+}
+
+// 5/19 夜 引越: tracker_data.js TICKERS_DATA を「銘柄」 tab に表示。
+// filter: sector 別 / Champ のみ / 全戦略 配線済 のみ。
+let _tickersFilter = { sector: 'ALL', champOnly: false };
+function renderTickers() {
+  const d = window.MOBILE_DATA || {};
+  const tickers = d.tracker_tickers || [];
+  const listEl = document.getElementById('tickers-list');
+  const sumEl = document.getElementById('tickers-summary');
+  const filEl = document.getElementById('tickers-filters');
+  if (!listEl) return;
+  if (!tickers.length) {
+    listEl.innerHTML = '<div class="empty">tracker_tickers なし (sync_mobile が yasuda_quant/tracker_data.js を読めていない可能性)</div>';
+    if (sumEl) sumEl.textContent = '';
+    return;
+  }
+  // sector カウント (sector_jp 優先)
+  const bySector = {};
+  tickers.forEach(t => {
+    const s = t.sector_jp || t.sector_en || '-';
+    bySector[s] = (bySector[s]||0) + 1;
+  });
+  const champN = tickers.filter(t => t.is_champ).length;
+  if (sumEl) {
+    const sectors = Object.keys(bySector).sort().map(s => `${s} ${bySector[s]}`).join(' / ');
+    sumEl.innerHTML = `全 ${tickers.length} 銘柄 (Champ ${champN}) — ${sectors}`;
+  }
+  if (filEl) {
+    const sectorList = ['ALL'].concat(Object.keys(bySector).sort());
+    filEl.innerHTML = sectorList.map(s => {
+      const active = s === _tickersFilter.sector;
+      const bg = active ? 'var(--blue)' : 'rgba(255,255,255,.05)';
+      const col = active ? '#fff' : 'var(--sub)';
+      return `<span onclick="_setTickersFilter('sector',${JSON.stringify(s)})" style="cursor:pointer;background:${bg};color:${col};padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600">${s}${s==='ALL'?'':' ('+bySector[s]+')'}</span>`;
+    }).join('') + (() => {
+      const active = _tickersFilter.champOnly;
+      const bg = active ? 'var(--yellow)' : 'rgba(255,255,255,.05)';
+      const col = active ? '#fff' : 'var(--sub)';
+      return `<span onclick="_setTickersFilter('champ',null)" style="cursor:pointer;background:${bg};color:${col};padding:4px 10px;border-radius:12px;font-size:11px;font-weight:600">🏆 Champ only</span>`;
+    })();
+  }
+  let filtered = tickers;
+  if (_tickersFilter.sector !== 'ALL') {
+    filtered = filtered.filter(t => (t.sector_jp || t.sector_en || '-') === _tickersFilter.sector);
+  }
+  if (_tickersFilter.champOnly) {
+    filtered = filtered.filter(t => t.is_champ);
+  }
+  if (!filtered.length) {
+    listEl.innerHTML = '<div class="card"><div class="empty">filter 条件 該当なし</div></div>';
+    return;
+  }
+  // ticker は alphabetic で並べる
+  filtered = [...filtered].sort((a,b) => (a.ticker||'').localeCompare(b.ticker||''));
+  listEl.innerHTML = filtered.map(t => {
+    const strats = t.strategies || [];
+    const champBadge = t.is_champ ? '<span class="badge" style="background:rgba(210,153,34,.18);color:var(--yellow)">🏆 Champ</span>' : '';
+    const sectorJp = t.sector_jp || t.sector_en || '-';
+    const stratsHtml = strats.length
+      ? strats.map(s => `<span style="display:inline-block;background:rgba(88,166,255,.10);color:var(--blue);padding:2px 6px;border-radius:3px;margin:2px 3px 0 0;font-size:10px">${s}</span>`).join('')
+      : '<span style="color:var(--sub);font-size:10px">配線なし</span>';
+    return `
+      <div class="card" style="margin-bottom:6px;padding:10px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+          <div style="flex:1;min-width:0">
+            <div class="ticker">${t.ticker||'?'} ${champBadge}</div>
+            <div class="strat" style="margin-top:2px">${t.name||''}${t.reading ? ' · '+t.reading : ''}</div>
+            <div class="strat" style="font-size:10px;margin-top:2px">${sectorJp} · ${t.industry||'-'}</div>
+          </div>
+          <div style="text-align:right;flex-shrink:0">
+            <div class="strat" style="font-size:10px">戦略 ${strats.length}</div>
+          </div>
+        </div>
+        <div style="margin-top:6px;padding-top:6px;border-top:1px dashed rgba(255,255,255,.08)">
+          ${stratsHtml}
+        </div>
+      </div>`;
+  }).join('');
+}
+function _setTickersFilter(kind, val) {
+  if (kind === 'sector') _tickersFilter.sector = val;
+  else if (kind === 'champ') _tickersFilter.champOnly = !_tickersFilter.champOnly;
+  renderTickers();
+}
+
 function loadAll() {
   // 5/19 夜 fix: 個別 render 失敗で全体が止まらないよう try/catch で隔離。
   // renderHistory null クラッシュ → 「読込中」 stuck だった失敗を二度と再発させない。
@@ -1337,6 +1539,8 @@ function loadAll() {
   safeRun('history', renderHistory);
   safeRun('intraday', renderIntraday);
   safeRun('strat', renderStrat);
+  safeRun('trackerStrategies', renderTrackerStrategies);
+  safeRun('tickers', renderTickers);
   safeRun('monitor', renderMonitor);
   safeRun('alerts', renderAlerts);
   safeRun('postMortem', renderPostMortem);
