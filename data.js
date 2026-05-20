@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T20:48",
+  "generated_at": "2026-05-19T21:00",
   "today_summary": {
     "netliq": 11460.39,
     "cash": 1609.84,
@@ -756,123 +756,11 @@ window.MOBILE_DATA = {
       "fired": false
     },
     {
-      "pattern_id": "T9_VRTX_rsi20",
-      "ticker": "VRTX",
-      "pattern_name": "VRTX rsi20 thr=20",
-      "tp_pct": 0.27,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
       "pattern_id": "T10_MARA_surge",
       "ticker": "MARA",
       "pattern_name": "MARA surge thr=2.0",
       "tp_pct": 0.59,
       "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V1_AAPL_vwap",
-      "ticker": "AAPL",
-      "pattern_name": "AAPL vwap_reclaim thr=0",
-      "tp_pct": 0.21,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V2_AMZN_vwap",
-      "ticker": "AMZN",
-      "pattern_name": "AMZN vwap_reclaim thr=0",
-      "tp_pct": 0.2,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V3_QQQ_vwap",
-      "ticker": "QQQ",
-      "pattern_name": "QQQ vwap_reclaim thr=0",
-      "tp_pct": 0.13,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V4_MSFT_vwap",
-      "ticker": "MSFT",
-      "pattern_name": "MSFT vwap_reclaim thr=0",
-      "tp_pct": 0.17,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V5_SMH_vwap",
-      "ticker": "SMH",
-      "pattern_name": "SMH vwap_reclaim thr=0",
-      "tp_pct": 0.18,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V6_GOOG_vwap",
-      "ticker": "GOOG",
-      "pattern_name": "GOOG vwap_reclaim thr=0",
-      "tp_pct": 0.14,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V7_NVDA_vwap",
-      "ticker": "NVDA",
-      "pattern_name": "NVDA vwap_reclaim thr=0",
-      "tp_pct": 0.2,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V8_SOXX_vwap",
-      "ticker": "SOXX",
-      "pattern_name": "SOXX vwap_reclaim thr=0",
-      "tp_pct": 0.16,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V9_TSLA_vwap",
-      "ticker": "TSLA",
-      "pattern_name": "TSLA vwap_reclaim thr=0",
-      "tp_pct": 0.2,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "V10_PLTR_vwap",
-      "ticker": "PLTR",
-      "pattern_name": "PLTR vwap_reclaim thr=0",
-      "tp_pct": 0.18,
-      "sl_pct": -3.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "ORB1_MSTR_30m",
-      "ticker": "MSTR",
-      "pattern_name": "MSTR orb_30m_break thr=0",
-      "tp_pct": 0.3,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "ORB2_MSTR_30m_60min",
-      "ticker": "MSTR",
-      "pattern_name": "MSTR orb_30m_break thr=0",
-      "tp_pct": 0.3,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "ORB3_AMZN_15m",
-      "ticker": "AMZN",
-      "pattern_name": "AMZN orb_15m_break thr=0",
-      "tp_pct": 0.3,
-      "sl_pct": -2.0,
       "fired": false
     },
     {
@@ -892,14 +780,6 @@ window.MOBILE_DATA = {
       "fired": false
     },
     {
-      "pattern_id": "CA1_VIX_SOXX_30m",
-      "ticker": "SOXX",
-      "pattern_name": "SOXX cross_asset_lead_lag thr=-2.1",
-      "tp_pct": 0.3,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
       "pattern_id": "CA2_USO_XLE_120m",
       "ticker": "XLE",
       "pattern_name": "XLE cross_asset_lead_lag thr=1.3",
@@ -908,26 +788,10 @@ window.MOBILE_DATA = {
       "fired": false
     },
     {
-      "pattern_id": "CA3_USO_XOM_60m",
-      "ticker": "XOM",
-      "pattern_name": "XOM cross_asset_lead_lag thr=1.3",
-      "tp_pct": 0.3,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
       "pattern_id": "CA4_USO_XOM_120m",
       "ticker": "XOM",
       "pattern_name": "XOM cross_asset_lead_lag thr=1.3",
       "tp_pct": 0.5,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "CA5_USO_XLE_60m",
-      "ticker": "XLE",
-      "pattern_name": "XLE cross_asset_lead_lag thr=1.3",
-      "tp_pct": 0.3,
       "sl_pct": -2.0,
       "fired": false
     },
@@ -1290,86 +1154,86 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING_BRIEF 2026-05-18 (Monday — LIVE 7 日目)\n\n<!-- AUDIT_SECTION_BEGIN -->\n## 🚨 Nightly Audit (前夜 22:00 CT)\n\n- audit 走行: **2026-05-18T22:01**\n- PASS: **7** / FAIL: **0** / SKIP: 0\n- ✅ 全 claim PASS、 system 健全\n\n<!-- AUDIT_SECTION_END -->\n\n## 🎯 今日のミッション\n\n**21 戦略 + 拡張 ticker 拡張 適用 1 日目**、 + **SELL 自動化 fix の 実戦テスト**。\n\n---\n\n## 🚀 5/18 月曜 候補 (Fri 5/15 EOD trigger)\n\n合計 **12 signals fire**、 Tier 優先 + max_positions=5 で 上位 5 採用見込み:\n\n| 順 | 戦略 (Tier) | 銘柄 | mid yield |\n|---:|---|---|---:|\n| 1 | **Sector_FriPanic_v1** (S+) | LIN (XLB Fri-2.65%) | 33% |\n| 2 | HighPullback50_v1 (S+) | NVDA | 32% |\n| 3 | HighPullback50_v1 (S+) | SOXX | 32% |\n| 4 | HighPullback50_v1 (S+) | SMH | 32% |\n| 5 | HighPullback50_v1 (S+) | IWM | 32% |\n| --(drop)-- | HighPullback50 | ON / SPXL / STRL / UPRO | (max超過) |\n| --(drop)-- | Stoch_Oversold (S) | ANET / RBC / GLD | (max超過) |\n\n**注意**: AVGO の Semi_FriPanic_v1 が SMH chg5 -3.47% で fire 確定、 ただし watchlist 確認必要 (debug 中)。\n\n### 設定 (元のまま)\n\n- **max_positions**: 3\n- **pos_size_pct**: 33% (1 ポジ ≈ $1,398)\n- 月曜は 上位 3 銘柄 のみ entry (NVDA/SOXX/SMH HighPullback50)、 残り signal は 翌日 fresh 化 で再評価\n\n---\n\n## 🚨 重要 fix (5/17 13:30)\n\n### SELL 自動化 改善 (#101 critical)\n\n**問題**: 「sell完了は私が手動で売ってます」 — 過去 6 日で auto SELL 一度も成功してない。\n\n**根因**:\n- MOO TIF=OPG → err10311 (NASDAQ direct routing reject) 連発\n- MKT DAY fallback でも 拒否されてた可能性\n- Fill 確認なし、 silent fail で manual 介入が必要だった\n\n**修正内容** (place_moo 関数):\n1. **Step 1** MOO TIF=OPG (現状維持)\n2. **Step 2** 拒否時 MKT TIF=DAY (現状維持)\n3. **Step 3 NEW** 拒否時 **LMT aggressive** 投入 (SELL: ref × 0.95、 BUY: ref × 1.05)\n   - 5% 不利な指値 = 必ず約定狙い、 slippage cap 効果も\n   - ref_price は state の entry_price から取得 (近似)\n4. 各 Step で 2 秒 wait + status print = ログから確認可能\n\n→ **明日朝 8:04 に Sector_FriPanic LIN exit (5/18 Mon は entry なので exit はない、 5/19 Tue で SELL 試金石)**\n\n---\n\n## 📊 反芻結果 (全 STABLE)\n\nST717/718 直近 12mo OOS:\n\n| 戦略 | full Sh | l12 Sh | trend |\n|---|---:|---:|---|\n| Confluence_RSIStoch_v1 | +4.72 | **+7.98** | 上昇 |\n| HighPullback50_v1 | +2.70 | **+5.50** | 上昇 |\n| Stoch_Oversold_v1 | +2.46 | **+4.45** | 上昇 |\n| Confluence_RSIBB_v1 | +2.81 | **+6.36** | 上昇 |\n| BB_Lower_Bounce_v1 | +2.31 | **+11.26** | 急上昇 |\n| Inside_Day_BO_v1 | +2.08 | **+11.83** | 急上昇 (NVDA driven) |\n\n全 ✓ STABLE、 直近 ヶ月は 過去より 強い regime。\n\n---\n\n## ⏰ 朝 8:00 ルーチン\n\n1. **TWS 起動確認** (5/16/17 接続失敗あり、 ログイン状態 + API ON 確認)\n2. **`python sanity_test_5_18.py`** で 全 42 test pass 確認\n3. **`python short_term_executor.py --execute`** 実行 (寄付前 8:04 CT 想定)\n4. **ログ 確認**: SELL は今日なし、 BUY 5 件 (LIN/NVDA/SOXX/SMH/IWM 想定)\n5. **8:35 CT** 寄付後 15 分、 TWS で BUY fill 確認\n6. **15:00 CT** intraday-exit batch 確認 (MOC SELL 対象なし today)\n7. **5/19 Tue 朝 8:04** 5/18 BUY 分の SELL (HighPullback50/Stoch hold=1 → 翌日 exit) — **ここが SELL 自動化 fix の試金石**\n\n---\n\n## 💡 5/18 〜 5/22 週間予定\n\n- **5/18 Mon**: 21 戦略 LIVE 開始、 BUY 5 件 (Sector_FriPanic + HighPullback50)\n- **5/19 Tue**: SELL fix の 初実戦、 RSI35_Trend 火曜 skip (Tier table 参照)\n- **5/20 Wed**: Confluence_RSIStoch/RSIBB May skip 解除？ (June 入りまで適用)\n- **5/22 Fri**: Sector_FriPanic 次の signal 機会、 月入金 ($1,",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-19T20:45:03",
+      "ts": "2026-05-19T21:00:03",
       "ok": true,
       "note": "",
-      "age_min": 3.487068333333333
+      "age_min": 0.4369172666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-19T20:47:54",
-      "ok": false,
-      "note": "int() argument must be a string, a bytes-like object or a real number, not 'NoneType'",
-      "age_min": 0.6370683333333333
+      "ts": "2026-05-19T20:48:34",
+      "ok": true,
+      "note": "50,099 B",
+      "age_min": 11.920250600000001
     },
     "verify_claims": {
-      "ts": "2026-05-19T20:44:10",
+      "ts": "2026-05-19T20:51:26",
       "ok": true,
-      "note": "26p/0f",
-      "age_min": 4.370401666666667
+      "note": "27p/0f",
+      "age_min": 9.053583933333334
     },
     "intraday_cron": {
       "ts": "2026-05-19T20:45:20",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.203735
+      "age_min": 15.153583933333334
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-19T20:45:02",
+      "ts": "2026-05-19T21:00:02",
       "ok": true,
       "note": "",
-      "age_min": 3.503735
+      "age_min": 0.45358393333333336
     },
     "vix_regime": {
-      "ts": "2026-05-19T20:45:03",
+      "ts": "2026-05-19T21:00:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 3.487068333333333
+      "age_min": 0.4369172666666667
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1261.503735
+      "age_min": 1273.4535839333332
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1261.3037350000002
+      "age_min": 1273.2535839333332
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1261.2204016666667
+      "age_min": 1273.1702506
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 768.4870683333334
+      "age_min": 780.4369172666667
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1239.1370683333334
+      "age_min": 1251.0869172666667
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 750.1370683333333
+      "age_min": 762.0869172666667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 750.1370683333333
+      "age_min": 762.0869172666667
     }
   },
   "regime": {
-    "ts": "2026-05-19T20:45:03",
+    "ts": "2026-05-19T21:00:03",
     "vix": 18.24,
     "spy_close": 738.65,
     "spy_10d_return_pct": 2.87,
