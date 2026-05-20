@@ -1,25 +1,70 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T22:30",
+  "generated_at": "2026-05-19T22:33",
   "today_summary": {
-    "netliq": null,
-    "cash": null,
-    "available_funds": null,
-    "excess_liquidity": null,
-    "settled_cash": null,
-    "buying_power": null,
-    "stock_value": null,
-    "unrealized_pnl": null,
-    "realized_pnl": null,
-    "day_pnl_pct": null,
-    "account_type": "Cash account",
-    "open_positions": 4,
+    "netliq": 11397.4,
+    "cash": 697.57,
+    "available_funds": 697.57,
+    "excess_liquidity": 697.57,
+    "settled_cash": 697.57,
+    "buying_power": 697.57,
+    "stock_value": 10698.1,
+    "unrealized_pnl": -138.02,
+    "realized_pnl": -0.96,
+    "day_pnl_pct": -1.2109779423377263,
+    "account_type": "INDIVIDUAL",
+    "open_positions": 9,
     "open_orders_count": 0,
-    "fills_today_count": 0,
+    "fills_today_count": 4,
     "vix": null,
-    "data_source": "bridge_fallback"
+    "data_source": "TWS_direct_v2"
   },
   "tws_open_orders": [],
-  "tws_fills_today": [],
+  "tws_fills_today": [
+    {
+      "symbol": "IP",
+      "time": "2026-05-19 13:30:01+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 30.25,
+      "avgPrice": 30.25,
+      "orderId": 4,
+      "commission": 0.303503,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "VRTX",
+      "time": "2026-05-19 18:15:14+00:00",
+      "side": "BOT",
+      "shares": 2.0,
+      "price": 439.88,
+      "avgPrice": 439.88,
+      "orderId": 13,
+      "commission": 1.000006,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "PLTR",
+      "time": "2026-05-19 19:17:13+00:00",
+      "side": "BOT",
+      "shares": 3.0,
+      "price": 135.11,
+      "avgPrice": 135.11,
+      "orderId": 49,
+      "commission": 1.000009,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "PLTR",
+      "time": "2026-05-19 19:32:22+00:00",
+      "side": "SLD",
+      "shares": 3.0,
+      "price": 135.46,
+      "avgPrice": 135.46,
+      "orderId": 50,
+      "commission": 1.008965,
+      "realizedPnL": -0.958974
+    }
+  ],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
@@ -433,8 +478,8 @@ window.MOBILE_DATA = {
     "capital": 11650.0,
     "week_start": "2026-05-13",
     "week_end": "2026-05-19",
-    "total_pnl_usd": -57.5,
-    "total_pnl_pct": -0.49,
+    "total_pnl_usd": -195.52,
+    "total_pnl_pct": -1.68,
     "n_trades": 4,
     "n_wins": 2,
     "win_rate": 40.0,
@@ -479,8 +524,8 @@ window.MOBILE_DATA = {
         "date": "2026-05-19",
         "dow": "Tue",
         "vix": null,
-        "pnl": 0.0,
-        "cum": -57.5,
+        "pnl": -138.02,
+        "cum": -195.52,
         "n": 0,
         "wins": 0
       }
@@ -618,6 +663,156 @@ window.MOBILE_DATA = {
         "catastrophic_stp_price": 395.892,
         "intraday_sl_exempt": false,
         "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "PWR",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 763.21,
+      "shares": 2.0,
+      "entry_value": 1526.42,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1432.0,
+      "_unreal_pnl": -94.42,
+      "_market_price": 716.0,
+      "current_price": 714.280029296875,
+      "pnl_pct": -6.411075680759559,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 763.21,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 686.889,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "COST",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 1006.82,
+      "shares": 1.0,
+      "entry_value": 1006.82,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1094.0,
+      "_unreal_pnl": 87.18,
+      "_market_price": 1094.0,
+      "current_price": 1094.9000244140625,
+      "pnl_pct": 8.748338770988106,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 1006.82,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 906.138,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 229.68666715,
+      "shares": 12.0,
+      "entry_value": 2756.2400058000003,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 2658.48,
+      "_unreal_pnl": -97.76,
+      "_market_price": 221.5399933,
+      "current_price": 220.6300048828125,
+      "pnl_pct": -3.9430509308896577,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 229.68666715,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 206.71800043500002,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "GOOG",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 389.2325,
+      "shares": 4.0,
+      "entry_value": 1556.93,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1540.0,
+      "_unreal_pnl": -16.93,
+      "_market_price": 385.0,
+      "current_price": 384.9150085449219,
+      "pnl_pct": -1.1092320027433877,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 389.2325,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 350.30925,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "LLY",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 997.1,
+      "shares": 1.0,
+      "entry_value": 997.1,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1018.13,
+      "_unreal_pnl": 21.03,
+      "_market_price": 1018.1300049,
+      "current_price": 1021.4099731445312,
+      "pnl_pct": 2.4380677108144955,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 997.1,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 897.39,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
       }
     }
   ],
@@ -1043,8 +1238,8 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-19",
-      "netliq": null,
-      "day_pnl": 0,
+      "netliq": 11397.4,
+      "day_pnl": -138.02,
       "cum_pnl_short": -1863.9450448608404,
       "n_trades": 0,
       "vix": null
@@ -1056,79 +1251,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T22:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.36151786666666663
+      "age_min": 3.8983349499999997
     },
     "sync_mobile": {
-      "ts": "2026-05-19T22:30:21",
+      "ts": "2026-05-19T22:30:26",
       "ok": true,
-      "note": "43,434 B",
-      "age_min": 0.06151786666666667
+      "note": "37,803 B",
+      "age_min": 3.5150016166666664
     },
     "verify_claims": {
       "ts": "2026-05-19T22:14:43",
       "ok": true,
       "note": "29p/0f",
-      "age_min": 15.694851199999999
+      "age_min": 19.23166828333333
     },
     "intraday_cron": {
-      "ts": "2026-05-19T22:15:26",
+      "ts": "2026-05-19T22:30:26",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.978184533333332
+      "age_min": 3.5150016166666664
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T22:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.3781845333333333
+      "age_min": 3.9150016166666664
     },
     "vix_regime": {
       "ts": "2026-05-19T22:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.36151786666666663
-    },
-    "alert_test": {
-      "ts": "2026-05-18T23:47:02",
-      "ok": false,
-      "note": "test alert from claude code 5/18 night",
-      "age_min": 1363.3781845333333
-    },
-    "alert_executor_sim": {
-      "ts": "2026-05-18T23:47:14",
-      "ok": false,
-      "note": "MOO reject sim",
-      "age_min": 1363.1781845333333
-    },
-    "alert_import_test": {
-      "ts": "2026-05-18T23:47:19",
-      "ok": false,
-      "note": "sanity import path test",
-      "age_min": 1363.0948512
+      "age_min": 3.8983349499999997
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 870.3615178666666
-    },
-    "alert_test_post_line_removal": {
-      "ts": "2026-05-19T00:09:24",
-      "ok": false,
-      "note": "LINE 廃止 後 動作確認",
-      "age_min": 1341.0115178666667
-    },
-    "paper_rehearsal": {
-      "ts": "2026-05-19T08:18:24",
-      "ok": false,
-      "note": "rehearsal exit=1",
-      "age_min": 852.0115178666667
-    },
-    "alert_paper_rehearsal": {
-      "ts": "2026-05-19T08:18:24",
-      "ok": false,
-      "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 852.0115178666667
+      "age_min": 873.8983349499999
     }
   },
   "regime": {
