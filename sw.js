@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v14 (5/19 夜): 約定 tab 新規 (all_trades = closed_positions + TWS fills 統合)、 短vs長 tab 新規 (Champ vs 短期 比較)、 週次の by_strategy + trades 実データ反映 (旧 [] 空 fix)。 PWA tabs 10 → 12。
 // v13 (5/19 夜): tracker 引越し — 戦略 tab 詳細化 + 銘柄 tab 新規追加 (yasuda_quant/tracker_data.js から STRATEGIES_DATA + TICKERS_DATA 移行)、 tracker 廃止 (yasuda_quant/verification_tracker_fusion.html は読み取り専用 reference に)。
 // v12 (5/19 夜): max-width 600→900px (PC 600 cramped fix)、 履歴 累計 PL bug 修正 (mobile_history.json 真値書直し、 sync_mobile delta 厳格化、 NetLiq 起点比較 併用 metric 追加)、 Champ banks (renderChamp null guard で 読込中 stuck fix)。
 // v11 (5/19 夜): PC 広 viewport stretch 修正 — body/header/tabs max-width:600px 中央寄せ。 Champ タブ 銘柄別詳細 削除 (user 不要、 portfolio 集計のみ残す)。
@@ -9,7 +10,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v13';
+const CACHE = 'ibkr-plan-v14';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
