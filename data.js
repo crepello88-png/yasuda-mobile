@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T00:03",
+  "generated_at": "2026-05-20T00:04",
   "today_summary": {
     "netliq": 11397.4,
     "cash": 697.57,
@@ -4250,43 +4250,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T00:00:03",
       "ok": true,
       "note": "",
-      "age_min": 3.704420233333333
+      "age_min": 4.8173519
     },
     "sync_mobile": {
-      "ts": "2026-05-20T00:03:03",
+      "ts": "2026-05-20T00:03:48",
       "ok": true,
-      "note": "144,271 B",
-      "age_min": 0.7044202333333334
+      "note": "144,263 B",
+      "age_min": 1.0673518999999998
     },
     "verify_claims": {
       "ts": "2026-05-19T22:14:43",
       "ok": true,
       "note": "29p/0f",
-      "age_min": 109.03775356666667
+      "age_min": 110.15068523333333
     },
     "intraday_cron": {
       "ts": "2026-05-20T00:00:33",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.204420233333333
+      "age_min": 4.3173519
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T00:00:02",
       "ok": true,
       "note": "",
-      "age_min": 3.7210869
+      "age_min": 4.834018566666667
     },
     "vix_regime": {
       "ts": "2026-05-20T00:00:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 3.704420233333333
+      "age_min": 4.8173519
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 963.7044202333333
+      "age_min": 964.8173519
     }
   },
   "regime": {
@@ -4545,5 +4545,51 @@ window.MOBILE_DATA = {
       "_net_calc": "historical_estimate_2usd"
     }
   ],
-  "pwa_reports": []
+  "pwa_reports": [
+    {
+      "number": 2,
+      "title": "[PWA報告] 2026-05-20 04:48 🚨 売れてないぞ！",
+      "body": "## メッセージ\n🚨 売れてないぞ！\n\n## 自動 Context\n- 報告時刻: 2026-05-20 04:48 (browser local)\n- data.js generated_at: 2026-05-19T23:45\n- 表示中タブ: 今日\n- NetLiq: $11397.4\n- Cash (Available): $697.57\n- unrealized: $-138.02\n- 短期 open: 9 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T04:48:56Z",
+      "closed_at": "2026-05-20T05:02:39Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー (Claude) 返信 — 想定 troubleshooting\n\n5/20 00:01 CT 受信、 #1 とセットの 「もし朝 売れなかったら」 演習想定として 対応。\n\n### 仮想 5/20 8:35 CT で SPXL/LIN/IP/VRTX が TWS に残ってる場合\n\n#### Step 1: 原因 4 候補 を 5 分で切り分け\n| 仮説 | 確認方法 |\n|---|---|\n| A. TWS connect fail | `logs/short_term_auto_20260520.log` 末尾「TWS 接続失敗」 |\n| B. status=Inactive (5/19 IP 型) | log で「Inactive」 検索、 TWS Open Orders タブ |\n| C. cron 走らず | `Get-ScheduledTask 'Short Term Auto'` LastResult |\n| D. cash 不足で reject | TWS account → AvailableFunds |\n\n#### Step 2: 仮説別 即時対応\n- **A**: retry loop 5回 自動回復、 9:00 までに約定すれば OK、 過ぎたら手動 `python short_term_executor.py --execute --yes`\n- **B**: TWS UI で該当銘柄右クリック → 取消 → MOO SELL 手動再投入\n- **C**: PowerShell で `Start-ScheduledTask -TaskName 'Short Term Auto'` 即起動\n- **D**: 5/19 PLTR SLD $406 settle 後の cash で十分、 別 silent fail なら別途調査\n\n#### Step 3: 報告\nlog + TWS UI screenshot を chat or issue で送れば即 fix push、 翌日朝の reaction も同時設計。\n\n### 今回はテスト送信で 受領 + 仮想対応 完了、 close します。\n\n本番で 不発の時は新規 issue (タイトル違うもの) で送ってください、 仮想 != 本番 で扱い分けます。",
+          "created_at": "2026-05-20T05:02:38Z"
+        }
+      ]
+    },
+    {
+      "number": 3,
+      "title": "[PWA報告] 2026-05-20 05:02 明日は頑張ろうね",
+      "body": "## メッセージ\n明日は頑張ろうね\n\n## 自動 Context\n- 報告時刻: 2026-05-20 05:02 (browser local)\n- data.js generated_at: 2026-05-20T00:00\n- 表示中タブ: 今日\n- NetLiq: $11397.4\n- Cash (Available): $697.57\n- unrealized: $-138.02\n- 短期 open: 9 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T05:02:29Z",
+      "closed_at": "2026-05-20T05:04:42Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー (Claude) 返信\n\nありがとうございます。 頑張ります。\n\n### 朝 (8:25-8:35 CT) 自動配線確認\n\n- ✅ Short Term Auto cron (8:25 CT) → force_sell 4 銘柄 MOO SELL\n- ✅ silent fail 6 種 fix 配線済 (claims 29 PASS)\n- ✅ TWS connect retry 5x60s で robust 化\n- ✅ commission floor 監査済 12 patterns で場中走行\n- ✅ NVDA earnings 5/20 引け後 reaction 待ち、 5/21 朝に BTD arm 判断\n\n### 引け後 (15:00+ CT)\n\n- NVDA Q1 FY27 結果次第 で 5/21 朝の BTD trigger 価格 配線判断\n- PWA 「📬 返信」 タブで僕の返信 確認可\n\n明朝の force_sell 4 銘柄 約定 + NVDA earnings reaction、 user 起床後 PWA 確認お願いします。 何か想定外あれば 1 タップで 「📮 報告」 ください、 即 troubleshoot します。\n\n良い1日を。",
+          "created_at": "2026-05-20T05:04:42Z"
+        }
+      ]
+    },
+    {
+      "number": 1,
+      "title": "[PWA報告] 2026-05-20 04:47 また売ってないけどどうした？",
+      "body": "## メッセージ\nまた売ってないけどどうした？\n\n## 自動 Context\n- 報告時刻: 2026-05-20 04:47 (browser local)\n- data.js generated_at: 2026-05-19T23:45\n- 表示中タブ: 今日\n- NetLiq: $11397.4\n- Cash (Available): $697.57\n- unrealized: $-138.02\n- 短期 open: 9 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T04:47:10Z",
+      "closed_at": "2026-05-20T05:02:36Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー (Claude) 返信 — 受領確認 + 朝の準備状況\n\n5/20 00:01 CT 受信、 朝 8:25 起動の force_sell に向けた事前確認スコープと判定。\n\n### 朝 8:25-8:35 CT 配線済 (今夜 silent fail 6 種 fix 後の体制)\n\n- `monitor_config.json` `daily_force_sell` 2026-05-20: SPXL 4 / LIN 2 / IP 1 / VRTX 2 = 4 件 確定\n- `short_term_executor.py` `connect_tws` 5×60s retry loop (TWS auto-start 余裕)\n- `intraday_position_monitor` SELL 前 TWS shares 確認 (IP Error 201 防止)\n- `claims.json` 29 件 PASS、 morning_tws_connect / daily_force_sell_executed / commission_floor 監査済\n\n### 朝 8:35 CT に user 確認推奨\n\n1. PWA「保有」 タブ で 4 銘柄消滅 + Champ 5 銘柄のみ\n2. TWS UI で「最近の取引履歴」 に SELL 4 件 約定確認\n3. PWA「監視」 タブ heartbeat 全 緑\n4. PWA「履歴」 タブ 日次ログ 2026-05-20 に 4 件 closed\n\n### 想定外れた場合の即時対応\n\n「📮 報告」 で **#2 と同じテンプレ「🚨 売れてないぞ！」** 即送信 → 僕が即 troubleshoot + fix push。\n\nこのテスト issue で 双方向サイクル 動作確認 OK、 close します。 明朝の本番 reactionは TWS UI + PWA 両方確認の上 必要なら 再送信を。",
+          "created_at": "2026-05-20T05:02:36Z"
+        }
+      ]
+    }
+  ]
 };
