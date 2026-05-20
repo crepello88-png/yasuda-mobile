@@ -1,16 +1,16 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T08:15",
+  "generated_at": "2026-05-20T08:30",
   "today_summary": {
-    "netliq": 11445.15,
+    "netliq": 11427.17,
     "cash": 697.57,
     "available_funds": 697.57,
     "excess_liquidity": 697.57,
     "settled_cash": 697.57,
     "buying_power": 697.57,
-    "stock_value": 10745.85,
-    "unrealized_pnl": -90.27,
+    "stock_value": 10727.87,
+    "unrealized_pnl": -108.25,
     "realized_pnl": 0.0,
-    "day_pnl_pct": -0.7887183654211609,
+    "day_pnl_pct": -0.947303663111689,
     "account_type": "INDIVIDUAL",
     "open_positions": 9,
     "open_orders_count": 0,
@@ -553,8 +553,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 268.49,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:38 user 手動 BUY @ $266.25",
-      "current_price": 260.70001220703125,
-      "pnl_pct": -2.0845024574530524,
+      "current_price": 262.69000244140625,
+      "pnl_pct": -1.3370882849178423,
       "exit_rules": {
         "tp1_pct": 0.504,
         "tp1_price": 267.5919,
@@ -583,8 +583,8 @@ window.MOBILE_DATA = {
       "take_profit_price": 514.05,
       "size_multiplier": 1.0,
       "_actual_fill_note": "5/18 8:37 user 手動 BUY @ $507.15",
-      "current_price": 506.07000732421875,
-      "pnl_pct": -0.2129533029244235,
+      "current_price": 500.0683898925781,
+      "pnl_pct": -1.396354157038715,
       "exit_rules": {
         "tp1_pct": 0.8160000000000001,
         "tp1_price": 511.28834399999994,
@@ -610,8 +610,8 @@ window.MOBILE_DATA = {
       "status": "open",
       "bracket": false,
       "_5_19_silent_fail_note": "5/19 朝 8:30 寄付 BUY @ $30.25 NYSE 約定確認 (TWS UI screenshot)。 monitor 8:45:19 SELL orderId=9 status=Inactive で TWS reject、 約定せず。 当初 state 記録は誤り (closed_intraday_sl, -$0.92 record)。 5/20 朝 MOO SELL に force_sell 配線で再 trigger。",
-      "current_price": 29.3799991607666,
-      "pnl_pct": -2.8760358321765267,
+      "current_price": 29.6299991607666,
+      "pnl_pct": -2.049589551184783,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 30.25,
@@ -637,8 +637,8 @@ window.MOBILE_DATA = {
       "status": "open",
       "bracket": false,
       "_5_19_silent_fail_note": "5/19 13:15:14 intraday BUY @ $439.88 IBKRATS 約定 (TWS UI)、 bracket TP/SL hit せず、 hold_min=30 timeout exit logic 未実装、 14:55 force_close も走らず → 場引まで保有 → overnight 持越 (intraday 戦略 spec 違反)。 5/20 朝 MOO SELL に force_sell 配線。",
-      "current_price": 434.4800109863281,
-      "pnl_pct": -1.2276050317522658,
+      "current_price": 434.30999755859375,
+      "pnl_pct": -1.2662549880436136,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 439.88,
@@ -667,8 +667,8 @@ window.MOBILE_DATA = {
       "_market_value": 1448.0,
       "_unreal_pnl": -78.42,
       "_market_price": 724.0,
-      "current_price": 714.280029296875,
-      "pnl_pct": -6.411075680759559,
+      "current_price": 726.3699951171875,
+      "pnl_pct": -4.82698141832687,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -694,11 +694,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1087.18,
-      "_unreal_pnl": 80.36,
-      "_market_price": 1087.1800537,
-      "current_price": 1094.9000244140625,
-      "pnl_pct": 8.748338770988106,
+      "_market_value": 1086.0,
+      "_unreal_pnl": 79.18,
+      "_market_price": 1086.0,
+      "current_price": 1089.3699951171875,
+      "pnl_pct": 8.199081774019934,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -724,11 +724,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2687.88,
-      "_unreal_pnl": -68.36,
-      "_market_price": 223.9900055,
-      "current_price": 220.6300048828125,
-      "pnl_pct": -3.943050721785335,
+      "_market_value": 2679.72,
+      "_unreal_pnl": -76.52,
+      "_market_price": 223.30999755,
+      "current_price": 222.67999267578125,
+      "pnl_pct": -3.050535791394293,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -754,11 +754,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1537.96,
-      "_unreal_pnl": -18.97,
-      "_market_price": 384.48999025,
-      "current_price": 384.9150085449219,
-      "pnl_pct": -1.1092320027433877,
+      "_market_value": 1540.32,
+      "_unreal_pnl": -16.61,
+      "_market_price": 385.07998655,
+      "current_price": 385.1400146484375,
+      "pnl_pct": -1.051424367585574,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -784,11 +784,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1021.55,
-      "_unreal_pnl": 24.45,
-      "_market_price": 1021.5499878,
-      "current_price": 1021.4099731445312,
-      "pnl_pct": 2.4380677108144955,
+      "_market_value": 1023.0,
+      "_unreal_pnl": 25.9,
+      "_market_price": 1023.0,
+      "current_price": 1024.4100341796875,
+      "pnl_pct": 2.7389463624197585,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -4234,14 +4234,14 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-20",
-      "netliq": 11445.15,
+      "netliq": 11427.17,
       "day_pnl": 0.0,
       "cum_pnl_short": -0.06,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -94.85,
-      "unrealized_today": -90.27
+      "netliq_delta": -112.83,
+      "unrealized_today": -108.25
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) 朝 (ACH $9,400 settle 当日)\n\n## 🎯 今日のメイン イベント\n\n1. **$9,400 ACH settle** → 取引可能余力 +$9,400 (5/19 リクエスト分)\n2. **5/20 NVDA 決算後 reaction の post-mortem 5 営業日経過**確認\n3. **Champ DCA 再開**: $1,160 配分\n4. **短期 capital pool 拡張**: +$8,240 → $10,440 規模\n\n## 💰 想定 cash flow\n\n| 時点 | 余力 |\n|---|---|\n| 5/19 終 (元案 start) | $697.57 |\n| 5/20 force_sell 4 銘柄 SELL settle (5/21) | +$2,953 → ~$3,650 |\n| 5/22 (金) 月次入金 | **なし** (user 訂正、 期待しない) |\n| 5/26 朝 (今日) settle 前 | ~$3,650 想定 |\n| **5/26 場前 ACH settle** | **+$9,400 → ~$13,050** |\n| 5/26 Champ DCA -$1,160 | ~$11,890 |\n| → 短期 pool に振分け可能 | ~$8,240 |\n\n## 🐳 Champ DCA $1,152 配分 (今日 5/26 7:30 CT 起動)\n\nuser 5/19 夜 仮確定:「A でお願い」 → **案 A: PWR 1 + GOOG 1 = $1,152**\n\n- PWR 2→3 (~$763) + GOOG 4→5 (~$389)\n- 5/14 / 5/15 DCA pattern 継続、 NVDA 既に 12 株で集中過剰なので skip\n- 6月以降は第3月曜日ルール (6/15 / 7/20 / 8/17 ...)\n\n### NVDA 5/20 決算 結果次第 で変更可\n\n- NVDA -7% 以上 drop → NVDA buy-the-dip 5株 (~$1,000-1,100) を 案 A の代替に\n- 5/26 朝に user 最終判断、 7:30 起動前まで `champ_dca_schedule.json` 修正可\n\n## 📊 短期 capital pool 拡張 $8,240 の使い方\n\n現 $2,200 → 拡張後 $10,440 規模:\n\n- 1 ポジ size: 33% × $10,440 = ~$3,447 (3 ポジ並列の場合)\n- mega 5/5 booster 全 fire = $10,440 × 1.0 (concentrated, 単独大量)\n- intraday max_pos: 2 ポジ × $980 = ~$1,960 確保\n- 寄付 buffer: max_pos 3 × $1,400 = $4,200\n\n→ 5/26 から **commission floor 監査済 12 patterns + 寄付 7 戦略**で運用、 silent fail 5/19 fix 効いてるか stress test\n\n## 🚨 silent fail 復旧 1 週間後 確認\n\n5/19 夜 fix 配線項目の 5 営業日 (5/20-23) 結果まとめ:\n\n- [ ] 5/20 force_sell 4 銘柄 約定 / TWS UI 消滅\n- [ ] 5/20 NVDA earnings 場引後 reaction\n- [ ] 5/21 朝の verify_claims 27 PASS\n- [ ] 5/22 場中 cron 健全 / 15min 毎更新\n- [ ] 5/23 (金) 週末 nightly audit\n\n→ 全 OK なら 5/26 から full deployment、 1 つでも FAIL なら delay\n\n## 📅 NVDA earnings post-mortem (5/20 引け後 → 5/26 まで)\n\n5/20 引け後 NVDA 決算発表 → 5/21-5/23 reaction を memo:\n\n- 決算 result: ?\n- AH 動き (寄付前): ?\n- 5/21 終値: ?\n- 5/26 朝の含み損益: ?\n\n→ Champ DCA 配分判断のキーデータ\n\n## 📝 user 手動チェック リスト (5/26 朝)\n\n- [ ] $9,400 settle 確認 (TWS UI 「取引可能余力」 が ~$13,050 になる)\n- [ ] 7:30 CT Champ DCA 約定 確認 (案 A なら PWR+1 / GOOG+1)\n- [ ] 8:25 CT Short Term Auto 起動 確認\n- [ ] 場中 monitor cron 15min 走行確認\n- [ ] PWA 「出口」 タブ で全 ticker exit plan 表示\n- [ ] verify_claims 全 PASS (28+ 想定)\n\n---\n_2026-05-19 21:45 CT クロコー、 5/26 settle 前事前 brief_\n_5/24-25 (土日) に NVDA 決算 result 反映 + 配分最終確定予定_\n",
@@ -4250,49 +4250,61 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T08:15:03",
       "ok": true,
       "note": "",
-      "age_min": 0.48380435
+      "age_min": 15.295087966666667
     },
     "sync_mobile": {
-      "ts": "2026-05-20T08:15:21",
+      "ts": "2026-05-20T08:15:41",
       "ok": true,
-      "note": "151,615 B",
-      "age_min": 0.18380435
+      "note": "151,583 B",
+      "age_min": 14.661754633333334
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 101.83380435000001
+      "age_min": 116.64508796666668
     },
     "intraday_cron": {
-      "ts": "2026-05-20T08:00:35",
+      "ts": "2026-05-20T08:15:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.950471016666667
+      "age_min": 14.661754633333334
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-20T08:15:02",
+      "ts": "2026-05-20T08:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.5004710166666667
+      "age_min": 0.3117546333333333
     },
     "vix_regime": {
       "ts": "2026-05-20T08:15:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.48380435
+      "age_min": 15.295087966666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 15.450471016666667
+      "age_min": 30.261754633333332
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 441.58380435
+      "age_min": 456.39508796666667
+    },
+    "paper_rehearsal": {
+      "ts": "2026-05-20T08:20:01",
+      "ok": false,
+      "note": "rehearsal timeout 300s",
+      "age_min": 10.3284213
+    },
+    "alert_paper_rehearsal": {
+      "ts": "2026-05-20T08:20:01",
+      "ok": false,
+      "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
+      "age_min": 10.3284213
     }
   },
   "regime": {
@@ -4314,6 +4326,12 @@ window.MOBILE_DATA = {
     "data_freshness_days": 1
   },
   "alerts_recent": [
+    {
+      "ts": "2026-05-20T08:20:01",
+      "severity": "CRITICAL",
+      "source": "paper_rehearsal",
+      "message": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)"
+    },
     {
       "ts": "2026-05-20T08:00:05",
       "severity": "INFO",
@@ -4402,8 +4420,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 260.70001220703125,
-      "unrealized_pct": -2.08,
+      "current_price": 262.69000244140625,
+      "unrealized_pct": -1.34,
       "force_sell_today": "5/19 hold_days=1 timeout SELL 未発注 (朝 TWS connect fail)",
       "silent_fail_note": "5/18 8:38 user 手動 BUY @ $266.25"
     },
@@ -4441,8 +4459,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 506.07000732421875,
-      "unrealized_pct": -0.21,
+      "current_price": 500.0683898925781,
+      "unrealized_pct": -1.4,
       "force_sell_today": "5/19 hold_days=1 timeout SELL 未発注 (同上)",
       "silent_fail_note": "5/18 8:37 user 手動 BUY @ $507.15"
     },
@@ -4480,8 +4498,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 29.3799991607666,
-      "unrealized_pct": -2.88,
+      "current_price": 29.6299991607666,
+      "unrealized_pct": -2.05,
       "force_sell_today": "5/19 8:45 SL SELL orderId=9 status=Inactive で TWS reject (test 1株 撤退)",
       "silent_fail_note": "5/19 朝 8:30 寄付 BUY @ $30.25 NYSE 約定確認 (TWS UI screenshot)。 monitor 8:45:19 SELL orderId=9 status=Inactive で TWS reject、 約定せず。 当初 state 記録は誤り (closed_intraday_sl, -$0.92 record)。 5/20 朝 MOO SELL に force_sell 配線で再 trigger。"
     },
@@ -4519,8 +4537,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 434.4800109863281,
-      "unrealized_pct": -1.23,
+      "current_price": 434.30999755859375,
+      "unrealized_pct": -1.27,
       "force_sell_today": "5/19 intraday 13:15 BUY、 hold_min=30 timeout 未実装 + 14:55 force_close 走らず → overnight 持越 (spec 違反、 撤退)",
       "silent_fail_note": "5/19 13:15:14 intraday BUY @ $439.88 IBKRATS 約定 (TWS UI)、 bracket TP/SL hit せず、 hold_min=30 timeout exit logic 未実装、 14:55 force_close も走らず → 場引まで保有 → overnight 持越 (intraday 戦略 spec 違反)。 5/20 朝 MOO SELL に force_sell 配線。"
     }
