@@ -4334,73 +4334,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T17:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.29000515
+      "age_min": 0.52380865
     },
     "sync_mobile": {
-      "ts": "2026-05-20T17:30:36",
+      "ts": "2026-05-20T17:45:24",
       "ok": true,
-      "note": "158,257 B",
-      "age_min": 14.74000515
+      "note": "158,235 B",
+      "age_min": 0.17380864999999998
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 671.64000515
+      "age_min": 671.87380865
     },
     "intraday_cron": {
       "ts": "2026-05-20T17:30:36",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.74000515
+      "age_min": 14.97380865
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T17:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.30667181666666665
+      "age_min": 0.5404753166666667
     },
     "vix_regime": {
       "ts": "2026-05-20T17:45:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.29000515
+      "age_min": 0.52380865
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 585.2566718166667
+      "age_min": 585.4904753166667
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1011.39000515
+      "age_min": 1011.62380865
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 565.3233384833333
+      "age_min": 565.5571419833334
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 565.3233384833333
+      "age_min": 565.5571419833334
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 553.0066718166667
+      "age_min": 553.2404753166667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 550.1900051499999
+      "age_min": 550.4238086500001
     }
   },
   "regime": {
