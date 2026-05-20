@@ -4293,43 +4293,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T22:45:03",
       "ok": true,
       "note": "",
-      "age_min": 3.2249084333333333
+      "age_min": 3.6686907166666667
     },
     "sync_mobile": {
-      "ts": "2026-05-19T22:45:28",
+      "ts": "2026-05-19T22:48:19",
       "ok": true,
-      "note": "138,970 B",
-      "age_min": 2.808241766666667
+      "note": "145,976 B",
+      "age_min": 0.40202404999999997
     },
     "verify_claims": {
       "ts": "2026-05-19T22:14:43",
       "ok": true,
       "note": "29p/0f",
-      "age_min": 33.55824176666667
+      "age_min": 34.00202405
     },
     "intraday_cron": {
       "ts": "2026-05-19T22:45:28",
       "ok": true,
       "note": "bat completed",
-      "age_min": 2.808241766666667
+      "age_min": 3.25202405
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T22:45:02",
       "ok": true,
       "note": "",
-      "age_min": 3.2415751
+      "age_min": 3.6853573833333333
     },
     "vix_regime": {
       "ts": "2026-05-19T22:45:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 3.2249084333333333
+      "age_min": 3.6686907166666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 888.2249084333333
+      "age_min": 888.6686907166667
     }
   },
   "regime": {
