@@ -1,16 +1,16 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T15:00",
+  "generated_at": "2026-05-20T15:15",
   "today_summary": {
-    "netliq": 11382.79,
+    "netliq": 11384.45,
     "cash": 71.5,
     "available_funds": 71.5,
     "excess_liquidity": 3649.27,
     "settled_cash": 71.5,
     "buying_power": 71.5,
-    "stock_value": 7731.79,
-    "unrealized_pnl": -111.72,
+    "stock_value": 7733.45,
+    "unrealized_pnl": -110.06,
     "realized_pnl": -40.91,
-    "day_pnl_pct": -0.9814816929768535,
+    "day_pnl_pct": -0.9667572873524851,
     "account_type": "INDIVIDUAL",
     "open_positions": 8,
     "open_orders_count": 0,
@@ -748,11 +748,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1418.67,
-      "_unreal_pnl": -107.75,
-      "_market_price": 709.33410645,
-      "current_price": 709.6900024414062,
-      "pnl_pct": -7.01248641377783,
+      "_market_value": 1419.96,
+      "_unreal_pnl": -106.46,
+      "_market_price": 709.97998045,
+      "current_price": 709.9299926757812,
+      "pnl_pct": -6.981041564473578,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -778,9 +778,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1073.27,
-      "_unreal_pnl": 66.45,
-      "_market_price": 1073.27026365,
+      "_market_value": 1074.01,
+      "_unreal_pnl": 67.19,
+      "_market_price": 1074.01000975,
       "current_price": 1074.0,
       "pnl_pct": 6.67249359369102,
       "exit_rules": {
@@ -808,9 +808,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2682.6,
-      "_unreal_pnl": -73.64,
-      "_market_price": 223.5500183,
+      "_market_value": 2681.28,
+      "_unreal_pnl": -74.96,
+      "_market_price": 223.44000245,
       "current_price": 223.43499755859375,
       "pnl_pct": -2.721824989925359,
       "exit_rules": {
@@ -838,9 +838,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1539.6,
-      "_unreal_pnl": -17.33,
-      "_market_price": 384.8999939,
+      "_market_value": 1540.2,
+      "_unreal_pnl": -16.73,
+      "_market_price": 385.0499878,
       "current_price": 384.8900146484375,
       "pnl_pct": -1.1156533309943373,
       "exit_rules": {
@@ -868,11 +868,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1017.65,
-      "_unreal_pnl": 20.55,
-      "_market_price": 1017.6500244,
-      "current_price": 1018.3400268554688,
-      "pnl_pct": 2.1301802081505006,
+      "_market_value": 1018.0,
+      "_unreal_pnl": 20.9,
+      "_market_price": 1018.0,
+      "current_price": 1018.469970703125,
+      "pnl_pct": 2.1432123862325625,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -995,6 +995,18 @@ window.MOBILE_DATA = {
       "tp_pct": 1.5,
       "sl_pct": -2.0,
       "hold_min": 60,
+      "status": "open"
+    },
+    {
+      "pattern_id": "VC3_PRIM",
+      "ticker": "PRIM",
+      "pattern": "vol_climax_max",
+      "shares": 9,
+      "entry_ts": "2026-05-20T15:15:08.752074",
+      "ref_price": 106.65,
+      "tp_pct": 0.5,
+      "sl_pct": -2.0,
+      "hold_min": 120,
       "status": "open"
     }
   ],
@@ -4331,93 +4343,93 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-20",
-      "netliq": 11382.79,
+      "netliq": 11384.45,
       "day_pnl": 0.0,
       "cum_pnl_short": -0.06,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -157.21,
-      "unrealized_today": -111.72
+      "netliq_delta": -155.55,
+      "unrealized_today": -110.06
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) 朝 (ACH $9,400 settle 当日)\n\n## 🎯 今日のメイン イベント\n\n1. **$9,400 ACH settle** → 取引可能余力 +$9,400 (5/19 リクエスト分)\n2. **5/20 NVDA 決算後 reaction の post-mortem 5 営業日経過**確認\n3. **Champ DCA 再開**: $1,160 配分\n4. **短期 capital pool 拡張**: +$8,240 → $10,440 規模\n\n## 💰 想定 cash flow\n\n| 時点 | 余力 |\n|---|---|\n| 5/19 終 (元案 start) | $697.57 |\n| 5/20 force_sell 4 銘柄 SELL settle (5/21) | +$2,953 → ~$3,650 |\n| 5/22 (金) 月次入金 | **なし** (user 訂正、 期待しない) |\n| 5/26 朝 (今日) settle 前 | ~$3,650 想定 |\n| **5/26 場前 ACH settle** | **+$9,400 → ~$13,050** |\n| 5/26 Champ DCA -$1,160 | ~$11,890 |\n| → 短期 pool に振分け可能 | ~$8,240 |\n\n## 🐳 Champ DCA $1,152 配分 (今日 5/26 7:30 CT 起動)\n\nuser 5/19 夜 仮確定:「A でお願い」 → **案 A: PWR 1 + GOOG 1 = $1,152**\n\n- PWR 2→3 (~$763) + GOOG 4→5 (~$389)\n- 5/14 / 5/15 DCA pattern 継続、 NVDA 既に 12 株で集中過剰なので skip\n- 6月以降は第3月曜日ルール (6/15 / 7/20 / 8/17 ...)\n\n### NVDA 5/20 決算 結果次第 で変更可\n\n- NVDA -7% 以上 drop → NVDA buy-the-dip 5株 (~$1,000-1,100) を 案 A の代替に\n- 5/26 朝に user 最終判断、 7:30 起動前まで `champ_dca_schedule.json` 修正可\n\n## 📊 短期 capital pool 拡張 $8,240 の使い方\n\n現 $2,200 → 拡張後 $10,440 規模:\n\n- 1 ポジ size: 33% × $10,440 = ~$3,447 (3 ポジ並列の場合)\n- mega 5/5 booster 全 fire = $10,440 × 1.0 (concentrated, 単独大量)\n- intraday max_pos: 2 ポジ × $980 = ~$1,960 確保\n- 寄付 buffer: max_pos 3 × $1,400 = $4,200\n\n→ 5/26 から **commission floor 監査済 12 patterns + 寄付 7 戦略**で運用、 silent fail 5/19 fix 効いてるか stress test\n\n## 🚨 silent fail 復旧 1 週間後 確認\n\n5/19 夜 fix 配線項目の 5 営業日 (5/20-23) 結果まとめ:\n\n- [ ] 5/20 force_sell 4 銘柄 約定 / TWS UI 消滅\n- [ ] 5/20 NVDA earnings 場引後 reaction\n- [ ] 5/21 朝の verify_claims 27 PASS\n- [ ] 5/22 場中 cron 健全 / 15min 毎更新\n- [ ] 5/23 (金) 週末 nightly audit\n\n→ 全 OK なら 5/26 から full deployment、 1 つでも FAIL なら delay\n\n## 📅 NVDA earnings post-mortem (5/20 引け後 → 5/26 まで)\n\n5/20 引け後 NVDA 決算発表 → 5/21-5/23 reaction を memo:\n\n- 決算 result: ?\n- AH 動き (寄付前): ?\n- 5/21 終値: ?\n- 5/26 朝の含み損益: ?\n\n→ Champ DCA 配分判断のキーデータ\n\n## 📝 user 手動チェック リスト (5/26 朝)\n\n- [ ] $9,400 settle 確認 (TWS UI 「取引可能余力」 が ~$13,050 になる)\n- [ ] 7:30 CT Champ DCA 約定 確認 (案 A なら PWR+1 / GOOG+1)\n- [ ] 8:25 CT Short Term Auto 起動 確認\n- [ ] 場中 monitor cron 15min 走行確認\n- [ ] PWA 「出口」 タブ で全 ticker exit plan 表示\n- [ ] verify_claims 全 PASS (28+ 想定)\n\n---\n_2026-05-19 21:45 CT クロコー、 5/26 settle 前事前 brief_\n_5/24-25 (土日) に NVDA 決算 result 反映 + 配分最終確定予定_\n",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-20T15:00:14",
+      "ts": "2026-05-20T15:15:09",
       "ok": true,
       "note": "",
-      "age_min": 0.5221170666666667
+      "age_min": 0.33872891666666666
     },
     "sync_mobile": {
-      "ts": "2026-05-20T15:00:38",
+      "ts": "2026-05-20T15:00:47",
       "ok": true,
-      "note": "159,728 B",
-      "age_min": 0.12211706666666666
+      "note": "159,711 B",
+      "age_min": 14.705395583333335
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 507.0554504
+      "age_min": 521.7887289166667
     },
     "intraday_cron": {
-      "ts": "2026-05-20T14:45:47",
+      "ts": "2026-05-20T15:00:48",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.972117066666668
+      "age_min": 14.688728916666667
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-20T15:00:14",
+      "ts": "2026-05-20T15:15:08",
       "ok": true,
       "note": "",
-      "age_min": 0.5221170666666667
+      "age_min": 0.3553955833333333
     },
     "vix_regime": {
-      "ts": "2026-05-20T15:00:14",
+      "ts": "2026-05-20T15:15:09",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.5221170666666667
+      "age_min": 0.33872891666666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 420.67211706666666
+      "age_min": 435.40539558333336
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 846.8054503999999
+      "age_min": 861.5387289166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 400.7387837333333
+      "age_min": 415.47206225
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 400.7387837333333
+      "age_min": 415.47206225
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 388.42211706666666
+      "age_min": 403.15539558333336
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 385.6054504
+      "age_min": 400.3387289166667
     }
   },
   "regime": {
-    "ts": "2026-05-20T15:00:14",
+    "ts": "2026-05-20T15:15:09",
     "vix": 17.9,
     "spy_close": 733.73,
     "spy_10d_return_pct": 1.38,
@@ -4619,7 +4631,7 @@ window.MOBILE_DATA = {
       "qty": 31,
       "entry_price": 31.49,
       "entry_ts": "2026-05-20T15:00:13.151780",
-      "held_min": 0.5,
+      "held_min": 15.3,
       "hold_min": 60.0,
       "bracket": {
         "tp_pct": 1.5,
@@ -4642,7 +4654,51 @@ window.MOBILE_DATA = {
         },
         {
           "type": "hold_min_timeout",
-          "due": "hold_min=60min、 経過=0.5min",
+          "due": "hold_min=60min、 経過=15.3min",
+          "status": "未到達"
+        },
+        {
+          "type": "force_close_eod",
+          "due": "場引 18min 前 (CT 14:42-15:00)",
+          "status": "待機"
+        }
+      ],
+      "current_price": null,
+      "unrealized_pct": null,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "場中 (intraday)",
+      "ticker": "PRIM",
+      "strategy": "VC3_PRIM",
+      "qty": 9,
+      "entry_price": 106.65,
+      "entry_ts": "2026-05-20T15:15:08.752074",
+      "held_min": 0.3,
+      "hold_min": 120.0,
+      "bracket": {
+        "tp_pct": 0.5,
+        "tp_price": 107.18,
+        "sl_pct": -2.0,
+        "sl_price": 104.52
+      },
+      "exits": [
+        {
+          "type": "TP_bracket",
+          "target_price": 107.18,
+          "target_pct": 0.5,
+          "status": "未到達"
+        },
+        {
+          "type": "SL_bracket",
+          "target_price": 104.52,
+          "target_pct": -2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "hold_min_timeout",
+          "due": "hold_min=120min、 経過=0.3min",
           "status": "未到達"
         },
         {
