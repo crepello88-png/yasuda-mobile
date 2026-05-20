@@ -76,6 +76,7 @@
 <div class="tabs">
   <div class="tab active" data-tab="today" onclick="switchTab('today')">今日</div>
   <div class="tab" data-tab="positions" onclick="switchTab('positions')">保有</div>
+  <div class="tab" data-tab="exit" onclick="switchTab('exit')">出口</div>
   <div class="tab" data-tab="weekly" onclick="switchTab('weekly')">週次</div>
   <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
   <div class="tab" data-tab="history" onclick="switchTab('history')">履歴</div>
@@ -156,6 +157,17 @@
   <div class="section">
     <div class="section-title">💼 寄付戦略 保有</div>
     <div id="positions-list" class="card">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 出口 (5/19 夜追加 — silent fail 救済窓) -->
+<div class="tab-content" id="tab-exit">
+  <div class="section">
+    <div class="section-title">🚪 銘柄別 Exit Plan (毎日確認窓)</div>
+    <div id="exit-plans-summary" class="card" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
+    <div id="exit-plans-list">
       <div class="empty">読込中...</div>
     </div>
   </div>
@@ -1063,6 +1075,164 @@ function renderPostMortem() {
   el.textContent = `[${pm.file}]\n\n${pm.content}`;
 }
 
+// 5/19 夜追加: 出口タブ render — exit_plans (sync_mobile.build_exit_plans) を表示。
+// silent fail 救済窓: 各 ticker の戦略/bracket/出口候補/当日実態 + force_sell を毎日見える化。
+function renderExitPlans() {
+  const d = window.MOBILE_DATA || {};
+  const plans = d.exit_plans || [];
+  const listEl = document.getElementById('exit-plans-list');
+  const sumEl = document.getElementById('exit-plans-summary');
+  if (!listEl) return;
+  if (!plans.length) {
+    listEl.innerHTML = '<div class="card"><div class="empty">exit_plans なし (sync_mobile.build_exit_plans 未生成)</div></div>';
+    if (sumEl) sumEl.textContent = '';
+    return;
+  }
+  // category 別グループ化
+  const groups = {};
+  plans.forEach(p => {
+    const cat = p.category || 'その他';
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(p);
+  });
+  // force_sell 件数
+  const fsN = plans.filter(p => p.force_sell_today).length;
+  if (sumEl) {
+    const total = plans.length;
+    let sumHtml = `${total} 件 (`;
+    sumHtml += Object.keys(groups).map(k => `${k} ${groups[k].length}`).join(' / ');
+    sumHtml += ')';
+    if (fsN > 0) sumHtml += ` · <span style="color:var(--red);font-weight:700">🚨 force_sell ${fsN} 件</span>`;
+    sumEl.innerHTML = sumHtml;
+  }
+  // status icon helper
+  const exitIcon = (exit) => {
+    const st = exit.status || '';
+    const type = exit.type || '';
+    if (st.indexOf('未到達') >= 0) return '⚪';
+    if (st.indexOf('発火対象') >= 0) return '🔴';  // timeout/eod 発火
+    if (st.indexOf('到達済') >= 0) {
+      if (type === 'TP') return '🟢';
+      if (type === 'SL') return '🔴';
+      return '🟢';
+    }
+    return '⚪';
+  };
+  const exitLabel = (exit) => {
+    const type = exit.type || '';
+    if (type === 'TP') {
+      const pct = exit.target_pct;
+      return `TP ${pct!=null?(pct>=0?'+':'')+pct.toFixed(2)+'%':''} ($${(exit.target_price||0).toFixed(2)})`;
+    }
+    if (type === 'SL') {
+      const pct = exit.target_pct;
+      return `SL ${pct!=null?pct.toFixed(2)+'%':''} ($${(exit.target_price||0).toFixed(2)})`;
+    }
+    if (type === 'timeout') {
+      return `timeout (${exit.due||''})`;
+    }
+    if (type === 'hold_min_timeout') {
+      return `hold_min timeout (${exit.due||''})`;
+    }
+    if (type === 'force_close_eod') {
+      return `EOD 強制 close (${exit.due||''})`;
+    }
+    return `${type} (${exit.due||''})`;
+  };
+  const statusColor = (exit) => {
+    const st = exit.status || '';
+    if (st.indexOf('発火対象') >= 0) return 'var(--red)';
+    if (st.indexOf('到達済') >= 0) {
+      return exit.type === 'SL' ? 'var(--red)' : 'var(--green)';
+    }
+    return 'var(--sub)';
+  };
+
+  // category order: 短期 (寄付戦略) → 場中 (intraday) → others
+  const catOrder = ['短期 (寄付戦略)', '場中 (intraday)'];
+  const cats = Object.keys(groups).sort((a,b) => {
+    const ai = catOrder.indexOf(a); const bi = catOrder.indexOf(b);
+    if (ai < 0 && bi < 0) return a.localeCompare(b);
+    if (ai < 0) return 1; if (bi < 0) return -1;
+    return ai - bi;
+  });
+
+  let html = '';
+  cats.forEach(cat => {
+    const list = groups[cat];
+    const isIntraday = cat.indexOf('intraday') >= 0 || cat.indexOf('場中') >= 0;
+    html += `<div class="section-title" style="margin:12px 0 6px 0">▎ ${cat} (${list.length}件)</div>`;
+    list.forEach(p => {
+      const fs = p.force_sell_today;
+      const cardStyle = fs ? 'border:1px solid var(--red);background:rgba(248,81,73,.08)' : '';
+      const upct = p.unrealized_pct;
+      const upctCls = pctClass(upct);
+      const upctStr = upct!=null ? fmtPct(upct) : '—';
+      const curStr = p.current_price!=null ? fmt$2(p.current_price) : '—';
+      // header: ticker + category badge + timeout warn
+      const timeoutHit = (p.exits||[]).some(e => (e.type==='timeout' || e.type==='hold_min_timeout') && (e.status||'').indexOf('発火対象') >= 0);
+      const timeoutWarn = timeoutHit ? '<span class="badge" style="background:rgba(248,81,73,.18);color:var(--red)">⚠ timeout 超過</span>' : '';
+      // entry line: intraday は entry_ts / held_min / hold_min, 寄付 は entry_date / days_held / hold_days
+      let entryLine = '';
+      if (isIntraday) {
+        const ts = (p.entry_ts||'').slice(11,16);
+        const hm = p.held_min!=null ? p.held_min : '—';
+        const target = p.hold_min!=null ? p.hold_min : '—';
+        entryLine = `${ts} · ${p.qty||0}株 @ ${fmt$2(p.entry_price)} · 経過 ${hm}min / hold ${target}min`;
+      } else {
+        const dh = p.days_held!=null ? p.days_held : '—';
+        const target = p.hold_days!=null ? p.hold_days : '—';
+        entryLine = `${p.entry_date||'—'} · ${p.qty||0}株 @ ${fmt$2(p.entry_price)} · 経過 ${dh}d / hold ${target}d`;
+      }
+      // exits list
+      const exitsHtml = (p.exits||[]).map(e => {
+        const col = statusColor(e);
+        return `<div style="display:flex;justify-content:space-between;padding:3px 0;font-size:11px">
+          <span style="color:var(--txt)">${exitIcon(e)} ${exitLabel(e)}</span>
+          <span style="color:${col};font-weight:600">${e.status||''}</span>
+        </div>`;
+      }).join('');
+      // force sell banner
+      const fsHtml = fs ? `
+        <div style="margin-top:8px;padding:8px;background:rgba(248,81,73,.15);border-left:3px solid var(--red);border-radius:4px">
+          <div style="font-size:11px;color:var(--red);font-weight:700;margin-bottom:2px">🚨 force_sell 翌営業日:</div>
+          <div style="font-size:11px;color:var(--txt);line-height:1.5;white-space:pre-wrap">${fs}</div>
+        </div>` : '';
+      // silent fail note
+      const sfHtml = p.silent_fail_note ? `
+        <div style="margin-top:6px;font-size:10px;color:var(--sub);line-height:1.4;white-space:pre-wrap;font-style:italic">
+          📝 ${p.silent_fail_note}
+        </div>` : '';
+      // bracket summary (small)
+      const br = p.bracket || {};
+      const brStr = (br.tp_pct!=null || br.sl_pct!=null)
+        ? `bracket: TP+${(br.tp_pct||0).toFixed(2)}% / SL${(br.sl_pct||0).toFixed(0)}%`
+        : '';
+      html += `
+        <div class="card" style="${cardStyle};margin-bottom:8px">
+          <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
+            <div style="flex:1;min-width:0">
+              <div class="ticker">${p.ticker||'—'} <span class="badge">${p.strategy||'—'}</span>${timeoutWarn}</div>
+              <div class="strat" style="margin-top:2px">${entryLine}</div>
+              ${brStr ? `<div class="strat" style="font-size:10px;color:var(--sub);margin-top:2px">${brStr}</div>` : ''}
+            </div>
+            <div style="text-align:right">
+              <div class="price">${curStr}</div>
+              <div class="pct ${upctCls}">${upctStr}</div>
+            </div>
+          </div>
+          <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08)">
+            <div class="strat" style="font-size:10px;text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px">出口候補</div>
+            ${exitsHtml}
+          </div>
+          ${fsHtml}
+          ${sfHtml}
+        </div>`;
+    });
+  });
+  listEl.innerHTML = html;
+}
+
 function loadAll() {
   // 5/19 夜 fix: 個別 render 失敗で全体が止まらないよう try/catch で隔離。
   // renderHistory null クラッシュ → 「読込中」 stuck だった失敗を二度と再発させない。
@@ -1074,6 +1244,7 @@ function loadAll() {
   safeRun('regime', renderRegime);
   safeRun('today', renderToday);
   safeRun('positions', renderPositions);
+  safeRun('exitPlans', renderExitPlans);
   safeRun('weekly', renderWeekly);
   safeRun('forecast', renderForecast);
   safeRun('champ', renderChamp);
