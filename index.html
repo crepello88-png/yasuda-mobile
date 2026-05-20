@@ -268,27 +268,16 @@
 <!-- Tab: Champ -->
 <div class="tab-content" id="tab-champ">
   <div class="section">
-    <div class="section-title">🏆 Champ DCA 週次 (5/11-5/15)</div>
-    <div class="card">
-      <div class="stat-grid">
-        <div class="stat">
-          <div class="stat-label">unrealized P&L</div>
-          <div class="stat-value" id="c-pnl">—</div>
-        </div>
-        <div class="stat">
-          <div class="stat-label">cost / value</div>
-          <div class="stat-value" id="c-cost" style="font-size:13px">—</div>
-        </div>
-      </div>
-    </div>
+    <div class="section-title">🏆 Champ DCA 5 銘柄 (投信スタイル)</div>
+    <div class="card" id="champ-portfolio"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📊 銘柄別 詳細</div>
+    <div class="card" id="champ-tickers"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
     <div class="section-title">📋 週次 BUY 明細</div>
     <div class="card" id="champ-buys"><div class="empty">読込中...</div></div>
-  </div>
-  <div class="section">
-    <div class="section-title">💰 5/11 rebalance SELL</div>
-    <div class="card" id="champ-sells" style="font-size:12px;color:var(--sub)"></div>
   </div>
   <div class="section">
     <div class="section-title">📅 次回 schedule</div>
@@ -941,27 +930,92 @@ function renderForecast() {
 }
 
 function renderChamp() {
-  const c = (window.MOBILE_DATA||{}).champ;
-  if (!c) { document.getElementById('champ-buys').innerHTML='<div class="empty">Champ データなし</div>'; return; }
-  const pnlEl = document.getElementById('c-pnl');
-  pnlEl.textContent = (c.weekly_pnl>=0?'+$':'-$') + Math.abs(c.weekly_pnl||0).toFixed(2);
-  pnlEl.className = 'stat-value ' + pctClass(c.weekly_pnl);
-  document.getElementById('c-cost').textContent = '$'+(c.weekly_cost||0).toFixed(0)+' → $'+(c.weekly_value||0).toFixed(0);
-  const buys = c.weekly_buys||[];
-  document.getElementById('champ-buys').innerHTML = buys.map(b=>`
+  const d = window.MOBILE_DATA || {};
+  const c = d.champ || {};
+  // 5/19 夜 user 要望: Champ 5 銘柄を投信スタイルで avg/現在/損益 表示
+  const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
+  const positions = (d.positions||[]).filter(p =>
+    (p._intraday_sl_exempt === true) || CHAMP_TICKERS.includes(p.ticker)
+  );
+
+  // portfolio 集計
+  let totalCost = 0, totalValue = 0;
+  const rows = positions.map(p => {
+    const sh = Number(p.shares||0);
+    const avg = Number(p.entry_price||0);
+    const cur = Number(p.current_price||p._market_price||0) || avg;
+    const cost = sh * avg;
+    const value = sh * cur;
+    const pnl = value - cost;
+    const pnl_pct = avg > 0 ? (cur/avg - 1) * 100 : 0;
+    totalCost += cost; totalValue += value;
+    return { ticker:p.ticker, sh, avg, cur, cost, value, pnl, pnl_pct };
+  });
+  const totalPnl = totalValue - totalCost;
+  const totalPct = totalCost > 0 ? (totalPnl / totalCost * 100) : 0;
+
+  // portfolio summary (投信風)
+  document.getElementById('champ-portfolio').innerHTML = `
     <div class="row">
-      <div class="row-l">
-        <div class="ticker">${b.ticker}<span class="badge">${b.shares}株</span></div>
-        <div class="strat">${b.date.slice(5)} · entry $${b.entry.toFixed(2)} → $${b.last.toFixed(2)}</div>
-      </div>
+      <div class="row-l"><div class="strat">取得元本 (cost basis)</div></div>
+      <div class="row-r"><div class="price">$${totalCost.toFixed(2)}</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="strat">評価額 (market value)</div></div>
+      <div class="row-r"><div class="price">$${totalValue.toFixed(2)}</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="strat">含み損益</div></div>
       <div class="row-r">
-        <div class="price ${pctClass(b.pnl)}">${b.pnl>=0?'+$':'-$'}${Math.abs(b.pnl).toFixed(2)}</div>
-        <div class="pct ${pctClass(b.pnl_pct)}">${fmtPct(b.pnl_pct)}</div>
+        <div class="price ${pctClass(totalPnl)}">${totalPnl>=0?'+$':'-$'}${Math.abs(totalPnl).toFixed(2)}</div>
+        <div class="pct ${pctClass(totalPct)}">${fmtPct(totalPct)}</div>
       </div>
-    </div>`).join('');
-  document.getElementById('champ-sells').textContent = '5/11 SELL 回収 cash: $'+(c.weekly_sells_cash||0).toFixed(2)+' (cost basis 不明)';
-  const sch = c.schedule_next||[];
-  document.getElementById('champ-sched').innerHTML = sch.length ? sch.map(s=>`<div class="row"><div class="row-l"><div class="ticker">${s.date}</div><div class="strat">${s.plan}</div></div></div>`).join('') : '<div class="empty">予定なし</div>';
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="strat">銘柄数 / 株数 合計</div></div>
+      <div class="row-r"><div class="strat">${rows.length} 銘柄 / ${rows.reduce((s,r)=>s+r.sh,0)} 株</div></div>
+    </div>`;
+
+  // 銘柄別 詳細
+  if (rows.length === 0) {
+    document.getElementById('champ-tickers').innerHTML = '<div class="empty">Champ 保有なし</div>';
+  } else {
+    document.getElementById('champ-tickers').innerHTML = rows.map(r => `
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${r.ticker} <span class="badge">${r.sh}株</span></div>
+          <div class="strat">avg $${r.avg.toFixed(2)} → 現 $${r.cur.toFixed(2)}</div>
+        </div>
+        <div class="row-r">
+          <div class="price ${pctClass(r.pnl)}">${r.pnl>=0?'+$':'-$'}${Math.abs(r.pnl).toFixed(2)}</div>
+          <div class="pct ${pctClass(r.pnl_pct)}">${fmtPct(r.pnl_pct)}</div>
+        </div>
+      </div>`).join('');
+  }
+
+  // 既存の週次 BUY 明細 (preserved champ section の weekly_buys)
+  const buys = c.weekly_buys || [];
+  if (buys.length) {
+    document.getElementById('champ-buys').innerHTML = buys.map(b=>`
+      <div class="row">
+        <div class="row-l">
+          <div class="ticker">${b.ticker}<span class="badge">${b.shares}株</span></div>
+          <div class="strat">${(b.date||'').slice(5)} · entry $${(b.entry||0).toFixed(2)} → $${(b.last||0).toFixed(2)}</div>
+        </div>
+        <div class="row-r">
+          <div class="price ${pctClass(b.pnl)}">${(b.pnl||0)>=0?'+$':'-$'}${Math.abs(b.pnl||0).toFixed(2)}</div>
+          <div class="pct ${pctClass(b.pnl_pct)}">${fmtPct(b.pnl_pct||0)}</div>
+        </div>
+      </div>`).join('');
+  } else {
+    document.getElementById('champ-buys').innerHTML = '<div class="empty">週次 BUY 明細 なし</div>';
+  }
+
+  // schedule
+  const sch = c.schedule_next || [];
+  document.getElementById('champ-sched').innerHTML = sch.length
+    ? sch.map(s=>`<div class="row"><div class="row-l"><div class="ticker">${s.date}</div><div class="strat">${s.plan}</div></div></div>`).join('')
+    : '<div class="empty">5/26 settle 後 再開予定 (5/19 ACH $9,400 settle 待ち)</div>';
 }
 
 function isMarketHoursCT() {
