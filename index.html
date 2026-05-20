@@ -223,13 +223,6 @@
   </div>
 
   <div class="section">
-    <div class="section-title">📝 trade 詳細</div>
-    <div class="card" id="weekly-trades">
-      <div class="empty">読込中...</div>
-    </div>
-  </div>
-
-  <div class="section">
     <div class="section-title">🎯 戦略別 内訳</div>
     <div class="card" id="weekly-bystrat">
       <div class="empty">読込中...</div>
@@ -712,7 +705,6 @@ function renderWeekly() {
   const d = window.MOBILE_DATA || {};
   const w = d.weekly_pnl;
   if (!w) {
-    document.getElementById('weekly-trades').innerHTML = '<div class="empty">週次データなし</div>';
     return;
   }
   // 5/19 夜 user 「週次が長期と短期の合計みたいな感じで」 → 長期 + 短期 合計 section
@@ -818,13 +810,7 @@ function renderWeekly() {
   svg.innerHTML = html;
   document.getElementById('weekly-legend').innerHTML = '🟩 日次 P&L (bar) ／ 🔵 累積 (line)';
 
-  // 5/19 夜 user 「トレード詳細は短期タブへ」 → 週次 trade list は省略 + 戦略別 内訳 field 修正
-  const trades = w.trades || [];
-  const tEl = document.getElementById('weekly-trades');
-  if (tEl) {
-    if (!trades.length) tEl.innerHTML = '<div class="empty">trade なし、 詳細は「短期」 タブへ</div>';
-    else tEl.innerHTML = `<div class="empty">今週 ${trades.length} 件 closed (詳細は「短期」 または「約定」 タブへ)</div>`;
-  }
+  // 5/19 夜 user 「trade 詳細 見た目汚いいらない」 で削除済、 element 不在
 
   // by strategy: data field 名 strategy / pnl / n / wins
   const bs = w.by_strategy || [];
