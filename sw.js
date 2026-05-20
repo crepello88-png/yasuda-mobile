@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v27 (5/20 0:35): Web Push 通知 追加 (user 「アップルウォッチ してるから クロコーからだ！ って分かる振動」) — VAPID + push handler + クロコー専用 vibrate [200,100,200,100,200] 5 連、 iOS 16.4+ home screen PWA で動作、 issue close 毎に iPhone+Watch 振動通知。
 // v26 (5/19 夜): 📬 返信 タブ 新規追加 (user 「A: PWA 返信タブ実装」) — gh issue list pwa-report で クロコー返信表示、 未読 NEW バッジ + localStorage seen tracking。
 // v25 (5/19 夜): 📮 報告 ボタン 追加 (header)。 PWA から GitHub Issue 経由で クロコー (Claude) に報告 — 6 テンプレ (売れてない/約定変/PnL変/UI崩れ/確認/自由入力) + 自動 context (data.js timestamp / NetLiq / 表示タブ等) 添付。
 // v24 (5/19 夜): タブ順序 user 指定順に並び替え (今日/保有/出口/履歴/週次/Champ/短期/短vs長/場中/監視/戦略/銘柄)。
@@ -22,7 +23,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v26';
+const CACHE = 'ibkr-plan-v27';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
@@ -66,4 +67,29 @@ self.addEventListener('fetch', e => {
 
 self.addEventListener('message', e => {
   if (e.data === 'SKIP_WAITING') self.skipWaiting();
+});
+
+// 5/20 push notification (Claude/クロコー からの返信即受信)
+self.addEventListener('push', function(event) {
+  let data = { title: '🦝 クロコーから', body: '新規返信あり' };
+  if (event.data) {
+    try { data = event.data.json(); } catch (e) { data.body = event.data.text(); }
+  }
+  const options = {
+    body: data.body,
+    icon: './icon-192.png',
+    badge: './icon-192.png',
+    vibrate: [200, 100, 200, 100, 200],  // クロコー専用 パターン
+    tag: data.tag || 'kuroko-reply',
+    renotify: true,
+    requireInteraction: false,
+    data: { url: data.url || './', issueNum: data.issueNum }
+  };
+  event.waitUntil(self.registration.showNotification(data.title, options));
+});
+
+self.addEventListener('notificationclick', function(event) {
+  event.notification.close();
+  const url = (event.notification.data && event.notification.data.url) || './#tab=reports';
+  event.waitUntil(clients.openWindow(url));
 });
