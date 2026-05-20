@@ -938,14 +938,30 @@ function renderHistory() {
     }
   }
 
-  // List (newest first)
+  // List (newest first) — 5/19 夜 user 「日次ログは何の銘柄か見えない」 fix: ticker info 追加
+  const allTradesByDate = {};
+  ((window.MOBILE_DATA||{}).all_trades || []).forEach(t => {
+    if (t.source === 'tws_executions') return;
+    const dk = (t.date||'').slice(0,10);
+    if (!dk) return;
+    (allTradesByDate[dk] = allTradesByDate[dk] || []).push(t);
+  });
   const list = [...h].reverse();
   document.getElementById('history-list').innerHTML = list.map(d => {
     const pnl = d.day_pnl||0;
+    const tickers = (allTradesByDate[d.date] || []);
+    const tickerLine = tickers.length
+      ? tickers.map(t => {
+          const p = t.pnl_usd || 0;
+          const sign = p>=0?'+':'-';
+          return `<span class="${pctClass(p)}">${t.ticker} ${sign}$${Math.abs(p).toFixed(2)}</span>`;
+        }).join(' · ')
+      : '';
     return `<div class="row">
       <div class="row-l">
         <div class="ticker" style="font-size:12px">${d.date}<span class="badge">${d.n_trades||0}件</span></div>
         <div class="strat">NetLiq ${fmt$2(d.netliq)} · VIX ${(d.vix||0).toFixed(2)}</div>
+        ${tickerLine ? `<div class="strat" style="font-size:10px;margin-top:2px">${tickerLine}</div>` : ''}
       </div>
       <div class="row-r">
         <div class="price ${pctClass(pnl)}">${pnl>=0?'+$':'-$'}${Math.abs(pnl).toFixed(2)}</div>
