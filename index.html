@@ -94,6 +94,7 @@
   <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">短vs長</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
+  <div class="tab" data-tab="reports" onclick="switchTab('reports')">📬 返信<span id="reports-badge" style="display:none;background:var(--red);color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;margin-left:3px;font-weight:700"></span></div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
   <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
 </div>
@@ -360,6 +361,22 @@
     <div class="section-title">📈 場中 保有</div>
     <div id="intraday-positions" class="card">
       <div class="empty">読込中...</div>
+    </div>
+  </div>
+</div>
+
+<!-- Tab: 📬 返信 (5/19 夜 user 「PWA 返信タブ」) -->
+<div class="tab-content" id="tab-reports">
+  <div class="section">
+    <div class="section-title">📬 クロコー との通信履歴</div>
+    <div class="card" id="reports-summary" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
+    <div class="card" id="reports-list"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📮 送信履歴</div>
+    <div class="card" id="reports-tip" style="font-size:11px;color:var(--sub)">
+      header 「📮 報告」 で新規送信。 close 済 = クロコー対応完了、 OPEN = 未対応。<br/>
+      クロコーは次セッション開始時に check して返信します (即時 NOT 可)。
     </div>
   </div>
 </div>
@@ -1184,6 +1201,71 @@ function isMarketHoursCT() {
   return (cur >= 810 && cur <= 1200);
 }
 
+function renderReports() {
+  // 5/19 夜 user 「PWA 返信タブ」 → gh issue list の pwa-report 一覧 + クロコー返信表示 + 未読バッジ
+  const d = window.MOBILE_DATA || {};
+  const reports = d.pwa_reports || [];
+  const sumEl = document.getElementById('reports-summary');
+  const listEl = document.getElementById('reports-list');
+  const badgeEl = document.getElementById('reports-badge');
+
+  // 未読 = 直近 close されたが localStorage に「seen」 記録ない issue
+  let seen;
+  try { seen = JSON.parse(localStorage.getItem('pwa_reports_seen')||'[]'); }
+  catch { seen = []; }
+  const newClosed = reports.filter(r => r.state === 'CLOSED' && !seen.includes(r.number));
+  if (badgeEl) {
+    if (newClosed.length > 0) { badgeEl.textContent = String(newClosed.length); badgeEl.style.display = 'inline-block'; }
+    else badgeEl.style.display = 'none';
+  }
+
+  const openN = reports.filter(r=>r.state==='OPEN').length;
+  const closedN = reports.filter(r=>r.state==='CLOSED').length;
+  if (sumEl) sumEl.innerHTML = `送信 ${reports.length} 件 / 対応中 ${openN} / 返信済 ${closedN}${newClosed.length>0?` / <span class="red">未読 ${newClosed.length}</span>`:''}`;
+
+  if (!reports.length) {
+    listEl.innerHTML = '<div class="empty">送信履歴 なし。 header 「📮 報告」 から送信。</div>';
+    return;
+  }
+  // sort: OPEN first, then recent
+  reports.sort((a,b) => {
+    if (a.state !== b.state) return a.state === 'OPEN' ? -1 : 1;
+    return (b.created_at||'').localeCompare(a.created_at||'');
+  });
+  listEl.innerHTML = reports.map(r => {
+    const stateLabel = r.state === 'OPEN' ? '<span class="red">🟡 対応中</span>' : '<span class="green">✅ 返信済</span>';
+    const isNew = r.state === 'CLOSED' && !seen.includes(r.number);
+    const newBadge = isNew ? '<span style="background:var(--red);color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;margin-left:4px">NEW</span>' : '';
+    const created = (r.created_at||'').slice(0,16).replace('T',' ');
+    const closed = r.closed_at ? (r.closed_at||'').slice(0,16).replace('T',' ') : '';
+    const bodyShort = (r.body||'').slice(0, 300);
+    // クロコー返信 (最新 close comment があれば)
+    const replies = (r.comments || []).filter(c => c.author && (c.author.toLowerCase().includes('claude') || c.author.toLowerCase() === 'crepello88-png' || c.body));
+    const replyHtml = replies.length
+      ? replies.map(c => `<div style="margin-top:8px;padding:8px;background:rgba(63,185,80,.08);border-left:3px solid var(--green);border-radius:4px">
+          <div class="strat" style="font-size:10px;color:var(--sub)">${c.author} · ${(c.created_at||'').slice(0,16).replace('T',' ')}</div>
+          <div style="font-size:12px;white-space:pre-wrap;margin-top:4px">${c.body}</div>
+        </div>`).join('')
+      : (r.state === 'CLOSED' ? '<div class="strat" style="margin-top:6px">(close のみ、 comment なし)</div>' : '<div class="strat" style="margin-top:6px">返信 待ち</div>');
+    return `<div style="padding:10px 0;border-bottom:1px solid var(--line)">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div class="ticker" style="font-size:13px">#${r.number} ${stateLabel}${newBadge}</div>
+        <div class="strat" style="font-size:10px">${created}${closed?' → '+closed:''}</div>
+      </div>
+      <div style="font-size:12px;margin-top:4px;font-weight:600">${r.title}</div>
+      <div style="font-size:10px;color:var(--sub);white-space:pre-wrap;margin-top:4px;max-height:80px;overflow:hidden">${bodyShort}</div>
+      ${replyHtml}
+    </div>`;
+  }).join('');
+
+  // 既読 mark (タブ open した瞬間に全 close 既読 化)
+  if (newClosed.length > 0) {
+    const allClosedNums = reports.filter(r=>r.state==='CLOSED').map(r=>r.number);
+    localStorage.setItem('pwa_reports_seen', JSON.stringify(allClosedNums));
+    setTimeout(() => { if (badgeEl) badgeEl.style.display = 'none'; }, 1000);
+  }
+}
+
 function renderShortTab() {
   // 5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 → Champ 除外、 短期 only view (cron 上書きで消失、 v20 復元)
   const d = window.MOBILE_DATA || {};
@@ -1782,6 +1864,7 @@ function loadAll() {
   safeRun('trackerStrategies', renderTrackerStrategies);
   safeRun('tickers', renderTickers);
   safeRun('short', renderShortTab);
+  safeRun('reports', renderReports);
   safeRun('trades', renderTrades);  // 約定 tab 廃止後も 履歴 tab 内の trades-list / trades-summary を render
   safeRun('svsl', renderShortVsLong);
   safeRun('monitor', renderMonitor);

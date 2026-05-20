@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T23:30",
+  "generated_at": "2026-05-19T23:35",
   "today_summary": {
     "netliq": 11397.4,
     "cash": 697.57,
@@ -4299,43 +4299,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T23:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.48627634999999997
+      "age_min": 5.462991233333333
     },
     "sync_mobile": {
-      "ts": "2026-05-19T23:30:21",
+      "ts": "2026-05-19T23:30:34",
       "ok": true,
-      "note": "146,372 B",
-      "age_min": 0.18627635
+      "note": "146,365 B",
+      "age_min": 4.946324566666666
     },
     "verify_claims": {
       "ts": "2026-05-19T22:14:43",
       "ok": true,
       "note": "29p/0f",
-      "age_min": 75.81960968333333
+      "age_min": 80.79632456666667
     },
     "intraday_cron": {
-      "ts": "2026-05-19T23:16:02",
+      "ts": "2026-05-19T23:30:34",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.502943016666668
+      "age_min": 4.946324566666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T23:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.5029430166666666
+      "age_min": 5.4796579
     },
     "vix_regime": {
       "ts": "2026-05-19T23:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.48627634999999997
+      "age_min": 5.462991233333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 930.48627635
+      "age_min": 935.4629912333334
     }
   },
   "regime": {
@@ -4649,5 +4649,6 @@ window.MOBILE_DATA = {
       "source": "monitor",
       "_net_calc": "historical_estimate_2usd"
     }
-  ]
+  ],
+  "pwa_reports": []
 };
