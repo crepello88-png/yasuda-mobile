@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T22:48",
+  "generated_at": "2026-05-19T22:57",
   "today_summary": {
     "netliq": 11397.4,
     "cash": 697.57,
@@ -538,10 +538,13 @@ window.MOBILE_DATA = {
         "shares": 3,
         "entry_price": 135.11,
         "exit_price": 135.46,
-        "pnl_usd": 1.05,
+        "pnl_gross": 1.05,
+        "pnl_usd": -0.96,
+        "commission": 2.01,
         "pnl_pct": null,
         "exit_reason": "intraday_close",
-        "source": "intraday"
+        "source": "intraday",
+        "_net_calc": "TWS_realized_net"
       },
       {
         "date": "2026-05-18",
@@ -550,24 +553,27 @@ window.MOBILE_DATA = {
         "shares": 15,
         "entry_price": 113.4,
         "exit_price": 107.4,
-        "pnl_usd": -90.9,
+        "pnl_gross": -90.9,
+        "pnl_usd": -92.9,
+        "commission": 2.0,
         "pnl_pct": -5.29,
         "exit_reason": "user_manual_-3%_intraday_SL",
-        "source": "monitor"
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
       }
     ],
     "by_strategy": [
       {
         "strategy": "V10_PLTR_vwap",
         "n": 1,
-        "pnl": 1.05,
-        "wins": 1,
-        "win_rate": 100.0
+        "pnl": -0.96,
+        "wins": 0,
+        "win_rate": 0.0
       },
       {
         "strategy": "HighPullback50_v1",
         "n": 1,
-        "pnl": -90.9,
+        "pnl": -92.9,
         "wins": 0,
         "win_rate": 0.0
       }
@@ -4293,43 +4299,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T22:45:03",
       "ok": true,
       "note": "",
-      "age_min": 3.6686907166666667
+      "age_min": 11.96018425
     },
     "sync_mobile": {
-      "ts": "2026-05-19T22:48:19",
+      "ts": "2026-05-19T22:48:45",
       "ok": true,
-      "note": "145,976 B",
-      "age_min": 0.40202404999999997
+      "note": "145,974 B",
+      "age_min": 8.26018425
     },
     "verify_claims": {
       "ts": "2026-05-19T22:14:43",
       "ok": true,
       "note": "29p/0f",
-      "age_min": 34.00202405
+      "age_min": 42.29351758333333
     },
     "intraday_cron": {
       "ts": "2026-05-19T22:45:28",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.25202405
+      "age_min": 11.543517583333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T22:45:02",
       "ok": true,
       "note": "",
-      "age_min": 3.6853573833333333
+      "age_min": 11.976850916666667
     },
     "vix_regime": {
       "ts": "2026-05-19T22:45:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 3.6686907166666667
+      "age_min": 11.96018425
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 888.6686907166667
+      "age_min": 896.96018425
     }
   },
   "regime": {
@@ -4564,10 +4570,13 @@ window.MOBILE_DATA = {
       "shares": 3,
       "entry_price": 135.11,
       "exit_price": 135.46,
-      "pnl_usd": 1.05,
+      "pnl_gross": 1.05,
+      "pnl_usd": -0.96,
+      "commission": 2.01,
       "pnl_pct": null,
       "exit_reason": "intraday_close",
-      "source": "intraday"
+      "source": "intraday",
+      "_net_calc": "TWS_realized_net"
     },
     {
       "date": "2026-05-19",
@@ -4632,10 +4641,13 @@ window.MOBILE_DATA = {
       "shares": 15,
       "entry_price": 113.4,
       "exit_price": 107.4,
-      "pnl_usd": -90.9,
+      "pnl_gross": -90.9,
+      "pnl_usd": -92.9,
+      "commission": 2.0,
       "pnl_pct": -5.29,
       "exit_reason": "user_manual_-3%_intraday_SL",
-      "source": "monitor"
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
     }
   ]
 };
