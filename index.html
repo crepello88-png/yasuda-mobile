@@ -818,39 +818,31 @@ function renderWeekly() {
   svg.innerHTML = html;
   document.getElementById('weekly-legend').innerHTML = '🟩 日次 P&L (bar) ／ 🔵 累積 (line)';
 
-  // trade list
+  // 5/19 夜 user 「トレード詳細は短期タブへ」 → 週次 trade list は省略 + 戦略別 内訳 field 修正
   const trades = w.trades || [];
   const tEl = document.getElementById('weekly-trades');
-  if (!trades.length) tEl.innerHTML = '<div class="empty">trade なし</div>';
-  else {
-    tEl.innerHTML = trades.map(t => `
-      <div class="row">
-        <div class="row-l">
-          <div class="ticker">${t.ticker}<span class="badge">${t.strategy}</span></div>
-          <div class="strat">${t.date.slice(5)} · exit ${t.exit||''}</div>
-        </div>
-        <div class="row-r">
-          <div class="price ${pctClass(t.pnl)}">${t.pnl>=0?'+$':'-$'}${Math.abs(t.pnl).toFixed(2)}</div>
-          <div class="pct ${pctClass(t.ret_pct)}">${fmtPct(t.ret_pct)}</div>
-        </div>
-      </div>`).join('');
+  if (tEl) {
+    if (!trades.length) tEl.innerHTML = '<div class="empty">trade なし、 詳細は「短期」 タブへ</div>';
+    else tEl.innerHTML = `<div class="empty">今週 ${trades.length} 件 closed (詳細は「短期」 または「約定」 タブへ)</div>`;
   }
 
-  // by strategy
+  // by strategy: data field 名 strategy / pnl / n / wins
   const bs = w.by_strategy || [];
   const sEl = document.getElementById('weekly-bystrat');
-  if (!bs.length) sEl.innerHTML = '<div class="empty">なし</div>';
-  else {
-    sEl.innerHTML = bs.map(s => `
-      <div class="row">
-        <div class="row-l">
-          <div class="ticker" style="font-size:13px">${s.name}</div>
-          <div class="strat">${s.wins}勝 / ${s.n}件</div>
-        </div>
-        <div class="row-r">
-          <div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div>
-        </div>
-      </div>`).join('');
+  if (sEl) {
+    if (!bs.length) sEl.innerHTML = '<div class="empty">戦略別 なし</div>';
+    else {
+      sEl.innerHTML = bs.map(s => `
+        <div class="row">
+          <div class="row-l">
+            <div class="ticker" style="font-size:13px">${s.strategy || '?'}</div>
+            <div class="strat">${s.wins||0}勝 / ${s.n||0}件 (${s.win_rate||0}%)</div>
+          </div>
+          <div class="row-r">
+            <div class="price ${pctClass(s.pnl||0)}">${(s.pnl||0)>=0?'+$':'-$'}${Math.abs(s.pnl||0).toFixed(2)}</div>
+          </div>
+        </div>`).join('');
+    }
   }
   document.getElementById('weekly-note').textContent = w.note || '';
 }
