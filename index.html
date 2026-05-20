@@ -90,6 +90,7 @@
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
   <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
+  <div class="tab" data-tab="short" onclick="switchTab('short')">短期</div>
   <div class="tab" data-tab="trades" onclick="switchTab('trades')">約定</div>
   <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">短vs長</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
@@ -383,6 +384,26 @@
     <div id="tickers-list">
       <div class="empty">読込中...</div>
     </div>
+  </div>
+</div>
+
+<!-- Tab: 短期 (5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 で追加。 cron 上書きで消えた事案 → v20 で復元) -->
+<div class="tab-content" id="tab-short">
+  <div class="section">
+    <div class="section-title">⚡ 短期 P&L サマリ</div>
+    <div class="card" id="short-summary"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">💼 短期 保有 (現)</div>
+    <div class="card" id="short-positions"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📊 短期 戦略別 (今週)</div>
+    <div class="card" id="short-by-strategy"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📜 短期 直近 closed</div>
+    <div class="card" id="short-trades"><div class="empty">読込中...</div></div>
   </div>
 </div>
 
@@ -1120,6 +1141,63 @@ function isMarketHoursCT() {
   return (cur >= 810 && cur <= 1200);
 }
 
+function renderShortTab() {
+  // 5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 → Champ 除外、 短期 only view (cron 上書きで消失、 v20 復元)
+  const d = window.MOBILE_DATA || {};
+  const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
+  const isShort = (p) => !((p._intraday_sl_exempt === true)
+                            || CHAMP_TICKERS.includes(p.ticker)
+                            || p.strategy === 'Champ_DCA'
+                            || p.exit_style === 'LONG_TERM');
+  const shortPos = (d.positions||[]).filter(isShort);
+  let cost=0, value=0;
+  shortPos.forEach(p => {
+    const sh=Number(p.shares||0), avg=Number(p.entry_price||0);
+    const cur=Number(p.current_price||p._market_price||0)||avg;
+    cost += sh*avg; value += sh*cur;
+  });
+  const unreal = value - cost, unrealPct = cost ? unreal/cost*100 : 0;
+  const w = d.weekly_pnl || {};
+  const shortTrades = (w.trades||[]).filter(t => !CHAMP_TICKERS.includes(t.ticker || ''));
+  const realizedWeek = shortTrades.reduce((s,t)=>s+(t.pnl_usd||0), 0);
+  const winsWeek = shortTrades.filter(t=>(t.pnl_usd||0)>0).length;
+  const byStrat = {};
+  shortTrades.forEach(t => {
+    const k = t.strategy || '?';
+    const s = byStrat[k] = byStrat[k] || {strategy:k, n:0, pnl:0, wins:0};
+    s.n++; s.pnl += t.pnl_usd||0; if ((t.pnl_usd||0)>0) s.wins++;
+  });
+  const byStratArr = Object.values(byStrat).sort((a,b)=>b.pnl-a.pnl);
+  const sumEl = document.getElementById('short-summary');
+  if (sumEl) sumEl.innerHTML = `
+    <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${shortPos.length} 銘柄 / 元本 $${cost.toFixed(0)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(unreal)}">${unreal>=0?'+$':'-$'}${Math.abs(unreal).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(realizedWeek)}">${realizedWeek>=0?'+$':'-$'}${Math.abs(realizedWeek).toFixed(2)}</div><div class="pct">${shortTrades.length}件 / 勝${winsWeek}</div></div></div>`;
+  const posEl = document.getElementById('short-positions');
+  if (posEl) {
+    if (!shortPos.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
+    else posEl.innerHTML = shortPos.map(p => {
+      const sh=Number(p.shares||0), avg=Number(p.entry_price||0);
+      const cur=Number(p.current_price||p._market_price||0)||avg;
+      const pn=(cur-avg)*sh, pct=avg?(cur/avg-1)*100:0;
+      return `<div class="row"><div class="row-l"><div class="ticker">${p.ticker} <span class="badge">${(p.strategy||'').slice(0,18)}</span></div><div class="strat">${sh}株 @ $${avg.toFixed(2)} → 現 $${cur.toFixed(2)}</div></div><div class="row-r"><div class="price ${pctClass(pn)}">${pn>=0?'+$':'-$'}${Math.abs(pn).toFixed(2)}</div><div class="pct ${pctClass(pct)}">${fmtPct(pct)}</div></div></div>`;
+    }).join('');
+  }
+  const byStratEl = document.getElementById('short-by-strategy');
+  if (byStratEl) {
+    if (!byStratArr.length) byStratEl.innerHTML = '<div class="empty">今週 短期 closed なし</div>';
+    else byStratEl.innerHTML = byStratArr.map(s => {
+      const wr = s.n ? (s.wins/s.n*100).toFixed(0) : '—';
+      return `<div class="row"><div class="row-l"><div class="ticker">${s.strategy}</div><div class="strat">${s.n}件 / 勝${s.wins} (${wr}%)</div></div><div class="row-r"><div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div></div></div>`;
+    }).join('');
+  }
+  const tradesEl = document.getElementById('short-trades');
+  if (tradesEl) {
+    if (!shortTrades.length) tradesEl.innerHTML = '<div class="empty">直近 closed なし</div>';
+    else tradesEl.innerHTML = shortTrades.slice(0, 20).map(t => `<div class="row"><div class="row-l"><div class="ticker">${(t.date||'').slice(5)} ${t.ticker}</div><div class="strat">${(t.strategy||'').slice(0,20)} · ${t.shares||0}株</div></div><div class="row-r"><div class="price ${pctClass(t.pnl_usd||0)}">${(t.pnl_usd||0)>=0?'+$':'-$'}${Math.abs(t.pnl_usd||0).toFixed(2)}</div></div></div>`).join('');
+  }
+}
+
 function renderTrades() {
   // 5/19 夜 user 「トレード詳細は別タブで」 → all_trades (closed + TWS fills) 一覧表示
   const d = window.MOBILE_DATA || {};
@@ -1660,6 +1738,7 @@ function loadAll() {
   safeRun('strat', renderStrat);
   safeRun('trackerStrategies', renderTrackerStrategies);
   safeRun('tickers', renderTickers);
+  safeRun('short', renderShortTab);
   safeRun('trades', renderTrades);
   safeRun('svsl', renderShortVsLong);
   safeRun('monitor', renderMonitor);
