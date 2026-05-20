@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-19T21:45",
+  "generated_at": "2026-05-19T21:47",
   "today_summary": {
     "netliq": 11397.4,
     "cash": 697.57,
@@ -1226,79 +1226,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-19T21:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.28287865
+      "age_min": 2.9373447500000003
     },
     "sync_mobile": {
-      "ts": "2026-05-19T21:30:24",
+      "ts": "2026-05-19T21:45:21",
       "ok": true,
-      "note": "48,234 B",
-      "age_min": 14.93287865
+      "note": "48,034 B",
+      "age_min": 2.63734475
     },
     "verify_claims": {
       "ts": "2026-05-19T21:39:29",
       "ok": true,
       "note": "28p/0f",
-      "age_min": 5.849545316666666
+      "age_min": 8.504011416666666
     },
     "intraday_cron": {
-      "ts": "2026-05-19T21:30:24",
+      "ts": "2026-05-19T21:45:21",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.93287865
+      "age_min": 2.63734475
     },
     "intraday_executor_scan": {
       "ts": "2026-05-19T21:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.29954531666666667
+      "age_min": 2.954011416666667
     },
     "vix_regime": {
       "ts": "2026-05-19T21:45:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=18.24",
-      "age_min": 0.28287865
+      "age_min": 2.9373447500000003
     },
     "alert_test": {
       "ts": "2026-05-18T23:47:02",
       "ok": false,
       "note": "test alert from claude code 5/18 night",
-      "age_min": 1318.2995453166666
+      "age_min": 1320.9540114166666
     },
     "alert_executor_sim": {
       "ts": "2026-05-18T23:47:14",
       "ok": false,
       "note": "MOO reject sim",
-      "age_min": 1318.0995453166665
+      "age_min": 1320.7540114166666
     },
     "alert_import_test": {
       "ts": "2026-05-18T23:47:19",
       "ok": false,
       "note": "sanity import path test",
-      "age_min": 1318.0162119833333
+      "age_min": 1320.6706780833333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-19T08:00:03",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 825.2828786499999
+      "age_min": 827.93734475
     },
     "alert_test_post_line_removal": {
       "ts": "2026-05-19T00:09:24",
       "ok": false,
       "note": "LINE 廃止 後 動作確認",
-      "age_min": 1295.93287865
+      "age_min": 1298.58734475
     },
     "paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1",
-      "age_min": 806.9328786499999
+      "age_min": 809.5873447499999
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-19T08:18:24",
       "ok": false,
       "note": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)",
-      "age_min": 806.9328786499999
+      "age_min": 809.5873447499999
     }
   },
   "regime": {
@@ -1523,201 +1523,6 @@ window.MOBILE_DATA = {
       "unrealized_pct": -1.23,
       "force_sell_today": null,
       "silent_fail_note": "5/19 13:15:14 intraday BUY @ $439.88 IBKRATS 約定 (TWS UI)、 bracket TP/SL hit せず、 hold_min=30 timeout exit logic 未実装、 14:55 force_close も走らず → 場引まで保有 → overnight 持越 (intraday 戦略 spec 違反)。 5/20 朝 MOO SELL に force_sell 配線。"
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "PWR",
-      "strategy": "Champ_DCA",
-      "qty": 2.0,
-      "entry_price": 763.21,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 778.47,
-        "sl_pct": -10.0,
-        "sl_price": 686.89
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 778.47,
-          "target_pct": 2.0,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 686.89,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 714.280029296875,
-      "unrealized_pct": -6.41,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "COST",
-      "strategy": "Champ_DCA",
-      "qty": 1.0,
-      "entry_price": 1006.82,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 1026.96,
-        "sl_pct": -10.0,
-        "sl_price": 906.14
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 1026.96,
-          "target_pct": 2.0,
-          "status": "到達済"
-        },
-        {
-          "type": "SL",
-          "target_price": 906.14,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 1094.9000244140625,
-      "unrealized_pct": 8.75,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "NVDA",
-      "strategy": "Champ_DCA",
-      "qty": 12.0,
-      "entry_price": 229.68666715,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 234.28,
-        "sl_pct": -10.0,
-        "sl_price": 206.72
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 234.28,
-          "target_pct": 2.0,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 206.72,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 220.6300048828125,
-      "unrealized_pct": -3.94,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "GOOG",
-      "strategy": "Champ_DCA",
-      "qty": 4.0,
-      "entry_price": 389.2325,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 397.02,
-        "sl_pct": -10.0,
-        "sl_price": 350.31
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 397.02,
-          "target_pct": 2.0,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 350.31,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 384.9150085449219,
-      "unrealized_pct": -1.11,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "LLY",
-      "strategy": "Champ_DCA",
-      "qty": 1.0,
-      "entry_price": 997.1,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 1017.04,
-        "sl_pct": -10.0,
-        "sl_price": 897.39
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 1017.04,
-          "target_pct": 2.0,
-          "status": "到達済"
-        },
-        {
-          "type": "SL",
-          "target_price": 897.39,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 1021.4099731445312,
-      "unrealized_pct": 2.44,
-      "force_sell_today": null,
-      "silent_fail_note": null
     }
   ]
 };
