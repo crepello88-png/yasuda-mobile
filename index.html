@@ -183,14 +183,19 @@
   </div>
 </div>
 
-<!-- Tab: 週次 -->
+<!-- Tab: 週次 (5/19 夜 user 「長期 + 短期 合計」 view) -->
 <div class="tab-content" id="tab-weekly">
   <div class="section">
-    <div class="section-title">📈 先週 P&L サマリ</div>
+    <div class="section-title">📈 今週 P&L 合計 (長期 + 短期)</div>
+    <div class="card" id="weekly-combined"><div class="empty">読込中...</div></div>
+  </div>
+
+  <div class="section">
+    <div class="section-title">📊 先週 短期 P&L サマリ (realized)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
-          <div class="stat-label">週次 P&L</div>
+          <div class="stat-label">短期 realized</div>
           <div class="stat-value" id="w-pnl">—</div>
         </div>
         <div class="stat">
@@ -710,7 +715,38 @@ function renderWeekly() {
     document.getElementById('weekly-trades').innerHTML = '<div class="empty">週次データなし</div>';
     return;
   }
-  // Stat cards
+  // 5/19 夜 user 「週次が長期と短期の合計みたいな感じで」 → 長期 + 短期 合計 section
+  // 長期 (Champ) は unrealized 累計 (positions の現値 - cost)、 短期は realized (closed trades)
+  const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
+  let lCost=0, lValue=0;
+  (d.positions||[]).forEach(p => {
+    const isChamp = (p._intraday_sl_exempt === true) || CHAMP_TICKERS.includes(p.ticker)
+                    || p.strategy === 'Champ_DCA' || p.exit_style === 'LONG_TERM';
+    if (!isChamp) return;
+    const sh=Number(p.shares||0), avg=Number(p.entry_price||0);
+    const cur=Number(p.current_price||p._market_price||0)||avg;
+    lCost += sh*avg; lValue += sh*cur;
+  });
+  const longUnreal = lValue - lCost;
+  const shortRealizedWeek = (w.trades||[])
+    .filter(t => !CHAMP_TICKERS.includes(t.ticker || ''))
+    .reduce((s,t)=>s+(t.pnl_usd||0), 0);
+  const combinedTotal = longUnreal + shortRealizedWeek;
+  const combEl = document.getElementById('weekly-combined');
+  if (combEl) combEl.innerHTML = `
+    <div class="row">
+      <div class="row-l"><div class="ticker">📈 長期 (Champ unreal)</div><div class="strat">cost $${lCost.toFixed(0)} → 現 $${lValue.toFixed(0)}</div></div>
+      <div class="row-r"><div class="price ${pctClass(longUnreal)}">${longUnreal>=0?'+$':'-$'}${Math.abs(longUnreal).toFixed(2)}</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="ticker">⚡ 短期 (今週 realized)</div><div class="strat">closed trades 集計</div></div>
+      <div class="row-r"><div class="price ${pctClass(shortRealizedWeek)}">${shortRealizedWeek>=0?'+$':'-$'}${Math.abs(shortRealizedWeek).toFixed(2)}</div></div>
+    </div>
+    <div class="row">
+      <div class="row-l"><div class="ticker" style="font-weight:700">合計</div><div class="strat">長期 unreal + 短期 realized</div></div>
+      <div class="row-r"><div class="price ${pctClass(combinedTotal)}" style="font-size:18px">${combinedTotal>=0?'+$':'-$'}${Math.abs(combinedTotal).toFixed(2)}</div></div>
+    </div>`;
+  // Stat cards (short realized 中心)
   const pnlEl = document.getElementById('w-pnl');
   pnlEl.textContent = (w.total_pnl_usd>=0?'+$':'-$') + Math.abs(w.total_pnl_usd).toFixed(2);
   pnlEl.className = 'stat-value ' + pctClass(w.total_pnl_usd);
