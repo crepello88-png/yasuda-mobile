@@ -4255,77 +4255,77 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T06:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.26150448333333337
+      "age_min": 0.6013091333333332
     },
     "sync_mobile": {
-      "ts": "2026-05-21T06:30:42",
+      "ts": "2026-05-21T06:45:21",
       "ok": true,
-      "note": "160,684 B",
-      "age_min": 14.611504483333333
+      "note": "160,693 B",
+      "age_min": 0.30130913333333337
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 24.394837816666666
+      "age_min": 24.734642466666667
     },
     "intraday_cron": {
       "ts": "2026-05-21T06:30:42",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.611504483333333
+      "age_min": 14.951309133333332
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T06:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.27817115000000003
+      "age_min": 0.6179758
     },
     "vix_regime": {
-      "ts": "2026-05-21T06:30:23",
+      "ts": "2026-05-21T06:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 14.928171149999999
+      "age_min": 0.26797580000000004
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1365.22817115
+      "age_min": 1365.5679758
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1332.97817115
+      "age_min": 1333.3179758
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1330.1615044833334
+      "age_min": 1330.5013091333335
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 540.3115044833334
+      "age_min": 540.6513091333334
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T06:30:23",
+      "ts": "2026-05-21T06:45:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.928171149999999
+      "age_min": 0.26797580000000004
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T06:30:17",
       "ok": false,
       "note": "PWA Web Push wire 動作確認テスト (= 5/21 朝、 critical で push 発火するか確認)",
-      "age_min": 15.028171149999999
+      "age_min": 15.3679758
     }
   },
   "regime": {
-    "ts": "2026-05-21T06:30:23",
+    "ts": "2026-05-21T06:45:23",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
