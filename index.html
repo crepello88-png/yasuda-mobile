@@ -16,13 +16,15 @@
   html,body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
             font-size:14px;line-height:1.4}
   /* 5/19 夜: header / tabs 固定で文字 隠れる事案対策、 明示高さ + 大目 padding-top
-     + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ */
+     + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ
+     5/20 夜: last-update 行を header-row の left col 内側 (h1 + header-sub の下) に移動、
+     header 高さ 56px のまま overflow しない構造に変更 — header.last-update の border 不要 */
   body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 110px);
        max-width:900px;margin:0 auto;position:relative}
   header{padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line);
          position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:900px;z-index:10;
          height:calc(env(safe-area-inset-top) + 56px);box-sizing:border-box;
-         padding-top:calc(env(safe-area-inset-top) + 10px)}
+         padding-top:calc(env(safe-area-inset-top) + 8px);padding-bottom:6px}
   .header-row{display:flex;align-items:center;justify-content:space-between}
   h1{font-size:17px;font-weight:600}
   .header-sub{font-size:10px;color:var(--sub);margin-top:2px}
@@ -31,7 +33,8 @@
   .tabs{display:flex;background:var(--card);border-bottom:1px solid var(--line);
         position:fixed;top:calc(env(safe-area-inset-top) + 56px);left:50%;transform:translateX(-50%);
         width:100%;max-width:900px;z-index:9;
-        height:48px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+        height:48px;overflow-x:auto;overflow-y:hidden;
+        -webkit-overflow-scrolling:touch;touch-action:pan-x;overscroll-behavior:contain}
   .tab{flex:1;padding:10px;text-align:center;font-size:13px;color:var(--sub);
        cursor:pointer;border-bottom:2px solid transparent;font-weight:500}
   .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
@@ -71,17 +74,17 @@
 
 <header>
   <div class="header-row">
-    <div>
+    <div style="min-width:0;flex:1">
       <h1>IBKR投資計画</h1>
       <div class="header-sub" id="hdr-sub">v20 LIVE · 短期 19 戦略 · 場中 6 paper</div>
+      <div class="last-update" id="last-update" style="margin-top:1px">未取得</div>
     </div>
-    <div style="display:flex;gap:4px">
+    <div style="display:flex;gap:4px;flex-shrink:0">
       <button class="refresh" onclick="reportToCROCO()" style="background:var(--yellow);color:#0d1117">📮 報告</button>
       <button class="refresh" onclick="subscribePush()" id="push-btn" style="background:#a371f7;color:#fff">🔔 通知ON</button>
       <button class="refresh" onclick="hardRefresh()">更新</button>
     </div>
   </div>
-  <div class="last-update" id="last-update">未取得</div>
 </header>
 
 <div class="tabs">
