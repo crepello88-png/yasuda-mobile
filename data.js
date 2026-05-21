@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T22:04",
+  "generated_at": "2026-05-20T22:05",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -522,9 +522,9 @@ window.MOBILE_DATA = {
     "capital": 11628.0,
     "week_start": "2026-05-14",
     "week_end": "2026-05-20",
-    "total_pnl_usd": -89.85,
-    "total_pnl_pct": -0.77,
-    "n_trades": 2,
+    "total_pnl_usd": -138.13,
+    "total_pnl_pct": -1.19,
+    "n_trades": 8,
     "n_wins": 1,
     "win_rate": 20.0,
     "days": [
@@ -568,13 +568,103 @@ window.MOBILE_DATA = {
         "date": "2026-05-20",
         "dow": "Wed",
         "vix": null,
-        "pnl": 0.0,
-        "cum": -89.85,
-        "n": 0,
+        "pnl": -48.28,
+        "cum": -138.13,
+        "n": 6,
         "wins": 0
       }
     ],
     "trades": [
+      {
+        "date": "2026-05-20T08:33:53-05:00",
+        "ticker": "FTAI",
+        "strategy": "Stoch_Oversold_v1",
+        "shares": 1,
+        "entry_price": 228.0,
+        "exit_price": 226.68,
+        "pnl_gross": -4.27,
+        "pnl_usd": -6.27,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
+      {
+        "date": "2026-05-20T08:33:28-05:00",
+        "ticker": "GOOGL",
+        "strategy": "HighPullback50_v1",
+        "shares": 1,
+        "entry_price": 387.27,
+        "exit_price": 391.745,
+        "pnl_gross": -4.02,
+        "pnl_usd": -6.02,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
+      {
+        "date": "2026-05-20T08:33:10-05:00",
+        "ticker": "VRTX",
+        "strategy": "Intraday_T9_rsi20",
+        "shares": 2,
+        "entry_price": 439.88,
+        "exit_price": 437.72,
+        "pnl_gross": -7.36,
+        "pnl_usd": -9.36,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
+      {
+        "date": "2026-05-20T08:32:57-05:00",
+        "ticker": "IP",
+        "strategy": "Candle15m_TweezerBottom_test",
+        "shares": 1,
+        "entry_price": 30.25,
+        "exit_price": 29.26,
+        "pnl_gross": -1.89,
+        "pnl_usd": -3.89,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
+      {
+        "date": "2026-05-20T08:32:43-05:00",
+        "ticker": "LIN",
+        "strategy": "Sector_FriPanic_v1",
+        "shares": 2,
+        "entry_price": 507.15,
+        "exit_price": 502.78,
+        "pnl_gross": -11.78,
+        "pnl_usd": -13.78,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
+      {
+        "date": "2026-05-20T08:32:29-05:00",
+        "ticker": "SPXL",
+        "strategy": "HighPullback50_v1",
+        "shares": 4,
+        "entry_price": 266.25,
+        "exit_price": 262.27,
+        "pnl_gross": -18.96,
+        "pnl_usd": -20.96,
+        "commission": 2.0,
+        "pnl_pct": null,
+        "exit_reason": "",
+        "source": "monitor",
+        "_net_calc": "historical_estimate_2usd"
+      },
       {
         "date": "2026-05-19",
         "ticker": "PLTR",
@@ -615,9 +705,37 @@ window.MOBILE_DATA = {
         "win_rate": 0.0
       },
       {
-        "strategy": "HighPullback50_v1",
+        "strategy": "Candle15m_TweezerBottom_test",
         "n": 1,
-        "pnl": -92.9,
+        "pnl": -3.89,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "strategy": "Stoch_Oversold_v1",
+        "n": 1,
+        "pnl": -6.27,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "strategy": "Intraday_T9_rsi20",
+        "n": 1,
+        "pnl": -9.36,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "strategy": "Sector_FriPanic_v1",
+        "n": 1,
+        "pnl": -13.78,
+        "wins": 0,
+        "win_rate": 0.0
+      },
+      {
+        "strategy": "HighPullback50_v1",
+        "n": 3,
+        "pnl": -119.88,
         "wins": 0,
         "win_rate": 0.0
       }
@@ -4210,9 +4328,9 @@ window.MOBILE_DATA = {
     {
       "date": "2026-05-20",
       "netliq": 11342.78,
-      "day_pnl": 0.0,
-      "cum_pnl_short": -0.06,
-      "n_trades": 0,
+      "day_pnl": -48.28,
+      "cum_pnl_short": -48.34,
+      "n_trades": 6,
       "vix": null,
       "netliq_baseline": 11540.0,
       "netliq_delta": -197.22,
@@ -4225,85 +4343,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 4.3195983
+      "age_min": 5.526539133333333
     },
     "sync_mobile": {
-      "ts": "2026-05-20T22:00:43",
+      "ts": "2026-05-20T22:04:24",
       "ok": true,
-      "note": "158,283 B",
-      "age_min": 3.652931633333333
+      "note": "158,233 B",
+      "age_min": 1.1765391333333333
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 83.28626496666668
+      "age_min": 84.4932058
     },
     "intraday_cron": {
       "ts": "2026-05-20T22:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.6362649666666664
+      "age_min": 4.843205800000001
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 4.336264966666667
+      "age_min": 5.5432058
     },
     "vix_regime": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 3.9862649666666665
+      "age_min": 5.1932058
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 844.2862649666666
+      "age_min": 845.4932057999999
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1270.4195983
+      "age_min": 1271.6265391333334
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 19.3695983
+      "age_min": 20.57653913333333
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 19.3695983
+      "age_min": 20.57653913333333
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 812.0362649666666
+      "age_min": 813.2432057999999
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 809.2195983
+      "age_min": 810.4265391333333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 19.3695983
+      "age_min": 20.57653913333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 3.9862649666666665
+      "age_min": 5.1932058
     }
   },
   "regime": {
@@ -4374,6 +4492,96 @@ window.MOBILE_DATA = {
   },
   "exit_plans": [],
   "all_trades": [
+    {
+      "date": "2026-05-20T08:33:53-05:00",
+      "ticker": "FTAI",
+      "strategy": "Stoch_Oversold_v1",
+      "shares": 1,
+      "entry_price": 228.0,
+      "exit_price": 226.68,
+      "pnl_gross": -4.27,
+      "pnl_usd": -6.27,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
+    {
+      "date": "2026-05-20T08:33:28-05:00",
+      "ticker": "GOOGL",
+      "strategy": "HighPullback50_v1",
+      "shares": 1,
+      "entry_price": 387.27,
+      "exit_price": 391.745,
+      "pnl_gross": -4.02,
+      "pnl_usd": -6.02,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
+    {
+      "date": "2026-05-20T08:33:10-05:00",
+      "ticker": "VRTX",
+      "strategy": "Intraday_T9_rsi20",
+      "shares": 2,
+      "entry_price": 439.88,
+      "exit_price": 437.72,
+      "pnl_gross": -7.36,
+      "pnl_usd": -9.36,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
+    {
+      "date": "2026-05-20T08:32:57-05:00",
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "shares": 1,
+      "entry_price": 30.25,
+      "exit_price": 29.26,
+      "pnl_gross": -1.89,
+      "pnl_usd": -3.89,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
+    {
+      "date": "2026-05-20T08:32:43-05:00",
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "shares": 2,
+      "entry_price": 507.15,
+      "exit_price": 502.78,
+      "pnl_gross": -11.78,
+      "pnl_usd": -13.78,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
+    {
+      "date": "2026-05-20T08:32:29-05:00",
+      "ticker": "SPXL",
+      "strategy": "HighPullback50_v1",
+      "shares": 4,
+      "entry_price": 266.25,
+      "exit_price": 262.27,
+      "pnl_gross": -18.96,
+      "pnl_usd": -20.96,
+      "commission": 2.0,
+      "pnl_pct": null,
+      "exit_reason": "",
+      "source": "monitor",
+      "_net_calc": "historical_estimate_2usd"
+    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
