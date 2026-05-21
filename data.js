@@ -4255,89 +4255,89 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T04:15:03",
       "ok": true,
       "note": "",
-      "age_min": 0.27328068333333333
+      "age_min": 0.61779255
     },
     "sync_mobile": {
-      "ts": "2026-05-21T04:00:41",
+      "ts": "2026-05-21T04:15:23",
       "ok": true,
-      "note": "161,486 B",
-      "age_min": 14.63994735
+      "note": "161,498 B",
+      "age_min": 0.2844592166666667
     },
     "verify_claims": {
       "ts": "2026-05-21T01:25:21",
       "ok": false,
       "note": "61p/1f",
-      "age_min": 169.97328068333334
+      "age_min": 170.31779255
     },
     "intraday_cron": {
       "ts": "2026-05-21T04:00:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.63994735
+      "age_min": 14.984459216666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T04:15:02",
       "ok": true,
       "note": "",
-      "age_min": 0.28994735
+      "age_min": 0.6344592166666666
     },
     "vix_regime": {
-      "ts": "2026-05-21T04:00:23",
+      "ts": "2026-05-21T04:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 14.93994735
+      "age_min": 0.2844592166666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1215.23994735
+      "age_min": 1215.5844592166666
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1641.3732806833332
+      "age_min": 1641.71779255
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 390.32328068333334
+      "age_min": 390.66779255
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 390.32328068333334
+      "age_min": 390.66779255
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1182.98994735
+      "age_min": 1183.3344592166666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1180.1732806833331
+      "age_min": 1180.51779255
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 390.32328068333334
+      "age_min": 390.66779255
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T04:00:23",
+      "ts": "2026-05-21T04:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.93994735
+      "age_min": 0.2844592166666667
     }
   },
   "regime": {
-    "ts": "2026-05-21T04:00:23",
+    "ts": "2026-05-21T04:15:23",
     "vix": 17.9,
     "spy_close": 733.73,
     "spy_10d_return_pct": 1.38,
