@@ -4255,77 +4255,77 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T06:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2515451833333333
+      "age_min": 0.6072778
     },
     "sync_mobile": {
-      "ts": "2026-05-21T06:27:47",
+      "ts": "2026-05-21T06:30:21",
       "ok": true,
-      "note": "160,434 B",
-      "age_min": 2.51821185
+      "note": "160,903 B",
+      "age_min": 0.3072778
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 9.384878516666667
+      "age_min": 9.740611133333335
     },
     "intraday_cron": {
       "ts": "2026-05-21T06:15:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.61821185
+      "age_min": 14.973944466666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T06:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.26821185000000003
+      "age_min": 0.6239444666666666
     },
     "vix_regime": {
-      "ts": "2026-05-21T06:15:23",
+      "ts": "2026-05-21T06:30:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 14.91821185
+      "age_min": 0.27394446666666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1350.21821185
+      "age_min": 1350.5739444666665
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1317.96821185
+      "age_min": 1318.3239444666665
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1315.1515451833334
+      "age_min": 1315.5072777999999
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 525.3015451833334
+      "age_min": 525.6572778
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T06:15:23",
+      "ts": "2026-05-21T06:30:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.91821185
+      "age_min": 0.27394446666666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T06:30:17",
       "ok": false,
       "note": "PWA Web Push wire 動作確認テスト (= 5/21 朝、 critical で push 発火するか確認)",
-      "age_min": 0.018211849999999998
+      "age_min": 0.3739444666666667
     }
   },
   "regime": {
-    "ts": "2026-05-21T06:15:23",
+    "ts": "2026-05-21T06:30:23",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
@@ -4343,12 +4343,6 @@ window.MOBILE_DATA = {
     "data_freshness_days": 1
   },
   "alerts_recent": [
-    {
-      "ts": "2026-05-21T06:30:17",
-      "severity": "CRITICAL",
-      "source": "test_wire_5_21",
-      "message": "PWA Web Push wire 動作確認テスト (= 5/21 朝、 critical で push 発火するか確認)"
-    },
     {
       "ts": "2026-05-20T08:00:05",
       "severity": "INFO",
