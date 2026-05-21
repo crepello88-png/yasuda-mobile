@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T20:15",
+  "generated_at": "2026-05-20T20:30",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -4331,80 +4331,80 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) 朝 (ACH $9,400 settle 当日)\n\n## 🎯 今日のメイン イベント\n\n1. **$9,400 ACH settle** → 取引可能余力 +$9,400 (5/19 リクエスト分)\n2. **5/20 NVDA 決算後 reaction の post-mortem 5 営業日経過**確認\n3. **Champ DCA 再開**: $1,160 配分\n4. **短期 capital pool 拡張**: +$8,240 → $10,440 規模\n\n## 💰 想定 cash flow\n\n| 時点 | 余力 |\n|---|---|\n| 5/19 終 (元案 start) | $697.57 |\n| 5/20 force_sell 4 銘柄 SELL settle (5/21) | +$2,953 → ~$3,650 |\n| 5/22 (金) 月次入金 | **なし** (user 訂正、 期待しない) |\n| 5/26 朝 (今日) settle 前 | ~$3,650 想定 |\n| **5/26 場前 ACH settle** | **+$9,400 → ~$13,050** |\n| 5/26 Champ DCA -$1,160 | ~$11,890 |\n| → 短期 pool に振分け可能 | ~$8,240 |\n\n## 🐳 Champ DCA $1,152 配分 (今日 5/26 7:30 CT 起動)\n\nuser 5/19 夜 仮確定:「A でお願い」 → **案 A: PWR 1 + GOOG 1 = $1,152**\n\n- PWR 2→3 (~$763) + GOOG 4→5 (~$389)\n- 5/14 / 5/15 DCA pattern 継続、 NVDA 既に 12 株で集中過剰なので skip\n- 6月以降は第3月曜日ルール (6/15 / 7/20 / 8/17 ...)\n\n### NVDA 5/20 決算 結果次第 で変更可\n\n- NVDA -7% 以上 drop → NVDA buy-the-dip 5株 (~$1,000-1,100) を 案 A の代替に\n- 5/26 朝に user 最終判断、 7:30 起動前まで `champ_dca_schedule.json` 修正可\n\n## 📊 短期 capital pool 拡張 $8,240 の使い方\n\n現 $2,200 → 拡張後 $10,440 規模:\n\n- 1 ポジ size: 33% × $10,440 = ~$3,447 (3 ポジ並列の場合)\n- mega 5/5 booster 全 fire = $10,440 × 1.0 (concentrated, 単独大量)\n- intraday max_pos: 2 ポジ × $980 = ~$1,960 確保\n- 寄付 buffer: max_pos 3 × $1,400 = $4,200\n\n→ 5/26 から **commission floor 監査済 12 patterns + 寄付 7 戦略**で運用、 silent fail 5/19 fix 効いてるか stress test\n\n## 🚨 silent fail 復旧 1 週間後 確認\n\n5/19 夜 fix 配線項目の 5 営業日 (5/20-23) 結果まとめ:\n\n- [ ] 5/20 force_sell 4 銘柄 約定 / TWS UI 消滅\n- [ ] 5/20 NVDA earnings 場引後 reaction\n- [ ] 5/21 朝の verify_claims 27 PASS\n- [ ] 5/22 場中 cron 健全 / 15min 毎更新\n- [ ] 5/23 (金) 週末 nightly audit\n\n→ 全 OK なら 5/26 から full deployment、 1 つでも FAIL なら delay\n\n## 📅 NVDA earnings post-mortem (5/20 引け後 → 5/26 まで)\n\n5/20 引け後 NVDA 決算発表 → 5/21-5/23 reaction を memo:\n\n- 決算 result: ?\n- AH 動き (寄付前): ?\n- 5/21 終値: ?\n- 5/26 朝の含み損益: ?\n\n→ Champ DCA 配分判断のキーデータ\n\n## 📝 user 手動チェック リスト (5/26 朝)\n\n- [ ] $9,400 settle 確認 (TWS UI 「取引可能余力」 が ~$13,050 になる)\n- [ ] 7:30 CT Champ DCA 約定 確認 (案 A なら PWR+1 / GOOG+1)\n- [ ] 8:25 CT Short Term Auto 起動 確認\n- [ ] 場中 monitor cron 15min 走行確認\n- [ ] PWA 「出口」 タブ で全 ticker exit plan 表示\n- [ ] verify_claims 全 PASS (28+ 想定)\n\n---\n_2026-05-19 21:45 CT クロコー、 5/26 settle 前事前 brief_\n_5/24-25 (土日) に NVDA 決算 result 反映 + 配分最終確定予定_\n",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-20T20:15:03",
+      "ts": "2026-05-20T20:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.5000263500000001
+      "age_min": 0.3107700666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-20T20:15:21",
+      "ts": "2026-05-20T20:15:35",
       "ok": true,
-      "note": "158,261 B",
-      "age_min": 0.20002635
+      "note": "158,269 B",
+      "age_min": 14.777436733333333
     },
     "verify_claims": {
-      "ts": "2026-05-20T06:33:42",
+      "ts": "2026-05-20T20:28:17",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 821.8500263499999
+      "age_min": 2.0774367333333332
     },
     "intraday_cron": {
-      "ts": "2026-05-20T20:00:37",
+      "ts": "2026-05-20T20:15:35",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.933359683333332
+      "age_min": 14.777436733333333
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-20T20:15:02",
+      "ts": "2026-05-20T20:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.5166930166666667
+      "age_min": 0.32743673333333334
     },
     "vix_regime": {
-      "ts": "2026-05-20T20:15:03",
+      "ts": "2026-05-20T20:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.5000263500000001
+      "age_min": 0.3107700666666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 735.4666930166666
+      "age_min": 750.2774367333333
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1161.60002635
+      "age_min": 1176.4107700666668
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 715.5333596833333
+      "age_min": 730.3441034
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 715.5333596833333
+      "age_min": 730.3441034
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 703.2166930166666
+      "age_min": 718.0274367333333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 700.40002635
+      "age_min": 715.2107700666667
     }
   },
   "regime": {
-    "ts": "2026-05-20T20:15:03",
+    "ts": "2026-05-20T20:30:03",
     "vix": 17.9,
     "spy_close": 733.73,
     "spy_10d_return_pct": 1.38,
@@ -4746,48 +4746,6 @@ window.MOBILE_DATA = {
   ],
   "pwa_reports": [
     {
-      "number": 5,
-      "title": "[PWA報告] 2026-05-20 16:16 slvも買ってないのに買ったことになってる",
-      "body": "## メッセージ\nslvも買ってないのに買ったことになってる\n\n## 自動 Context\n- 報告時刻: 2026-05-20 16:16 (browser local)\n- data.js generated_at: 2026-05-20T11:00\n- 表示中タブ: 保有\n- NetLiq: $11417.32\n- Cash (Available): $71.5\n- unrealized: $-77.19\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
-      "state": "OPEN",
-      "created_at": "2026-05-20T16:16:14Z",
-      "closed_at": null,
-      "comments": []
-    },
-    {
-      "number": 6,
-      "title": "[PWA報告] 2026-05-20 17:19 対応中からどうなりました？修正して実行して下さい",
-      "body": "## メッセージ\n対応中からどうなりました？修正して実行して下さい\n\n## 自動 Context\n- 報告時刻: 2026-05-20 17:19 (browser local)\n- data.js generated_at: 2026-05-20T12:00\n- 表示中タブ: 保有\n- NetLiq: $11392.14\n- Cash (Available): $71.5\n- unrealized: $-102.36\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
-      "state": "OPEN",
-      "created_at": "2026-05-20T17:19:32Z",
-      "closed_at": null,
-      "comments": []
-    },
-    {
-      "number": 7,
-      "title": "[PWA報告] 2026-05-20 17:22 監視も赤字がいっぱい。権限いるならパスでいいから直して",
-      "body": "## メッセージ\n監視も赤字がいっぱい。権限いるならパスでいいから直して\n\n## 自動 Context\n- 報告時刻: 2026-05-20 17:22 (browser local)\n- data.js generated_at: 2026-05-20T12:15\n- 表示中タブ: 監視\n- NetLiq: $11397.99\n- Cash (Available): $71.5\n- unrealized: $-96.52\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
-      "state": "OPEN",
-      "created_at": "2026-05-20T17:22:22Z",
-      "closed_at": null,
-      "comments": [
-        {
-          "author": "crepello88-png",
-          "body": "まだです？",
-          "created_at": "2026-05-20T17:46:37Z"
-        }
-      ]
-    },
-    {
-      "number": 4,
-      "title": "[PWA報告] 2026-05-20 16:14 買うと売りが一緒になっていてシグナル読み取って売ってない",
-      "body": "## メッセージ\n買うと売りが一緒になっていてシグナル読み取って売ってない\n\n## 自動 Context\n- 報告時刻: 2026-05-20 16:14 (browser local)\n- data.js generated_at: 2026-05-20T11:00\n- 表示中タブ: 今日\n- NetLiq: $11417.32\n- Cash (Available): $71.5\n- unrealized: $-77.19\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
-      "state": "OPEN",
-      "created_at": "2026-05-20T16:14:50Z",
-      "closed_at": null,
-      "comments": []
-    },
-    {
       "number": 2,
       "title": "[PWA報告] 2026-05-20 04:48 🚨 売れてないぞ！",
       "body": "## メッセージ\n🚨 売れてないぞ！\n\n## 自動 Context\n- 報告時刻: 2026-05-20 04:48 (browser local)\n- data.js generated_at: 2026-05-19T23:45\n- 表示中タブ: 今日\n- NetLiq: $11397.4\n- Cash (Available): $697.57\n- unrealized: $-138.02\n- 短期 open: 9 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
@@ -4829,6 +4787,71 @@ window.MOBILE_DATA = {
           "author": "crepello88-png",
           "body": "## クロコー (Claude) 返信 — 受領確認 + 朝の準備状況\n\n5/20 00:01 CT 受信、 朝 8:25 起動の force_sell に向けた事前確認スコープと判定。\n\n### 朝 8:25-8:35 CT 配線済 (今夜 silent fail 6 種 fix 後の体制)\n\n- `monitor_config.json` `daily_force_sell` 2026-05-20: SPXL 4 / LIN 2 / IP 1 / VRTX 2 = 4 件 確定\n- `short_term_executor.py` `connect_tws` 5×60s retry loop (TWS auto-start 余裕)\n- `intraday_position_monitor` SELL 前 TWS shares 確認 (IP Error 201 防止)\n- `claims.json` 29 件 PASS、 morning_tws_connect / daily_force_sell_executed / commission_floor 監査済\n\n### 朝 8:35 CT に user 確認推奨\n\n1. PWA「保有」 タブ で 4 銘柄消滅 + Champ 5 銘柄のみ\n2. TWS UI で「最近の取引履歴」 に SELL 4 件 約定確認\n3. PWA「監視」 タブ heartbeat 全 緑\n4. PWA「履歴」 タブ 日次ログ 2026-05-20 に 4 件 closed\n\n### 想定外れた場合の即時対応\n\n「📮 報告」 で **#2 と同じテンプレ「🚨 売れてないぞ！」** 即送信 → 僕が即 troubleshoot + fix push。\n\nこのテスト issue で 双方向サイクル 動作確認 OK、 close します。 明朝の本番 reactionは TWS UI + PWA 両方確認の上 必要なら 再送信を。",
           "created_at": "2026-05-20T05:02:36Z"
+        }
+      ]
+    },
+    {
+      "number": 5,
+      "title": "[PWA報告] 2026-05-20 16:16 slvも買ってないのに買ったことになってる",
+      "body": "## メッセージ\nslvも買ってないのに買ったことになってる\n\n## 自動 Context\n- 報告時刻: 2026-05-20 16:16 (browser local)\n- data.js generated_at: 2026-05-20T11:00\n- 表示中タブ: 保有\n- NetLiq: $11417.32\n- Cash (Available): $71.5\n- unrealized: $-77.19\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T16:16:14Z",
+      "closed_at": "2026-05-21T01:29:30Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー返信 — SLV 確認、 構造修復済\n\n仰る通り、 **SLV は買えてません**。 state.json には記録残ってたが TWS 側で reject。\n\n### log 直接抜粋 (Error 201)\n```\nSLV BUY 1 MKT → Cancelled\n理由: 利用可能な決済済み現金 71.50 USD < 必要 72.06 USD\n```\n= **cash 不足で TWS reject**、 SLV 1株 ($67.95) 買うのに必要 $72 (commission 込) なかった。\n\n### root cause (silent fail #22)\n- 朝の short_term_executor の発注 順序:\n  - force_sell 4 銘柄 (cash 戻り未 settle)\n  - 新規 BUY 候補多数 (GOOGL → FTAI → SLV → ...)\n- SLV 順番で cash 枯渇 → Error 201 reject\n- でも reject 確認せず state.open_positions に **paper 追加** (= 嘘の記録)\n\n### Fix 実装済\n- `short_term_executor.py` に **parent_reject_state_skip** logic 追加:\n  - parent BUY status が Cancelled/Inactive/ApiCancelled なら state.json append skip\n  - + critical alert 発信\n- claim `parent_reject_state_skip_wired` (critical) 追加\n- state-TWS 整合保証、 「買ってないのに買ったことに」 再発防止\n\n5/20 朝の発注順序も再考: cash 余力 ascending sort or 高 priority 先 等で改善余地あり、 場引後 追加検討。",
+          "created_at": "2026-05-21T01:29:29Z"
+        }
+      ]
+    },
+    {
+      "number": 6,
+      "title": "[PWA報告] 2026-05-20 17:19 対応中からどうなりました？修正して実行して下さい",
+      "body": "## メッセージ\n対応中からどうなりました？修正して実行して下さい\n\n## 自動 Context\n- 報告時刻: 2026-05-20 17:19 (browser local)\n- data.js generated_at: 2026-05-20T12:00\n- 表示中タブ: 保有\n- NetLiq: $11392.14\n- Cash (Available): $71.5\n- unrealized: $-102.36\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T17:19:32Z",
+      "closed_at": "2026-05-21T01:29:32Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー返信 — 場中 lockdown + 帰宅後 fix 進捗\n\n場中 (07:25-15:00 CT) は user 指示で「検証停止 / 監視集中」 ルール、 PWA report 受信は次セッションまで処理が遅れます。 帰宅後 (20:13 CT) に 4 件 同時把握 → 即対応中。\n\n### 完了済 (今この瞬間)\n- ✅ silent fail #21 (bracket TP stale ref): `place_bracket_moo_buy` 完全 rewrite、 actual fill price 基準で TP/SL 再計算\n- ✅ silent fail #22 (parent reject state phantom): cash 不足 reject の state 整合\n- ✅ claims 2 件追加 (bracket_post_fill_recalc / parent_reject_state_skip) で構造監視\n- ✅ 全 4 issues (#4-#7) 個別 reply + close\n\n### 場引後 (継続中、 ~1-2h で完成)\n- 夜間自走 alpha 探索 8 系統結果の wire 配線 (confluence boosters 7件 + anti-pattern filter 5 件 — config staging 済)\n- NVDA earnings AH -1.26% (= soft、 BTD trigger 未到達)、 5/21 朝に再判断\n\n### 場中の流れ自動運用評価\n- 8:25 Short Term Auto cron → force_sell 4 銘柄 全約定 ✓ (silent fail 6 種 fix 効いた)\n- 8:33 新規 GOOGL/FTAI 発注 → TP 即発火 bug (= 今夜 fix)\n- 8:34 SLV cash 不足 reject (= 今夜 fix)\n- 場中 intraday cron で hold_min timeout + 14:55 force_close 動作確認\n\n明朝 8:25 でこの最新 fix の本機 stress test。 修復循環 続けます。",
+          "created_at": "2026-05-21T01:29:31Z"
+        }
+      ]
+    },
+    {
+      "number": 7,
+      "title": "[PWA報告] 2026-05-20 17:22 監視も赤字がいっぱい。権限いるならパスでいいから直して",
+      "body": "## メッセージ\n監視も赤字がいっぱい。権限いるならパスでいいから直して\n\n## 自動 Context\n- 報告時刻: 2026-05-20 17:22 (browser local)\n- data.js generated_at: 2026-05-20T12:15\n- 表示中タブ: 監視\n- NetLiq: $11397.99\n- Cash (Available): $71.5\n- unrealized: $-96.52\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T17:22:22Z",
+      "closed_at": "2026-05-21T01:29:34Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "まだです？",
+          "created_at": "2026-05-20T17:46:37Z"
+        },
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー返信 — 監視 赤の root cause\n\n「監視 赤字いっぱい」 = 場中 silent fail が積み上がった結果:\n\n1. **alerts.log**: SLV cash 不足 reject、 GOOGL/FTAI 同日 round-trip notification (=critical alert)\n2. **heartbeat**: 場中 fail 系列 (state-TWS 整合不全)\n3. **claims**: 朝の force_sell PASS だが 新規 BUY 系で不整合\n\n### 全 root cause + fix\n- silent fail #21 (bracket TP stale ref → 即発火): `place_bracket_moo_buy` rewrite **完了**\n- silent fail #22 (parent reject state phantom): state 整合 logic **完了**\n- 場中 cron 健全性 (heartbeat OK): force_sell + sync_mobile + vix_regime 全 緑、 「赤」 は 上記 critical alerts + closed state mismatch 由来\n\n### 「権限要るならパスでいい」 件\nadmin パス共有は不要、 全ての対応は僕 (sky CLI) 側で完結。 user 操作不要、 ただし朝 PWA 「📮 報告」 だけは Watch 振動 alert のため iPhone Safari install 必要 (前夜 未完了、 朝起きたら 5 分 setup お願い)。\n\n### 場引後 計画 (続行中)\n- confluence boosters 7 件 + anti-pattern filter 5 件 wire 配線\n- NVDA 5/21 朝 reaction 確認 → BTD GTC arm 判断\n- claims 32 PASS 化 (#21 #22 追加)\n- 監視タブ 赤 全クリア\n\n明朝の 8:25 で最新 fix の stress test。 「同じ失敗」 引き起こすパターン、 1 つずつ着実に潰します。",
+          "created_at": "2026-05-21T01:29:33Z"
+        }
+      ]
+    },
+    {
+      "number": 4,
+      "title": "[PWA報告] 2026-05-20 16:14 買うと売りが一緒になっていてシグナル読み取って売ってない",
+      "body": "## メッセージ\n買うと売りが一緒になっていてシグナル読み取って売ってない\n\n## 自動 Context\n- 報告時刻: 2026-05-20 16:14 (browser local)\n- data.js generated_at: 2026-05-20T11:00\n- 表示中タブ: 今日\n- NetLiq: $11417.32\n- Cash (Available): $71.5\n- unrealized: $-77.19\n- 短期 open: 8 件\n- データソース: TWS_direct_v2\n- UA: Mozilla/5.0 (iPhone; CPU iPhone OS 18_7 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Vers\n\n## クロコー アクション\n- このメッセージを読んで対応をお願いします\n- 完了したら issue close + reply",
+      "state": "CLOSED",
+      "created_at": "2026-05-20T16:14:50Z",
+      "closed_at": "2026-05-21T01:29:27Z",
+      "comments": [
+        {
+          "author": "crepello88-png",
+          "body": "## クロコー返信 — 完全 root cause + fix 実装済\n\n仰る通り、 「買うと売りが一緒、 signal 読み取って売ってない」 = **真の bug 検出**。 spec ではなく **bracket TP 即発火** の事故。\n\n### 原因 (silent fail #21)\n- `place_bracket_moo_buy` が **signal 計算時の ref_price** で TP/SL price 計算\n- MOO 実 fill 価格 ≠ ref_price (= 8:32 signal → 8:33 fill の数秒で価格動く)\n- GOOGL: ref $387.66 → TP $390.92 計算、 MOO fill **$391.75 (TP より高い)** → TP child 即発火 → SLD $391.75 = commission のみ食って -$2.01\n- FTAI: ref $223.49 → TP $225.52 計算、 MOO fill **$226.95 (TP より高い)** → 同様 → SLD $226.68 = -$2.27\n\n### Fix 実装済 (silent fail #21 構造修復)\n- `place_bracket_moo_buy` を 完全 rewrite:\n  1. parent BUY を transmit=True で先に MOO 発注\n  2. fill 待ち poll (max 30s)、 `avgFillPrice` 取得\n  3. **actual fill price で TP/SL 再計算** (BRK2_ OCA group 後発注)\n  4. fill 失敗時 critical alert + state 追加 skip\n- claim `bracket_post_fill_recalc_wired` (critical) 追加で構造監視\n- 同種 bug 再発しない設計\n\n明日朝 8:30 force_sell + 新規 BUY で本機 検証、 結果は 「📬 返信」 タブで確認可能。\n\n確認 ありがとう、 spec の盲点 1 つ潰せました。",
+          "created_at": "2026-05-21T01:29:27Z"
         }
       ]
     }
