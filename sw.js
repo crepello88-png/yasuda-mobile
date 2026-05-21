@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v28 (5/21 夜): 場中タブ末尾に「💡 日中チャンス」 card 追加 — 取りこぼし (今朝 phantom rollback された再エントリー候補) + Gap Fade pending を列挙、 current_price + signal ref 距離 + TP/SL 距離 + action_label (🟢🟡🔴) + reason 表示、 情報表示のみ で 発注ボタンなし。 source: sync_mobile.build_intraday_opportunities()。
 // v27 (5/20 0:35): Web Push 通知 追加 (user 「アップルウォッチ してるから クロコーからだ！ って分かる振動」) — VAPID + push handler + クロコー専用 vibrate [200,100,200,100,200] 5 連、 iOS 16.4+ home screen PWA で動作、 issue close 毎に iPhone+Watch 振動通知。
 // v26 (5/19 夜): 📬 返信 タブ 新規追加 (user 「A: PWA 返信タブ実装」) — gh issue list pwa-report で クロコー返信表示、 未読 NEW バッジ + localStorage seen tracking。
 // v25 (5/19 夜): 📮 報告 ボタン 追加 (header)。 PWA から GitHub Issue 経由で クロコー (Claude) に報告 — 6 テンプレ (売れてない/約定変/PnL変/UI崩れ/確認/自由入力) + 自動 context (data.js timestamp / NetLiq / 表示タブ等) 添付。
@@ -23,7 +24,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v27';
+const CACHE = 'ibkr-plan-v28';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {

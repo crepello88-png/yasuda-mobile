@@ -367,6 +367,15 @@
       <div class="empty">読込中...</div>
     </div>
   </div>
+  <div class="section">
+    <div class="section-title">💡 日中チャンス (取りこぼし / Gap Fade)</div>
+    <div class="card" id="intraday-opportunities-note" style="font-size:11px;color:var(--sub);margin-bottom:8px">
+      情報表示のみ。 発注は TWS UI で手動。 判定は仮置き heuristic (v1)、 反例あればクロコーへ報告。
+    </div>
+    <div class="card" id="intraday-opportunities">
+      <div class="empty">読込中...</div>
+    </div>
+  </div>
 </div>
 
 <!-- Tab: 📬 返信 (5/19 夜 user 「PWA 返信タブ」) -->
@@ -716,6 +725,55 @@ function renderIntraday() {
         </div>
       </div>
     `).join('');
+  }
+
+  // 5/21 夜: 日中チャンス (取りこぼし + Gap Fade) — 情報表示のみ、 発注ボタンなし
+  const oppsEl = document.getElementById('intraday-opportunities');
+  if (!oppsEl) return;
+  const opps = d.intraday_opportunities || [];
+  if (!opps.length) {
+    oppsEl.innerHTML = '<div class="empty">日中チャンス なし (取りこぼし / gap_fade pending 共に 0)</div>';
+  } else {
+    oppsEl.innerHTML = opps.map(o => {
+      const isMissed = (o.kind === 'missed');
+      const kindBadge = isMissed
+        ? '<span class="badge" style="background:#f8514922;color:#f85149">🔄 取りこぼし</span>'
+        : '<span class="badge" style="background:#3fb95022;color:#3fb950">⏳ Gap Fade</span>';
+      // 価格行
+      const priceLine = isMissed
+        ? `現 ${fmt$2(o.current_price)} <span style="color:var(--sub)">(signal ref ${fmt$2(o.signal_ref_price)}, ${fmtPct(o.current_vs_signal_pct)})</span>`
+        : `現 ${fmt$2(o.current_price)} <span style="color:var(--sub)">(寄付値 ${fmt$2(o.open_price)}, ${fmtPct(o.from_open_pct)})</span>`;
+      // 詳細行 (TP/SL/size 等)
+      const detailLine = isMissed
+        ? `${o.intended_shares||'?'}株 想定 · TP ${fmt$2(o.tp_price)} (+${(o.tp_target_pct||0).toFixed(2)}%, あと ${(o.current_vs_tp_pct||0).toFixed(2)}%) · SL ${fmt$2(o.sl_price)} (${(o.current_vs_sl_pct||0).toFixed(2)}%) · hold ${o.hold_days||'?'}d`
+        : `max $${o.max_size_usd||'?'} · sig ${o.sig_ts||'?'} · cutoff ${o.cutoff_hhmm||'14:30'} CT`;
+      // 経過分 (missed のみ)
+      const elapsedLine = (isMissed && o.elapsed_min != null)
+        ? `<div class="strat" style="color:var(--sub);font-size:11px">${o.elapsed_min}min 経過 · ${o.strategy||''}</div>`
+        : (o.strategy ? `<div class="strat" style="color:var(--sub);font-size:11px">${o.strategy}</div>` : '');
+      // phantom_note (missed のみ)
+      const phantomNote = (isMissed && o.phantom_note)
+        ? `<div class="strat" style="color:var(--sub);font-size:10px;margin-top:4px;font-style:italic">${o.phantom_note}</div>`
+        : '';
+      // action_label の色 (label 文字列内の絵文字で識別)
+      const lbl = o.action_label || '';
+      const lblCol = lbl.indexOf('🟢') >= 0 ? 'var(--green)'
+                   : lbl.indexOf('🔴') >= 0 ? 'var(--red)'
+                   : 'var(--yellow,#d29922)';
+      return `
+        <div class="row" style="flex-direction:column;align-items:flex-start;padding:10px 0;border-bottom:1px solid #2229">
+          <div style="display:flex;justify-content:space-between;width:100%;align-items:baseline">
+            <div class="ticker">${o.ticker} ${kindBadge}</div>
+            <div class="pct" style="color:${lblCol};font-weight:700">${lbl}</div>
+          </div>
+          <div class="strat" style="margin-top:4px">${priceLine}</div>
+          <div class="strat" style="margin-top:2px;font-size:11px">${detailLine}</div>
+          ${elapsedLine}
+          <div class="strat" style="margin-top:4px;font-size:11px;color:var(--sub);line-height:1.4">→ ${o.reason||''}</div>
+          ${phantomNote}
+        </div>
+      `;
+    }).join('');
   }
 }
 
