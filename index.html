@@ -1992,13 +1992,17 @@ async function subscribePush() {
     const reg = await navigator.serviceWorker.ready;
     const existing = await reg.pushManager.getSubscription();
     if (existing) {
-      // 5/20 夜: 既存 subscription を再送信 (= 前回 GH Issue submit 漏れ救済)
-      const resend = confirm('既に通知ON済 (' + existing.endpoint.slice(-30) + ')\n\nsubscription を サーバーに 再送信 しますか?\nOK → GitHub Issue 作成画面 → 「Submit new issue」 で確定');
+      // 5/20 夜: 既存 subscription を clipboard コピー + 📮 報告 経由で送信 (iOS PWA window.open 制約回避)
+      const resend = confirm('既に通知ON済 (' + existing.endpoint.slice(-30) + ')\n\nsubscription を サーバーに 再送信 しますか?\nOK → clipboard にコピー → 📮 報告 経由 submit');
       if (resend) {
-        const title2 = '[PUSH_SUBSCRIBE] resend ' + new Date().toISOString().slice(0,16);
-        const body2 = '## Subscription endpoint (resend)\n```json\n' + JSON.stringify(existing.toJSON(), null, 2) + '\n```\n\n## クロコー アクション\n- このメッセージを読んで logs/push_subscriptions.json に保存\n- 完了したら close';
-        const url2 = 'https://github.com/crepello88-png/yasuda_short/issues/new?title=' + encodeURIComponent(title2) + '&body=' + encodeURIComponent(body2) + '&labels=' + encodeURIComponent('push-subscribe');
-        window.open(url2, '_blank');
+        const subText2 = JSON.stringify(existing.toJSON(), null, 2);
+        let copied2 = false;
+        try { await navigator.clipboard.writeText('PUSH_SUBSCRIBE:\n' + subText2); copied2 = true; } catch(e) {}
+        if (copied2) {
+          alert('✓ clipboard コピー完了。\n\n次の手順:\n1. 📮 報告 (黄色) ボタン タップ\n2. プロンプトで 「6」 入力 → OK\n3. 自由入力欄を 長押し → ペースト\n4. OK → GitHub Issue 作成画面\n5. Submit new issue (緑) タップ');
+        } else {
+          alert('clipboard コピー失敗。 以下を手動コピー:\n\n' + subText2);
+        }
       }
       const btn = document.getElementById('push-btn');
       if (btn) { btn.textContent = '🔕 通知ON済'; btn.disabled = true; }
