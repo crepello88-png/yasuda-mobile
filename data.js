@@ -755,8 +755,8 @@ window.MOBILE_DATA = {
       "_market_value": 1050.16,
       "_unreal_pnl": 43.34,
       "_market_price": 1050.164917,
-      "current_price": 1047.97998046875,
-      "pnl_pct": 4.088117088332566,
+      "current_price": 1048.18994140625,
+      "pnl_pct": 4.108970958686742,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -785,8 +785,8 @@ window.MOBILE_DATA = {
       "_market_value": 2669.9,
       "_unreal_pnl": -86.34,
       "_market_price": 222.49180605,
-      "current_price": 222.18499755859375,
-      "pnl_pct": -3.2660446515327846,
+      "current_price": 221.92999267578125,
+      "pnl_pct": -3.377067588358751,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -815,8 +815,8 @@ window.MOBILE_DATA = {
       "_market_value": 1521.45,
       "_unreal_pnl": -35.48,
       "_market_price": 380.3623047,
-      "current_price": 380.7149963378906,
-      "pnl_pct": -2.1882817241903996,
+      "current_price": 381.0,
+      "pnl_pct": -2.1150597650504532,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -845,8 +845,8 @@ window.MOBILE_DATA = {
       "_market_value": 1027.29,
       "_unreal_pnl": 30.19,
       "_market_price": 1027.28759765,
-      "current_price": 1025.47998046875,
-      "pnl_pct": 2.846252178191744,
+      "current_price": 1026.5450439453125,
+      "pnl_pct": 2.9530682925797302,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -4255,77 +4255,77 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T09:15:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2641981
+      "age_min": 0.6047940333333333
     },
     "sync_mobile": {
-      "ts": "2026-05-21T09:00:44",
+      "ts": "2026-05-21T09:15:22",
       "ok": true,
-      "note": "161,600 B",
-      "age_min": 14.580864766666668
+      "note": "161,626 B",
+      "age_min": 0.2881273666666667
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 174.39753143333334
+      "age_min": 174.73812736666665
     },
     "intraday_cron": {
       "ts": "2026-05-21T09:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.580864766666668
+      "age_min": 14.9214607
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T09:15:02",
       "ok": true,
       "note": "",
-      "age_min": 0.28086476666666665
+      "age_min": 0.6214607
     },
     "vix_regime": {
-      "ts": "2026-05-21T09:00:23",
+      "ts": "2026-05-21T09:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 14.930864766666668
+      "age_min": 0.27146070000000005
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 75.23086476666667
+      "age_min": 75.5714607
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 42.864198099999996
+      "age_min": 43.20479403333333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 35.78086476666667
+      "age_min": 36.12146069999999
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T08:39:30",
       "ok": false,
       "note": "state ↔ TWS phantom 検知 (3件): EXE state=11株 TWS=0, NTAP state=4株 TWS=0, ADI state=2株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。",
-      "age_min": 35.8141981
+      "age_min": 36.15479403333333
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T09:00:23",
+      "ts": "2026-05-21T09:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.930864766666668
+      "age_min": 0.27146070000000005
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T06:30:17",
       "ok": false,
       "note": "PWA Web Push wire 動作確認テスト (= 5/21 朝、 critical で push 発火するか確認)",
-      "age_min": 165.03086476666667
+      "age_min": 165.3714607
     }
   },
   "regime": {
-    "ts": "2026-05-21T09:00:23",
+    "ts": "2026-05-21T09:15:23",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
