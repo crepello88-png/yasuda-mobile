@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T19:00",
+  "generated_at": "2026-05-20T19:01",
   "today_summary": {
     "netliq": 11342.3,
     "cash": 71.5,
@@ -9,106 +9,17 @@ window.MOBILE_DATA = {
     "buying_power": 71.5,
     "stock_value": 7691.3,
     "unrealized_pnl": -152.21,
-    "realized_pnl": -40.91,
+    "realized_pnl": null,
     "day_pnl_pct": -1.3419676785131764,
-    "account_type": "INDIVIDUAL",
-    "open_positions": 8,
+    "account_type": "Cash account",
+    "open_positions": 3,
     "open_orders_count": 0,
-    "fills_today_count": 8,
+    "fills_today_count": 0,
     "vix": null,
-    "data_source": "TWS_direct_v2"
+    "data_source": "bridge_fallback"
   },
   "tws_open_orders": [],
-  "tws_fills_today": [
-    {
-      "symbol": "SPXL",
-      "time": "2026-05-20 13:32:29+00:00",
-      "side": "SLD",
-      "shares": 4.0,
-      "price": 262.27,
-      "avgPrice": 262.27,
-      "orderId": 117,
-      "commission": 1.022403,
-      "realizedPnL": -17.942403
-    },
-    {
-      "symbol": "LIN",
-      "time": "2026-05-20 13:32:43+00:00",
-      "side": "SLD",
-      "shares": 2.0,
-      "price": 502.78,
-      "avgPrice": 502.78,
-      "orderId": 118,
-      "commission": 1.021111,
-      "realizedPnL": -10.761111
-    },
-    {
-      "symbol": "IP",
-      "time": "2026-05-20 13:32:57+00:00",
-      "side": "SLD",
-      "shares": 1.0,
-      "price": 29.26,
-      "avgPrice": 29.26,
-      "orderId": 119,
-      "commission": 0.296401,
-      "realizedPnL": -1.589901
-    },
-    {
-      "symbol": "VRTX",
-      "time": "2026-05-20 13:33:10+00:00",
-      "side": "SLD",
-      "shares": 2.0,
-      "price": 437.72,
-      "avgPrice": 437.72,
-      "orderId": 120,
-      "commission": 1.01843,
-      "realizedPnL": -6.33843
-    },
-    {
-      "symbol": "GOOGL",
-      "time": "2026-05-20 13:33:28+00:00",
-      "side": "BOT",
-      "shares": 1.0,
-      "price": 391.745,
-      "avgPrice": 391.745,
-      "orderId": 124,
-      "commission": 1.000003,
-      "realizedPnL": 0.0
-    },
-    {
-      "symbol": "GOOGL",
-      "time": "2026-05-20 13:33:28+00:00",
-      "side": "SLD",
-      "shares": 1.0,
-      "price": 391.745,
-      "avgPrice": 391.745,
-      "orderId": 125,
-      "commission": 1.008268,
-      "realizedPnL": -2.008271
-    },
-    {
-      "symbol": "FTAI",
-      "time": "2026-05-20 13:33:52+00:00",
-      "side": "BOT",
-      "shares": 1.0,
-      "price": 226.95,
-      "avgPrice": 226.95,
-      "orderId": 135,
-      "commission": 1.000003,
-      "realizedPnL": 0.0
-    },
-    {
-      "symbol": "FTAI",
-      "time": "2026-05-20 13:33:53+00:00",
-      "side": "SLD",
-      "shares": 1.0,
-      "price": 226.68,
-      "avgPrice": 226.68,
-      "orderId": 136,
-      "commission": 1.004868,
-      "realizedPnL": -2.274871
-    }
-  ],
+  "tws_fills_today": [],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
@@ -733,156 +644,6 @@ window.MOBILE_DATA = {
         "catastrophic_stp_price": 61.155,
         "intraday_sl_exempt": false,
         "exempt_reason": null
-      }
-    },
-    {
-      "ticker": "PWR",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 763.21,
-      "shares": 2.0,
-      "entry_value": 1526.42,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1418.48,
-      "_unreal_pnl": -107.94,
-      "_market_price": 709.23999025,
-      "current_price": 709.9299926757812,
-      "pnl_pct": -6.981041564473578,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 763.21,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 686.889,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "COST",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 1006.82,
-      "shares": 1.0,
-      "entry_value": 1006.82,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1074.2,
-      "_unreal_pnl": 67.38,
-      "_market_price": 1074.19995115,
-      "current_price": 1074.0,
-      "pnl_pct": 6.67249359369102,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 1006.82,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 906.138,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "NVDA",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 229.68666665,
-      "shares": 12.0,
-      "entry_value": 2756.2399998,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 2647.44,
-      "_unreal_pnl": -108.8,
-      "_market_price": 220.6199951,
-      "current_price": 223.43499755859375,
-      "pnl_pct": -2.721824989925359,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 229.68666665,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 206.717999985,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "GOOG",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 389.2325,
-      "shares": 4.0,
-      "entry_value": 1556.93,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1535.2,
-      "_unreal_pnl": -21.73,
-      "_market_price": 383.7999878,
-      "current_price": 384.8900146484375,
-      "pnl_pct": -1.1156533309943373,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 389.2325,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 350.30925,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "LLY",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 997.1,
-      "shares": 1.0,
-      "entry_value": 997.1,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1015.98,
-      "_unreal_pnl": 18.88,
-      "_market_price": 1015.97998045,
-      "current_price": 1018.469970703125,
-      "pnl_pct": 2.1432123862325625,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 997.1,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 897.39,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
       }
     }
   ],
@@ -4334,73 +4095,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T19:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2836277833333333
+      "age_min": 1.0603026
     },
     "sync_mobile": {
-      "ts": "2026-05-20T18:45:34",
+      "ts": "2026-05-20T19:00:22",
       "ok": true,
-      "note": "158,269 B",
-      "age_min": 14.766961116666666
+      "note": "158,251 B",
+      "age_min": 0.7436359333333333
     },
     "verify_claims": {
       "ts": "2026-05-20T06:33:42",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 746.6336277833333
+      "age_min": 747.4103025999999
     },
     "intraday_cron": {
       "ts": "2026-05-20T18:45:34",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.766961116666666
+      "age_min": 15.543635933333332
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T19:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.30029445
+      "age_min": 1.0769692666666666
     },
     "vix_regime": {
       "ts": "2026-05-20T19:00:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.2836277833333333
+      "age_min": 1.0603026
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 660.25029445
+      "age_min": 661.0269692666666
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1086.3836277833334
+      "age_min": 1087.1603026
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 640.3169611166667
+      "age_min": 641.0936359333333
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 640.3169611166667
+      "age_min": 641.0936359333333
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 628.00029445
+      "age_min": 628.7769692666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 625.1836277833333
+      "age_min": 625.9603026
     }
   },
   "regime": {
@@ -4601,118 +4362,6 @@ window.MOBILE_DATA = {
     }
   ],
   "all_trades": [
-    {
-      "date": "2026-05-20",
-      "ticker": "SPXL",
-      "strategy": "TWS_SLD",
-      "shares": 4.0,
-      "entry_price": 262.27,
-      "exit_price": null,
-      "pnl_usd": -17.942403,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.022403,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "LIN",
-      "strategy": "TWS_SLD",
-      "shares": 2.0,
-      "entry_price": 502.78,
-      "exit_price": null,
-      "pnl_usd": -10.761111,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.021111,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "IP",
-      "strategy": "TWS_SLD",
-      "shares": 1.0,
-      "entry_price": 29.26,
-      "exit_price": null,
-      "pnl_usd": -1.589901,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.296401,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "VRTX",
-      "strategy": "TWS_SLD",
-      "shares": 2.0,
-      "entry_price": 437.72,
-      "exit_price": null,
-      "pnl_usd": -6.33843,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.01843,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "GOOGL",
-      "strategy": "TWS_BOT",
-      "shares": 1.0,
-      "entry_price": 391.745,
-      "exit_price": null,
-      "pnl_usd": 0,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.000003,
-      "side": "BOT"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "GOOGL",
-      "strategy": "TWS_SLD",
-      "shares": 1.0,
-      "entry_price": 391.745,
-      "exit_price": null,
-      "pnl_usd": -2.008271,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.008268,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "FTAI",
-      "strategy": "TWS_BOT",
-      "shares": 1.0,
-      "entry_price": 226.95,
-      "exit_price": null,
-      "pnl_usd": 0,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.000003,
-      "side": "BOT"
-    },
-    {
-      "date": "2026-05-20",
-      "ticker": "FTAI",
-      "strategy": "TWS_SLD",
-      "shares": 1.0,
-      "entry_price": 226.68,
-      "exit_price": null,
-      "pnl_usd": -2.274871,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 1.004868,
-      "side": "SLD"
-    },
     {
       "date": "2026-05-19",
       "ticker": "PLTR",
