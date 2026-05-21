@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T21:45",
+  "generated_at": "2026-05-20T21:52",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -4225,85 +4225,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T21:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.5870190833333333
+      "age_min": 7.82555235
     },
     "sync_mobile": {
-      "ts": "2026-05-20T21:45:21",
+      "ts": "2026-05-20T21:45:41",
       "ok": true,
-      "note": "159,294 B",
-      "age_min": 0.2870190833333333
+      "note": "159,277 B",
+      "age_min": 7.192219016666667
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 64.55368575
+      "age_min": 71.79221901666666
     },
     "intraday_cron": {
-      "ts": "2026-05-20T21:30:43",
+      "ts": "2026-05-20T21:45:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.920352416666667
+      "age_min": 7.192219016666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T21:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.60368575
+      "age_min": 7.842219016666666
     },
     "vix_regime": {
       "ts": "2026-05-20T21:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.25368575
+      "age_min": 7.492219016666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 825.55368575
+      "age_min": 832.7922190166666
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1251.6870190833333
+      "age_min": 1258.92555235
     },
     "paper_rehearsal": {
-      "ts": "2026-05-20T08:20:01",
-      "ok": false,
-      "note": "rehearsal timeout 300s",
-      "age_min": 805.6203524166667
+      "ts": "2026-05-20T21:45:00",
+      "ok": true,
+      "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
+      "age_min": 7.87555235
     },
     "alert_paper_rehearsal": {
-      "ts": "2026-05-20T08:20:01",
-      "ok": false,
-      "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 805.6203524166667
+      "ts": "2026-05-20T21:45:00",
+      "ok": true,
+      "note": "resolved: paper_rehearsal disabled, stale alert cleared",
+      "age_min": 7.87555235
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 793.30368575
+      "age_min": 800.5422190166666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 790.4870190833334
+      "age_min": 797.72555235
     },
     "alert_state_tws_reconciler_phantom": {
-      "ts": "2026-05-20T20:39:23",
-      "ok": false,
-      "note": "state ↔ TWS phantom 検知 (3件): GOOGL state=1株 TWS=0, FTAI state=1株 TWS=0, SLV state=1株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。",
-      "age_min": 66.25368575
+      "ts": "2026-05-20T21:45:00",
+      "ok": true,
+      "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
+      "age_min": 7.87555235
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T21:45:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.25368575
+      "age_min": 7.492219016666667
     }
   },
   "regime": {
