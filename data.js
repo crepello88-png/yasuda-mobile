@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T22:00",
+  "generated_at": "2026-05-20T22:04",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -4225,85 +4225,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6210057166666666
+      "age_min": 4.3195983
     },
     "sync_mobile": {
-      "ts": "2026-05-20T22:00:21",
+      "ts": "2026-05-20T22:00:43",
       "ok": true,
-      "note": "158,241 B",
-      "age_min": 0.32100571666666666
+      "note": "158,283 B",
+      "age_min": 3.652931633333333
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 79.58767238333333
+      "age_min": 83.28626496666668
     },
     "intraday_cron": {
-      "ts": "2026-05-20T21:45:41",
+      "ts": "2026-05-20T22:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.987672383333335
+      "age_min": 3.6362649666666664
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6376723833333333
+      "age_min": 4.336264966666667
     },
     "vix_regime": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.28767238333333334
+      "age_min": 3.9862649666666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 840.5876723833334
+      "age_min": 844.2862649666666
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1266.7210057166667
+      "age_min": 1270.4195983
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 15.671005716666667
+      "age_min": 19.3695983
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 15.671005716666667
+      "age_min": 19.3695983
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 808.3376723833334
+      "age_min": 812.0362649666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 805.5210057166667
+      "age_min": 809.2195983
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 15.671005716666667
+      "age_min": 19.3695983
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.28767238333333334
+      "age_min": 3.9862649666666665
     }
   },
   "regime": {

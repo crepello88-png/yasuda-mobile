@@ -19,19 +19,19 @@
      + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ
      5/20 夜: last-update 行を header-row の left col 内側 (h1 + header-sub の下) に移動、
      header 高さ 56px のまま overflow しない構造に変更 — header.last-update の border 不要 */
-  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 110px);
+  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 156px);
        max-width:900px;margin:0 auto;position:relative}
-  header{padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line);
+  header{padding:8px 16px;background:var(--card);border-bottom:1px solid var(--line);
          position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:900px;z-index:10;
-         height:calc(env(safe-area-inset-top) + 56px);box-sizing:border-box;
-         padding-top:calc(env(safe-area-inset-top) + 8px);padding-bottom:6px}
+         height:calc(env(safe-area-inset-top) + 102px);box-sizing:border-box;
+         padding-top:calc(env(safe-area-inset-top) + 8px);padding-bottom:8px}
   .header-row{display:flex;align-items:center;justify-content:space-between}
   h1{font-size:17px;font-weight:600}
   .header-sub{font-size:10px;color:var(--sub);margin-top:2px}
   .refresh{background:var(--blue);color:#fff;border:none;padding:6px 12px;
            border-radius:6px;font-size:12px;font-weight:600;cursor:pointer}
   .tabs{display:flex;background:var(--card);border-bottom:1px solid var(--line);
-        position:fixed;top:calc(env(safe-area-inset-top) + 56px);left:50%;transform:translateX(-50%);
+        position:fixed;top:calc(env(safe-area-inset-top) + 102px);left:50%;transform:translateX(-50%);
         width:100%;max-width:900px;z-index:9;
         height:48px;overflow-x:auto;overflow-y:hidden;
         -webkit-overflow-scrolling:touch;touch-action:pan-x;overscroll-behavior:contain}
