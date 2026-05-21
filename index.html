@@ -1271,25 +1271,22 @@ function renderReports() {
 }
 
 function renderShortTab() {
-  // 5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 → Champ 除外、 短期 only view (cron 上書きで消失、 v20 復元)
+  // 5/20 夜 統一: 計算は sync_mobile.py の short_summary に集約、 JS は表示のみ
   const d = window.MOBILE_DATA || {};
-  const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
-  const isShort = (p) => !((p._intraday_sl_exempt === true)
-                            || CHAMP_TICKERS.includes(p.ticker)
-                            || p.strategy === 'Champ_DCA'
-                            || p.exit_style === 'LONG_TERM');
-  const shortPos = (d.positions||[]).filter(isShort);
-  let cost=0, value=0;
-  shortPos.forEach(p => {
-    const sh=Number(p.shares||0), avg=Number(p.entry_price||0);
-    const cur=Number(p.current_price||p._market_price||0)||avg;
-    cost += sh*avg; value += sh*cur;
-  });
-  const unreal = value - cost, unrealPct = cost ? unreal/cost*100 : 0;
+  const ss = d.short_summary || {};
+  const today = ss.today || {realized_net:0, n_trades:0, n_wins:0};
+  const week = ss.week || {realized_net:0, n_trades:0, n_wins:0, phantom_count:0};
+  const open = ss.open || {n_positions:0, cost_total:0, unrealized:0, positions:[]};
   const w = d.weekly_pnl || {};
-  const shortTrades = (w.trades||[]).filter(t => !CHAMP_TICKERS.includes(t.ticker || ''));
-  const realizedWeek = shortTrades.reduce((s,t)=>s+(t.pnl_usd||0), 0);
-  const winsWeek = shortTrades.filter(t=>(t.pnl_usd||0)>0).length;
+  // 戦略別 集計は trades list (短期 only filter) から
+  const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
+  const isShortTrade = (t) => {
+    if (CHAMP_TICKERS.includes(t.ticker||'')) return false;
+    if ((t.exit_reason||'').toLowerCase().includes('long_term')) return false;
+    if ((t.exit_reason||'').toLowerCase().includes('phantom_rolled_back')) return false;
+    return true;
+  };
+  const shortTrades = (w.trades||[]).filter(isShortTrade);
   const byStrat = {};
   shortTrades.forEach(t => {
     const k = t.strategy || '?';
@@ -1297,19 +1294,19 @@ function renderShortTab() {
     s.n++; s.pnl += t.pnl_usd||0; if ((t.pnl_usd||0)>0) s.wins++;
   });
   const byStratArr = Object.values(byStrat).sort((a,b)=>b.pnl-a.pnl);
+  const unrealPct = open.cost_total ? open.unrealized/open.cost_total*100 : 0;
+
   const sumEl = document.getElementById('short-summary');
   if (sumEl) sumEl.innerHTML = `
-    <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${shortPos.length} 銘柄 / 元本 $${cost.toFixed(0)}</div></div></div>
-    <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(unreal)}">${unreal>=0?'+$':'-$'}${Math.abs(unreal).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
-    <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(realizedWeek)}">${realizedWeek>=0?'+$':'-$'}${Math.abs(realizedWeek).toFixed(2)}</div><div class="pct">${shortTrades.length}件 / 勝${winsWeek}</div></div></div>`;
+    <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(open.unrealized)}">${open.unrealized>=0?'+$':'-$'}${Math.abs(open.unrealized).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">今日 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(today.realized_net)}">${today.realized_net>=0?'+$':'-$'}${Math.abs(today.realized_net).toFixed(2)}</div><div class="pct">${today.n_trades}件 / 勝${today.n_wins}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(week.realized_net)}">${week.realized_net>=0?'+$':'-$'}${Math.abs(week.realized_net).toFixed(2)}</div><div class="pct">${week.n_trades}件 / 勝${week.n_wins}${week.phantom_count?` · phantom ${week.phantom_count}`:''}</div></div></div>`;
   const posEl = document.getElementById('short-positions');
   if (posEl) {
-    if (!shortPos.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
-    else posEl.innerHTML = shortPos.map(p => {
-      const sh=Number(p.shares||0), avg=Number(p.entry_price||0);
-      const cur=Number(p.current_price||p._market_price||0)||avg;
-      const pn=(cur-avg)*sh, pct=avg?(cur/avg-1)*100:0;
-      return `<div class="row"><div class="row-l"><div class="ticker">${p.ticker} <span class="badge">${(p.strategy||'').slice(0,18)}</span></div><div class="strat">${sh}株 @ $${avg.toFixed(2)} → 現 $${cur.toFixed(2)}</div></div><div class="row-r"><div class="price ${pctClass(pn)}">${pn>=0?'+$':'-$'}${Math.abs(pn).toFixed(2)}</div><div class="pct ${pctClass(pct)}">${fmtPct(pct)}</div></div></div>`;
+    if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
+    else posEl.innerHTML = open.positions.map(p => {
+      return `<div class="row"><div class="row-l"><div class="ticker">${p.ticker}</div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)}</div></div><div class="row-r"><div class="price">$${(p.cost||0).toFixed(2)}</div></div></div>`;
     }).join('');
   }
   const byStratEl = document.getElementById('short-by-strategy');
@@ -1366,51 +1363,56 @@ function renderTrades() {
 }
 
 function renderShortVsLong() {
-  // 5/19 夜 user 「短期と長期の VS わかるタブ」 → positions を Champ / 短期 で分けて比較
+  // 5/20 夜 統一: 短期 numbers は short_summary 参照、 長期 (Champ) は positions から
   const d = window.MOBILE_DATA || {};
   const positions = d.positions || [];
   const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
   const compEl = document.getElementById('svsl-compare');
   const breakEl = document.getElementById('svsl-breakdown');
   if (!compEl) return;
-  let sCost=0, sValue=0, sCount=0;  // 短期
-  let lCost=0, lValue=0, lCount=0;  // 長期 (Champ)
-  const sList=[], lList=[];
+  // 長期 (Champ) は positions から
+  let lCost=0, lValue=0, lCount=0;
+  const lList=[];
   positions.forEach(p => {
     const isChamp = (p._intraday_sl_exempt === true) || CHAMP_TICKERS.includes(p.ticker)
                     || p.strategy === 'Champ_DCA' || p.exit_style === 'LONG_TERM';
+    if (!isChamp) return;
     const sh = Number(p.shares||0);
     const avg = Number(p.entry_price||0);
     const cur = Number(p.current_price||p._market_price||0) || avg;
     const cost = sh*avg, value = sh*cur;
-    if (isChamp) { lCost+=cost; lValue+=value; lCount++; lList.push({...p, cost, value, pnl:value-cost}); }
-    else         { sCost+=cost; sValue+=value; sCount++; sList.push({...p, cost, value, pnl:value-cost}); }
+    lCost+=cost; lValue+=value; lCount++; lList.push({...p, cost, value, pnl:value-cost});
   });
-  const sPnl = sValue - sCost, sPct = sCost ? sPnl/sCost*100 : 0;
   const lPnl = lValue - lCost, lPct = lCost ? lPnl/lCost*100 : 0;
-  // 5/20 夜: 今日 realized P&L (daily_history 最新 entry) を 短期 row に補助表示
-  const dailyHist = d.daily_history || [];
-  const todayEntry = dailyHist.length ? dailyHist[dailyHist.length-1] : null;
-  const todayRealized = todayEntry ? Number(todayEntry.day_pnl || 0) : 0;
-  const todayTrades = todayEntry ? Number(todayEntry.n_trades || 0) : 0;
+  // 短期 は short_summary 統一参照
+  const ss = d.short_summary || {};
+  const today = ss.today || {realized_net:0, n_trades:0};
+  const open = ss.open || {n_positions:0, cost_total:0, unrealized:0};
+  const sCount = open.n_positions || 0;
+  const sCost = open.cost_total || 0;
+  const sUnreal = open.unrealized || 0;  // 含み損益
+  const sToday = today.realized_net || 0;  // 今日 realized
+  // 短期 row: 含み (open) + 今日 realized を 統合表示
+  const sCombined = sUnreal + sToday;
   compEl.innerHTML = `
     <div class="row">
       <div class="row-l"><div class="ticker">📈 長期 (Champ DCA)</div><div class="strat">${lCount} 銘柄 · cost $${lCost.toFixed(0)}</div></div>
       <div class="row-r"><div class="price ${pctClass(lPnl)}">${lPnl>=0?'+$':'-$'}${Math.abs(lPnl).toFixed(2)}</div><div class="pct ${pctClass(lPct)}">${fmtPct(lPct)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker">⚡ 短期 (寄付/intraday)</div><div class="strat">${sCount} 銘柄 · cost $${sCost.toFixed(0)}${todayTrades ? ` · 今日 ${todayTrades}T realized` : ''}</div></div>
-      <div class="row-r"><div class="price ${pctClass(sPnl + todayRealized)}">${(sPnl+todayRealized)>=0?'+$':'-$'}${Math.abs(sPnl+todayRealized).toFixed(2)}</div>${todayRealized!==0 ? `<div class="pct ${pctClass(todayRealized)}" style="font-size:10px">今日 ${todayRealized>=0?'+':''}$${todayRealized.toFixed(2)}</div>` : `<div class="pct ${pctClass(sPct)}">${fmtPct(sPct)}</div>`}</div>
+      <div class="row-l"><div class="ticker">⚡ 短期 (寄付/intraday)</div><div class="strat">${sCount} 銘柄 · cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日 ${today.n_trades}件 realized` : ''}</div></div>
+      <div class="row-r"><div class="price ${pctClass(sCombined)}">${sCombined>=0?'+$':'-$'}${Math.abs(sCombined).toFixed(2)}</div>${sToday!==0 ? `<div class="pct ${pctClass(sToday)}" style="font-size:10px">今日 ${sToday>=0?'+':''}$${sToday.toFixed(2)}</div>` : ''}</div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker">合計</div><div class="strat">${lCount+sCount} 銘柄 · 元本 $${(lCost+sCost).toFixed(0)} → 評価 $${(lValue+sValue).toFixed(0)}</div></div>
-      <div class="row-r"><div class="price ${pctClass(lPnl+sPnl)}">${(lPnl+sPnl)>=0?'+$':'-$'}${Math.abs(lPnl+sPnl).toFixed(2)}</div></div>
+      <div class="row-l"><div class="ticker">合計</div><div class="strat">${lCount+sCount} 銘柄 · 元本 $${(lCost+sCost).toFixed(0)} → 評価 $${(lValue+sCost+sUnreal).toFixed(0)}</div></div>
+      <div class="row-r"><div class="price ${pctClass(lPnl+sCombined)}">${(lPnl+sCombined)>=0?'+$':'-$'}${Math.abs(lPnl+sCombined).toFixed(2)}</div></div>
     </div>`;
   if (breakEl) {
-    const mkSect = (title, items) => items.length ? `<div class="strat" style="margin:8px 0 4px;font-weight:600;color:var(--txt)">${title}</div>` +
-      items.map(p=>`<div class="row"><div class="row-l"><div class="ticker">${p.ticker} <span class="badge">${(p.strategy||'').slice(0,16)}</span></div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)} → 現 $${((p.current_price||p._market_price)||0).toFixed(2)}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`).join('')
+    const sList = (open.positions || []).map(p => ({...p, pnl: 0}));
+    const mkSect = (title, items, isShort) => items.length ? `<div class="strat" style="margin:8px 0 4px;font-weight:600;color:var(--txt)">${title}</div>` +
+      items.map(p=>`<div class="row"><div class="row-l"><div class="ticker">${p.ticker} ${isShort?'':`<span class="badge">${(p.strategy||'').slice(0,16)}</span>`}</div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)}${isShort?'':` → 現 $${((p.current_price||p._market_price)||0).toFixed(2)}`}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`).join('')
       : '';
-    breakEl.innerHTML = (mkSect('📈 長期', lList) + mkSect('⚡ 短期', sList)) || '<div class="empty">保有なし</div>';
+    breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ 短期', sList, true)) || '<div class="empty">保有なし</div>';
   }
 }
 
