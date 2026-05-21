@@ -2013,14 +2013,18 @@ async function subscribePush() {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC)
     });
-    // subscription を GitHub Issue 経由でサーバーに送る (専用 issue で endpoint 保存)
-    const title = '[PUSH_SUBSCRIBE] ' + new Date().toISOString().slice(0,16);
-    const body = '## Subscription endpoint\n```json\n' + JSON.stringify(sub.toJSON(), null, 2) + '\n```\n\n## クロコー アクション\n- このメッセージを読んで logs/push_subscriptions.json に保存\n- 完了したら close';
-    const url = 'https://github.com/crepello88-png/yasuda_short/issues/new?title=' + encodeURIComponent(title) + '&body=' + encodeURIComponent(body) + '&labels=' + encodeURIComponent('push-subscribe');
-    window.open(url, '_blank');
-    alert('通知ON 完了、 subscription を GitHub Issue で送信してください (画面が開きます)');
+    // 5/20 夜: iOS PWA の window.open 制約回避 — clipboard コピー + 📮 報告 経由で submit
+    const subText = JSON.stringify(sub.toJSON(), null, 2);
+    let copied = false;
+    try { await navigator.clipboard.writeText('PUSH_SUBSCRIBE:\n' + subText); copied = true; } catch(e) {}
     const btn = document.getElementById('push-btn');
     if (btn) { btn.textContent = '🔕 通知ON済'; btn.disabled = true; }
+    if (copied) {
+      alert('✓ 通知ON 完了\n\nsubscription を クリップボードにコピー済。\n\n次の手順:\n1. このまま 📮 報告 (黄色) ボタン タップ\n2. プロンプトで 「6」 入力 → OK\n3. 自由入力欄を 長押し → ペースト\n4. OK → GitHub Issue 作成画面 開く\n5. Submit new issue (緑ボタン) タップ');
+    } else {
+      // clipboard 失敗 fallback: 内容を alert で表示、 user 手動 copy
+      alert('通知ON 完了。 clipboard コピー失敗。\n\n以下を コピー してください (長押し → 選択 → コピー):\n\n' + subText);
+    }
   } catch (e) {
     alert('subscribe error: ' + e.message);
   }
