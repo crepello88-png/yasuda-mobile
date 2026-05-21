@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T06:23",
+  "generated_at": "2026-05-21T06:25",
   "today_summary": {
     "netliq": 11398.22,
     "cash": 3649.27,
@@ -4255,109 +4255,67 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T06:15:03",
       "ok": true,
       "note": "",
-      "age_min": 8.838693333333334
+      "age_min": 10.486548183333333
     },
     "sync_mobile": {
-      "ts": "2026-05-21T06:22:26",
+      "ts": "2026-05-21T06:23:58",
       "ok": true,
-      "note": "161,620 B",
-      "age_min": 1.45536
+      "note": "161,789 B",
+      "age_min": 1.5698815166666666
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 2.9720266666666664
+      "age_min": 4.619881516666666
     },
     "intraday_cron": {
       "ts": "2026-05-21T06:15:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 8.20536
+      "age_min": 9.85321485
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T06:15:02",
       "ok": true,
       "note": "",
-      "age_min": 8.85536
+      "age_min": 10.50321485
     },
     "vix_regime": {
       "ts": "2026-05-21T06:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 8.50536
+      "age_min": 10.153214850000001
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1343.8053599999998
-    },
-    "ST734_vol_regime": {
-      "ts": "2026-05-20T00:53:57",
-      "ok": true,
-      "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1769.9386933333333
-    },
-    "paper_rehearsal": {
-      "ts": "2026-05-20T21:45:00",
-      "ok": true,
-      "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 518.8886933333333
-    },
-    "alert_paper_rehearsal": {
-      "ts": "2026-05-20T21:45:00",
-      "ok": true,
-      "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 518.8886933333333
+      "age_min": 1345.45321485
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1311.5553599999998
+      "age_min": 1313.20321485
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1308.7386933333332
+      "age_min": 1310.3865481833334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 518.8886933333333
+      "age_min": 520.5365481833334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T06:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 8.50536
-    },
-    "executor_sim": {
-      "ts": "2026-05-21T06:22:00",
-      "ok": true,
-      "note": "5/18 夜 test alert (MOO reject sim) は dummy、 resolved",
-      "age_min": 1.8886933333333333
-    },
-    "test": {
-      "ts": "2026-05-21T06:22:00",
-      "ok": true,
-      "note": "5/18 夜 test alert は dummy、 resolved",
-      "age_min": 1.8886933333333333
-    },
-    "import_test": {
-      "ts": "2026-05-21T06:22:00",
-      "ok": true,
-      "note": "5/18 夜 sanity test、 resolved",
-      "age_min": 1.8886933333333333
-    },
-    "test_post_line_removal": {
-      "ts": "2026-05-21T06:22:00",
-      "ok": true,
-      "note": "5/19 LINE 廃止後 test、 resolved",
-      "age_min": 1.8886933333333333
+      "age_min": 10.153214850000001
     }
   },
   "regime": {
@@ -4380,10 +4338,22 @@ window.MOBILE_DATA = {
   },
   "alerts_recent": [
     {
+      "ts": "2026-05-20T08:20:01",
+      "severity": "CRITICAL",
+      "source": "paper_rehearsal",
+      "message": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)"
+    },
+    {
       "ts": "2026-05-20T08:00:05",
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 30 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
+    },
+    {
+      "ts": "2026-05-19T08:18:24",
+      "severity": "CRITICAL",
+      "source": "paper_rehearsal",
+      "message": "rehearsal exit=1 (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260519.log)"
     },
     {
       "ts": "2026-05-19T08:00:03",
@@ -4392,10 +4362,34 @@ window.MOBILE_DATA = {
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 20 件 全 PASS | 💼 NetLiq $11,460、 cash $1,610 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
     },
     {
+      "ts": "2026-05-19T00:09:24",
+      "severity": "LOW",
+      "source": "test_post_line_removal",
+      "message": "LINE 廃止 後 動作確認"
+    },
+    {
       "ts": "2026-05-18T23:57:19",
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 11 件 全 PASS | 💼 NetLiq $11,460、 cash $1,610 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
+    },
+    {
+      "ts": "2026-05-18T23:47:19",
+      "severity": "LOW",
+      "source": "import_test",
+      "message": "sanity import path test"
+    },
+    {
+      "ts": "2026-05-18T23:47:14",
+      "severity": "CRITICAL",
+      "source": "executor_sim",
+      "message": "MOO reject sim"
+    },
+    {
+      "ts": "2026-05-18T23:47:02",
+      "severity": "LOW",
+      "source": "test",
+      "message": "test alert from claude code 5/18 night"
     }
   ],
   "post_mortem": {
