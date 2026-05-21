@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T06:21",
+  "generated_at": "2026-05-21T06:22",
   "today_summary": {
     "netliq": 11393.09,
     "cash": 3649.27,
@@ -4255,85 +4255,109 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T06:15:03",
       "ok": true,
       "note": "",
-      "age_min": 6.4579934
+      "age_min": 7.335990083333333
     },
     "sync_mobile": {
-      "ts": "2026-05-21T06:15:41",
+      "ts": "2026-05-21T06:21:33",
       "ok": true,
-      "note": "161,532 B",
-      "age_min": 5.824660066666667
+      "note": "161,494 B",
+      "age_min": 0.8359900833333334
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 0.5913267333333334
+      "age_min": 1.4693234166666669
     },
     "intraday_cron": {
       "ts": "2026-05-21T06:15:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 5.824660066666667
+      "age_min": 6.70265675
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T06:15:02",
       "ok": true,
       "note": "",
-      "age_min": 6.474660066666667
+      "age_min": 7.3526567499999995
     },
     "vix_regime": {
       "ts": "2026-05-21T06:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 6.124660066666666
+      "age_min": 7.00265675
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1341.4246600666665
+      "age_min": 1342.3026567499999
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1767.5579934
+      "age_min": 1768.4359900833333
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 516.5079934
+      "age_min": 517.3859900833334
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 516.5079934
+      "age_min": 517.3859900833334
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1309.1746600666665
+      "age_min": 1310.0526567499999
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1306.3579934
+      "age_min": 1307.2359900833333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 516.5079934
+      "age_min": 517.3859900833334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T06:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 6.124660066666666
+      "age_min": 7.00265675
+    },
+    "executor_sim": {
+      "ts": "2026-05-21T06:22:00",
+      "ok": true,
+      "note": "5/18 夜 test alert (MOO reject sim) は dummy、 resolved",
+      "age_min": 0.38599008333333334
+    },
+    "test": {
+      "ts": "2026-05-21T06:22:00",
+      "ok": true,
+      "note": "5/18 夜 test alert は dummy、 resolved",
+      "age_min": 0.38599008333333334
+    },
+    "import_test": {
+      "ts": "2026-05-21T06:22:00",
+      "ok": true,
+      "note": "5/18 夜 sanity test、 resolved",
+      "age_min": 0.38599008333333334
+    },
+    "test_post_line_removal": {
+      "ts": "2026-05-21T06:22:00",
+      "ok": true,
+      "note": "5/19 LINE 廃止後 test、 resolved",
+      "age_min": 0.38599008333333334
     }
   },
   "regime": {
@@ -4368,34 +4392,10 @@ window.MOBILE_DATA = {
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 20 件 全 PASS | 💼 NetLiq $11,460、 cash $1,610 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
     },
     {
-      "ts": "2026-05-19T00:09:24",
-      "severity": "LOW",
-      "source": "test_post_line_removal",
-      "message": "LINE 廃止 後 動作確認"
-    },
-    {
       "ts": "2026-05-18T23:57:19",
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 11 件 全 PASS | 💼 NetLiq $11,460、 cash $1,610 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-18T23:47:19",
-      "severity": "LOW",
-      "source": "import_test",
-      "message": "sanity import path test"
-    },
-    {
-      "ts": "2026-05-18T23:47:14",
-      "severity": "CRITICAL",
-      "source": "executor_sim",
-      "message": "MOO reject sim"
-    },
-    {
-      "ts": "2026-05-18T23:47:02",
-      "severity": "LOW",
-      "source": "test",
-      "message": "test alert from claude code 5/18 night"
     }
   ],
   "post_mortem": {
