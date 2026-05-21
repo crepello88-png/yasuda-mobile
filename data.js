@@ -725,8 +725,8 @@ window.MOBILE_DATA = {
       "_market_value": 1413.88,
       "_unreal_pnl": -112.54,
       "_market_price": 706.9420166,
-      "current_price": 708.0399780273438,
-      "pnl_pct": -7.22868174849075,
+      "current_price": 708.0999755859375,
+      "pnl_pct": -7.220820536164685,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -755,8 +755,8 @@ window.MOBILE_DATA = {
       "_market_value": 1050.85,
       "_unreal_pnl": 44.03,
       "_market_price": 1050.84594725,
-      "current_price": 1050.9150390625,
-      "pnl_pct": 4.379634796934906,
+      "current_price": 1050.7099609375,
+      "pnl_pct": 4.359265900309883,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -785,8 +785,8 @@ window.MOBILE_DATA = {
       "_market_value": 2635.92,
       "_unreal_pnl": -120.32,
       "_market_price": 219.66036985,
-      "current_price": 219.30999755859375,
-      "pnl_pct": -4.517749873229859,
+      "current_price": 219.52999877929688,
+      "pnl_pct": -4.421966681322431,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -815,8 +815,8 @@ window.MOBILE_DATA = {
       "_market_value": 1535.94,
       "_unreal_pnl": -20.99,
       "_market_price": 383.9845581,
-      "current_price": 384.00299072265625,
-      "pnl_pct": -1.3435438400811295,
+      "current_price": 384.25,
+      "pnl_pct": -1.2800832407365847,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -845,8 +845,8 @@ window.MOBILE_DATA = {
       "_market_value": 1034.93,
       "_unreal_pnl": 37.83,
       "_market_price": 1034.93286135,
-      "current_price": 1034.969970703125,
-      "pnl_pct": 3.798011303091453,
+      "current_price": 1035.6800537109375,
+      "pnl_pct": 3.869226126861647,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -4255,77 +4255,77 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T09:45:05",
       "ok": true,
       "note": "",
-      "age_min": 0.2694764333333334
+      "age_min": 0.6063042000000001
     },
     "sync_mobile": {
-      "ts": "2026-05-21T09:30:52",
+      "ts": "2026-05-21T09:45:25",
       "ok": true,
-      "note": "161,776 B",
-      "age_min": 14.4861431
+      "note": "161,755 B",
+      "age_min": 0.27297086666666665
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 204.4361431
+      "age_min": 204.77297086666667
     },
     "intraday_cron": {
       "ts": "2026-05-21T09:30:52",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.4861431
+      "age_min": 14.822970866666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T09:45:04",
       "ok": true,
       "note": "",
-      "age_min": 0.28614310000000004
+      "age_min": 0.6229708666666667
     },
     "vix_regime": {
-      "ts": "2026-05-21T09:30:28",
+      "ts": "2026-05-21T09:45:25",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 14.8861431
+      "age_min": 0.27297086666666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 105.26947643333332
+      "age_min": 105.60630420000001
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 72.90280976666666
+      "age_min": 73.23963753333334
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 65.81947643333334
+      "age_min": 66.1563042
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T08:39:30",
       "ok": false,
       "note": "state ↔ TWS phantom 検知 (3件): EXE state=11株 TWS=0, NTAP state=4株 TWS=0, ADI state=2株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。",
-      "age_min": 65.85280976666667
+      "age_min": 66.18963753333334
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T09:30:27",
+      "ts": "2026-05-21T09:45:25",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.902809766666667
+      "age_min": 0.27297086666666665
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 20.752809766666665
+      "age_min": 21.089637533333335
     }
   },
   "regime": {
-    "ts": "2026-05-21T09:30:28",
+    "ts": "2026-05-21T09:45:25",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
