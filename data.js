@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T20:30",
+  "generated_at": "2026-05-20T20:40",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -12,7 +12,7 @@ window.MOBILE_DATA = {
     "realized_pnl": -40.91,
     "day_pnl_pct": -1.3376791227547389,
     "account_type": "INDIVIDUAL",
-    "open_positions": 8,
+    "open_positions": 5,
     "open_orders_count": 0,
     "fills_today_count": 8,
     "vix": null,
@@ -624,117 +624,8 @@ window.MOBILE_DATA = {
     ],
     "note": "daily_history から動的生成 (直近 5 営業日)、 by_strategy + trades は closed_positions ベース"
   },
-  "signals_today": [
-    {
-      "ticker": "GOOGL",
-      "strategy": "HighPullback50_v1",
-      "ref_price": 387.27,
-      "target_tp_pct": 0.84,
-      "boost_n": 1.0
-    },
-    {
-      "ticker": "FTAI",
-      "strategy": "Stoch_Oversold_v1",
-      "ref_price": 228.0,
-      "target_tp_pct": 0.91,
-      "boost_n": 0.5
-    },
-    {
-      "ticker": "SLV",
-      "strategy": "TweezerBottom_30m",
-      "ref_price": 67.95,
-      "target_tp_pct": 2.0,
-      "boost_n": 1.0
-    }
-  ],
+  "signals_today": [],
   "positions": [
-    {
-      "ticker": "GOOGL",
-      "strategy": "HighPullback50_v1",
-      "entry_date": "2026-05-20",
-      "entry_price": 387.27,
-      "shares": 1,
-      "entry_value": 387.27,
-      "stop_loss_price": 348.543,
-      "hold_days": 1,
-      "exit_style": "BRACKET",
-      "status": "open",
-      "bracket": true,
-      "take_profit_pct": 0.84,
-      "take_profit_price": 390.92,
-      "size_multiplier": 1.0,
-      "current_price": 388.8800048828125,
-      "pnl_pct": 0.41573188804000516,
-      "exit_rules": {
-        "tp1_pct": 0.504,
-        "tp1_price": 389.22184079999994,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": -3.0,
-        "intraday_sl_price": 375.65189999999996,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 348.543,
-        "intraday_sl_exempt": false,
-        "exempt_reason": null
-      }
-    },
-    {
-      "ticker": "FTAI",
-      "strategy": "Stoch_Oversold_v1",
-      "entry_date": "2026-05-20",
-      "entry_price": 228.0,
-      "shares": 1,
-      "entry_value": 228.0,
-      "stop_loss_price": 205.20000000000002,
-      "hold_days": 1,
-      "exit_style": "BRACKET",
-      "status": "open",
-      "bracket": true,
-      "take_profit_pct": 0.91,
-      "take_profit_price": 225.52,
-      "size_multiplier": 0.5,
-      "current_price": 239.82000732421875,
-      "pnl_pct": 5.184213738692445,
-      "exit_rules": {
-        "tp1_pct": 0.546,
-        "tp1_price": 229.24488,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": -3.0,
-        "intraday_sl_price": 221.16,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 205.20000000000002,
-        "intraday_sl_exempt": false,
-        "exempt_reason": null
-      }
-    },
-    {
-      "ticker": "SLV",
-      "strategy": "TweezerBottom_30m",
-      "entry_date": "2026-05-20",
-      "entry_price": 67.95,
-      "shares": 1,
-      "entry_value": 67.95,
-      "stop_loss_price": 61.155,
-      "hold_days": 1,
-      "exit_style": "BRACKET",
-      "status": "open",
-      "bracket": true,
-      "take_profit_pct": 2.0,
-      "take_profit_price": 68.56,
-      "size_multiplier": 1.0,
-      "current_price": 68.7300033569336,
-      "pnl_pct": 1.147907810056803,
-      "exit_rules": {
-        "tp1_pct": 1.2,
-        "tp1_price": 68.7654,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": -3.0,
-        "intraday_sl_price": 65.9115,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 61.155,
-        "intraday_sl_exempt": false,
-        "exempt_reason": null
-      }
-    },
     {
       "ticker": "PWR",
       "strategy": "Champ_DCA",
@@ -4334,73 +4225,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T20:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.4998198
+      "age_min": 10.262944183333333
     },
     "sync_mobile": {
-      "ts": "2026-05-20T20:30:26",
+      "ts": "2026-05-20T20:30:35",
       "ok": true,
-      "note": "164,353 B",
-      "age_min": 0.11648646666666668
+      "note": "164,340 B",
+      "age_min": 9.72961085
     },
     "verify_claims": {
       "ts": "2026-05-20T20:28:17",
       "ok": true,
       "note": "30p/0f",
-      "age_min": 2.266486466666667
+      "age_min": 12.029610850000001
     },
     "intraday_cron": {
-      "ts": "2026-05-20T20:15:35",
+      "ts": "2026-05-20T20:30:35",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.966486466666668
+      "age_min": 9.72961085
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T20:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.5164864666666666
+      "age_min": 10.279610850000001
     },
     "vix_regime": {
       "ts": "2026-05-20T20:30:03",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 0.4998198
+      "age_min": 10.262944183333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 750.4664864666667
+      "age_min": 760.22961085
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1176.5998198000002
+      "age_min": 1186.3629441833332
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 730.5331531333334
+      "age_min": 740.2962775166667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260520.log)",
-      "age_min": 730.5331531333334
+      "age_min": 740.2962775166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 718.2164864666667
+      "age_min": 727.97961085
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 715.3998198
+      "age_min": 725.1629441833334
+    },
+    "alert_state_tws_reconciler_phantom": {
+      "ts": "2026-05-20T20:39:23",
+      "ok": false,
+      "note": "state ↔ TWS phantom 検知 (3件): GOOGL state=1株 TWS=0, FTAI state=1株 TWS=0, SLV state=1株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。",
+      "age_min": 0.92961085
+    },
+    "state_tws_reconciler": {
+      "ts": "2026-05-20T20:39:23",
+      "ok": false,
+      "note": "state=3 TWS=5 phantoms=3 partials=0",
+      "age_min": 0.92961085
     }
   },
   "regime": {
@@ -4422,6 +4325,18 @@ window.MOBILE_DATA = {
     "data_freshness_days": 1
   },
   "alerts_recent": [
+    {
+      "ts": "2026-05-20T20:39:23",
+      "severity": "CRITICAL",
+      "source": "state_tws_reconciler_phantom",
+      "message": "state ↔ TWS phantom 検知 (3件): GOOGL state=1株 TWS=0, FTAI state=1株 TWS=0, SLV state=1株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。"
+    },
+    {
+      "ts": "2026-05-20T20:39:01",
+      "severity": "CRITICAL",
+      "source": "state_tws_reconciler_phantom",
+      "message": "state ↔ TWS phantom 検知 (3件): GOOGL state=1株 TWS=0, FTAI state=1株 TWS=0, SLV state=1株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。"
+    },
     {
       "ts": "2026-05-20T08:20:01",
       "severity": "CRITICAL",
@@ -4469,137 +4384,13 @@ window.MOBILE_DATA = {
       "severity": "CRITICAL",
       "source": "executor_sim",
       "message": "MOO reject sim"
-    },
-    {
-      "ts": "2026-05-18T23:47:02",
-      "severity": "LOW",
-      "source": "test",
-      "message": "test alert from claude code 5/18 night"
     }
   ],
   "post_mortem": {
     "file": "weekly_post_mortem_2026-05-18.md",
     "content": "# Weekly Post-Mortem 2026-05-18 (counterfactual 直近 7 日)\n\n**Task #102 自動出力** — 場中 SL 売却 vs hold-end の比較で SL rule の週次勝敗を判定。\n\n## 📊 Summary\n\n- 期間: 過去 **7** 日 (closed_positions 1 件 対象、 うち場中 SL 系 **1** 件)\n- 場中 SL 実 P&L: **$-90.90**\n- 引け hold 仮想: **$-59.55**\n- 戦略 rule 通り hold (N日後 Close) 仮想: **$+0.00**\n- hold-引け の方が良かった件数: **1 / 1**\n- hold-rule の方が良かった件数: **0 / 1**\n\n## 🎯 今週判定: **LOSS**\n\n> 場中 SL 売却 で $31 (引け) / $91 (rule) の機会損失\n\n## 🔍 Trade-by-trade counterfactual\n\n| Ticker | Strat | Exit reason | 実 P&L | 引け hold P&L | rule hold P&L | 救済可? |\n|---|---|---|---:|---:|---:|---|\n| ON | HighPullback50_v1 | user_manual_-3%_intraday_SL | $-90.90 | $-59.55 | ? | **+$31** 救済 |\n\n## 📝 個別 narrative\n\n- **ON** (HighPullback50_v1, 2026-05-18 entry → 2026-05-18 user_manual_-3%_intraday_SL): 実 $-91 (-5.29%)、 引け hold なら $-60 (-3.50%) = **$31 救済可**\n\n---\n\n_generated by `weekly_post_mortem.py` @ 2026-05-18 23:47:53 CT_\n"
   },
-  "exit_plans": [
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "GOOGL",
-      "strategy": "HighPullback50_v1",
-      "qty": 1,
-      "entry_price": 387.27,
-      "entry_date": "2026-05-20",
-      "days_held": 0,
-      "hold_days": 1,
-      "bracket": {
-        "tp_pct": 0.84,
-        "tp_price": 390.52,
-        "sl_pct": -10.0,
-        "sl_price": 348.54
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 390.52,
-          "target_pct": 0.84,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 348.54,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=1、 経過=0d",
-          "status": "未到達"
-        }
-      ],
-      "current_price": 388.8800048828125,
-      "unrealized_pct": 0.42,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "FTAI",
-      "strategy": "Stoch_Oversold_v1",
-      "qty": 1,
-      "entry_price": 228.0,
-      "entry_date": "2026-05-20",
-      "days_held": 0,
-      "hold_days": 1,
-      "bracket": {
-        "tp_pct": 0.91,
-        "tp_price": 230.07,
-        "sl_pct": -10.0,
-        "sl_price": 205.2
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 230.07,
-          "target_pct": 0.91,
-          "status": "到達済"
-        },
-        {
-          "type": "SL",
-          "target_price": 205.2,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=1、 経過=0d",
-          "status": "未到達"
-        }
-      ],
-      "current_price": 239.82000732421875,
-      "unrealized_pct": 5.18,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "SLV",
-      "strategy": "TweezerBottom_30m",
-      "qty": 1,
-      "entry_price": 67.95,
-      "entry_date": "2026-05-20",
-      "days_held": 0,
-      "hold_days": 1,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 69.31,
-        "sl_pct": -10.0,
-        "sl_price": 61.16
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 69.31,
-          "target_pct": 2.0,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 61.16,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=1、 経過=0d",
-          "status": "未到達"
-        }
-      ],
-      "current_price": 68.7300033569336,
-      "unrealized_pct": 1.15,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    }
-  ],
+  "exit_plans": [],
   "all_trades": [
     {
       "date": "2026-05-20",
