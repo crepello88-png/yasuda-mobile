@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T22:05",
+  "generated_at": "2026-05-20T22:06",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -760,8 +760,8 @@ window.MOBILE_DATA = {
       "_market_value": 1418.48,
       "_unreal_pnl": -107.94,
       "_market_price": 709.23999025,
-      "current_price": 709.9299926757812,
-      "pnl_pct": -6.981041564473578,
+      "current_price": 719.3499755859375,
+      "pnl_pct": -5.746783246296894,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -4343,85 +4343,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 5.526539133333333
+      "age_min": 6.4693669
     },
     "sync_mobile": {
-      "ts": "2026-05-20T22:04:24",
+      "ts": "2026-05-20T22:05:37",
       "ok": true,
-      "note": "158,233 B",
-      "age_min": 1.1765391333333333
+      "note": "163,925 B",
+      "age_min": 0.9027002333333333
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 84.4932058
+      "age_min": 85.43603356666668
     },
     "intraday_cron": {
       "ts": "2026-05-20T22:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 4.843205800000001
+      "age_min": 5.786033566666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 5.5432058
+      "age_min": 6.486033566666666
     },
     "vix_regime": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 5.1932058
+      "age_min": 6.136033566666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 845.4932057999999
+      "age_min": 846.4360335666667
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1271.6265391333334
+      "age_min": 1272.5693669
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 20.57653913333333
+      "age_min": 21.5193669
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 20.57653913333333
+      "age_min": 21.5193669
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 813.2432057999999
+      "age_min": 814.1860335666667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 810.4265391333333
+      "age_min": 811.3693669
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 20.57653913333333
+      "age_min": 21.5193669
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 5.1932058
+      "age_min": 6.136033566666667
     }
   },
   "regime": {

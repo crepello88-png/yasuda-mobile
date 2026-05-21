@@ -1388,14 +1388,19 @@ function renderShortVsLong() {
   });
   const sPnl = sValue - sCost, sPct = sCost ? sPnl/sCost*100 : 0;
   const lPnl = lValue - lCost, lPct = lCost ? lPnl/lCost*100 : 0;
+  // 5/20 夜: 今日 realized P&L (daily_history 最新 entry) を 短期 row に補助表示
+  const dailyHist = d.daily_history || [];
+  const todayEntry = dailyHist.length ? dailyHist[dailyHist.length-1] : null;
+  const todayRealized = todayEntry ? Number(todayEntry.day_pnl || 0) : 0;
+  const todayTrades = todayEntry ? Number(todayEntry.n_trades || 0) : 0;
   compEl.innerHTML = `
     <div class="row">
       <div class="row-l"><div class="ticker">📈 長期 (Champ DCA)</div><div class="strat">${lCount} 銘柄 · cost $${lCost.toFixed(0)}</div></div>
       <div class="row-r"><div class="price ${pctClass(lPnl)}">${lPnl>=0?'+$':'-$'}${Math.abs(lPnl).toFixed(2)}</div><div class="pct ${pctClass(lPct)}">${fmtPct(lPct)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker">⚡ 短期 (寄付/intraday)</div><div class="strat">${sCount} 銘柄 · cost $${sCost.toFixed(0)}</div></div>
-      <div class="row-r"><div class="price ${pctClass(sPnl)}">${sPnl>=0?'+$':'-$'}${Math.abs(sPnl).toFixed(2)}</div><div class="pct ${pctClass(sPct)}">${fmtPct(sPct)}</div></div>
+      <div class="row-l"><div class="ticker">⚡ 短期 (寄付/intraday)</div><div class="strat">${sCount} 銘柄 · cost $${sCost.toFixed(0)}${todayTrades ? ` · 今日 ${todayTrades}T realized` : ''}</div></div>
+      <div class="row-r"><div class="price ${pctClass(sPnl + todayRealized)}">${(sPnl+todayRealized)>=0?'+$':'-$'}${Math.abs(sPnl+todayRealized).toFixed(2)}</div>${todayRealized!==0 ? `<div class="pct ${pctClass(todayRealized)}" style="font-size:10px">今日 ${todayRealized>=0?'+':''}$${todayRealized.toFixed(2)}</div>` : `<div class="pct ${pctClass(sPct)}">${fmtPct(sPct)}</div>`}</div>
     </div>
     <div class="row">
       <div class="row-l"><div class="ticker">合計</div><div class="strat">${lCount+sCount} 銘柄 · 元本 $${(lCost+sCost).toFixed(0)} → 評価 $${(lValue+sValue).toFixed(0)}</div></div>
