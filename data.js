@@ -4255,89 +4255,89 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T02:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.2707580166666667
+      "age_min": 0.6119873166666667
     },
     "sync_mobile": {
-      "ts": "2026-05-21T02:15:43",
+      "ts": "2026-05-21T02:30:22",
       "ok": true,
-      "note": "161,507 B",
-      "age_min": 14.604091350000001
+      "note": "161,551 B",
+      "age_min": 0.29532065
     },
     "verify_claims": {
       "ts": "2026-05-21T01:25:21",
       "ok": false,
       "note": "61p/1f",
-      "age_min": 64.97075801666666
+      "age_min": 65.31198731666667
     },
     "intraday_cron": {
       "ts": "2026-05-21T02:15:43",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.604091350000001
+      "age_min": 14.945320650000001
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T02:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.2874246833333334
+      "age_min": 0.6286539833333333
     },
     "vix_regime": {
-      "ts": "2026-05-21T02:15:23",
+      "ts": "2026-05-21T02:30:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 14.937424683333335
+      "age_min": 0.27865398333333335
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1110.2374246833335
+      "age_min": 1110.5786539833332
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1536.3707580166667
+      "age_min": 1536.7119873166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 285.3207580166667
+      "age_min": 285.6619873166666
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 285.3207580166667
+      "age_min": 285.6619873166666
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1077.9874246833333
+      "age_min": 1078.3286539833332
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 1075.1707580166667
+      "age_min": 1075.5119873166666
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 285.3207580166667
+      "age_min": 285.6619873166666
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T02:15:23",
+      "ts": "2026-05-21T02:30:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 14.937424683333335
+      "age_min": 0.27865398333333335
     }
   },
   "regime": {
-    "ts": "2026-05-21T02:15:23",
+    "ts": "2026-05-21T02:30:23",
     "vix": 17.9,
     "spy_close": 733.73,
     "spy_10d_return_pct": 1.38,
