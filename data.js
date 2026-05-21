@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T22:19",
+  "generated_at": "2026-05-20T22:20",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -785,10 +785,11 @@ window.MOBILE_DATA = {
       "realized_net": -48.34,
       "live_start_date": "2026-05-11",
       "n_days_traded": 6,
-      "n_trades_total": 8,
-      "n_wins_total": 1,
-      "win_rate_pct": 12.5,
-      "avg_daily_pnl": -8.06
+      "n_days_profit": 3,
+      "n_days_loss": 3,
+      "n_trades_total": 14,
+      "avg_daily_pnl": -8.06,
+      "_note": "5/11 LIVE 開始〜、 daily_history 累計 (5/18 以前 6 trade は archived、 詳細は週次 tab 参照不可)"
     },
     "open": {
       "n_positions": 0,
@@ -4403,85 +4404,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T22:15:03",
       "ok": true,
       "note": "",
-      "age_min": 4.55677945
+      "age_min": 5.766505316666667
     },
     "sync_mobile": {
-      "ts": "2026-05-20T22:17:16",
+      "ts": "2026-05-20T22:19:39",
       "ok": true,
-      "note": "165,106 B",
-      "age_min": 2.3401127833333333
+      "note": "165,355 B",
+      "age_min": 1.1665053166666666
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 98.52344611666668
+      "age_min": 99.73317198333334
     },
     "intraday_cron": {
       "ts": "2026-05-20T22:15:41",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.9234461166666668
+      "age_min": 5.133171983333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T22:15:02",
       "ok": true,
       "note": "",
-      "age_min": 4.573446116666667
+      "age_min": 5.783171983333333
     },
     "vix_regime": {
       "ts": "2026-05-20T22:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 4.223446116666667
+      "age_min": 5.433171983333334
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 859.5234461166667
+      "age_min": 860.7331719833332
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1285.65677945
+      "age_min": 1286.8665053166667
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 34.60677945
+      "age_min": 35.816505316666664
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 34.60677945
+      "age_min": 35.816505316666664
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 827.2734461166667
+      "age_min": 828.4831719833332
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 824.45677945
+      "age_min": 825.6665053166666
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 34.60677945
+      "age_min": 35.816505316666664
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T22:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 4.223446116666667
+      "age_min": 5.433171983333334
     }
   },
   "regime": {
