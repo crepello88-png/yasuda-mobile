@@ -1296,12 +1296,14 @@ function renderShortTab() {
   const byStratArr = Object.values(byStrat).sort((a,b)=>b.pnl-a.pnl);
   const unrealPct = open.cost_total ? open.unrealized/open.cost_total*100 : 0;
 
+  const total = ss.total || {realized_net:0, n_trades_total:0, n_wins_total:0, win_rate_pct:null, live_start_date:'?', avg_daily_pnl:0};
   const sumEl = document.getElementById('short-summary');
   if (sumEl) sumEl.innerHTML = `
     <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(open.unrealized)}">${open.unrealized>=0?'+$':'-$'}${Math.abs(open.unrealized).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">今日 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(today.realized_net)}">${today.realized_net>=0?'+$':'-$'}${Math.abs(today.realized_net).toFixed(2)}</div><div class="pct">${today.n_trades}件 / 勝${today.n_wins}</div></div></div>
-    <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(week.realized_net)}">${week.realized_net>=0?'+$':'-$'}${Math.abs(week.realized_net).toFixed(2)}</div><div class="pct">${week.n_trades}件 / 勝${week.n_wins}${week.phantom_count?` · phantom ${week.phantom_count}`:''}</div></div></div>`;
+    <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(week.realized_net)}">${week.realized_net>=0?'+$':'-$'}${Math.abs(week.realized_net).toFixed(2)}</div><div class="pct">${week.n_trades}件 / 勝${week.n_wins}${week.phantom_count?` · phantom ${week.phantom_count}`:''}</div></div></div>
+    <div class="row" style="border-top:1px solid var(--line);padding-top:8px;margin-top:4px"><div class="row-l"><div class="strat" style="font-weight:600;color:var(--txt)">💰 トータル損益 (LIVE 開始 ${(total.live_start_date||'').slice(5)}〜)</div></div><div class="row-r"><div class="price ${pctClass(total.realized_net)}" style="font-weight:700">${total.realized_net>=0?'+$':'-$'}${Math.abs(total.realized_net).toFixed(2)}</div><div class="pct">${total.n_trades_total}件 / 勝率 ${total.win_rate_pct!==null?total.win_rate_pct+'%':'—'}</div></div></div>`;
   const posEl = document.getElementById('short-positions');
   if (posEl) {
     if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
