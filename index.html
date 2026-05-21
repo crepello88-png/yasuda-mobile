@@ -16,8 +16,10 @@
   html,body{background:var(--bg);color:var(--txt);font-family:-apple-system,BlinkMacSystemFont,"SF Pro Text",sans-serif;
             font-size:14px;line-height:1.4}
   /* 5/19 夜: header / tabs 固定で文字 隠れる事案対策、 明示高さ + 大目 padding-top
-     + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ */
-  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 110px);
+     + PC 広 viewport で stretch 修正 — body / header / tabs に max-width 600px 中央寄せ
+     5/20 夜: PC view で「今日〜履歴」 tab が本文 card に被る (gap 6px → 不足) ため
+     padding-top 110→134px に増量 (= 30px gap)、 + tab 文字折り返し防止 */
+  body{padding:0 0 env(safe-area-inset-bottom);padding-top:calc(env(safe-area-inset-top) + 134px);
        max-width:900px;margin:0 auto;position:relative}
   header{padding:10px 16px;background:var(--card);border-bottom:1px solid var(--line);
          position:fixed;top:0;left:50%;transform:translateX(-50%);width:100%;max-width:900px;z-index:10;
@@ -32,8 +34,9 @@
         position:fixed;top:calc(env(safe-area-inset-top) + 56px);left:50%;transform:translateX(-50%);
         width:100%;max-width:900px;z-index:9;
         height:48px;overflow-x:auto;-webkit-overflow-scrolling:touch}
-  .tab{flex:1;padding:10px;text-align:center;font-size:13px;color:var(--sub);
-       cursor:pointer;border-bottom:2px solid transparent;font-weight:500}
+  .tab{flex:1;padding:10px 8px;text-align:center;font-size:13px;color:var(--sub);
+       cursor:pointer;border-bottom:2px solid transparent;font-weight:500;
+       white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
   .tab.active{color:var(--blue);border-bottom-color:var(--blue)}
   main{padding:12px}
   .section{margin-bottom:16px}
