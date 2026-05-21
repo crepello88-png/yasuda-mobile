@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-20T22:06",
+  "generated_at": "2026-05-20T22:15",
   "today_summary": {
     "netliq": 11342.78,
     "cash": 3649.27,
@@ -576,94 +576,94 @@ window.MOBILE_DATA = {
     ],
     "trades": [
       {
-        "date": "2026-05-20T08:33:53-05:00",
-        "ticker": "FTAI",
-        "strategy": "Stoch_Oversold_v1",
-        "shares": 1,
-        "entry_price": 228.0,
-        "exit_price": 226.68,
-        "pnl_gross": -4.27,
-        "pnl_usd": -6.27,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "",
-        "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
-      },
-      {
-        "date": "2026-05-20T08:33:28-05:00",
-        "ticker": "GOOGL",
-        "strategy": "HighPullback50_v1",
-        "shares": 1,
-        "entry_price": 387.27,
-        "exit_price": 391.745,
-        "pnl_gross": -4.02,
-        "pnl_usd": -6.02,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "",
-        "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
-      },
-      {
-        "date": "2026-05-20T08:33:10-05:00",
-        "ticker": "VRTX",
-        "strategy": "Intraday_T9_rsi20",
-        "shares": 2,
-        "entry_price": 439.88,
-        "exit_price": 437.72,
-        "pnl_gross": -7.36,
-        "pnl_usd": -9.36,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "",
-        "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
-      },
-      {
-        "date": "2026-05-20T08:32:57-05:00",
-        "ticker": "IP",
-        "strategy": "Candle15m_TweezerBottom_test",
-        "shares": 1,
-        "entry_price": 30.25,
-        "exit_price": 29.26,
-        "pnl_gross": -1.89,
-        "pnl_usd": -3.89,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "",
-        "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
-      },
-      {
-        "date": "2026-05-20T08:32:43-05:00",
-        "ticker": "LIN",
-        "strategy": "Sector_FriPanic_v1",
-        "shares": 2,
-        "entry_price": 507.15,
-        "exit_price": 502.78,
-        "pnl_gross": -11.78,
-        "pnl_usd": -13.78,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "",
-        "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
-      },
-      {
-        "date": "2026-05-20T08:32:29-05:00",
+        "date": "2026-05-20",
         "ticker": "SPXL",
         "strategy": "HighPullback50_v1",
         "shares": 4,
         "entry_price": 266.25,
         "exit_price": 262.27,
-        "pnl_gross": -18.96,
-        "pnl_usd": -20.96,
+        "pnl_gross": -17.94,
+        "pnl_usd": -18.96,
+        "commission": 1.02,
+        "pnl_pct": null,
+        "exit_reason": "force_sell_completed",
+        "source": "monitor",
+        "_net_calc": "state_json_assumed_net"
+      },
+      {
+        "date": "2026-05-20",
+        "ticker": "LIN",
+        "strategy": "Sector_FriPanic_v1",
+        "shares": 2,
+        "entry_price": 507.15,
+        "exit_price": 502.78,
+        "pnl_gross": -10.76,
+        "pnl_usd": -11.78,
+        "commission": 1.02,
+        "pnl_pct": null,
+        "exit_reason": "force_sell_completed",
+        "source": "monitor",
+        "_net_calc": "state_json_assumed_net"
+      },
+      {
+        "date": "2026-05-20",
+        "ticker": "IP",
+        "strategy": "Candle15m_TweezerBottom_test",
+        "shares": 1,
+        "entry_price": 30.25,
+        "exit_price": 29.26,
+        "pnl_gross": -1.59,
+        "pnl_usd": -1.89,
+        "commission": 0.3,
+        "pnl_pct": null,
+        "exit_reason": "force_sell_completed",
+        "source": "monitor",
+        "_net_calc": "state_json_assumed_net"
+      },
+      {
+        "date": "2026-05-20",
+        "ticker": "VRTX",
+        "strategy": "Intraday_T9_rsi20",
+        "shares": 2,
+        "entry_price": 439.88,
+        "exit_price": 437.72,
+        "pnl_gross": -6.34,
+        "pnl_usd": -7.36,
+        "commission": 1.02,
+        "pnl_pct": null,
+        "exit_reason": "force_sell_completed",
+        "source": "monitor",
+        "_net_calc": "state_json_assumed_net"
+      },
+      {
+        "date": "2026-05-20",
+        "ticker": "GOOGL",
+        "strategy": "HighPullback50_v1",
+        "shares": 1,
+        "entry_price": 387.27,
+        "exit_price": 391.745,
+        "pnl_gross": -2.01,
+        "pnl_usd": -4.02,
+        "commission": 2.01,
+        "pnl_pct": null,
+        "exit_reason": "silent_fail_21_round_trip",
+        "source": "monitor",
+        "_net_calc": "state_json_assumed_net"
+      },
+      {
+        "date": "2026-05-20",
+        "ticker": "FTAI",
+        "strategy": "Stoch_Oversold_v1",
+        "shares": 1,
+        "entry_price": 228.0,
+        "exit_price": 226.68,
+        "pnl_gross": -2.27,
+        "pnl_usd": -4.27,
         "commission": 2.0,
         "pnl_pct": null,
-        "exit_reason": "",
+        "exit_reason": "silent_fail_21_round_trip",
         "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
+        "_net_calc": "state_json_assumed_net"
       },
       {
         "date": "2026-05-19",
@@ -672,13 +672,13 @@ window.MOBILE_DATA = {
         "shares": 3,
         "entry_price": 135.11,
         "exit_price": 135.46,
-        "pnl_gross": 1.05,
-        "pnl_usd": -0.95,
+        "pnl_gross": 3.05,
+        "pnl_usd": 1.05,
         "commission": 2.0,
         "pnl_pct": null,
         "exit_reason": "intraday_close",
         "source": "intraday",
-        "_net_calc": "historical_estimate_2usd"
+        "_net_calc": "state_json_assumed_net"
       },
       {
         "date": "2026-05-18",
@@ -687,60 +687,111 @@ window.MOBILE_DATA = {
         "shares": 15,
         "entry_price": 113.4,
         "exit_price": 107.4,
-        "pnl_gross": -90.9,
-        "pnl_usd": -92.9,
+        "pnl_gross": -88.9,
+        "pnl_usd": -90.9,
         "commission": 2.0,
         "pnl_pct": -5.29,
         "exit_reason": "user_manual_-3%_intraday_SL",
         "source": "monitor",
-        "_net_calc": "historical_estimate_2usd"
+        "_net_calc": "state_json_assumed_net"
       }
     ],
     "by_strategy": [
       {
         "strategy": "V10_PLTR_vwap",
         "n": 1,
-        "pnl": -0.95,
-        "wins": 0,
-        "win_rate": 0.0
+        "pnl": 1.05,
+        "wins": 1,
+        "win_rate": 100.0
       },
       {
         "strategy": "Candle15m_TweezerBottom_test",
         "n": 1,
-        "pnl": -3.89,
+        "pnl": -1.89,
         "wins": 0,
         "win_rate": 0.0
       },
       {
         "strategy": "Stoch_Oversold_v1",
         "n": 1,
-        "pnl": -6.27,
+        "pnl": -4.27,
         "wins": 0,
         "win_rate": 0.0
       },
       {
         "strategy": "Intraday_T9_rsi20",
         "n": 1,
-        "pnl": -9.36,
+        "pnl": -7.36,
         "wins": 0,
         "win_rate": 0.0
       },
       {
         "strategy": "Sector_FriPanic_v1",
         "n": 1,
-        "pnl": -13.78,
+        "pnl": -11.78,
         "wins": 0,
         "win_rate": 0.0
       },
       {
         "strategy": "HighPullback50_v1",
         "n": 3,
-        "pnl": -119.88,
+        "pnl": -113.88,
         "wins": 0,
         "win_rate": 0.0
       }
     ],
     "note": "daily_history から動的生成 (直近 5 営業日)、 by_strategy + trades は closed_positions ベース"
+  },
+  "short_summary": {
+    "today": {
+      "realized_net": -48.28,
+      "realized_gross": -40.91,
+      "commission_total": 7.37,
+      "n_trades": 6,
+      "n_wins": 0,
+      "n_losses": 6,
+      "win_rate_pct": 0.0,
+      "phantom_count": 0,
+      "tickers": [
+        "SPXL",
+        "LIN",
+        "IP",
+        "VRTX",
+        "GOOGL",
+        "FTAI"
+      ]
+    },
+    "week": {
+      "realized_net": -138.13,
+      "realized_gross": -126.76,
+      "commission_total": 11.37,
+      "n_trades": 8,
+      "n_wins": 1,
+      "n_losses": 7,
+      "win_rate_pct": 12.5,
+      "phantom_count": 0,
+      "tickers": [
+        "SPXL",
+        "LIN",
+        "IP",
+        "VRTX",
+        "GOOGL",
+        "FTAI",
+        "PLTR",
+        "ON"
+      ]
+    },
+    "open": {
+      "n_positions": 0,
+      "cost_total": 0.0,
+      "value_total": 0.0,
+      "unrealized": 0.0,
+      "positions": []
+    },
+    "week_start": "2026-05-14",
+    "week_end": "2026-05-20",
+    "today_date": "2026-05-20",
+    "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
   "positions": [
@@ -760,8 +811,8 @@ window.MOBILE_DATA = {
       "_market_value": 1418.48,
       "_unreal_pnl": -107.94,
       "_market_price": 709.23999025,
-      "current_price": 719.3499755859375,
-      "pnl_pct": -5.746783246296894,
+      "current_price": 709.9299926757812,
+      "pnl_pct": -6.981041564473578,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -4343,85 +4394,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-20T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 6.4693669
+      "age_min": 14.956605216666667
     },
     "sync_mobile": {
-      "ts": "2026-05-20T22:05:37",
+      "ts": "2026-05-20T22:06:33",
       "ok": true,
-      "note": "163,925 B",
-      "age_min": 0.9027002333333333
+      "note": "163,915 B",
+      "age_min": 8.456605216666667
     },
     "verify_claims": {
       "ts": "2026-05-20T20:41:05",
       "ok": true,
       "note": "33p/0f",
-      "age_min": 85.43603356666668
+      "age_min": 93.92327188333334
     },
     "intraday_cron": {
       "ts": "2026-05-20T22:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 5.786033566666666
+      "age_min": 14.273271883333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-20T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 6.486033566666666
+      "age_min": 14.973271883333332
     },
     "vix_regime": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.9",
-      "age_min": 6.136033566666667
+      "age_min": 14.623271883333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-20T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 846.4360335666667
+      "age_min": 854.9232718833333
     },
     "ST734_vol_regime": {
       "ts": "2026-05-20T00:53:57",
       "ok": true,
       "note": "PASS=60 {'A_regime': 19, 'B_tod': 3, 'C_dow': 21, 'D_month': 2, 'F_quarter': 11, 'G_combo': 4}",
-      "age_min": 1272.5693669
+      "age_min": 1281.0566052166666
     },
     "paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "task disabled 5/18 night (PaperRehearsal stale, ignore)",
-      "age_min": 21.5193669
+      "age_min": 30.006605216666667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved: paper_rehearsal disabled, stale alert cleared",
-      "age_min": 21.5193669
+      "age_min": 30.006605216666667
     },
     "morning_tws_connect": {
       "ts": "2026-05-20T08:32:20",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 814.1860335666667
+      "age_min": 822.6732718833333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-20T08:35:09",
       "ok": true,
       "note": "completed",
-      "age_min": 811.3693669
+      "age_min": 819.8566052166666
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-20T21:45:00",
       "ok": true,
       "note": "resolved 21:30: GOOGL/FTAI/SLV phantom 3 件 cleanup 完了、 state=0 TWS=5 phantoms=0 確認",
-      "age_min": 21.5193669
+      "age_min": 30.006605216666667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-20T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 6.136033566666667
+      "age_min": 14.623271883333333
     }
   },
   "regime": {
@@ -4493,94 +4544,94 @@ window.MOBILE_DATA = {
   "exit_plans": [],
   "all_trades": [
     {
-      "date": "2026-05-20T08:33:53-05:00",
-      "ticker": "FTAI",
-      "strategy": "Stoch_Oversold_v1",
-      "shares": 1,
-      "entry_price": 228.0,
-      "exit_price": 226.68,
-      "pnl_gross": -4.27,
-      "pnl_usd": -6.27,
-      "commission": 2.0,
-      "pnl_pct": null,
-      "exit_reason": "",
-      "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
-    },
-    {
-      "date": "2026-05-20T08:33:28-05:00",
-      "ticker": "GOOGL",
-      "strategy": "HighPullback50_v1",
-      "shares": 1,
-      "entry_price": 387.27,
-      "exit_price": 391.745,
-      "pnl_gross": -4.02,
-      "pnl_usd": -6.02,
-      "commission": 2.0,
-      "pnl_pct": null,
-      "exit_reason": "",
-      "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
-    },
-    {
-      "date": "2026-05-20T08:33:10-05:00",
-      "ticker": "VRTX",
-      "strategy": "Intraday_T9_rsi20",
-      "shares": 2,
-      "entry_price": 439.88,
-      "exit_price": 437.72,
-      "pnl_gross": -7.36,
-      "pnl_usd": -9.36,
-      "commission": 2.0,
-      "pnl_pct": null,
-      "exit_reason": "",
-      "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
-    },
-    {
-      "date": "2026-05-20T08:32:57-05:00",
-      "ticker": "IP",
-      "strategy": "Candle15m_TweezerBottom_test",
-      "shares": 1,
-      "entry_price": 30.25,
-      "exit_price": 29.26,
-      "pnl_gross": -1.89,
-      "pnl_usd": -3.89,
-      "commission": 2.0,
-      "pnl_pct": null,
-      "exit_reason": "",
-      "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
-    },
-    {
-      "date": "2026-05-20T08:32:43-05:00",
-      "ticker": "LIN",
-      "strategy": "Sector_FriPanic_v1",
-      "shares": 2,
-      "entry_price": 507.15,
-      "exit_price": 502.78,
-      "pnl_gross": -11.78,
-      "pnl_usd": -13.78,
-      "commission": 2.0,
-      "pnl_pct": null,
-      "exit_reason": "",
-      "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
-    },
-    {
-      "date": "2026-05-20T08:32:29-05:00",
+      "date": "2026-05-20",
       "ticker": "SPXL",
       "strategy": "HighPullback50_v1",
       "shares": 4,
       "entry_price": 266.25,
       "exit_price": 262.27,
-      "pnl_gross": -18.96,
-      "pnl_usd": -20.96,
+      "pnl_gross": -17.94,
+      "pnl_usd": -18.96,
+      "commission": 1.02,
+      "pnl_pct": null,
+      "exit_reason": "force_sell_completed",
+      "source": "monitor",
+      "_net_calc": "state_json_assumed_net"
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "LIN",
+      "strategy": "Sector_FriPanic_v1",
+      "shares": 2,
+      "entry_price": 507.15,
+      "exit_price": 502.78,
+      "pnl_gross": -10.76,
+      "pnl_usd": -11.78,
+      "commission": 1.02,
+      "pnl_pct": null,
+      "exit_reason": "force_sell_completed",
+      "source": "monitor",
+      "_net_calc": "state_json_assumed_net"
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "IP",
+      "strategy": "Candle15m_TweezerBottom_test",
+      "shares": 1,
+      "entry_price": 30.25,
+      "exit_price": 29.26,
+      "pnl_gross": -1.59,
+      "pnl_usd": -1.89,
+      "commission": 0.3,
+      "pnl_pct": null,
+      "exit_reason": "force_sell_completed",
+      "source": "monitor",
+      "_net_calc": "state_json_assumed_net"
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "VRTX",
+      "strategy": "Intraday_T9_rsi20",
+      "shares": 2,
+      "entry_price": 439.88,
+      "exit_price": 437.72,
+      "pnl_gross": -6.34,
+      "pnl_usd": -7.36,
+      "commission": 1.02,
+      "pnl_pct": null,
+      "exit_reason": "force_sell_completed",
+      "source": "monitor",
+      "_net_calc": "state_json_assumed_net"
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "GOOGL",
+      "strategy": "HighPullback50_v1",
+      "shares": 1,
+      "entry_price": 387.27,
+      "exit_price": 391.745,
+      "pnl_gross": -2.01,
+      "pnl_usd": -4.02,
+      "commission": 2.01,
+      "pnl_pct": null,
+      "exit_reason": "silent_fail_21_round_trip",
+      "source": "monitor",
+      "_net_calc": "state_json_assumed_net"
+    },
+    {
+      "date": "2026-05-20",
+      "ticker": "FTAI",
+      "strategy": "Stoch_Oversold_v1",
+      "shares": 1,
+      "entry_price": 228.0,
+      "exit_price": 226.68,
+      "pnl_gross": -2.27,
+      "pnl_usd": -4.27,
       "commission": 2.0,
       "pnl_pct": null,
-      "exit_reason": "",
+      "exit_reason": "silent_fail_21_round_trip",
       "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
+      "_net_calc": "state_json_assumed_net"
     },
     {
       "date": "2026-05-20",
@@ -4701,13 +4752,13 @@ window.MOBILE_DATA = {
       "shares": 3,
       "entry_price": 135.11,
       "exit_price": 135.46,
-      "pnl_gross": 1.05,
-      "pnl_usd": -0.95,
+      "pnl_gross": 3.05,
+      "pnl_usd": 1.05,
       "commission": 2.0,
       "pnl_pct": null,
       "exit_reason": "intraday_close",
       "source": "intraday",
-      "_net_calc": "historical_estimate_2usd"
+      "_net_calc": "state_json_assumed_net"
     },
     {
       "date": "2026-05-18",
@@ -4716,13 +4767,13 @@ window.MOBILE_DATA = {
       "shares": 15,
       "entry_price": 113.4,
       "exit_price": 107.4,
-      "pnl_gross": -90.9,
-      "pnl_usd": -92.9,
+      "pnl_gross": -88.9,
+      "pnl_usd": -90.9,
       "commission": 2.0,
       "pnl_pct": -5.29,
       "exit_reason": "user_manual_-3%_intraday_SL",
       "source": "monitor",
-      "_net_calc": "historical_estimate_2usd"
+      "_net_calc": "state_json_assumed_net"
     }
   ],
   "pwa_reports": [
