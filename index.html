@@ -1992,7 +1992,14 @@ async function subscribePush() {
     const reg = await navigator.serviceWorker.ready;
     const existing = await reg.pushManager.getSubscription();
     if (existing) {
-      alert('既に通知ONです (' + existing.endpoint.slice(-30) + ')');
+      // 5/20 夜: 既存 subscription を再送信 (= 前回 GH Issue submit 漏れ救済)
+      const resend = confirm('既に通知ON済 (' + existing.endpoint.slice(-30) + ')\n\nsubscription を サーバーに 再送信 しますか?\nOK → GitHub Issue 作成画面 → 「Submit new issue」 で確定');
+      if (resend) {
+        const title2 = '[PUSH_SUBSCRIBE] resend ' + new Date().toISOString().slice(0,16);
+        const body2 = '## Subscription endpoint (resend)\n```json\n' + JSON.stringify(existing.toJSON(), null, 2) + '\n```\n\n## クロコー アクション\n- このメッセージを読んで logs/push_subscriptions.json に保存\n- 完了したら close';
+        const url2 = 'https://github.com/crepello88-png/yasuda_short/issues/new?title=' + encodeURIComponent(title2) + '&body=' + encodeURIComponent(body2) + '&labels=' + encodeURIComponent('push-subscribe');
+        window.open(url2, '_blank');
+      }
       const btn = document.getElementById('push-btn');
       if (btn) { btn.textContent = '🔕 通知ON済'; btn.disabled = true; }
       return;
