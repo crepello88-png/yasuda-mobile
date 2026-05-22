@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:35",
+  "generated_at": "2026-05-21T22:40",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1757,6 +1757,162 @@ window.MOBILE_DATA = {
       "monthly_profit_usd": 12
     },
     {
+      "tier": "BOOST",
+      "name": "⚡ MSTR_Panic20 ×1.5 when [weekday=Monday]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "weekday=Monday",
+      "hold": "hold_override=1",
+      "freq": "n=73 過去 evidence",
+      "sharpe": "期待 ΔSh +9.63",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 MSTR_Panic20 の signal 発火時、 filter=weekday=Monday 一致なら size×1.5 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ Confluence_RSIBB_v1 ×1.5 when [gap_pct<=-3]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "gap_pct<=-3",
+      "hold": "hold_override=3",
+      "freq": "n=39 過去 evidence",
+      "sharpe": "期待 ΔSh +16.99",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIBB_v1 の signal 発火時、 filter=gap_pct<=-3 一致なら size×1.5 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ Confluence_RSIStoch_v1 ×1.5 when [gap_pct<=-3]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "gap_pct<=-3",
+      "hold": "hold_override=3",
+      "freq": "n=95 過去 evidence",
+      "sharpe": "期待 ΔSh +8.21",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIStoch_v1 の signal 発火時、 filter=gap_pct<=-3 一致なら size×1.5 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ Pullback_v1 ×2.0 when [vix_20_25]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "vix_20_25",
+      "hold": "hold_override=3",
+      "freq": "n=68 過去 evidence",
+      "sharpe": "期待 ΔSh +6.0",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Pullback_v1 の signal 発火時、 filter=vix_20_25 一致なら size×2.0 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ Confluence_BBStoch_v1 ×1.5 when [spy_above_50ma]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "spy_above_50ma",
+      "hold": "hold_override=5",
+      "freq": "n=33 過去 evidence",
+      "sharpe": "期待 ΔSh +5.26",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Confluence_BBStoch_v1 の signal 発火時、 filter=spy_above_50ma 一致なら size×1.5 適用 (= hold_override=5)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ Sector_FriPanic_v1 ×2.0 when [vix_ge_30]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "vix_ge_30",
+      "hold": "hold_override=1",
+      "freq": "n=42 過去 evidence",
+      "sharpe": "期待 ΔSh +4.92",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Sector_FriPanic_v1 の signal 発火時、 filter=vix_ge_30 一致なら size×2.0 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "BOOST",
+      "name": "⚡ VolDryUp_v1 ×1.5 when [self_below_200ma]",
+      "cat": "Size booster (= 条件一致で size 拡大)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "self_below_200ma",
+      "hold": "hold_override=1",
+      "freq": "n=24 過去 evidence",
+      "sharpe": "期待 ΔSh +4.04",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 VolDryUp_v1 の signal 発火時、 filter=self_below_200ma 一致なら size×1.5 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "ANTI",
+      "name": "🚫 Drop5d_BroadPanic SKIP when [next_gap_pct>=+3]",
+      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "next_gap_pct>=+3",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "翌寄 +3% gap で BroadPanic は壊滅 (win 23-28%, n=85, ΔSh-13)",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Drop5d_BroadPanic の signal 発火時、 filter=next_gap_pct>=+3 一致なら action=skip (= 発注 skip)。 理由: 翌寄 +3% gap で BroadPanic は壊滅 (win 23-28%, n=85, ΔSh-13)",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "ANTI",
+      "name": "🚫 Drop5d_BroadPanic SKIP when [weekday=Tuesday]",
+      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "weekday=Tuesday",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "火曜 anti-edge (win 36-42%, n=102, ΔSh-9.63)",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Drop5d_BroadPanic の signal 発火時、 filter=weekday=Tuesday 一致なら action=skip (= 発注 skip)。 理由: 火曜 anti-edge (win 36-42%, n=102, ΔSh-9.63)",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "ANTI",
+      "name": "🚫 Sector_FriPanic_v1 SKIP when [spy_5d_return>0]",
+      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "spy_5d_return>0",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "SPY 5d positive で FriPanic 壊滅 (win 20%, n=20, ΔSh-19.51)",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Sector_FriPanic_v1 の signal 発火時、 filter=spy_5d_return>0 一致なら action=skip (= 発注 skip)。 理由: SPY 5d positive で FriPanic 壊滅 (win 20%, n=20, ΔSh-19.51)",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "ANTI",
+      "name": "🚫 SPY_Panic2_v1 SKIP when [spy_5d_return>0]",
+      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "spy_5d_return>0",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "SPY 5d positive で Panic2 壊滅 (win 18.5%, n=27, ΔSh-11.36)",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 SPY_Panic2_v1 の signal 発火時、 filter=spy_5d_return>0 一致なら action=skip (= 発注 skip)。 理由: SPY 5d positive で Panic2 壊滅 (win 18.5%, n=27, ΔSh-11.36)",
+      "monthly_profit_usd": null
+    },
+    {
+      "tier": "ANTI",
+      "name": "🚫 Confluence_RSIBB_v1 SKIP when [vix_25_30]",
+      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
+      "tickers": "(該当 戦略の watchlist)",
+      "condition": "vix_25_30",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "VIX 25-30 のみ逆 (両側帯 15-20/30+ は OK、 win 33.6%, n=107, ΔSh-11.",
+      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
+      "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIBB_v1 の signal 発火時、 filter=vix_25_30 一致なら action=skip (= 発注 skip)。 理由: VIX 25-30 のみ逆 (両側帯 15-20/30+ は OK、 win 33.6%, n=107, ΔSh-11.17)",
+      "monthly_profit_usd": null
+    },
+    {
       "tier": "S",
       "name": "A10_WideBar_Capitulation_v1",
       "cat": "その他",
@@ -1837,27 +1993,6 @@ window.MOBILE_DATA = {
         "size_multiplier": 1.0,
         "paper": false,
         "sharpe_value": 2.72
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "Confluence_BBStoch_v1",
-      "cat": "短期 confluence (BULL)",
-      "tickers": "NVDA / QQQ",
-      "condition": "BB(20,2) lower touch ∩ Stoch %K<20 同日 + SMA50>SMA200 (NVDA/QQQ): Sh+9.75 OOS+32 win 80% n=40",
-      "hold": "5日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "BB(20,2) lower touch ∩ Stoch %K<20 同日 + SMA50>SMA200 (NVDA/QQQ): Sh+9.75 OOS+32 win 80% n=40",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): BB lower ∩ Stoch<20 + uptrend、 NVDA/QQQ Sh+9.75 OOS+32 win 80% n=40。 hold 5d / [_5_21_trail] Agent H 5/21 朝: trail 7% で ΔSh +X、 strategy override pyramid TP2 trail (= 既存 TP1 + 新 trail TP2)",
-      "_auto_meta": {
-        "key": "Confluence_BBStoch_v1",
-        "tp_pct": 2.5,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 9.75
       },
       "_supplement": true
     },
@@ -4771,73 +4906,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T22:30:03",
       "ok": true,
       "note": "",
-      "age_min": 5.60246995
+      "age_min": 10.293914333333333
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:34:27",
+      "ts": "2026-05-21T22:35:42",
       "ok": true,
-      "note": "196,166 B",
-      "age_min": 1.20246995
+      "note": "196,069 B",
+      "age_min": 4.643914333333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:22:46",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 12.885803283333333
+      "age_min": 17.577247666666665
     },
     "intraday_cron": {
       "ts": "2026-05-21T22:30:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 4.919136616666666
+      "age_min": 9.610581
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T22:30:02",
       "ok": true,
       "note": "",
-      "age_min": 5.619136616666666
+      "age_min": 10.310581
     },
     "vix_regime": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 5.269136616666667
+      "age_min": 9.960581
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 875.5691366166667
+      "age_min": 880.260581
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 843.20246995
+      "age_min": 847.8939143333333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 836.1191366166667
+      "age_min": 840.810581
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 100.65246995000001
+      "age_min": 105.34391433333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 5.269136616666667
+      "age_min": 9.960581
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 791.05246995
+      "age_min": 795.7439143333334
     }
   },
   "regime": {
@@ -4904,7 +5039,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 836,
+      "elapsed_min": 841,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4923,9 +5058,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 836,
+      "elapsed_min": 841,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 836min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 841min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4942,9 +5077,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 836,
+      "elapsed_min": 841,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 836min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 841min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],

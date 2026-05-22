@@ -1796,6 +1796,8 @@ function renderTrackerStrategies() {
     if (T === 'S+') return '#d29922';
     if (T === 'S' || T === 'S-') return '#58a6ff';
     if (T.startsWith('A')) return '#3fb950';
+    if (T === 'BOOST') return '#fb8500';  // 5/22 booster orange
+    if (T === 'ANTI') return '#8b5cf6';   // 5/22 anti-pattern purple
     return '#7d8590';
   };
   // 5/22 朝 user 採用: tier 降順 (Champ DCA 最上部 → SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
@@ -1819,6 +1821,8 @@ function renderTrackerStrategies() {
     if (T === '?') return 10;  // 5/22 朝 paper→LIVE 化 後 yasuda universe OOS 未確定、 C と paper の間
     if (T === 'PAPER') return 11;
     if (T === 'DISABLED') return 12;
+    if (T === 'BOOST') return 13;  // 5/22 size booster (= 戦略上書きルール、 disabled の後)
+    if (T === 'ANTI') return 14;   // 5/22 anti-pattern skip filter
     return 99;
   };
   filtered.sort((a, b) => {
