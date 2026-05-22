@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:00",
+  "generated_at": "2026-05-21T22:07",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -9,14 +9,14 @@ window.MOBILE_DATA = {
     "buying_power": 3649.27,
     "stock_value": 7711.82,
     "unrealized_pnl": -131.69,
-    "realized_pnl": 0.0,
+    "realized_pnl": null,
     "day_pnl_pct": -1.1589552593458314,
-    "account_type": "INDIVIDUAL",
-    "open_positions": 5,
+    "account_type": "Cash account",
+    "open_positions": 0,
     "open_orders_count": 0,
     "fills_today_count": 0,
     "vix": null,
-    "data_source": "TWS_direct_v2"
+    "data_source": "bridge_fallback"
   },
   "tws_open_orders": [],
   "tws_fills_today": [],
@@ -708,158 +708,7 @@ window.MOBILE_DATA = {
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
-  "positions": [
-    {
-      "ticker": "PWR",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 763.21,
-      "shares": 2.0,
-      "entry_value": 1526.42,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1435.0,
-      "_unreal_pnl": -91.42,
-      "_market_price": 717.5,
-      "current_price": 716.9099731445312,
-      "pnl_pct": -6.066485876163674,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 763.21,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 686.889,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "COST",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 1006.82,
-      "shares": 1.0,
-      "entry_value": 1006.82,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1051.5,
-      "_unreal_pnl": 44.68,
-      "_market_price": 1051.5,
-      "current_price": 1050.449951171875,
-      "pnl_pct": 4.3334410492317454,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 1006.82,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 906.138,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "NVDA",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 229.68666665,
-      "shares": 12.0,
-      "entry_value": 2756.2399998,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 2641.44,
-      "_unreal_pnl": -114.8,
-      "_market_price": 220.1199951,
-      "current_price": 219.5,
-      "pnl_pct": -4.435027421736503,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 229.68666665,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 206.717999985,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "GOOG",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 389.2325,
-      "shares": 4.0,
-      "entry_value": 1556.93,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1540.44,
-      "_unreal_pnl": -16.49,
-      "_market_price": 385.10998535,
-      "current_price": 383.510009765625,
-      "pnl_pct": -1.4701984634826304,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 389.2325,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 350.30925,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "LLY",
-      "strategy": "Champ_DCA",
-      "entry_date": "—",
-      "entry_price": 997.1,
-      "shares": 1.0,
-      "entry_value": 997.1,
-      "hold_days": null,
-      "exit_style": "LONG_TERM",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": true,
-      "_market_value": 1043.44,
-      "_unreal_pnl": 46.34,
-      "_market_price": 1043.4399414,
-      "current_price": 1041.6800537109375,
-      "pnl_pct": 4.470971187537609,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 997.1,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": null,
-        "intraday_sl_price": null,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 897.39,
-        "intraday_sl_exempt": true,
-        "exempt_reason": "Champ DCA 長期保有"
-      }
-    }
-  ],
+  "positions": [],
   "intraday_patterns": [
     {
       "pattern_id": "ORB4_AGL_15m",
@@ -4744,73 +4593,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6392052666666667
+      "age_min": 7.941206916666667
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:00:40",
+      "ts": "2026-05-21T22:00:44",
       "ok": true,
       "note": "194,871 B",
-      "age_min": 0.022538600000000002
+      "age_min": 7.257873583333334
     },
     "verify_claims": {
       "ts": "2026-05-21T21:53:12",
       "ok": true,
       "note": "69p/0f",
-      "age_min": 7.489205266666667
+      "age_min": 14.791206916666665
     },
     "intraday_cron": {
-      "ts": "2026-05-21T21:45:44",
+      "ts": "2026-05-21T22:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.955871933333333
+      "age_min": 7.257873583333334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6558719333333334
+      "age_min": 7.957873583333334
     },
     "vix_regime": {
       "ts": "2026-05-21T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 0.3058719333333333
+      "age_min": 7.607873583333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 840.6058719333333
+      "age_min": 847.9078735833333
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 808.2392052666667
+      "age_min": 815.5412069166666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 801.1558719333333
+      "age_min": 808.4578735833333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 65.68920526666666
+      "age_min": 72.99120691666667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.3058719333333333
+      "age_min": 7.607873583333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 756.0892052666666
+      "age_min": 763.3912069166666
     }
   },
   "regime": {
@@ -4877,7 +4726,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 801,
+      "elapsed_min": 808,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4896,9 +4745,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 801,
+      "elapsed_min": 808,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 801min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 808min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4915,9 +4764,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 801,
+      "elapsed_min": 808,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 801min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 808min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
