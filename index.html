@@ -1476,6 +1476,54 @@ function renderShortVsLong() {
   }
 }
 
+// 5/22 fix: 色判定を「鮮度のみ」 → 「健全性 (ok flag + タスク種別 cadence)」 に変更。
+// 旧仕様: 場中 15/30min, 場外 24h で 全 task 一律 → 1日1発タスクが正常に走った後も 当日中ずっと赤
+//         「赤なのに実は正常」 が混在 → ダッシュボード の信頼性低下
+// 新仕様: task 種別ごとに interval (定期 cron) / event (1日1発) を定義、 色は ok flag + 種別 cadence で決定
+//         赤 = ok=false (実エラー) OR interval タスクが想定間隔大幅超過 (=死亡 sign)
+//         緑 = ok=true かつ 想定 cadence 内、 event-driven は age 関係なく ok=true なら 緑
+const HEARTBEAT_CADENCE = {
+  // interval-driven (15min cron 系): red_min 超 = タスク死亡 sign
+  'intraday_cron':              { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  'sync_mobile':                { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  'intraday_executor_scan':     { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  'intraday_position_monitor':  { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  'state_tws_reconciler':       { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  'vix_regime':                 { type: 'interval', red_min: 30,  yellow_min: 20, desc: '15min cron' },
+  // event-driven (1日1発系): 走って ok=true なら age 問わず 緑、 ok=false なら 赤
+  // 翌日 cron 失敗で完全死亡時は task scheduler 側で別途検出する (この dashboard は age 無視)
+  'morning_preopen_notify':     { type: 'event', desc: '朝1回 (08:00 CT)' },
+  'morning_tws_connect':        { type: 'event', desc: '朝1回 (executor 内)' },
+  'short_term_auto_bat':        { type: 'event', desc: '朝1回 (08:25 CT)' },
+  'verify_claims':              { type: 'event', desc: '夜1回 (nightly audit)' },
+};
+
+function classifyHeartbeat(name, entry) {
+  const ok = entry.ok !== false;
+  const age = entry.age_min;
+  const isAlert = name.startsWith('alert_');
+  // 1. ok=false は 一律 赤 (実エラー、 種別 無関係)
+  if (!ok) return { col: '#f85149', label: 'FAIL', warn: '⚠ ' };
+  // 2. alert_* で ok=true は 緑 (resolved sentinel、 age 関係なし)
+  if (isAlert) return { col: '#3fb950', label: 'resolved' };
+  // 3. 既知 cadence で 種別 lookup
+  const cad = HEARTBEAT_CADENCE[name];
+  if (cad) {
+    if (cad.type === 'event') {
+      // event-driven: ok=true なら age 問わず 緑
+      return { col: '#3fb950', label: 'ok' };
+    }
+    if (cad.type === 'interval') {
+      if (age == null) return { col: '#7d8590', label: 'no data' };
+      if (age <= (cad.yellow_min || cad.red_min * 0.7)) return { col: '#3fb950', label: 'ok' };
+      if (age <= cad.red_min) return { col: '#d29922', label: 'warn (遅延)' };
+      return { col: '#f85149', label: 'STALE (死亡?)', warn: '⚠ ' };
+    }
+  }
+  // 4. 未定義 (新規 / unknown task): グレー (誤検知回避、 fallback permissive)
+  return { col: '#7d8590', label: 'ok (未分類)' };
+}
+
 function renderMonitor() {
   const d = window.MOBILE_DATA || {};
   const hbs = d.heartbeats || {};
@@ -1485,28 +1533,12 @@ function renderMonitor() {
     el.innerHTML = '<div class="empty">heartbeat 記録なし</div>';
     return;
   }
-  const inMkt = isMarketHoursCT();
   // sort by name
   names.sort();
   el.innerHTML = names.map(name => {
     const e = hbs[name];
     const age = e.age_min;  // minutes (server-side で計算済)
-    const ok = e.ok !== false;
-    // 色判定
-    let col = '#7d8590';  // default grey
-    let warn = '';
-    if (age == null) {
-      col = '#7d8590';
-    } else if (inMkt) {
-      if (age <= 15) col = '#3fb950';
-      else if (age <= 30) col = '#d29922';
-      else col = '#f85149';
-    } else {
-      // 場外: 24h (1440min) 以内 OK
-      if (age <= 1440) col = '#3fb950';
-      else col = '#f85149';
-    }
-    if (!ok) { col = '#f85149'; warn = '⚠ '; }
+    const cls = classifyHeartbeat(name, e);
     // age 表記
     let ageStr = '—';
     if (age != null) {
@@ -1515,25 +1547,23 @@ function renderMonitor() {
       else if (age < 1440) ageStr = (age/60).toFixed(1) + 'h ago';
       else ageStr = (age/1440).toFixed(1) + 'd ago';
     }
-    const okStr = ok ? 'ok' : 'FAIL';
     const note = e.note ? `<div class="strat" style="font-size:10px">${e.note}</div>` : '';
     return `
       <div class="row">
         <div class="row-l">
-          <div class="ticker" style="font-size:13px">${warn}${name}</div>
+          <div class="ticker" style="font-size:13px">${cls.warn || ''}${name}</div>
           ${note}
         </div>
         <div class="row-r">
-          <div class="pct" style="color:${col};font-weight:600">${ageStr}</div>
-          <div class="strat" style="color:${col}">${okStr}</div>
+          <div class="pct" style="color:${cls.col};font-weight:600">${ageStr}</div>
+          <div class="strat" style="color:${cls.col}">${cls.label}</div>
         </div>
       </div>`;
   }).join('');
-  // 場中/場外 note 更新
+  // 凡例 更新 (5/22 fix: 旧 場中/場外 mode 撤廃、 健全性 base に統一)
   const noteEl = document.getElementById('heartbeat-note');
   if (noteEl) {
-    const mode = inMkt ? '場中 (緑≤15min, 黄≤30min, 赤>30min)' : '場外 (24h 以内 OK)';
-    noteEl.textContent = '判定 mode: ' + mode;
+    noteEl.textContent = '判定: 🔴 赤=対処要 (ok=FAIL or interval task 死亡) / 🟢 緑=正常 / 🟡 黄=遅延 warning / ⚪ グレー=未分類';
   }
 }
 
