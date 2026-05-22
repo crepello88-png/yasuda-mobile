@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:34",
+  "generated_at": "2026-05-21T22:35",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1169,7 +1169,7 @@ window.MOBILE_DATA = {
   ],
   "tracker_strategies": [
     {
-      "tier": "SS+",
+      "tier": "SSS",
       "name": "融合Champ DCA",
       "cat": "長期積立 (柱)",
       "tickers": "NVDA / PWR / COST / LLY / GOOG",
@@ -1179,8 +1179,8 @@ window.MOBILE_DATA = {
       "sharpe": "★ 過去実 DCA 11年 = $1,040,044 (元本 $64,800 → 16.05x、 実効 CAGR +28.7%) ★ ST613 実データ",
       "live": "✅ 本番運用中 (資産形成の柱)",
       "memo": "【実績 2015-05→2026-05 月$1,800×36ヶ月 DCA + 8年放置】 NVDA $828k(×63.9) PWR $214k LLY $126k GOOG $79k COST $63k = $1.04M。 比較 SPY 単独 $138k (×2.1)。 $1k 月益 $114 = 短期 7戦略 ($26.9) の 4.2倍効率",
-      "monthly_profit_usd": 4104,
-      "_monthly_profit_note": "11年実績 $1,040k - 元本 $64.8k = 利益 $975k / 132mo = $7,388/月 ($1,800入金 base)、 $1k normalized で $4,104。 累積複利込みの 平均値、 単月 alpha とは性質違う。"
+      "monthly_profit_usd": null,
+      "_monthly_profit_note": "5/22 user 「月利益表示なし」 で hide、 11年実績は memo 参照"
     },
     {
       "tier": "B",
@@ -4771,73 +4771,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T22:30:03",
       "ok": true,
       "note": "",
-      "age_min": 4.360734533333333
+      "age_min": 5.60246995
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:33:53",
+      "ts": "2026-05-21T22:34:27",
       "ok": true,
-      "note": "196,173 B",
-      "age_min": 0.5274012
+      "note": "196,166 B",
+      "age_min": 1.20246995
     },
     "verify_claims": {
       "ts": "2026-05-21T22:22:46",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 11.644067866666667
+      "age_min": 12.885803283333333
     },
     "intraday_cron": {
       "ts": "2026-05-21T22:30:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 3.6774012
+      "age_min": 4.919136616666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T22:30:02",
       "ok": true,
       "note": "",
-      "age_min": 4.3774011999999995
+      "age_min": 5.619136616666666
     },
     "vix_regime": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 4.0274012
+      "age_min": 5.269136616666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 874.3274012
+      "age_min": 875.5691366166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 841.9607345333334
+      "age_min": 843.20246995
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 834.8774012
+      "age_min": 836.1191366166667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 99.41073453333334
+      "age_min": 100.65246995000001
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 4.0274012
+      "age_min": 5.269136616666667
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 789.8107345333334
+      "age_min": 791.05246995
     }
   },
   "regime": {
@@ -4904,7 +4904,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 835,
+      "elapsed_min": 836,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4923,9 +4923,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 835,
+      "elapsed_min": 836,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 835min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 836min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4942,9 +4942,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 835,
+      "elapsed_min": 836,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 835min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 836min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
