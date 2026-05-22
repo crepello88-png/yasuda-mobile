@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T21:20",
+  "generated_at": "2026-05-21T21:30",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -9,14 +9,14 @@ window.MOBILE_DATA = {
     "buying_power": 3649.27,
     "stock_value": 7711.82,
     "unrealized_pnl": -131.69,
-    "realized_pnl": null,
+    "realized_pnl": 0.0,
     "day_pnl_pct": -1.1589552593458314,
-    "account_type": "Cash account",
-    "open_positions": 0,
+    "account_type": "INDIVIDUAL",
+    "open_positions": 5,
     "open_orders_count": 0,
     "fills_today_count": 0,
     "vix": null,
-    "data_source": "bridge_fallback"
+    "data_source": "TWS_direct_v2"
   },
   "tws_open_orders": [],
   "tws_fills_today": [],
@@ -708,7 +708,158 @@ window.MOBILE_DATA = {
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
-  "positions": [],
+  "positions": [
+    {
+      "ticker": "PWR",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 763.21,
+      "shares": 2.0,
+      "entry_value": 1526.42,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1435.0,
+      "_unreal_pnl": -91.42,
+      "_market_price": 717.5,
+      "current_price": 716.9099731445312,
+      "pnl_pct": -6.066485876163674,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 763.21,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 686.889,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "COST",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 1006.82,
+      "shares": 1.0,
+      "entry_value": 1006.82,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1051.5,
+      "_unreal_pnl": 44.68,
+      "_market_price": 1051.5,
+      "current_price": 1050.449951171875,
+      "pnl_pct": 4.3334410492317454,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 1006.82,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 906.138,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 229.68666665,
+      "shares": 12.0,
+      "entry_value": 2756.2399998,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 2641.44,
+      "_unreal_pnl": -114.8,
+      "_market_price": 220.1199951,
+      "current_price": 219.5,
+      "pnl_pct": -4.435027421736503,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 229.68666665,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 206.717999985,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "GOOG",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 389.2325,
+      "shares": 4.0,
+      "entry_value": 1556.93,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1540.44,
+      "_unreal_pnl": -16.49,
+      "_market_price": 385.10998535,
+      "current_price": 383.510009765625,
+      "pnl_pct": -1.4701984634826304,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 389.2325,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 350.30925,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "LLY",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 997.1,
+      "shares": 1.0,
+      "entry_value": 997.1,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1043.44,
+      "_unreal_pnl": 46.34,
+      "_market_price": 1043.4399414,
+      "current_price": 1041.6800537109375,
+      "pnl_pct": 4.470971187537609,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 997.1,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 897.39,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    }
+  ],
   "intraday_patterns": [
     {
       "pattern_id": "ORB4_AGL_15m",
@@ -1556,6 +1707,300 @@ window.MOBILE_DATA = {
       "sharpe": "US-D1 baseline Sh 2.40 → VIX>30 帯で Sh ~3.50 推定 (US-D2 VIX>40 挙動からの近似)、 既存 Drop5d_VIX30_StochKD (日次 Sh+14) の場中版",
       "live": "📝 paper mode (Agent J + M 5/21 朝採用、 D1 と並走)",
       "memo": "US-D7 = US-D1 + VIX size scaling booster、 本質差は size scaling のみ、 LIVE 化時 D7 形式へ統合推奨。 source: SSRN 4729284 + Agent C VIX filter"
+    },
+    {
+      "tier": "S",
+      "name": "CFO_Solo_PBuy_v1",
+      "cat": "短期 insider / fundamental",
+      "tickers": "WAB / LLY / INTC / CHD / CHRW ... (計55銘柄)",
+      "condition": "logs/insider_skeptic_top.md A2: CFO solo P-buy (mu=1) h=3、 Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime",
+      "hold": "3日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "logs/insider_skeptic_top.md A2: CFO solo P-buy (mu=1) h=3、 Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_note] 5/19 採用 (Phase 1 paper Tier B): S1' CFO solo P-buy h=3、 logs/insider_skeptic_top.md A2 family Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime。 mean+0.83% × 2 = TP+2.5% 目安",
+      "_auto_meta": {
+        "key": "CFO_Solo_PBuy_v1",
+        "tp_pct": 2.5,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 2.72
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "Confluence_BBStoch_v1",
+      "cat": "短期 confluence (BULL)",
+      "tickers": "NVDA / QQQ",
+      "condition": "BB(20,2) lower touch ∩ Stoch %K<20 同日 + SMA50>SMA200 (NVDA/QQQ): Sh+9.75 OOS+32 win 80% n=40",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "BB(20,2) lower touch ∩ Stoch %K<20 同日 + SMA50>SMA200 (NVDA/QQQ): Sh+9.75 OOS+32 win 80% n=40",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): BB lower ∩ Stoch<20 + uptrend、 NVDA/QQQ Sh+9.75 OOS+32 win 80% n=40。 hold 5d / [_5_21_trail] Agent H 5/21 朝: trail 7% で ΔSh +X、 strategy override pyramid TP2 trail (= 既存 TP1 + 新 trail TP2)",
+      "_auto_meta": {
+        "key": "Confluence_BBStoch_v1",
+        "tp_pct": 2.5,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 9.75
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "Drop5d_VIX30_StochKD",
+      "cat": "短期 mean-reversion (Drop5d系)",
+      "tickers": "NVDA / SOXX / XLK / XLF / AVGO ... (計58銘柄)",
+      "condition": "ST178/182/184 (5/14 夜): Drop5d-12 + VIX>=30 + Stoch K>D、Sharpe +14.09 (n=35)、Bootstrap CI [+9.08,+21.52]、4重 pass。size 0.5/max 1。",
+      "hold": "1日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "ST178/182/184 (5/14 夜): Drop5d-12 + VIX>=30 + Stoch K>D、Sharpe +14.09 (n=35)、Bootstrap CI [+9.08,+21.52]、4重 pass。size 0.5/max 1。",
+      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.5]",
+      "memo": "[_5_21_revision] Agent F: 1.95 → 2.5、 size_multiplier 0.5 維持",
+      "_auto_meta": {
+        "key": "Drop5d_VIX30_StochKD",
+        "tp_pct": 2.5,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.5,
+        "paper": false,
+        "sharpe_value": 14.09
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N1_NVDA_Consec4_v1",
+      "cat": "その他",
+      "tickers": "NVDA",
+      "condition": "NVDA 4 連敗 → 翌寄 BUY hold 3d (paper、 Sh+3.16 OOS+2.65 n=56 4/4 regime)",
+      "hold": "3日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "NVDA 4 連敗 → 翌寄 BUY hold 3d (paper、 Sh+3.16 OOS+2.65 n=56 4/4 regime)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N1 family (Alpha Architect Connors / Alvarez consec-down style): NVDA 4 連敗 → 翌寄 BUY hold 3d、 Sh+3.16 OOS+2.65 n=56 mean+1.58% win 57% 4/4 regime。 既存 Drop5d 累積とは別軸 (= streak count)、 NVDA 個別 reversion。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N1_NVDA_Consec4_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 3.16
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N1_TSLA_Consec4_v1",
+      "cat": "その他",
+      "tickers": "TSLA",
+      "condition": "TSLA 4 連敗 → 翌寄 BUY hold 3d (paper、 Sh+2.75 OOS+5.32 n=75)",
+      "hold": "3日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "TSLA 4 連敗 → 翌寄 BUY hold 3d (paper、 Sh+2.75 OOS+5.32 n=75)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N1: TSLA 4 連敗 → 翌寄 BUY hold 3d、 Sh+2.75 OOS+5.32 n=75 mean+2.29% win 57% 3/4 regime。 wide MFE で TP+4%、 既存 TSLA 個別 reversion 軸なし。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N1_TSLA_Consec4_v1",
+        "tp_pct": 4.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 2.75
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N3_HYG_Credit_XBI_v1",
+      "cat": "その他",
+      "tickers": "XBI",
+      "condition": "HYG 5d<=-1.5% → XBI 翌寄 BUY hold 5d (paper、 Sh+1.94 OOS+8.11 n=45 4/4)",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "HYG 5d<=-1.5% → XBI 翌寄 BUY hold 5d (paper、 Sh+1.94 OOS+8.11 n=45 4/4)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N3 (SSRN credit-equity contagion / Avramov-Chordia overreaction): HYG (high-yield bond ETF) 5d <= -1.5% (= credit spread spike proxy) → XBI biotech 翌寄 BUY hold 5d、 Sh+1.94 OOS+8.11 n=45 win 64% 4/4 regime。 既存 TLT_Spike は flight-to-safety (リスクオフ防衛買)、 こちらは credit panic → リスクオン反転で方向違いの cross-asset。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N3_HYG_Credit_XBI_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 1.94
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N7_VIXCurl_SMH_v1",
+      "cat": "その他",
+      "tickers": "SMH",
+      "condition": "VIX/VIX3M >= 1.0 → SMH 翌寄 BUY hold 5d (paper、 Sh+2.00 OOS+4.03 n=69 4/4)",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "VIX/VIX3M >= 1.0 → SMH 翌寄 BUY hold 5d (paper、 Sh+2.00 OOS+4.03 n=69 4/4)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N7 (SSRN volatility term structure / Quantpedia #156): VIX/VIX3M >= 1.0 (term inverted = panic) → SMH 翌寄 BUY hold 5d、 Sh+2.00 OOS+4.03 n=69 win 64% 4/4 regime。 既存 VIX_Backward は VIX6M 比、 こちらは VIX3M で短期 term curl、 SMH target。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N7_VIXCurl_SMH_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 2.0
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N7_VIXCurl_XLK_v1",
+      "cat": "その他",
+      "tickers": "XLK",
+      "condition": "VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d (paper、 Sh+1.98 OOS+3.17 n=69 4/4)",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d (paper、 Sh+1.98 OOS+3.17 n=69 4/4)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N7: VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d、 Sh+1.98 OOS+3.17 n=69 win 67% 4/4 regime。 N7_VIXCurl_SMH_v1 と同 trigger / 別 target (= 分散 dual deploy)、 mean+1.25%。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N7_VIXCurl_XLK_v1",
+        "tp_pct": 2.5,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 1.98
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "N9_Cascade3_SMH_v1",
+      "cat": "その他",
+      "tickers": "SMH",
+      "condition": "3+ sector ETFs same-day chg<=-3% → SMH 翌寄 BUY hold 5d (paper、 Sh+2.19 OOS+3.41 n=75 4/4)",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "3+ sector ETFs same-day chg<=-3% → SMH 翌寄 BUY hold 5d (paper、 Sh+2.19 OOS+3.41 n=75 4/4)",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N9 (arxiv q-fin cross-asset contagion / Quantifiable Edges market breadth): 3+ sector ETFs same-day chg <= -3% (= cross-sectional panic cascade) → SMH 翌寄 BUY hold 5d、 Sh+2.19 OOS+3.41 n=75 win 65% 4/4 regime。 既存 Sector_FriPanic_v1 は単一 sector 個別 trigger、 こちらは broad 同日 cascade で直交。 paper 1週後 LIVE 判定。",
+      "_auto_meta": {
+        "key": "N9_Cascade3_SMH_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": 2.19
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "PEAD_Down5d_v1",
+      "cat": "その他",
+      "tickers": "NVDA / AVGO / META / GOOGL / AAPL ... (計7銘柄)",
+      "condition": "(monitor.py 参照)",
+      "hold": "?",
+      "freq": "(未集計)",
+      "sharpe": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C2 (PEAD overreaction): earnings 当日 gap<-3% → 翌寄 BUY hold 5d、 OOS Sh=2.47 n=60 mean=+2.38% win=60% regime 4/4 (bull+1.98/bear+4.31/high+3.75/low+2.21)、 source: 反 PEAD = overreaction (Lakonishok 1991, Tetlock 2007)、 paper 1週後 LIVE 判定。 既存 Earnings_T_minus_5 (= 決算前) と反対方向で重複なし。",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C2 (PEAD overreaction): earnings 当日 gap<-3% → 翌寄 BUY hold 5d、 OOS Sh=2.47 n=60 mean=+2.38% win=60% regime 4/4 (bull+1.98/bear+4.31/high+3.75/low+2.21)、 source: 反 PEAD = overreaction (Lakonishok 1991, Tetlock 2007)、 paper 1週後 LIVE 判定。 既存 Earnings_T_minus_5 (= 決算前) と反対方向で重複なし。",
+      "_auto_meta": {
+        "key": "PEAD_Down5d_v1",
+        "tp_pct": 4.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": null
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "RSI35_Trend",
+      "cat": "短期 mean-reversion (RSI)",
+      "tickers": "SPY / VTI / QQQ / SOXX / XLV ... (計57銘柄)",
+      "condition": "ST410/422/489 (5/16 朝): hold=1d 全 regime で 2d を dominate Sh+6.18 vs +3.90、recent regime Sh+7.46、5/16 安田さん承認",
+      "hold": "1日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "ST410/422/489 (5/16 朝): hold=1d 全 regime で 2d を dominate Sh+6.18 vs +3.90、recent regime Sh+7.46、5/16 安田さん承認",
+      "live": "⏸ disabled (size_multiplier=0)",
+      "memo": "tp=2.0% sl=-10.0%, mult=0.0",
+      "_auto_meta": {
+        "key": "RSI35_Trend",
+        "tp_pct": 2.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.0,
+        "paper": false,
+        "sharpe_value": 6.18
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "paper",
+      "name": "Sun_Eff_Long_v1",
+      "cat": "その他",
+      "tickers": "SPY / QQQ / SOXX / XLK / SMH",
+      "condition": "(monitor.py 参照)",
+      "hold": "?",
+      "freq": "(未集計)",
+      "sharpe": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C5 (Sunday-Effect reversal): Fri close < SMA20 ∧ VIX>20 → Mon 寄付 BUY hold 1d、 OOS Sh=4.43 n=66 mean=+0.63% win=66.7% regime 4/4 (bull+7.52/bear+2.28/high+8.83/low+2.81)、 universe: SPY/QQQ/SOXX/SMH/XLK、 source: QuantSeeker 2022 / 中国量化坛 周末效应 反転 / Sunday-fear thesis、 paper 1週後 LIVE 判定。 既存 Mon 関連 (RSI35 Tue skip / Sector_FriPanic) と別軸。 mean+0.63% > commission floor 0.07% OK。",
+      "live": "📝 paper mode (1週後 LIVE 判定)",
+      "memo": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C5 (Sunday-Effect reversal): Fri close < SMA20 ∧ VIX>20 → Mon 寄付 BUY hold 1d、 OOS Sh=4.43 n=66 mean=+0.63% win=66.7% regime 4/4 (bull+7.52/bear+2.28/high+8.83/low+2.81)、 universe: SPY/QQQ/SOXX/SMH/XLK、 source: QuantSeeker 2022 / 中国量化坛 周末效应 反転 / Sunday-fear thesis、 paper 1週後 LIVE 判定。 既存 Mon 関連 (RSI35 Tue skip / Sector_FriPanic) と別軸。 mean+0.63% > commission floor 0.07% OK。",
+      "_auto_meta": {
+        "key": "Sun_Eff_Long_v1",
+        "tp_pct": 2.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": true,
+        "sharpe_value": null
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "TLT_Spike_Equity_v1",
+      "cat": "短期 cross-asset reversion",
+      "tickers": "NVDA / QQQ / XLK",
+      "condition": "TLT 5日 >=+3% flight-to-safety reversion → 翌寄 NVDA/XLK/QQQ BUY: Sh+3.09〜+3.46 win 72-78% n=36",
+      "hold": "3日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "TLT 5日 >=+3% flight-to-safety reversion → 翌寄 NVDA/XLK/QQQ BUY: Sh+3.09〜+3.46 win 72-78% n=36",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_5_20_revision] 2.0% → 3%、 panic rebound で wide MFE 期待 / [_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): TLT 5d>=+3% → NVDA/XLK/QQQ 翌寄 BUY、 Sh+3.09〜+3.46 win 72-78% n=36。 hold 3d",
+      "_auto_meta": {
+        "key": "TLT_Spike_Equity_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 3.09
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "VIX_Spike_XLK_v1",
+      "cat": "短期 vol spike",
+      "tickers": "XLK",
+      "condition": "VIX 1日 +30% spike → 翌寄 XLK BUY: Sh+3.21 OOS+8.33 win 83% n=23",
+      "hold": "7日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "VIX 1日 +30% spike → 翌寄 XLK BUY: Sh+3.21 OOS+8.33 win 83% n=23",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): VIX 1d +30% → XLK 翌寄 BUY、 Sh+3.21 OOS+8.33 win 83% n=23。 hold 7d",
+      "_auto_meta": {
+        "key": "VIX_Spike_XLK_v1",
+        "tp_pct": 2.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 3.21
+      },
+      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -4233,76 +4678,76 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-21T21:15:03",
+      "ts": "2026-05-21T21:30:03",
       "ok": true,
       "note": "",
-      "age_min": 5.778212183333333
+      "age_min": 0.2931502833333333
     },
     "sync_mobile": {
-      "ts": "2026-05-21T21:15:45",
+      "ts": "2026-05-21T21:20:52",
       "ok": true,
-      "note": "163,505 B",
-      "age_min": 5.078212183333333
+      "note": "169,866 B",
+      "age_min": 9.476483616666666
     },
     "verify_claims": {
-      "ts": "2026-05-21T21:08:14",
+      "ts": "2026-05-21T21:22:13",
       "ok": true,
       "note": "67p/0f",
-      "age_min": 12.594878849999999
+      "age_min": 8.126483616666667
     },
     "intraday_cron": {
       "ts": "2026-05-21T21:15:45",
       "ok": true,
       "note": "bat completed",
-      "age_min": 5.078212183333333
+      "age_min": 14.593150283333333
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-21T21:15:02",
+      "ts": "2026-05-21T21:30:02",
       "ok": true,
       "note": "",
-      "age_min": 5.79487885
+      "age_min": 0.30981695
     },
     "vix_regime": {
       "ts": "2026-05-21T21:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 5.444878849999999
+      "age_min": 14.95981695
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 800.7448788500001
+      "age_min": 810.25981695
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 768.3782121833334
+      "age_min": 777.8931502833333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 761.29487885
+      "age_min": 770.80981695
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 25.828212183333335
+      "age_min": 35.34315028333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T21:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 5.444878849999999
+      "age_min": 14.95981695
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 716.2282121833334
+      "age_min": 725.7431502833333
     }
   },
   "regime": {
@@ -4369,7 +4814,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 761,
+      "elapsed_min": 771,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4388,9 +4833,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 761,
+      "elapsed_min": 771,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 761min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 771min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4407,9 +4852,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 761,
+      "elapsed_min": 771,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 761min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 771min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
