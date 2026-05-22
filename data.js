@@ -1,16 +1,16 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-22T03:45",
+  "generated_at": "2026-05-22T04:00",
   "today_summary": {
-    "netliq": 11388.69,
+    "netliq": 11379.34,
     "cash": 3649.27,
     "available_funds": 3649.27,
     "excess_liquidity": 3649.27,
     "settled_cash": 3649.27,
     "buying_power": 3649.27,
-    "stock_value": 7737.69,
-    "unrealized_pnl": -105.82,
+    "stock_value": 7728.34,
+    "unrealized_pnl": -115.17,
     "realized_pnl": 0.0,
-    "day_pnl_pct": -0.9291674459485681,
+    "day_pnl_pct": -1.0120973624129344,
     "account_type": "INDIVIDUAL",
     "open_positions": 5,
     "open_orders_count": 0,
@@ -752,9 +752,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1050.45,
-      "_unreal_pnl": 43.63,
-      "_market_price": 1050.44995115,
+      "_market_value": 1049.55,
+      "_unreal_pnl": 42.73,
+      "_market_price": 1049.55004885,
       "current_price": 1050.449951171875,
       "pnl_pct": 4.3334410492317454,
       "exit_rules": {
@@ -782,9 +782,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2652.48,
-      "_unreal_pnl": -103.76,
-      "_market_price": 221.0399933,
+      "_market_value": 2648.64,
+      "_unreal_pnl": -107.6,
+      "_market_price": 220.7200012,
       "current_price": 219.5,
       "pnl_pct": -4.435027421736503,
       "exit_rules": {
@@ -812,9 +812,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1544.8,
-      "_unreal_pnl": -12.13,
-      "_market_price": 386.2000122,
+      "_market_value": 1542.96,
+      "_unreal_pnl": -13.97,
+      "_market_price": 385.73999025,
       "current_price": 383.510009765625,
       "pnl_pct": -1.4701984634826304,
       "exit_rules": {
@@ -842,9 +842,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1047.5,
-      "_unreal_pnl": 50.4,
-      "_market_price": 1047.5,
+      "_market_value": 1044.73,
+      "_unreal_pnl": 47.63,
+      "_market_price": 1044.72998045,
       "current_price": 1041.6800537109375,
       "pnl_pct": 4.470971187537609,
       "exit_rules": {
@@ -5058,89 +5058,89 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-22",
-      "netliq": 11388.69,
+      "netliq": 11379.34,
       "day_pnl": 0.0,
       "cum_pnl_short": -48.34,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -151.31,
-      "unrealized_today": -105.82
+      "netliq_delta": -160.66,
+      "unrealized_today": -115.17
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-22T03:45:03",
+      "ts": "2026-05-22T04:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6107456833333333
+      "age_min": 0.24944329999999998
     },
     "sync_mobile": {
-      "ts": "2026-05-22T03:45:24",
+      "ts": "2026-05-22T03:45:43",
       "ok": true,
-      "note": "209,497 B",
-      "age_min": 0.2607456833333333
+      "note": "209,494 B",
+      "age_min": 14.582776633333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 292.5607456833333
+      "age_min": 307.1994433
     },
     "intraday_cron": {
-      "ts": "2026-05-22T03:30:44",
+      "ts": "2026-05-22T03:45:43",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.927412349999999
+      "age_min": 14.582776633333333
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-22T03:45:02",
+      "ts": "2026-05-22T04:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6274123500000001
+      "age_min": 0.26610996666666664
     },
     "vix_regime": {
       "ts": "2026-05-22T03:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 0.27741235
+      "age_min": 14.916109966666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1185.57741235
+      "age_min": 1200.2161099666666
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1153.2107456833332
+      "age_min": 1167.8494433
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 1146.12741235
+      "age_min": 1160.7661099666666
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 410.66074568333335
+      "age_min": 425.2994433
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T03:45:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.27741235
+      "age_min": 14.916109966666665
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1101.0607456833334
+      "age_min": 1115.6994433
     }
   },
   "regime": {
