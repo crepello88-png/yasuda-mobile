@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-22T07:19",
+  "generated_at": "2026-05-22T07:20",
   "today_summary": {
     "netliq": 11391.7,
     "cash": 3649.27,
@@ -5291,73 +5291,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-22T07:15:02",
       "ok": true,
       "note": "",
-      "age_min": 4.917508016666667
+      "age_min": 5.135802549999999
     },
     "sync_mobile": {
-      "ts": "2026-05-22T07:08:57",
-      "ok": false,
-      "note": "I/O operation on closed file.",
-      "age_min": 11.00084135
+      "ts": "2026-05-22T07:20:00",
+      "ok": true,
+      "note": "216,307 B",
+      "age_min": 0.16913588333333335
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 506.85084135
+      "age_min": 507.06913588333333
     },
     "intraday_cron": {
       "ts": "2026-05-22T07:05:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.284174683333333
+      "age_min": 14.502469216666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-22T07:15:02",
       "ok": true,
       "note": "",
-      "age_min": 4.917508016666667
+      "age_min": 5.135802549999999
     },
     "vix_regime": {
       "ts": "2026-05-22T07:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.567508016666666
+      "age_min": 4.78580255
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 1399.8675080166665
+      "age_min": 1400.08580255
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1367.50084135
+      "age_min": 1367.7191358833334
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 1360.4175080166667
+      "age_min": 1360.63580255
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 624.95084135
+      "age_min": 625.1691358833334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T07:15:22",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 4.584174683333333
+      "age_min": 4.802469216666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1315.3508413499999
+      "age_min": 1315.5691358833333
     }
   },
   "regime": {
