@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-22T17:49",
+  "generated_at": "2026-05-22T17:50",
   "today_summary": {
     "netliq": 11288.4,
     "cash": 1293.82,
@@ -5424,79 +5424,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-22T17:45:03",
       "ok": true,
       "note": "",
-      "age_min": 4.91774575
+      "age_min": 5.19755055
     },
     "sync_mobile": {
-      "ts": "2026-05-22T17:35:20",
+      "ts": "2026-05-22T17:50:00",
       "ok": true,
       "note": "225,183 B",
-      "age_min": 14.634412416666667
+      "age_min": 0.24755055
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 1136.86774575
+      "age_min": 1137.14755055
     },
     "intraday_cron": {
       "ts": "2026-05-22T17:35:20",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.634412416666667
+      "age_min": 14.914217216666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-22T17:45:02",
       "ok": true,
       "note": "",
-      "age_min": 4.9344124166666665
+      "age_min": 5.2142172166666665
     },
     "vix_regime": {
       "ts": "2026-05-22T17:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.584412416666667
+      "age_min": 4.864217216666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 589.8844124166667
+      "age_min": 590.1642172166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 554.6510790833333
+      "age_min": 554.9308838833333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 547.8844124166667
+      "age_min": 548.1642172166667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 1254.96774575
+      "age_min": 1255.2475505500001
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T17:45:23",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 4.584412416666667
+      "age_min": 4.864217216666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1945.36774575
+      "age_min": 1945.64755055
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T07:21:58",
       "ok": false,
       "note": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/2",
-      "age_min": 628.0010790833334
+      "age_min": 628.2808838833333
     }
   },
   "regime": {
