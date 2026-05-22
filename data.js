@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T23:16",
+  "generated_at": "2026-05-21T23:17",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -4912,73 +4912,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T23:15:03",
       "ok": true,
       "note": "",
-      "age_min": 1.12671455
+      "age_min": 2.058536666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-21T23:02:15",
+      "ts": "2026-05-21T23:16:13",
       "ok": true,
-      "note": "206,833 B",
-      "age_min": 13.926714550000002
+      "note": "206,787 B",
+      "age_min": 0.89187
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 23.076714550000002
+      "age_min": 24.008536666666664
     },
     "intraday_cron": {
       "ts": "2026-05-21T23:02:16",
       "ok": true,
       "note": "bat completed",
-      "age_min": 13.910047883333334
+      "age_min": 14.84187
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T23:15:02",
       "ok": true,
       "note": "",
-      "age_min": 1.1433812166666668
+      "age_min": 2.0752033333333335
     },
     "vix_regime": {
       "ts": "2026-05-21T23:15:48",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 0.37671455
+      "age_min": 1.3085366666666667
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 916.0933812166667
+      "age_min": 917.0252033333333
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 883.7267145500001
+      "age_min": 884.6585366666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 876.6433812166667
+      "age_min": 877.5752033333333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 141.17671454999999
+      "age_min": 142.10853666666665
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:45:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 30.793381216666667
+      "age_min": 31.725203333333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 831.57671455
+      "age_min": 832.5085366666666
     }
   },
   "regime": {
@@ -5045,7 +5045,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 877,
+      "elapsed_min": 878,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -5064,9 +5064,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 877,
+      "elapsed_min": 878,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 877min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 878min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -5083,9 +5083,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 877,
+      "elapsed_min": 878,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 877min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 878min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
