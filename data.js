@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T21:45",
+  "generated_at": "2026-05-21T22:00",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1707,6 +1707,69 @@ window.MOBILE_DATA = {
       "sharpe": "US-D1 baseline Sh 2.40 → VIX>30 帯で Sh ~3.50 推定 (US-D2 VIX>40 挙動からの近似)、 既存 Drop5d_VIX30_StochKD (日次 Sh+14) の場中版",
       "live": "📝 paper mode (Agent J + M 5/21 朝採用、 D1 と並走)",
       "memo": "US-D7 = US-D1 + VIX size scaling booster、 本質差は size scaling のみ、 LIVE 化時 D7 形式へ統合推奨。 source: SSRN 4729284 + Agent C VIX filter"
+    },
+    {
+      "tier": "S",
+      "name": "A10_WideBar_Capitulation_v1",
+      "cat": "その他",
+      "tickers": "NVDA / SPY / VTI / QQQ / SOXX ... (計30銘柄)",
+      "condition": "today_range/ATR20>=2 ∧ close near low → 翌寄 BUY hold 2d (paper、 Sh+2.54 n=616 mean+1.0% win 58.6% 4/4 regime)",
+      "hold": "2日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "today_range/ATR20>=2 ∧ close near low → 翌寄 BUY hold 2d (paper、 Sh+2.54 n=616 mean+1.0% win 58.6% 4/4 regime)",
+      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
+      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A10.2 (Axis10 microstructure): today_range/ATR20 >= 2.0 AND close near low (= bottom 25% of range) → 翌寄 BUY hold 2d、 OOS Sh=2.54 n=616 mean=+1.0% win=58.6% regime 4/4 (bull+1.98/bear+4.04/high+4.65/low+1.85)、 source: Crabel 1990 volatility expansion / Wyckoff capitulation、 既存 Drop5d 系 (= 5d 累計) と機構違い (= 1d wide bar)、 全 100銘柄 watchlist、 paper 1週後 LIVE 判定。 注: 高頻度 (n=616 OOS) のため signals capped を monitor 配線時 1日 max 1-2 にすべき。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
+      "_auto_meta": {
+        "key": "A10_WideBar_Capitulation_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.75,
+        "paper": false,
+        "sharpe_value": 2.54
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "A2_BTC_Drop_CryptoProxy_v1",
+      "cat": "その他",
+      "tickers": "CLSK / MSTR / COIN / MARA / RIOT ... (計7銘柄)",
+      "condition": "BTC-USD 1d<=-3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d (paper、 Sh+2.08 n=231 mean+1.37% win 52.8% 3/4 regime)",
+      "hold": "2日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "BTC-USD 1d<=-3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d (paper、 Sh+2.08 n=231 mean+1.37% win 52.8% 3/4 regime)",
+      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
+      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A2.1 (Axis2 crypto-proxy): BTC-USD 1d <= -3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d、 OOS Sh=2.08 n=231 mean=+1.37% win=52.8% regime 3/4 (bull+1.08/bear+6.01/high+17.48/low+0.81)、 source: Liu-Tsyvinski 2018 / Quantpedia #698 BTC-stock contagion / Bianchi 2020 JFE、 既存 戦略 30+ にない直交軸 (= crypto contagion reversal)、 paper 1週後 LIVE 判定。 mean+1.37% >> commission floor 0.07% OK。 watchlist に MSTR/COIN/MARA/RIOT/CLSK 含む。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
+      "_auto_meta": {
+        "key": "A2_BTC_Drop_CryptoProxy_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.75,
+        "paper": false,
+        "sharpe_value": 2.08
+      },
+      "_supplement": true
+    },
+    {
+      "tier": "S",
+      "name": "A7_DXY_Drop_EM_Long_v1",
+      "cat": "その他",
+      "tickers": "EEM / FXI / KWEB / EWZ / INDA",
+      "condition": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
+      "hold": "5日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
+      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
+      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A7.2 (Axis7 macro cross-asset): UUP (DXY proxy) 5d <= -2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d、 OOS Sh=4.36 n=54 mean=+1.76% win=72.2% regime 4/4 (bull+2.88/bear+6.88/high+5.80/low+3.85)、 source: Asness-Moskowitz-Pedersen 2013 cross-asset / Frankel-Rose 1996 DXY-EM、 既存 cross-asset (TLT_Spike) と 異なる asset axis、 完全直交、 paper 1週後 LIVE 判定。 全 regime pass + 高 Sharpe。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
+      "_auto_meta": {
+        "key": "A7_DXY_Drop_EM_Long_v1",
+        "tp_pct": 3.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.75,
+        "paper": false,
+        "sharpe_value": 4.36
+      },
+      "_supplement": true
     },
     {
       "tier": "S",
@@ -4678,80 +4741,80 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-21T21:45:03",
+      "ts": "2026-05-21T22:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6244291166666667
+      "age_min": 0.5785144666666666
     },
     "sync_mobile": {
-      "ts": "2026-05-21T21:45:23",
+      "ts": "2026-05-21T21:45:44",
       "ok": true,
-      "note": "190,440 B",
-      "age_min": 0.29109578333333336
+      "note": "190,441 B",
+      "age_min": 14.895181133333333
     },
     "verify_claims": {
-      "ts": "2026-05-21T21:42:17",
+      "ts": "2026-05-21T21:53:12",
       "ok": true,
-      "note": "68p/0f",
-      "age_min": 3.3910957833333333
+      "note": "69p/0f",
+      "age_min": 7.428514466666667
     },
     "intraday_cron": {
-      "ts": "2026-05-21T21:30:42",
+      "ts": "2026-05-21T21:45:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.974429116666666
+      "age_min": 14.895181133333333
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-21T21:45:02",
+      "ts": "2026-05-21T22:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6410957833333334
+      "age_min": 0.5951811333333333
     },
     "vix_regime": {
-      "ts": "2026-05-21T21:45:23",
+      "ts": "2026-05-21T22:00:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 0.29109578333333336
+      "age_min": 0.24518113333333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 825.5910957833333
+      "age_min": 840.5451811333334
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 793.2244291166667
+      "age_min": 808.1785144666667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 786.1410957833334
+      "age_min": 801.0951811333333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 50.67442911666667
+      "age_min": 65.62851446666667
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T21:45:23",
+      "ts": "2026-05-21T22:00:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.29109578333333336
+      "age_min": 0.24518113333333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 741.0744291166667
+      "age_min": 756.0285144666667
     }
   },
   "regime": {
-    "ts": "2026-05-21T21:45:23",
+    "ts": "2026-05-21T22:00:23",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
@@ -4814,7 +4877,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 786,
+      "elapsed_min": 801,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4833,9 +4896,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 786,
+      "elapsed_min": 801,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 786min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 801min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4852,9 +4915,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 786,
+      "elapsed_min": 801,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 786min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 801min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
