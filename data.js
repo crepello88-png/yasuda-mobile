@@ -849,8 +849,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 762.1,
       "size_multiplier": 0.75,
-      "current_price": 747.1400146484375,
-      "pnl_pct": -0.002674842277750056,
+      "current_price": 747.0399780273438,
+      "pnl_pct": -0.016063757783635335,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 756.12592,
@@ -879,8 +879,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 60.5,
       "size_multiplier": 0.5,
-      "current_price": 59.41999816894531,
-      "pnl_pct": 0.18664554959393342,
+      "current_price": 59.435001373291016,
+      "pnl_pct": 0.21194209557524601,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 60.0210116,
@@ -909,8 +909,8 @@ window.MOBILE_DATA = {
       "_market_value": 1447.61,
       "_unreal_pnl": -78.81,
       "_market_price": 723.80480955,
-      "current_price": 723.969970703125,
-      "pnl_pct": -5.14144590569765,
+      "current_price": 723.7249755859375,
+      "pnl_pct": -5.173546522459416,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -939,8 +939,8 @@ window.MOBILE_DATA = {
       "_market_value": 1029.58,
       "_unreal_pnl": 22.76,
       "_market_price": 1029.5761719,
-      "current_price": 1029.72998046875,
-      "pnl_pct": 2.2754792781976896,
+      "current_price": 1029.27001953125,
+      "pnl_pct": 2.2297947529101414,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -969,8 +969,8 @@ window.MOBILE_DATA = {
       "_market_value": 2594.81,
       "_unreal_pnl": -161.43,
       "_market_price": 216.23399355,
-      "current_price": 216.07000732421875,
-      "pnl_pct": -5.928362984400193,
+      "current_price": 216.0399932861328,
+      "pnl_pct": -5.94143036812067,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -999,8 +999,8 @@ window.MOBILE_DATA = {
       "_market_value": 1522.57,
       "_unreal_pnl": -34.36,
       "_market_price": 380.64193725,
-      "current_price": 380.6300048828125,
-      "pnl_pct": -2.2101173764234816,
+      "current_price": 380.45001220703125,
+      "pnl_pct": -2.256360348369868,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -1029,8 +1029,8 @@ window.MOBILE_DATA = {
       "_market_value": 1065.96,
       "_unreal_pnl": 68.86,
       "_market_price": 1065.95739745,
-      "current_price": 1066.1400146484375,
-      "pnl_pct": 6.9240813006155255,
+      "current_price": 1065.5799560546875,
+      "pnl_pct": 6.86791255186916,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -5388,79 +5388,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-22T13:15:18",
       "ok": true,
       "note": "",
-      "age_min": 4.787685
+      "age_min": 5.133109
     },
     "sync_mobile": {
-      "ts": "2026-05-22T13:05:50",
+      "ts": "2026-05-22T13:20:08",
       "ok": true,
-      "note": "224,292 B",
-      "age_min": 14.254351666666668
+      "note": "224,311 B",
+      "age_min": 0.2997756666666667
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 866.987685
+      "age_min": 867.3331089999999
     },
     "intraday_cron": {
       "ts": "2026-05-22T13:05:50",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.254351666666668
+      "age_min": 14.599775666666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-22T13:15:05",
       "ok": true,
       "note": "",
-      "age_min": 5.0043516666666665
+      "age_min": 5.349775666666667
     },
     "vix_regime": {
       "ts": "2026-05-22T13:15:26",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.654351666666667
+      "age_min": 4.999775666666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 320.00435166666665
+      "age_min": 320.3497756666667
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 284.7710183333333
+      "age_min": 285.11644233333334
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 278.00435166666665
+      "age_min": 278.3497756666667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 985.0876850000001
+      "age_min": 985.433109
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T13:15:26",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 4.654351666666667
+      "age_min": 4.999775666666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1675.487685
+      "age_min": 1675.833109
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T07:21:58",
       "ok": false,
       "note": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/2",
-      "age_min": 358.1210183333333
+      "age_min": 358.46644233333336
     }
   },
   "regime": {
@@ -5597,8 +5597,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 747.1400146484375,
-      "unrealized_pct": -0.0,
+      "current_price": 747.0399780273438,
+      "unrealized_pct": -0.02,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -5636,8 +5636,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 59.41999816894531,
-      "unrealized_pct": 0.19,
+      "current_price": 59.435001373291016,
+      "unrealized_pct": 0.21,
       "force_sell_today": null,
       "silent_fail_note": null
     }
