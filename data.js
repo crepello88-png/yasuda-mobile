@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:40",
+  "generated_at": "2026-05-21T22:41",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1455,7 +1455,7 @@ window.MOBILE_DATA = {
       "monthly_profit_usd": 2.8
     },
     {
-      "tier": "A",
+      "tier": "BOOST",
       "name": "Sector Booster (Drop5d 7番目)",
       "cat": "booster",
       "tickers": "Drop5d 系全 watchlist",
@@ -1493,7 +1493,7 @@ window.MOBILE_DATA = {
       "monthly_profit_usd": 46.0
     },
     {
-      "tier": "A",
+      "tier": "BOOST",
       "name": "AAII panic booster (Drop5d 9番目)",
       "cat": "booster",
       "tickers": "Drop5d 系全 watchlist",
@@ -1505,7 +1505,7 @@ window.MOBILE_DATA = {
       "memo": "AAII csv 週次 fetch、 hardcoded fallback あり"
     },
     {
-      "tier": "A",
+      "tier": "BOOST",
       "name": "SPY 5/5 down booster (Drop5d 10番目)",
       "cat": "booster",
       "tickers": "Drop5d 系全 watchlist",
@@ -1517,7 +1517,7 @@ window.MOBILE_DATA = {
       "memo": "broad market sell signal、 BroadPanic と補完的"
     },
     {
-      "tier": "S",
+      "tier": "BOOST",
       "name": "ETF Deep Panic booster (12番目)",
       "cat": "booster",
       "tickers": "Drop5d_ETF7 (11 ETF)",
@@ -1529,7 +1529,7 @@ window.MOBILE_DATA = {
       "memo": "rare だが extreme alpha、 deep panic 規模で size 多倍化"
     },
     {
-      "tier": "A",
+      "tier": "BOOST",
       "name": "Good月 × VIX6M booster (13番目)",
       "cat": "booster",
       "tickers": "Drop5d_ETF7 (11 ETF)",
@@ -1541,7 +1541,7 @@ window.MOBILE_DATA = {
       "memo": "ST563 stacking 検証で good月単体+1.48 vs VIX6M 追加で更に +1.01"
     },
     {
-      "tier": "A",
+      "tier": "BOOST",
       "name": "Tech/Semis × VIX6M booster (Drop5d 11番目)",
       "cat": "booster",
       "tickers": "Drop5d 系 (Tech/Semis 銘柄のみ)",
@@ -1553,7 +1553,7 @@ window.MOBILE_DATA = {
       "memo": "既存 Industrial/Materials/ConsCyc 3 sector booster と組み合わせ可"
     },
     {
-      "tier": "A",
+      "tier": "ANTI",
       "name": "Earnings 直前 7日 skip",
       "cat": "filter",
       "tickers": "Drop5d 系全 watchlist (earnings 持つ銘柄)",
@@ -1565,7 +1565,7 @@ window.MOBILE_DATA = {
       "memo": "yfinance earnings_dates lookup"
     },
     {
-      "tier": "B",
+      "tier": "BOOST",
       "name": "VIX +15% spike booster",
       "cat": "6番目 booster",
       "tickers": "Drop5d 系全 watchlist",
@@ -1577,7 +1577,7 @@ window.MOBILE_DATA = {
       "memo": "ST508/509 brief_enhancer alert + monitor booster 両方"
     },
     {
-      "tier": "S+",
+      "tier": "disabled",
       "name": "Intraday Surge (COIN/MSTR/MARA) +2% 30min → +60min ⚡ 場中",
       "cat": "場中 momentum (crypto-proxy)",
       "tickers": "COIN / MSTR / MARA",
@@ -1585,11 +1585,11 @@ window.MOBILE_DATA = {
       "hold": "場中 60min (intraday、 15:45 CT で強制 close)",
       "freq": "月 fires raw 76 件 (COIN 24 / MSTR 23 / MARA 30)、 max_pos=2 制約後 **実 trade 30-35件/月**",
       "sharpe": "ST725 (5/17 夜) 4重 OOS PASS: COIN n=70 win 61% mean +0.86% / MSTR n=65 win 55% +0.70% / MARA n=87 win 55% +0.59%  ⇒ **月益 ~$235 (size $980)、 年率 +66%/元本$4,237**",
-      "live": "✅ 5/18 月 LIVE 即時投入 (Phase 1 paper skip、 size $980、 max_pos=2、 daily-loss-limit -2% kill switch)",
+      "live": "⏸ disabled (5/22 朝 Agent G OOS で全 net negative、 enabled=false)",
       "memo": "安田さん 5/17「場中で反応ないなら PC 起動意味ない」→ Path 2 intraday LIVE 実装。 crypto-proxy 群は universe 平均より突出 (mean reversion でなく momentum follow)。 OCA bracket: LMT TP+0.7-0.86% / STP SL-3% (server side、 PC 落ちても発動)"
     },
     {
-      "tier": "S+",
+      "tier": "disabled",
       "name": "Intraday RSI20 (AMD/PLTR/VRTX) 5m RSI<20 → +30min ⚡ 場中",
       "cat": "場中 reversion (high-beta)",
       "tickers": "AMD / PLTR / VRTX",
@@ -1597,7 +1597,7 @@ window.MOBILE_DATA = {
       "hold": "場中 30min (intraday、 15:45 CT 強制 close)",
       "freq": "月 fires raw 86 件 (AMD 18 / PLTR 37 / VRTX 31)、 max_pos=2 制約後 **実 trade 40-50件/月**",
       "sharpe": "ST725 PASS: AMD n=52 win 58% mean +0.71% / PLTR n=107 win 62% +0.33% / VRTX n=89 win 56% +0.27% (VRTX は recent regime caveat、 small size 推奨)  ⇒ **月益 ~$190 (size $980)、 年率 +54%/元本$4,237**",
-      "live": "✅ 5/18 月 LIVE 即時投入 (Phase 1 skip、 size $980、 max_pos=2)",
+      "live": "⏸ disabled (5/22 朝 Agent G OOS で全 net negative、 enabled=false)",
       "memo": "急落底 reversion: 場中 5m RSI<20 = 一時的 oversold、 30min で反発。 VRTX は前半 win 42% / 後半 70% で regime 依存強く size 半減、 AMD/PLTR は全 regime stable"
     },
     {
@@ -4906,73 +4906,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T22:30:03",
       "ok": true,
       "note": "",
-      "age_min": 10.293914333333333
+      "age_min": 11.320948966666666
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:35:42",
+      "ts": "2026-05-21T22:40:24",
       "ok": true,
-      "note": "196,069 B",
-      "age_min": 4.643914333333333
+      "note": "203,919 B",
+      "age_min": 0.9709489666666666
     },
     "verify_claims": {
       "ts": "2026-05-21T22:22:46",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 17.577247666666665
+      "age_min": 18.6042823
     },
     "intraday_cron": {
       "ts": "2026-05-21T22:30:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 9.610581
+      "age_min": 10.637615633333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T22:30:02",
       "ok": true,
       "note": "",
-      "age_min": 10.310581
+      "age_min": 11.337615633333334
     },
     "vix_regime": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 9.960581
+      "age_min": 10.987615633333332
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 880.260581
+      "age_min": 881.2876156333333
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 847.8939143333333
+      "age_min": 848.9209489666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 840.810581
+      "age_min": 841.8376156333333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 105.34391433333333
+      "age_min": 106.37094896666667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:30:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 9.960581
+      "age_min": 10.987615633333332
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 795.7439143333334
+      "age_min": 796.7709489666667
     }
   },
   "regime": {
@@ -5039,7 +5039,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 841,
+      "elapsed_min": 842,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -5058,9 +5058,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 841,
+      "elapsed_min": 842,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 841min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 842min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -5077,9 +5077,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 841,
+      "elapsed_min": 842,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 841min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 842min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
