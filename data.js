@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:45",
+  "generated_at": "2026-05-21T23:00",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1527,7 +1527,9 @@ window.MOBILE_DATA = {
       "freq": "年 50〜100 件 (Drop5d fire の 1/4 程度)",
       "sharpe": "recent 2024+ Industrial 10-100M Sh+14.42 / Materials Sh+15.54 / ConsCyc Sh+10.18",
       "live": "✅ 5/16 夜 採用 (boost_n +1)",
-      "memo": "ST533 cross-tab で発見、 booster_multipliers 7要素 ([1..3.5]) に拡張"
+      "memo": "ST533 cross-tab で発見、 booster_multipliers 7要素 ([1..3.5]) に拡張",
+      "per_share_profit_usd": 0.97,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "A",
@@ -1571,7 +1573,9 @@ window.MOBILE_DATA = {
       "freq": "年 10〜20 件 (AAII < -40 は稀)",
       "sharpe": "Drop5d 翌日 Sh+9.75 win 74% mean +4.67% (n=1310) — 9 番目 booster",
       "live": "✅ booster +1 (5/16 夜 round10 ST549)",
-      "memo": "AAII csv 週次 fetch、 hardcoded fallback あり"
+      "memo": "AAII csv 週次 fetch、 hardcoded fallback あり",
+      "per_share_profit_usd": 5.55,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "BOOST",
@@ -1583,7 +1587,9 @@ window.MOBILE_DATA = {
       "freq": "年 30〜50 件",
       "sharpe": "Drop5d 翌日 Sh+3.24 win 58% mean +0.82% (n=4065)",
       "live": "✅ booster +1 (5/16 夜 round10 ST552)",
-      "memo": "broad market sell signal、 BroadPanic と補完的"
+      "memo": "broad market sell signal、 BroadPanic と補完的",
+      "per_share_profit_usd": 5.55,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "BOOST",
@@ -1595,7 +1601,9 @@ window.MOBILE_DATA = {
       "freq": "年 5〜15 件 (極端panic 時のみ)",
       "sharpe": "QQQ Sh+11.06 (n=9) / XLY +12.68 (n=8) / XLK +9.89 (n=9) / SMH -12% +4.99 (n=39) / SPY +5.60 (n=7) (hold=2d)",
       "live": "✅ 自動 booster +1 (5/16 夜 round11 ST564 自動採用)",
-      "memo": "rare だが extreme alpha、 deep panic 規模で size 多倍化"
+      "memo": "rare だが extreme alpha、 deep panic 規模で size 多倍化",
+      "per_share_profit_usd": 5.6,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "BOOST",
@@ -1607,7 +1615,9 @@ window.MOBILE_DATA = {
       "freq": "年 10〜20 件",
       "sharpe": "good月+VIX6Mbw Sh+5.31 win 62% mean +0.97% (n=109) — good月単体 Sh+4.30",
       "live": "✅ booster +1 (5/16 夜 round11 ST563 自動採用)",
-      "memo": "ST563 stacking 検証で good月単体+1.48 vs VIX6M 追加で更に +1.01"
+      "memo": "ST563 stacking 検証で good月単体+1.48 vs VIX6M 追加で更に +1.01",
+      "per_share_profit_usd": 0.66,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "BOOST",
@@ -1619,7 +1629,9 @@ window.MOBILE_DATA = {
       "freq": "年 5〜10 件",
       "sharpe": "Tech Sh+8.23 win 68% n=66 / Semis +6.49 win 67% n=184 (VIX6M backward 時)",
       "live": "✅ booster +1 (5/16 夜 round10 ST553)",
-      "memo": "既存 Industrial/Materials/ConsCyc 3 sector booster と組み合わせ可"
+      "memo": "既存 Industrial/Materials/ConsCyc 3 sector booster と組み合わせ可",
+      "per_share_profit_usd": 1.65,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "ANTI",
@@ -1631,7 +1643,9 @@ window.MOBILE_DATA = {
       "freq": "全 Drop5d signal の ~5% 除外",
       "sharpe": "Pre-earnings 7日 = Sh-1.81 (anti-edge), mid (14+日離れ) = Sh+3.81 win 57% (ST536)",
       "live": "✅ 5/16 夜 採用 (ST536)",
-      "memo": "yfinance earnings_dates lookup"
+      "memo": "yfinance earnings_dates lookup",
+      "per_share_profit_usd": 4.4,
+      "_per_share_basis": "avoided loss est (= skip しなかったら出てた損失)"
     },
     {
       "tier": "BOOST",
@@ -1643,7 +1657,9 @@ window.MOBILE_DATA = {
       "freq": "年 20〜50 件 (VIX spike+15% 単体は年 50-80件、 Drop5d 同日 hit はさらに小)",
       "sharpe": "Drop5d × VIX spike Sh+2.16 win 56% (n=9012) / 翌日 QQQ Sh+4.70",
       "live": "✅ 5/16 夜 採用 (boost_n +1 加算)",
-      "memo": "ST508/509 brief_enhancer alert + monitor booster 両方"
+      "memo": "ST508/509 brief_enhancer alert + monitor booster 両方",
+      "per_share_profit_usd": 1.32,
+      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
     },
     {
       "tier": "disabled",
@@ -5044,76 +5060,76 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-21T22:45:03",
+      "ts": "2026-05-21T23:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6420377166666668
+      "age_min": 0.29719951666666666
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:45:24",
+      "ts": "2026-05-21T22:45:45",
       "ok": true,
-      "note": "210,505 B",
-      "age_min": 0.29203771666666667
+      "note": "210,525 B",
+      "age_min": 14.597199516666667
     },
     "verify_claims": {
-      "ts": "2026-05-21T22:22:46",
+      "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 22.925371050000003
+      "age_min": 7.247199516666667
     },
     "intraday_cron": {
-      "ts": "2026-05-21T22:30:44",
+      "ts": "2026-05-21T22:45:46",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.958704383333332
+      "age_min": 14.580532849999999
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-21T22:45:02",
+      "ts": "2026-05-21T23:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6587043833333334
+      "age_min": 0.3138661833333333
     },
     "vix_regime": {
       "ts": "2026-05-21T22:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 0.30870438333333333
+      "age_min": 14.963866183333332
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 885.6087043833334
+      "age_min": 900.2638661833333
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 853.2420377166667
+      "age_min": 867.8971995166667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 846.1587043833333
+      "age_min": 860.8138661833333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 110.69203771666666
+      "age_min": 125.34719951666666
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:45:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 0.30870438333333333
+      "age_min": 14.963866183333332
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 801.0920377166666
+      "age_min": 815.7471995166667
     }
   },
   "regime": {
@@ -5180,7 +5196,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 846,
+      "elapsed_min": 861,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -5199,9 +5215,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 846,
+      "elapsed_min": 861,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 846min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 861min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -5218,9 +5234,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 846,
+      "elapsed_min": 861,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 846min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 861min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
