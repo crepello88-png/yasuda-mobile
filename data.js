@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-22T14:19",
+  "generated_at": "2026-05-22T14:20",
   "today_summary": {
     "netliq": 11289.18,
     "cash": 1293.82,
@@ -849,8 +849,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 762.1,
       "size_multiplier": 0.75,
-      "current_price": 746.3049926757812,
-      "pnl_pct": -0.11443430111605091,
+      "current_price": 746.260009765625,
+      "pnl_pct": -0.12045482016903586,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 756.12592,
@@ -879,8 +879,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 60.5,
       "size_multiplier": 0.5,
-      "current_price": 59.48500061035156,
-      "pnl_pct": 0.296244619902053,
+      "current_price": 59.494998931884766,
+      "pnl_pct": 0.31310255201926207,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 60.0210116,
@@ -939,8 +939,8 @@ window.MOBILE_DATA = {
       "_market_value": 1028.17,
       "_unreal_pnl": 21.35,
       "_market_price": 1028.17053225,
-      "current_price": 1028.385009765625,
-      "pnl_pct": 2.1418932644986066,
+      "current_price": 1028.52001953125,
+      "pnl_pct": 2.1553027881100917,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -969,8 +969,8 @@ window.MOBILE_DATA = {
       "_market_value": 2582.34,
       "_unreal_pnl": -173.9,
       "_market_price": 215.19467165,
-      "current_price": 215.13999938964844,
-      "pnl_pct": -6.333265867155447,
+      "current_price": 215.02499389648438,
+      "pnl_pct": -6.383336467613643,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -999,8 +999,8 @@ window.MOBILE_DATA = {
       "_market_value": 1518.12,
       "_unreal_pnl": -38.81,
       "_market_price": 379.5299988,
-      "current_price": 379.6099853515625,
-      "pnl_pct": -2.4721765650189798,
+      "current_price": 379.5150146484375,
+      "pnl_pct": -2.496576044282661,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -1029,8 +1029,8 @@ window.MOBILE_DATA = {
       "_market_value": 1066.29,
       "_unreal_pnl": 69.19,
       "_market_price": 1066.29003905,
-      "current_price": 1066.509033203125,
-      "pnl_pct": 6.961090482712362,
+      "current_price": 1066.949951171875,
+      "pnl_pct": 7.005310517688801,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -5388,79 +5388,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-22T14:15:18",
       "ok": true,
       "note": "",
-      "age_min": 4.690960816666666
+      "age_min": 4.952313716666667
     },
     "sync_mobile": {
-      "ts": "2026-05-22T14:05:34",
+      "ts": "2026-05-22T14:20:02",
       "ok": true,
-      "note": "224,298 B",
-      "age_min": 14.42429415
+      "note": "224,296 B",
+      "age_min": 0.21898038333333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 926.8909608166667
+      "age_min": 927.1523137166666
     },
     "intraday_cron": {
       "ts": "2026-05-22T14:05:34",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.42429415
+      "age_min": 14.68564705
     },
     "intraday_executor_scan": {
       "ts": "2026-05-22T14:15:04",
       "ok": true,
       "note": "",
-      "age_min": 4.92429415
+      "age_min": 5.18564705
     },
     "vix_regime": {
       "ts": "2026-05-22T14:15:26",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.5576274833333335
+      "age_min": 4.818980383333334
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 379.90762748333333
+      "age_min": 380.16898038333335
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 344.67429415
+      "age_min": 344.93564705
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 337.90762748333333
+      "age_min": 338.16898038333335
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 1044.9909608166668
+      "age_min": 1045.2523137166668
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T14:15:26",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 4.5576274833333335
+      "age_min": 4.818980383333334
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1735.3909608166666
+      "age_min": 1735.6523137166666
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T07:21:58",
       "ok": false,
       "note": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/2",
-      "age_min": 418.02429415
+      "age_min": 418.28564705
     }
   },
   "regime": {
@@ -5597,8 +5597,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 746.3049926757812,
-      "unrealized_pct": -0.11,
+      "current_price": 746.260009765625,
+      "unrealized_pct": -0.12,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -5636,8 +5636,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 59.48500061035156,
-      "unrealized_pct": 0.3,
+      "current_price": 59.494998931884766,
+      "unrealized_pct": 0.31,
       "force_sell_today": null,
       "silent_fail_note": null
     }
