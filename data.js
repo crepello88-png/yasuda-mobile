@@ -4255,77 +4255,77 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T20:16:14",
       "ok": true,
       "note": "",
-      "age_min": 0.28805064999999996
+      "age_min": 0.6149341166666668
     },
     "sync_mobile": {
-      "ts": "2026-05-21T15:11:38",
+      "ts": "2026-05-21T20:16:34",
       "ok": true,
-      "note": "159,170 B",
-      "age_min": 304.88805065
+      "note": "163,763 B",
+      "age_min": 0.2816007833333333
     },
     "verify_claims": {
       "ts": "2026-05-21T06:20:55",
       "ok": true,
       "note": "62p/0f",
-      "age_min": 835.6047173166667
+      "age_min": 835.9316007833334
     },
     "intraday_cron": {
       "ts": "2026-05-21T10:00:46",
       "ok": true,
       "note": "bat completed",
-      "age_min": 615.7547173166666
+      "age_min": 616.0816007833333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T20:16:14",
       "ok": true,
       "note": "",
-      "age_min": 0.28805064999999996
+      "age_min": 0.6149341166666668
     },
     "vix_regime": {
-      "ts": "2026-05-21T10:00:27",
+      "ts": "2026-05-21T20:16:34",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 616.0713839833334
+      "age_min": 0.2816007833333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 736.43805065
+      "age_min": 736.7649341166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 704.0713839833334
+      "age_min": 704.39826745
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 696.98805065
+      "age_min": 697.3149341166667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T11:40:44",
       "ok": true,
       "note": "resolved 11:40: 5/21 朝 EXE/NTAP/ADI phantom 3件 は state.json 自動 cleanup 済 (10:00 reconciler state=0 TWS=5 phantoms=0 確認)。 root cause = pyramid=True path の post-fill bracket 化 漏れ、 fix commit 31eba89 を master へ FF merge 済 (本番 short_term_executor.py 反映済)、 5/22 朝の cron から発動予定",
-      "age_min": 515.7880506500001
+      "age_min": 516.1149341166666
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-21T10:00:27",
+      "ts": "2026-05-21T20:16:34",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 616.0713839833334
+      "age_min": 0.2816007833333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 651.9213839833334
+      "age_min": 652.2482674500001
     }
   },
   "regime": {
-    "ts": "2026-05-21T10:00:27",
+    "ts": "2026-05-21T20:16:34",
     "vix": 17.77,
     "spy_close": 741.25,
     "spy_10d_return_pct": 1.01,
