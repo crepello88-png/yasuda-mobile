@@ -806,7 +806,7 @@ window.MOBILE_DATA = {
       "strategy": "TweezerBottom_30m",
       "tier": "",
       "trigger": "TweezerBottom_30m",
-      "ref_price": 26.88,
+      "ref_price": 26.91,
       "target_tp_pct": 2.0,
       "hold": 1,
       "selected": false,
@@ -831,8 +831,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.5,
       "take_profit_price": 99.85,
       "size_multiplier": 1.0,
-      "current_price": 97.9800033569336,
-      "pnl_pct": 0.5851589743697705,
+      "current_price": 97.97000122070312,
+      "pnl_pct": 0.574890894880542,
       "exit_rules": {
         "tp1_pct": 1.5,
         "tp1_price": 98.87114999999999,
@@ -861,8 +861,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 762.1,
       "size_multiplier": 0.75,
-      "current_price": 745.469970703125,
-      "pnl_pct": -0.22619375995435176,
+      "current_price": 745.4550170898438,
+      "pnl_pct": -0.22819515366938603,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 756.12592,
@@ -891,8 +891,8 @@ window.MOBILE_DATA = {
       "take_profit_pct": 2.0,
       "take_profit_price": 60.5,
       "size_multiplier": 0.5,
-      "current_price": 59.57500076293945,
-      "pnl_pct": 0.4479917364383912,
+      "current_price": 59.584999084472656,
+      "pnl_pct": 0.4648496685556225,
       "exit_rules": {
         "tp1_pct": 1.2,
         "tp1_price": 60.0210116,
@@ -921,8 +921,8 @@ window.MOBILE_DATA = {
       "_market_value": 1440.23,
       "_unreal_pnl": -86.19,
       "_market_price": 720.1130371,
-      "current_price": 720.0374755859375,
-      "pnl_pct": -5.656703189693868,
+      "current_price": 720.1500244140625,
+      "pnl_pct": -5.641956419063887,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 763.21,
@@ -951,8 +951,8 @@ window.MOBILE_DATA = {
       "_market_value": 1027.94,
       "_unreal_pnl": 21.12,
       "_market_price": 1027.93933105,
-      "current_price": 1027.4449462890625,
-      "pnl_pct": 2.048523697290716,
+      "current_price": 1027.3800048828125,
+      "pnl_pct": 2.042073546692791,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1006.82,
@@ -981,8 +981,8 @@ window.MOBILE_DATA = {
       "_market_value": 2582.57,
       "_unreal_pnl": -173.67,
       "_market_price": 215.2140045,
-      "current_price": 215.22999572753906,
-      "pnl_pct": -6.2940836459132505,
+      "current_price": 215.27999877929688,
+      "pnl_pct": -6.2723135307876765,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -1011,8 +1011,8 @@ window.MOBILE_DATA = {
       "_market_value": 1515.92,
       "_unreal_pnl": -41.01,
       "_market_price": 378.980011,
-      "current_price": 378.9700012207031,
-      "pnl_pct": -2.6365986343115932,
+      "current_price": 378.92999267578125,
+      "pnl_pct": -2.646877463782893,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 389.2325,
@@ -1041,8 +1041,8 @@ window.MOBILE_DATA = {
       "_market_value": 1068.45,
       "_unreal_pnl": 71.35,
       "_market_price": 1068.44995115,
-      "current_price": 1068.39599609375,
-      "pnl_pct": 7.150335582564438,
+      "current_price": 1068.030029296875,
+      "pnl_pct": 7.113632463832609,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 997.1,
@@ -5400,79 +5400,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-22T14:30:18",
       "ok": true,
       "note": "",
-      "age_min": 5.070024
+      "age_min": 5.346622183333333
     },
     "sync_mobile": {
-      "ts": "2026-05-22T14:20:18",
+      "ts": "2026-05-22T14:35:25",
       "ok": true,
-      "note": "224,303 B",
-      "age_min": 15.070024
+      "note": "224,576 B",
+      "age_min": 0.22995551666666667
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 942.2700239999999
+      "age_min": 942.5466221833334
     },
     "intraday_cron": {
       "ts": "2026-05-22T14:20:18",
       "ok": true,
       "note": "bat completed",
-      "age_min": 15.070024
+      "age_min": 15.346622183333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-22T14:30:04",
       "ok": true,
       "note": "",
-      "age_min": 5.3033573333333335
+      "age_min": 5.579955516666667
     },
     "vix_regime": {
       "ts": "2026-05-22T14:30:26",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.936690666666666
+      "age_min": 5.21328885
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 395.2866906666667
+      "age_min": 395.56328885000005
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 360.05335733333334
+      "age_min": 360.3299555166667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 353.2866906666667
+      "age_min": 353.56328885000005
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 1060.370024
+      "age_min": 1060.6466221833334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T14:30:26",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 4.936690666666666
+      "age_min": 5.21328885
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 1750.7700240000001
+      "age_min": 1751.0466221833333
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T07:21:58",
       "ok": false,
       "note": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/2",
-      "age_min": 433.40335733333336
+      "age_min": 433.67995551666667
     }
   },
   "regime": {
@@ -5570,8 +5570,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 97.9800033569336,
-      "unrealized_pct": 0.59,
+      "current_price": 97.97000122070312,
+      "unrealized_pct": 0.57,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -5609,7 +5609,7 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 745.469970703125,
+      "current_price": 745.4550170898438,
       "unrealized_pct": -0.23,
       "force_sell_today": null,
       "silent_fail_note": null
@@ -5648,8 +5648,8 @@ window.MOBILE_DATA = {
           "status": "未到達"
         }
       ],
-      "current_price": 59.57500076293945,
-      "unrealized_pct": 0.45,
+      "current_price": 59.584999084472656,
+      "unrealized_pct": 0.46,
       "force_sell_today": null,
       "silent_fail_note": null
     }
