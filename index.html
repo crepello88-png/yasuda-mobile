@@ -1815,8 +1815,9 @@ function renderTrackerStrategies() {
     if (T === 'A-') return 7;
     if (T === 'B') return 8;
     if (T === 'C') return 9;
-    if (T === 'PAPER') return 10;
-    if (T === 'DISABLED') return 11;
+    if (T === '?') return 10;  // 5/22 朝 paper→LIVE 化 後 yasuda universe OOS 未確定、 C と paper の間
+    if (T === 'PAPER') return 11;
+    if (T === 'DISABLED') return 12;
     return 99;
   };
   filtered.sort((a, b) => {
