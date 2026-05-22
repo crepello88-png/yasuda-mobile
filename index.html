@@ -1797,19 +1797,45 @@ function renderTrackerStrategies() {
     if (T.startsWith('A')) return '#3fb950';
     return '#7d8590';
   };
+  // 5/22 朝 user 採用: tier 降順 (SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
+  const tierRank = (t) => {
+    const T = (t||'').toUpperCase();
+    if (T === 'SS+' || T === 'SS') return 0;
+    if (T === 'S+') return 1;
+    if (T === 'S') return 2;
+    if (T === 'S-') return 3;
+    if (T === 'A+') return 4;
+    if (T === 'A') return 5;
+    if (T === 'A-') return 6;
+    if (T === 'B') return 7;
+    if (T === 'C') return 8;
+    if (T === 'PAPER') return 9;
+    if (T === 'DISABLED') return 10;
+    return 99;
+  };
+  filtered.sort((a, b) => {
+    const ra = tierRank(a.tier), rb = tierRank(b.tier);
+    if (ra !== rb) return ra - rb;
+    return (Number(b.monthly_profit_usd) || 0) - (Number(a.monthly_profit_usd) || 0);
+  });
   listEl.innerHTML = filtered.map(s => {
     const live = s.live || '';
     const isLive = live.indexOf('✅') >= 0;
     const tcol = tierColor(s.tier);
+    const mp = Number(s.monthly_profit_usd);
+    const mpDisplay = isFinite(mp) && mp > 0
+      ? `<div style="font-size:22px;font-weight:800;color:${tcol};line-height:1">$${mp.toFixed(0)}<span style="font-size:12px;color:var(--sub);font-weight:600">/月</span></div>`
+      : `<div style="font-size:11px;color:var(--sub)">未確定</div>`;
     return `
       <div class="card" style="margin-bottom:8px">
-        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:6px">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
           <div style="flex:1;min-width:0">
             <div class="ticker" style="font-size:14px">${s.name||''}</div>
             <div class="strat" style="margin-top:2px">${s.cat||''}</div>
           </div>
           <div style="text-align:right;flex-shrink:0">
-            <span class="badge" style="background:${tcol}22;color:${tcol};font-weight:700">${s.tier||'-'}</span>
+            <span class="badge" style="background:${tcol}22;color:${tcol};font-weight:700;font-size:12px">${s.tier||'-'}</span>
+            <div style="margin-top:4px">${mpDisplay}</div>
           </div>
         </div>
         <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08);font-size:11px;line-height:1.6">
