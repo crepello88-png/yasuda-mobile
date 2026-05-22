@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-21T22:25",
+  "generated_at": "2026-05-21T22:26",
   "today_summary": {
     "netliq": 11362.82,
     "cash": 3649.27,
@@ -1207,7 +1207,7 @@ window.MOBILE_DATA = {
       "monthly_profit_usd": 30.0
     },
     {
-      "tier": "B",
+      "tier": "disabled",
       "name": "BB_Lower_Bounce_v1 (uptrend + BB下バンド touch → 1日hold MOO) BULL",
       "cat": "短期 pullback",
       "tickers": "NVDA (QQQ は ST726 除外)",
@@ -1215,12 +1215,12 @@ window.MOBILE_DATA = {
       "hold": "1日 寄→翌寄 MOO bracket (ST699: 5d→1d、 12mo Sh+6.34→+9.94 大幅改善)",
       "freq": "銘柄毎 年 3〜6 件 × 2 = 年 6-12 件",
       "sharpe": "ST683 (5/17 03:50): NVDA Sh+3.41 win 62% n=42 / QQQ Sh+3.41 win 68% n=53 [4/4 regime pass]",
-      "live": "✅ 自動 entry (5/17 03:50 自動採用) monitor.py BB_Lower_Bounce_v1",
+      "live": "⏸ disabled (size_mult=0、 signal 観測のみ、 trail で復活検討)",
       "memo": "Pullback_v1 と相補: RSI ベース vs BB-band ベース、 NVDA は BB だけ 4/4 (RSI<35 では 3/4 含み)、 QQQ ETF 用",
       "monthly_profit_usd": 7.0
     },
     {
-      "tier": "A",
+      "tier": "disabled",
       "name": "MACD_Cross_v1 (uptrend + MACD hist 0 上抜け → 1日hold MOO) BULL",
       "cat": "短期 momentum",
       "tickers": "AVGO (NVDA/AMZN は ST726 除外、 max 5)",
@@ -1228,7 +1228,7 @@ window.MOBILE_DATA = {
       "hold": "1日 寄→翌寄 MOO bracket (ST699: 5d→1d、 12mo Sh -0.91→+3.32 劇的改善)",
       "freq": "銘柄毎 年 6〜10 件 × 3 = 年 18-30 件",
       "sharpe": "ST683 (5/17 03:50): NVDA Sh+4.02 win 62% n=77 / AVGO Sh+1.98 n=85 / AMZN Sh+3.11 n=71 [4/4 regime pass]",
-      "live": "✅ 自動 entry (5/17 03:50 自動採用) monitor.py MACD_Cross_v1",
+      "live": "⏸ disabled (size_mult=0、 signal 観測のみ、 trail で復活検討)",
       "memo": "古典 MACD signal cross above zero、 uptrend 必須 (filter out 弱気側 false signal)、 Pullback と MACD で寄付 timing 分散",
       "monthly_profit_usd": 17.0
     },
@@ -1254,7 +1254,7 @@ window.MOBILE_DATA = {
       "hold": "1日 寄→翌寄 MOO",
       "freq": "銘柄毎 年 5〜10 件 × 20 = 年 100-200 件 (signal max)",
       "sharpe": "ST710 (5/17 12:01) 拡張: 既存 5 + ST687 ext 7 + ST710 new 8。 新 top: EQIX +8.52 / ON +5.79 / GOOG +5.68 / SPXL +5.65 / STRL +5.10",
-      "live": "✅ 自動 entry (ST710 拡張 5/17 12:01) monitor.py HighPullback50_v1 + 20 銘柄",
+      "live": "✅ LIVE (trail 2% 適用、 5/22 朝 size 0.75 復活)",
       "memo": "直近高値から軽い pullback で押し目買い、 ETF + 大型 tech + leveraged ETF ハイブリッド、 ST710 で 8 銘柄追加 = 最高頻度 bull 戦略",
       "monthly_profit_usd": 96.0
     },
@@ -1267,7 +1267,7 @@ window.MOBILE_DATA = {
       "hold": "1日 寄→翌寄 MOO",
       "freq": "銘柄毎 年 4〜8 件 × 24 = 年 96-192 件",
       "sharpe": "ST710 (5/17 12:01) 拡張: 新候補 17 中 top 10 採用。 AEHR +7.19 / MSFT +6.79 / DNLI +6.59 / FTAI +6.49 / RBC +5.69 / YUM +5.37 / AGX +5.10",
-      "live": "✅ 自動 entry (ST710 拡張 5/17 12:01) monitor.py Stoch_Oversold_v1 + 24 銘柄",
+      "live": "✅ LIVE (trail 2% 適用、 5/22 朝 size 0.75 復活)",
       "memo": "BB/RSI とは別の oscillator (Stochastic)、 拡張で 24 銘柄、 small/mid-cap (AEHR/DNLI/FTAI) と BLUE chip 混在で 多様な signal source",
       "monthly_profit_usd": 84.0
     },
@@ -1739,6 +1739,19 @@ window.MOBILE_DATA = {
       "monthly_profit_usd": 40.0
     },
     {
+      "tier": "disabled",
+      "name": "RSI35_Trend",
+      "cat": "短期 mean-reversion (disabled)",
+      "tickers": "100銘柄 watchlist subset",
+      "condition": "RSI(14) <= 35 → 翌寄 BUY hold 1d",
+      "hold": "1d",
+      "freq": "30-60/yr (= mean -0.00% / alpha ゼロ)",
+      "sharpe": "ST136 OOS+0.77 弱 / Agent F mean -0.00%",
+      "live": "⏸ disabled (size_mult=0、 alpha ゼロで keep disabled)",
+      "memo": "5/16 ST136 OOS 弱、 5/22 朝 Agent F audit で mean -0.00% (= 期待値ゼロ) 確認、 keep disabled。 trail 効果検証なし。",
+      "monthly_profit_usd": 12
+    },
+    {
       "tier": "S",
       "name": "A10_WideBar_Capitulation_v1",
       "cat": "その他",
@@ -2008,27 +2021,6 @@ window.MOBILE_DATA = {
         "size_multiplier": 0.75,
         "paper": false,
         "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "RSI35_Trend",
-      "cat": "短期 mean-reversion (RSI)",
-      "tickers": "SPY / VTI / QQQ / SOXX / XLV ... (計57銘柄)",
-      "condition": "ST410/422/489 (5/16 朝): hold=1d 全 regime で 2d を dominate Sh+6.18 vs +3.90、recent regime Sh+7.46、5/16 安田さん承認",
-      "hold": "1日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "ST410/422/489 (5/16 朝): hold=1d 全 regime で 2d を dominate Sh+6.18 vs +3.90、recent regime Sh+7.46、5/16 安田さん承認",
-      "live": "⏸ disabled (size_multiplier=0)",
-      "memo": "tp=2.0% sl=-10.0%, mult=0.0",
-      "_auto_meta": {
-        "key": "RSI35_Trend",
-        "tp_pct": 2.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.0,
-        "paper": false,
-        "sharpe_value": 6.18
       },
       "_supplement": true
     },
@@ -4774,73 +4766,73 @@ window.MOBILE_DATA = {
       "ts": "2026-05-21T22:15:03",
       "ok": true,
       "note": "",
-      "age_min": 10.150290716666666
+      "age_min": 11.716021166666668
     },
     "sync_mobile": {
-      "ts": "2026-05-21T22:15:45",
+      "ts": "2026-05-21T22:25:14",
       "ok": true,
-      "note": "194,871 B",
-      "age_min": 9.450290716666666
+      "note": "195,879 B",
+      "age_min": 1.5326878333333334
     },
     "verify_claims": {
       "ts": "2026-05-21T22:22:46",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2.4336240499999997
+      "age_min": 3.9993545000000004
     },
     "intraday_cron": {
       "ts": "2026-05-21T22:15:45",
       "ok": true,
       "note": "bat completed",
-      "age_min": 9.450290716666666
+      "age_min": 11.016021166666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-21T22:15:02",
       "ok": true,
       "note": "",
-      "age_min": 10.166957383333333
+      "age_min": 11.732687833333333
     },
     "vix_regime": {
       "ts": "2026-05-21T22:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.77",
-      "age_min": 9.816957383333333
+      "age_min": 11.382687833333334
     },
     "morning_preopen_notify": {
       "ts": "2026-05-21T08:00:05",
       "ok": true,
       "note": "9 blocks",
-      "age_min": 865.1169573833333
+      "age_min": 866.6826878333334
     },
     "morning_tws_connect": {
       "ts": "2026-05-21T08:32:27",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 832.7502907166667
+      "age_min": 834.3160211666667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-21T08:39:32",
       "ok": true,
       "note": "completed",
-      "age_min": 825.6669573833333
+      "age_min": 827.2326878333333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 90.20029071666666
+      "age_min": 91.76602116666666
     },
     "state_tws_reconciler": {
       "ts": "2026-05-21T22:15:23",
       "ok": true,
       "note": "state=0 TWS=5 phantoms=0 partials=0",
-      "age_min": 9.816957383333333
+      "age_min": 11.382687833333334
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 780.6002907166666
+      "age_min": 782.1660211666666
     }
   },
   "regime": {
@@ -4907,7 +4899,7 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 3.5,
       "current_vs_sl_pct": -9.12,
       "hold_days": 3,
-      "elapsed_min": 826,
+      "elapsed_min": 827,
       "action_label": "🟢 推奨",
       "reason": "価格 signal 近傍 (-0.96%)、 TP まで +3.50%、 SL まで -9.12% 余裕、 hold_days=3d",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
@@ -4926,9 +4918,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": -2.86,
       "current_vs_sl_pct": -14.29,
       "hold_days": 1,
-      "elapsed_min": 826,
+      "elapsed_min": 827,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 826min 経過、 reversal 失効",
+      "reason": "intraday 戦略 Candle15m_TweezerBottom は signal から 827min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     },
     {
@@ -4945,9 +4937,9 @@ window.MOBILE_DATA = {
       "current_vs_tp_pct": 5.14,
       "current_vs_sl_pct": -7.23,
       "hold_days": 1,
-      "elapsed_min": 826,
+      "elapsed_min": 827,
       "action_label": "🔴 非推奨",
-      "reason": "intraday 戦略 TweezerBottom_30m は signal から 826min 経過、 reversal 失効",
+      "reason": "intraday 戦略 TweezerBottom_30m は signal から 827min 経過、 reversal 失効",
       "phantom_note": "5/21 朝 pyramid bug で MOO 不発、 root cause fix 31eba89 merge 済 (次回 cron から有効)"
     }
   ],
