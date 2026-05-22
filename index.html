@@ -1797,24 +1797,30 @@ function renderTrackerStrategies() {
     if (T.startsWith('A')) return '#3fb950';
     return '#7d8590';
   };
-  // 5/22 朝 user 採用: tier 降順 (SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
-  const tierRank = (t) => {
+  // 5/22 朝 user 採用: tier 降順 (Champ DCA 最上部 → SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
+  const isChamp = (s) => {
+    const nm = (s.name || '').toLowerCase();
+    return nm.includes('champ') || nm.includes('融合');
+  };
+  const tierRank = (t, s) => {
+    if (s && isChamp(s)) return -1;  // Champ DCA は最上部 pin
     const T = (t||'').toUpperCase();
-    if (T === 'SS+' || T === 'SS') return 0;
-    if (T === 'S+') return 1;
-    if (T === 'S') return 2;
-    if (T === 'S-') return 3;
-    if (T === 'A+') return 4;
-    if (T === 'A') return 5;
-    if (T === 'A-') return 6;
-    if (T === 'B') return 7;
-    if (T === 'C') return 8;
-    if (T === 'PAPER') return 9;
-    if (T === 'DISABLED') return 10;
+    if (T === 'SS+') return 0;
+    if (T === 'SS') return 1;
+    if (T === 'S+') return 2;
+    if (T === 'S') return 3;
+    if (T === 'S-') return 4;
+    if (T === 'A+') return 5;
+    if (T === 'A') return 6;
+    if (T === 'A-') return 7;
+    if (T === 'B') return 8;
+    if (T === 'C') return 9;
+    if (T === 'PAPER') return 10;
+    if (T === 'DISABLED') return 11;
     return 99;
   };
   filtered.sort((a, b) => {
-    const ra = tierRank(a.tier), rb = tierRank(b.tier);
+    const ra = tierRank(a.tier, a), rb = tierRank(b.tier, b);
     if (ra !== rb) return ra - rb;
     return (Number(b.monthly_profit_usd) || 0) - (Number(a.monthly_profit_usd) || 0);
   });
