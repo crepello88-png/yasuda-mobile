@@ -1793,11 +1793,18 @@ function renderTrackerStrategies() {
       : (isFinite(mp) && mp > 0
         ? `<div style="font-size:22px;font-weight:800;color:${tcol};line-height:1">$${mp.toFixed(0)}<span style="font-size:12px;color:var(--sub);font-weight:600">/月</span></div>`
         : `<div style="font-size:11px;color:var(--sub)">未確定</div>`);
+    // 5/23 user 「月 5 シグナル未満は レア表記、 起きたらいいかな程度」 — _signals_per_month で判定
+    const spm = Number(s._signals_per_month);
+    const isRare = isFinite(spm) && spm > 0 && spm < 5 && !isChamp(s);
+    const rareBadge = isRare
+      ? `<span style="display:inline-block;background:#22d3ee22;color:#22d3ee;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;margin-left:6px;letter-spacing:0.5px;vertical-align:middle">🦄 レア 月${spm.toFixed(spm<1?2:1)}回</span>`
+      : '';
+    const freqColor = isRare ? '#22d3ee' : 'var(--sub)';
     return `
-      <div class="card" style="margin-bottom:8px">
+      <div class="card" style="margin-bottom:8px${isRare ? ';border-left:2px solid #22d3ee' : ''}">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
           <div style="flex:1;min-width:0">
-            <div class="ticker" style="font-size:14px">${s.name||''}</div>
+            <div class="ticker" style="font-size:14px">${s.name||''}${rareBadge}</div>
             <div class="strat" style="margin-top:2px">${s.cat||''}</div>
           </div>
           <div style="text-align:right;flex-shrink:0">
@@ -1807,7 +1814,7 @@ function renderTrackerStrategies() {
         </div>
         <div style="margin-top:8px;padding-top:8px;border-top:1px dashed rgba(255,255,255,.08);font-size:11px;line-height:1.6">
           <div><span style="color:var(--sub)">hold:</span> ${s.hold||'-'}</div>
-          <div><span style="color:var(--sub)">freq:</span> ${s.freq||'-'}</div>
+          <div><span style="color:${freqColor}">freq:</span> ${s.freq||'-'}</div>
           <div><span style="color:var(--sub)">tickers:</span> ${s.tickers||'-'}</div>
           <div><span style="color:var(--sub)">Sh / win:</span> ${s.sharpe||'-'}</div>
           <div><span style="color:var(--sub)">condition:</span> ${s.condition||'-'}</div>
