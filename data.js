@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T07:10",
+  "generated_at": "2026-05-23T07:14",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -733,40 +733,7 @@ window.MOBILE_DATA = {
       }
     }
   ],
-  "intraday_patterns": [
-    {
-      "pattern_id": "ORB4_AGL_15m",
-      "ticker": "AGL",
-      "pattern_name": "AGL orb_15m_break thr=0",
-      "tp_pct": 1.0,
-      "sl_pct": -0.5,
-      "fired": false
-    },
-    {
-      "pattern_id": "VC1_KBR",
-      "ticker": "KBR",
-      "pattern_name": "KBR vol_climax_max thr=0",
-      "tp_pct": 1.0,
-      "sl_pct": -0.5,
-      "fired": false
-    },
-    {
-      "pattern_id": "VC2_VNO_60m",
-      "ticker": "VNO",
-      "pattern_name": "VNO vol_climax_max thr=0",
-      "tp_pct": 1.5,
-      "sl_pct": -2.0,
-      "fired": false
-    },
-    {
-      "pattern_id": "VC3_PRIM",
-      "ticker": "PRIM",
-      "pattern_name": "PRIM vol_climax_max thr=0",
-      "tp_pct": 0.5,
-      "sl_pct": -2.0,
-      "fired": false
-    }
-  ],
+  "intraday_patterns": [],
   "intraday_positions": [],
   "strategies": [
     {
@@ -2773,79 +2740,79 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T07:00:03",
       "ok": true,
       "note": "",
-      "age_min": 10.233399366666667
+      "age_min": 14.153134983333333
     },
     "sync_mobile": {
-      "ts": "2026-05-23T07:00:40",
-      "ok": true,
-      "note": "96,564 B",
-      "age_min": 9.6167327
+      "ts": "2026-05-23T07:12:49",
+      "ok": false,
+      "note": "Expecting ',' delimiter: line 346 column 5 (char 13446)",
+      "age_min": 1.3864683166666665
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 1937.1833993666667
+      "age_min": 1941.1031349833333
     },
     "intraday_cron": {
       "ts": "2026-05-23T07:00:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 9.6167327
+      "age_min": 13.536468316666666
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T07:00:02",
       "ok": true,
       "note": "",
-      "age_min": 10.250066033333333
+      "age_min": 14.16980165
     },
     "vix_regime": {
       "ts": "2026-05-23T07:00:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 10.050066033333334
+      "age_min": 13.969801649999999
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1390.2000660333333
+      "age_min": 1394.11980165
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1354.9667327
+      "age_min": 1358.8864683166669
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1348.2000660333333
+      "age_min": 1352.11980165
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2055.283399366667
+      "age_min": 2059.2031349833333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 474.91673269999995
+      "age_min": 478.83646831666664
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2745.6833993666664
+      "age_min": 2749.6031349833333
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 505.33339936666664
+      "age_min": 509.2531349833333
     }
   },
   "regime": {
