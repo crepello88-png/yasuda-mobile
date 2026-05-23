@@ -1036,7 +1036,7 @@ window.MOBILE_DATA = {
       "sharpe": "ST680 (5/17 03:46): GOOGL Sh+6.87 / META +6.81 / AVGO +6.22 / KLAC +6.17 / AMAT +4.97 / XLK +4.05 win 60-70% n=53-65 [全 4/4 regime pass]",
       "live": "✅ 自動 entry (5/17 03:46 自動採用) monitor.py Pullback_v1",
       "memo": "bull 戦略 main: SMA50>SMA200 uptrend 中の RSI<35 一時 oversold を拾う classic pullback。 SOXX/NVDA は 3/4 で次候補。 期待年率 +18% (booster なし base) — 採用済 9 戦略中最強",
-      "monthly_profit_usd": 77.53,
+      "monthly_profit_usd": 20.26,
       "_per_share_source": "comprehensive_oos_backtest_5_22",
       "per_share_profit_usd": null,
       "_per_share_basis": "NVDA ~\\$220 × mean 1.29%",
@@ -1061,7 +1061,7 @@ window.MOBILE_DATA = {
       "sharpe": "ST710 (5/17 12:01) 拡張: 新候補 43 中 top 20 採用、 全 OOS Sh+5.99-14.91 + reg 3-4/4 pass。 small/mid-cap (PRIM/M/VNO/OLLI) で alpha mean+3-4%、 既存 + 拡張で 信号密度 約 3x",
       "live": "✅ 自動 entry (ST710 拡張 5/17 12:01) monitor.py Confluence_RSIStoch_v1 + 44 銘柄 ⭐⭐⭐ 最強 bull",
       "memo": "2-indicator (Pullback + Stoch) 完全同日 confluence、 single より rare だが te_Sh 2x。 ST710 で 20 銘柄追加 = signal 頻度 ~3x、 期待年率 +50-70%",
-      "monthly_profit_usd": 602.79,
+      "monthly_profit_usd": 161.01,
       "_per_share_source": "comprehensive_oos_backtest_5_22",
       "per_share_profit_usd": null,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.25%",
@@ -1086,7 +1086,7 @@ window.MOBILE_DATA = {
       "sharpe": "ST713 (5/17 12:04): XLF→JPM Sh+5.97 win 77% n=30 4/4 reg / XLF→BAC +5.05 / XLF→MS +6.94 / XLB→LIN +7.33 3/4 / XLI→PH +7.07 3/4 / XLE→XOM +4.77 3/4",
       "live": "✅ 自動 entry (5/17 12:04 自動採用) monitor.py Sector_FriPanic_v1",
       "memo": "既存 Pharma_Panic / Semi_FriPanic と同様の sector-follow 構造、 金曜投売り (週末ポジ調整) を Mon の反発で取る = panic 月曜効果",
-      "monthly_profit_usd": 72.1,
+      "monthly_profit_usd": 13.4,
       "_per_share_source": "comprehensive_oos_backtest_5_22",
       "per_share_profit_usd": null,
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%",
@@ -1111,7 +1111,7 @@ window.MOBILE_DATA = {
       "sharpe": "MOC化 Sh+1.98 win 55% mean+0.96% (n=36820, ovn+0.91 から 2倍化 ST596)",
       "live": "✅ 自動 entry + MOC SELL (5/17 早朝 廃案撤回)",
       "memo": "一度廃案後 ST596 で intraday 復活、 同日 15:00 CT MOC SELL 自動",
-      "monthly_profit_usd": 64.38,
+      "monthly_profit_usd": 11.96,
       "_per_share_source": "comprehensive_oos_backtest_5_22",
       "per_share_profit_usd": null,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%",
@@ -1136,8 +1136,8 @@ window.MOBILE_DATA = {
       "sharpe": "R2: Sh+0.73 OOS+0.28% $/mo=$239",
       "live": "✅ size_mult=0.5、 portfolio sizing 余裕 monitor.py Momentum_12_1_v1",
       "memo": "batch6 X_mom_12_1_h21 → R2 verified bit-precision、 Jegadeesh-Titman 1993 / Carhart 1997 classic momentum。",
-      "monthly_profit_usd": 239.37,
-      "_signals_per_month": 6,
+      "monthly_profit_usd": 140.16,
+      "_signals_per_month": 11.0,
       "_r2_n": 6115,
       "_r2_win_pct": 52.6,
       "_r2_mean_pct": 0.366,
@@ -1188,8 +1188,8 @@ window.MOBILE_DATA = {
       "sharpe": "R2 OOS: mean+1.34% $/mo=$72",
       "live": "✅ size_mult=0.5 monitor.py Semi_Equip_Dip_v1",
       "memo": "batch8 JJ_semi_d3_h20 → R2 verified、 CHIPS Act onshoring 受益 semi 装備 dip pattern。",
-      "monthly_profit_usd": 72.33,
-      "_signals_per_month": 9,
+      "monthly_profit_usd": 30.44,
+      "_signals_per_month": 8.77,
       "_r2_n": 713,
       "_r2_mean_pct": 1.34
     },
@@ -1204,7 +1204,7 @@ window.MOBILE_DATA = {
       "sharpe": "期待 ΔSh +8.21",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIStoch_v1 の signal 発火時、 filter=gap_pct<=-3 一致なら size×1.5 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 161.01,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 0.55,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.25%"
@@ -1220,7 +1220,7 @@ window.MOBILE_DATA = {
       "sharpe": "期待 ΔSh +6.0",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Pullback_v1 の signal 発火時、 filter=vix_20_25 一致なら size×2.0 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 20.26,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.84,
       "_per_share_basis": "NVDA ~\\$220 × mean 1.29%"
@@ -1236,7 +1236,7 @@ window.MOBILE_DATA = {
       "sharpe": "期待 ΔSh +4.92",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Sector_FriPanic_v1 の signal 発火時、 filter=vix_ge_30 一致なら size×2.0 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 13.4,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 0.97,
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
@@ -1252,7 +1252,7 @@ window.MOBILE_DATA = {
       "sharpe": "翌寄 +3% gap で BroadPanic は壊滅 (win 23-28%, n=85, ΔSh-13)",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Drop5d_BroadPanic の signal 発火時、 filter=next_gap_pct>=+3 一致なら action=skip (= 発注 skip)。 理由: 翌寄 +3% gap で BroadPanic は壊滅 (win 23-28%, n=85, ΔSh-13)",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 11.96,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.11,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%"
@@ -1268,7 +1268,7 @@ window.MOBILE_DATA = {
       "sharpe": "火曜 anti-edge (win 36-42%, n=102, ΔSh-9.63)",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Drop5d_BroadPanic の signal 発火時、 filter=weekday=Tuesday 一致なら action=skip (= 発注 skip)。 理由: 火曜 anti-edge (win 36-42%, n=102, ΔSh-9.63)",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 11.96,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.11,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%"
@@ -1284,7 +1284,7 @@ window.MOBILE_DATA = {
       "sharpe": "SPY 5d positive で FriPanic 壊滅 (win 20%, n=20, ΔSh-19.51)",
       "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
       "memo": "5/20 wire 採用。 base 戦略 Sector_FriPanic_v1 の signal 発火時、 filter=spy_5d_return>0 一致なら action=skip (= 発注 skip)。 理由: SPY 5d positive で FriPanic 壊滅 (win 20%, n=20, ΔSh-19.51)",
-      "monthly_profit_usd": null,
+      "monthly_profit_usd": 13.4,
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 0.97,
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
@@ -2670,97 +2670,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T15:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.3954807166666667
+      "age_min": 0.5927154666666666
     },
     "sync_mobile": {
-      "ts": "2026-05-23T15:31:08",
+      "ts": "2026-05-23T15:45:28",
       "ok": true,
-      "note": "94,798 B",
-      "age_min": 14.312147383333333
+      "note": "94,817 B",
+      "age_min": 0.17604879999999998
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2452.3454807166663
+      "age_min": 2452.542715466667
     },
     "intraday_cron": {
       "ts": "2026-05-23T15:30:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.77881405
+      "age_min": 14.976048800000001
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T15:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.41214738333333334
+      "age_min": 0.6093821333333334
     },
     "vix_regime": {
       "ts": "2026-05-23T15:45:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.21214738333333333
+      "age_min": 0.40938213333333334
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1905.3621473833334
+      "age_min": 1905.5593821333334
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 431.01214738333334
+      "age_min": 431.20938213333335
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1863.3621473833334
+      "age_min": 1863.5593821333334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2570.4454807166667
+      "age_min": 2570.6427154666667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 990.07881405
+      "age_min": 990.2760488
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3260.8454807166663
+      "age_min": 3261.042715466667
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 1020.4954807166666
+      "age_min": 1020.6927154666666
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 490.1954807166667
+      "age_min": 490.39271546666663
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T14:45:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 60.36214738333333
+      "age_min": 60.55938213333333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 431.01214738333334
+      "age_min": 431.20938213333335
     }
   },
   "regime": {
