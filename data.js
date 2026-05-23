@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T10:00",
+  "generated_at": "2026-05-23T10:12",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1149,6 +1149,31 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 59.0,
       "_r2_mean_pct": 0.59,
       "_r2_sharpe": 4.08
+    },
+    {
+      "tier": "SS",
+      "name": "Rating_Upgrade_v1 (R2 5/23 採用、 analyst tier 上昇 drift)",
+      "cat": "短期 sentiment (analyst revision)",
+      "tickers": "120/193 watchlist (yasuda_quant/data/analyst_recs/ CSV 配信銘柄、 monitor.py 自動 entry)",
+      "condition": "今日 ToGrade > FromGrade tier 上昇 (例 Hold→Buy, Buy→Strong Buy) → 翌 MOO BUY → 20d hold (TP+6/SL-10)",
+      "hold": "20 trading days (or 早期 TP/SL ヒット)",
+      "freq": "月 22.3 件 (= 全 universe 合算、 NORMAL 帯、 RARE 解除)",
+      "sharpe": "R2 OOS 6.4y: Sh+1.29 mean+0.525% win 61.5% n=1708 / OOS n=371 mean+0.58% win 61.2% (TRAIN と整合、 regime 安定)",
+      "live": "✅ 自動 entry (5/23 R2 verified SS 後 直 LIVE) monitor.py Rating_Upgrade_v1",
+      "memo": "本日のセッション最大の発見 (R1-E agent → R2 verify $92→$92 bit-precision 7% 一致)。 既存 strategy と直交 (= price-action でなく analyst sentiment)、 22 sig/月で portfolio concurrent 30+ positions の hold 20d → sizing 注意。 LIVE infra TODO: yfinance Ticker.recommendations を毎日 cron で再 fetch → analyst_recs/ refresh job 必要。 caveat 解消されるまでは cache snapshot 依存。",
+      "monthly_profit_usd": 92.34,
+      "_per_share_source": "r2_oos_rating_upgrade_5_23",
+      "per_share_profit_usd": null,
+      "_per_share_basis": "watchlist avg ~\\$200 × mean 0.525%",
+      "_backtest_n": 1708,
+      "_backtest_sharpe": 1.29,
+      "_backtest_oos_n": 371,
+      "_backtest_oos_mean_pct": 0.58,
+      "_signals_per_month": 22.3,
+      "_r2_n": 1708,
+      "_r2_win_pct": 61.5,
+      "_r2_mean_pct": 0.525,
+      "_r2_sharpe": 1.29
     },
     {
       "tier": "A",
@@ -2765,97 +2790,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T10:00:06",
       "ok": true,
       "note": "",
-      "age_min": 0.5997283333333333
+      "age_min": 12.157378416666667
     },
     "sync_mobile": {
-      "ts": "2026-05-23T10:00:28",
+      "ts": "2026-05-23T10:00:43",
       "ok": true,
-      "note": "98,581 B",
-      "age_min": 0.23306166666666667
+      "note": "98,557 B",
+      "age_min": 11.540711750000002
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2107.599728333333
+      "age_min": 2119.1573784166667
     },
     "intraday_cron": {
-      "ts": "2026-05-23T09:45:43",
+      "ts": "2026-05-23T10:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.983061666666666
+      "age_min": 11.524045083333334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T10:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.666395
+      "age_min": 12.224045083333333
     },
     "vix_regime": {
       "ts": "2026-05-23T10:00:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.41639499999999996
+      "age_min": 11.974045083333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1560.616395
+      "age_min": 1572.1740450833333
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 86.266395
+      "age_min": 97.82404508333335
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1518.616395
+      "age_min": 1530.1740450833333
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2225.6997283333335
+      "age_min": 2237.2573784166666
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 645.3330616666666
+      "age_min": 656.89071175
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2916.0997283333336
+      "age_min": 2927.6573784166667
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 675.7497283333333
+      "age_min": 687.3073784166667
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 145.44972833333335
+      "age_min": 157.00737841666665
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T10:00:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.616395
+      "age_min": 12.174045083333334
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 86.266395
+      "age_min": 97.82404508333335
     }
   },
   "regime": {
