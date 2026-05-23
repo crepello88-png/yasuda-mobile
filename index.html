@@ -840,7 +840,8 @@ function renderWeekly() {
     const bx = cx - barW/2;
     const by = d.pnl >= 0 ? yFor(d.pnl) : y0;
     const bh = Math.abs(yFor(d.pnl) - y0);
-    const col = d.pnl >= 0 ? '#3fb950' : (d.pnl < 0 ? '#f85149' : '#7d8590');
+    // 5/22 夜 user 「グラフ色逆、 plus は赤」 (日本式)
+    const col = d.pnl > 0 ? '#f85149' : (d.pnl < 0 ? '#3fb950' : '#7d8590');
     html += `<rect x="${bx}" y="${by}" width="${barW}" height="${Math.max(bh,1)}" fill="${col}" opacity="0.85"/>`;
     // bar value
     if (d.pnl !== 0) {
@@ -866,7 +867,7 @@ function renderWeekly() {
     html += `<circle cx="${cx}" cy="${cy}" r="3" fill="#58a6ff"/>`;
   });
   svg.innerHTML = html;
-  document.getElementById('weekly-legend').innerHTML = '🟩 日次 P&L (bar) ／ 🔵 累積 (line)';
+  document.getElementById('weekly-legend').innerHTML = '🟥 plus / 🟩 minus (日本式) ／ 🔵 累積 (line)';
 
   // 5/19 夜 user 「trade 詳細 見た目汚いいらない」 で削除済、 element 不在
 
