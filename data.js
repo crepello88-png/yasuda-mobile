@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T15:30",
+  "generated_at": "2026-05-23T15:31",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1144,20 +1144,38 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 0.73
     },
     {
+      "tier": "S",
+      "name": "Buffett_VIX20_Panic_v1 (Berkshire RSI<35 + VIX>20 panic dip)",
+      "cat": "短期 panic dip (Berkshire universe)",
+      "tickers": "11 Berkshire holdings (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)",
+      "condition": "RSI(14)<35 + close>SMA200*0.95 + **VIX>20** → 翌 MOO BUY → 10d hold (TP+10/SL-10)",
+      "hold": "10日",
+      "freq": "n=386、 月 5.04 sig",
+      "sharpe": "R2 OOS: eff $10.90/slot mean+0.32%/trade OOS+1.33%",
+      "live": "✅ size_mult=1.0 monitor.py Buffett_VIX20_Panic_v1 (旧 Buffett_RSI h120 を代替)",
+      "memo": "sim_pre_reversal_filters 発見 → ≤10d 検証 → wide bracket sweep の 3 段最適化、 panic regime での Buffett pullback を h10 で capital efficient に捕捉。 旧 h120 比で eff 4× 改善、 capital lock 1/12。",
+      "monthly_profit_usd": 26.15,
+      "_signals_per_month": 5.04,
+      "_r2_n": 386,
+      "_r2_mean_pct": 0.32,
+      "_r2_sharpe": null
+    },
+    {
       "tier": "SS",
-      "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum)",
+      "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum) ★ swap h18 wide",
       "cat": "短期 theme momentum",
       "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
-      "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 20d hold",
-      "hold": "20日",
-      "freq": "n=1834、 約 24 sig/月",
-      "sharpe": "R2 OOS: mean+1.682% $/mo=$275",
-      "live": "✅ size_mult=0.5 monitor.py AI_Wave_Momentum_v1",
-      "memo": "batch7 BB_ai_mom15_h20 → R2 verified、 2023-2024 AI wave テーマ momentum continuation。",
-      "monthly_profit_usd": 275.19,
-      "_signals_per_month": 24,
-      "_r2_n": 1834,
-      "_r2_mean_pct": 1.682
+      "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 18d hold (TP+10/SL-10 wide)",
+      "hold": "18日 (= sweet spot swap、 5/23)",
+      "freq": "n=978、 月 12.76 sig",
+      "sharpe": "R2 OOS: eff $20.50/slot mean+1.21%/trade OOS+2.96%",
+      "live": "✅ size_mult=1.0 monitor.py AI_Wave_Momentum_v1",
+      "memo": "batch7 で発見 → sim_5strats_sweet_spot で h10→h18 + narrow→wide bracket swap → 月益 $111→$224 (2×)、 OOS+0.61→+2.96% (5×)、 portfolio 最強級 alpha source。",
+      "monthly_profit_usd": 224.24,
+      "_signals_per_month": 12.76,
+      "_r2_n": 978,
+      "_r2_mean_pct": 1.21,
+      "_r2_sharpe": null
     },
     {
       "tier": "SS",
@@ -1270,27 +1288,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 0.97,
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
-    },
-    {
-      "tier": "?",
-      "name": "Buffett_VIX20_Panic_v1",
-      "cat": "短期 panic 追随",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_buffett_vix20] 5/23 sim_pre_reversal_filters → batch9 ≤10d で発見: Berkshire holdings RSI<35 + 200d SMA 近辺 + **VIX>20** filter + h10 hold = $38/mo S tier OOS+1.07% n=713 eff $8.56/slot。 旧 Buffett_RSI_Pullback_v1 (h120 eff $2.8) を完全代替、 panic regime での Buffett pullback を capital efficient に捕捉。 universe: AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ。",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_5_23_adoption_buffett_vix20] 5/23 sim_pre_reversal_filters → batch9 ≤10d で発見: Berkshire holdings RSI<35 + 200d SMA 近辺 + **VIX>20** filter + h10 hold = $38/mo S tier OOS+1.07% n=713 eff $8.56/slot。 旧 Buffett_RSI_Pullback_v1 (h120 eff $2.8) を完全代替、 panic regime での Buffett pullback を capital efficient に捕捉。 universe: AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ。 / [_5_23_bracket_upgrade] 5/23 sim_5strats_sweet_spot で h10 wide bracket (tp10/sl-10) の方が narrow より $33→$38 (+$5)、 eff $7.55→$8.66 微改善、 user 承認で bracket upgrade。",
-      "_auto_meta": {
-        "key": "Buffett_VIX20_Panic_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2673,97 +2670,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T15:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6073338666666667
+      "age_min": 1.0838037666666667
     },
     "sync_mobile": {
-      "ts": "2026-05-23T15:30:28",
+      "ts": "2026-05-23T15:30:40",
       "ok": true,
-      "note": "95,192 B",
-      "age_min": 0.17400053333333335
+      "note": "95,207 B",
+      "age_min": 0.4504704333333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2437.5406672000004
+      "age_min": 2438.0171371
     },
     "intraday_cron": {
-      "ts": "2026-05-23T15:15:41",
+      "ts": "2026-05-23T15:30:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.957333866666666
+      "age_min": 0.4504704333333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T15:30:01",
       "ok": true,
       "note": "",
-      "age_min": 0.6240005333333334
+      "age_min": 1.1004704333333335
     },
     "vix_regime": {
       "ts": "2026-05-23T15:30:13",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.4240005333333333
+      "age_min": 0.9004704333333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1890.5573338666666
+      "age_min": 1891.0338037666666
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 416.20733386666666
+      "age_min": 416.68380376666664
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1848.5573338666666
+      "age_min": 1849.0338037666666
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2555.6406672000003
+      "age_min": 2556.1171371
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 975.2740005333333
+      "age_min": 975.7504704333334
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3246.0406672000004
+      "age_min": 3246.5171371
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 1005.6906672
+      "age_min": 1006.1671371
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 475.3906672
+      "age_min": 475.8671371
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T14:45:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 45.55733386666667
+      "age_min": 46.033803766666665
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 416.20733386666666
+      "age_min": 416.68380376666664
     }
   },
   "regime": {
