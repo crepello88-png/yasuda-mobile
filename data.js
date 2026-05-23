@@ -1,25 +1,99 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-22T22:05",
+  "generated_at": "2026-05-22T22:17",
   "today_summary": {
-    "netliq": 11334.49,
+    "netliq": 11277.98,
     "cash": 1293.82,
     "available_funds": 1293.82,
-    "excess_liquidity": null,
-    "settled_cash": null,
+    "excess_liquidity": 1293.82,
+    "settled_cash": 1293.82,
     "buying_power": 1293.82,
-    "stock_value": 10038.94,
-    "unrealized_pnl": -160.02,
-    "realized_pnl": null,
-    "day_pnl_pct": -1.4117970901205084,
-    "account_type": "Cash account",
-    "open_positions": 3,
-    "open_orders_count": 0,
-    "fills_today_count": 0,
+    "stock_value": 9982.43,
+    "unrealized_pnl": -216.53,
+    "realized_pnl": 0.0,
+    "day_pnl_pct": -1.91993601691083,
+    "account_type": "INDIVIDUAL",
+    "open_positions": 8,
+    "open_orders_count": 3,
+    "fills_today_count": 3,
     "vix": null,
-    "data_source": "bridge_fallback"
+    "data_source": "TWS_direct_v2"
   },
-  "tws_open_orders": [],
-  "tws_fills_today": [],
+  "tws_open_orders": [
+    {
+      "symbol": "XLE",
+      "orderId": 207,
+      "action": "SELL",
+      "qty": 9.0,
+      "orderType": "STP",
+      "lmtPrice": 0.0,
+      "auxPrice": 53.38,
+      "tif": "GTC",
+      "status": "PreSubmitted",
+      "filled": 0.0,
+      "remaining": 9.0
+    },
+    {
+      "symbol": "SPY",
+      "orderId": 199,
+      "action": "SELL",
+      "qty": 1.0,
+      "orderType": "STP",
+      "lmtPrice": 0.0,
+      "auxPrice": 672.44,
+      "tif": "GTC",
+      "status": "PreSubmitted",
+      "filled": 0.0,
+      "remaining": 1.0
+    },
+    {
+      "symbol": "EXE",
+      "orderId": 194,
+      "action": "SELL",
+      "qty": 11.0,
+      "orderType": "STP",
+      "lmtPrice": 0.0,
+      "auxPrice": 87.67,
+      "tif": "GTC",
+      "status": "PreSubmitted",
+      "filled": 0.0,
+      "remaining": 11.0
+    }
+  ],
+  "tws_fills_today": [
+    {
+      "symbol": "EXE",
+      "time": "2026-05-22 13:35:46+00:00",
+      "side": "BOT",
+      "shares": 11.0,
+      "price": 97.41,
+      "avgPrice": 97.41,
+      "orderId": 191,
+      "commission": 1.000033,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "SPY",
+      "time": "2026-05-22 13:35:53+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 747.16,
+      "avgPrice": 747.16,
+      "orderId": 197,
+      "commission": 1.000003,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "XLE",
+      "time": "2026-05-22 13:36:05+00:00",
+      "side": "BOT",
+      "shares": 9.0,
+      "price": 59.3093,
+      "avgPrice": 59.3093,
+      "orderId": 204,
+      "commission": 1.000027,
+      "realizedPnL": 0.0
+    }
+  ],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
@@ -680,42 +754,6 @@ window.MOBILE_DATA = {
   ],
   "signals_pending": [
     {
-      "ticker": "QQQ",
-      "strategy": "US_D7_VIX_cond_ORB_v1",
-      "tier": "",
-      "trigger": "US_D7_VIX_cond_ORB_v1",
-      "ref_price": 714.51,
-      "target_tp_pct": 3.0,
-      "hold": 1,
-      "selected": false,
-      "shares": null,
-      "sector": "Index"
-    },
-    {
-      "ticker": "GOOGL",
-      "strategy": "HighPullback50_v1",
-      "tier": "",
-      "trigger": "HighPullback50_v1",
-      "ref_price": 387.66,
-      "target_tp_pct": 6.0,
-      "hold": 1,
-      "selected": false,
-      "shares": null,
-      "sector": "InternetMedia"
-    },
-    {
-      "ticker": "GOOG",
-      "strategy": "HighPullback50_v1",
-      "tier": "",
-      "trigger": "HighPullback50_v1",
-      "ref_price": 383.47,
-      "target_tp_pct": 6.0,
-      "hold": 1,
-      "selected": false,
-      "shares": null,
-      "sector": "Other"
-    },
-    {
       "ticker": "WBD",
       "strategy": "Candle15m_TweezerBottom",
       "tier": "",
@@ -853,6 +891,156 @@ window.MOBILE_DATA = {
         "catastrophic_stp_price": 53.378370000000004,
         "intraday_sl_exempt": false,
         "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "PWR",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 763.21,
+      "shares": 2.0,
+      "entry_value": 1526.42,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1444.2,
+      "_unreal_pnl": -82.22,
+      "_market_price": 722.0999756,
+      "current_price": 723.6599731445312,
+      "pnl_pct": -5.182063502242995,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 763.21,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 686.889,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "COST",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 1006.82,
+      "shares": 1.0,
+      "entry_value": 1006.82,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1028.0,
+      "_unreal_pnl": 21.18,
+      "_market_price": 1028.0,
+      "current_price": 1027.93994140625,
+      "pnl_pct": 2.097687909085044,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 1006.82,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 906.138,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "NVDA",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 229.68666665,
+      "shares": 12.0,
+      "entry_value": 2756.2399998,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 2571.36,
+      "_unreal_pnl": -184.88,
+      "_market_price": 214.2799988,
+      "current_price": 215.25,
+      "pnl_pct": -6.2853742712017375,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 229.68666665,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 206.717999985,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "GOOG",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 389.2325,
+      "shares": 4.0,
+      "entry_value": 1556.93,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1514.36,
+      "_unreal_pnl": -42.57,
+      "_market_price": 378.58999635,
+      "current_price": 379.3900146484375,
+      "pnl_pct": -2.528690525987043,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 389.2325,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 350.30925,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "LLY",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 997.1,
+      "shares": 1.0,
+      "entry_value": 997.1,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": 1064.65,
+      "_unreal_pnl": 67.55,
+      "_market_price": 1064.6500244,
+      "current_price": 1065.6500244140625,
+      "pnl_pct": 6.874939766729771,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 997.1,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 897.39,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
       }
     }
   ],
@@ -1182,32 +1370,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "11年 実績"
     },
     {
-      "tier": "DISABLED",
-      "name": "Golden_Cross_v1 (ANET SMA20上抜けSMA50 → 3日hold MOO) ⭐ BULL",
-      "cat": "短期 momentum",
-      "tickers": "ANET のみ (monitor.py 自動 entry)",
-      "condition": "SMA20 上抜け SMA50 (前日下、当日上) AND close>SMA50 → 翌寄 BUY → 3日後 寄付 SELL",
-      "hold": "3日 寄→3日後寄 MOO bracket (ST699: 5d→3d 回転重視)",
-      "freq": "年 2〜4 件",
-      "sharpe": "ST678 (5/17 03:38): ANET Sh+6.10 win 74% n=23 [4/4 regime pass]",
-      "live": "✅ 自動 entry (5/17 03:38 自動採用) monitor.py Golden_Cross_v1",
-      "memo": "安田さん 5/17 03:37「強気相場の投資法を見つけないと戦えない」→ 全 9 戦略が mean-reversion 系で静穏期 idle → bull 用 momentum 補充。 ANET 単独 4/4 (TSLA/AVGO/COST/LLY も 3/4 で次候補)、 sample n=23 small で LIVE 検証段階",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.5%",
-      "_backtest_n": 11,
-      "_backtest_sharpe": -3.13,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.14,
-      "_r2_n": 11,
-      "_r2_win_pct": 55.0,
-      "_r2_mean_pct": -0.98,
-      "_r2_sharpe": -3.13,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-3.13 $-5/mo"
-    },
-    {
       "tier": "SS",
       "name": "Pullback_v1 (SMA50>SMA200 + RSI<35 pullback → 3日hold MOO) ⭐⭐ BULL",
       "cat": "短期 pullback",
@@ -1231,210 +1393,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 73.0,
       "_r2_mean_pct": 0.89,
       "_r2_sharpe": 5.39
-    },
-    {
-      "tier": "DISABLED",
-      "name": "BB_Lower_Bounce_v1 (uptrend + BB下バンド touch → 1日hold MOO) BULL",
-      "cat": "短期 pullback",
-      "tickers": "NVDA (QQQ は ST726 除外)",
-      "condition": "SMA50>SMA200 AND close <= BB(20,2) lower (前日 close > BB下 = fresh) → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO bracket (ST699: 5d→1d、 12mo Sh+6.34→+9.94 大幅改善)",
-      "freq": "銘柄毎 年 3〜6 件 × 2 = 年 6-12 件",
-      "sharpe": "ST683 (5/17 03:50): NVDA Sh+3.41 win 62% n=42 / QQQ Sh+3.41 win 68% n=53 [4/4 regime pass]",
-      "live": "⏸ disabled (size_mult=0、 signal 観測のみ、 trail で復活検討)",
-      "memo": "Pullback_v1 と相補: RSI ベース vs BB-band ベース、 NVDA は BB だけ 4/4 (RSI<35 では 3/4 含み)、 QQQ ETF 用",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 2.2,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.0%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "MACD_Cross_v1 (uptrend + MACD hist 0 上抜け → 1日hold MOO) BULL",
-      "cat": "短期 momentum",
-      "tickers": "AVGO (NVDA/AMZN は ST726 除外、 max 5)",
-      "condition": "SMA50>SMA200 AND MACD histogram > 0 AND 前日 hist <= 0 (fresh cross) → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO bracket (ST699: 5d→1d、 12mo Sh -0.91→+3.32 劇的改善)",
-      "freq": "銘柄毎 年 6〜10 件 × 3 = 年 18-30 件",
-      "sharpe": "ST683 (5/17 03:50): NVDA Sh+4.02 win 62% n=77 / AVGO Sh+1.98 n=85 / AMZN Sh+3.11 n=71 [4/4 regime pass]",
-      "live": "⏸ disabled (size_mult=0、 signal 観測のみ、 trail で復活検討)",
-      "memo": "古典 MACD signal cross above zero、 uptrend 必須 (filter out 弱気側 false signal)、 Pullback と MACD で寄付 timing 分散",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 1.83,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.83%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "SMA_Stack_v1 (4-SMA bullish stack fresh → 3日hold MOO) ⭐ BULL trend onset",
-      "cat": "短期 trend onset",
-      "tickers": "AVGO / MA / SMH / SOXX / META (5 銘柄、 monitor.py 自動 entry, max 5 同時)",
-      "condition": "SMA10 > SMA20 > SMA50 > SMA200 (4本完全 bullish stack) AND 前日 stack 不成立 (fresh transition) → 翌寄 BUY → 3日後 寄付 SELL",
-      "hold": "3日 寄→3日後寄 MOO bracket (ST699: 5d→3d、 12mo Sh+4.38→+4.89)",
-      "freq": "銘柄毎 年 4〜8 件 × 5 = 年 20-40 件",
-      "sharpe": "ST685/686 (5/17 04:00): AVGO te+2.99 / MA +8.01 (n=11) / SMH +4.35 / SOXX +6.61 / META +8.47 (n=14) Train>=2022 OOS pass",
-      "live": "✅ 自動 entry (5/17 04:00 自動採用) monitor.py SMA_Stack_v1",
-      "memo": "Trend onset: bull stack transition の最初の日に乗る。 短期反転 (BB/RSI) と違い 中期 trend follow、 booster effect 期待",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.21%",
-      "_backtest_n": 116,
-      "_backtest_sharpe": -0.88,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 1.51,
-      "_r2_n": 116,
-      "_r2_win_pct": 52.0,
-      "_r2_mean_pct": -0.16,
-      "_r2_sharpe": -0.88,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-0.88 $-7/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "HighPullback50_v1 (50日高値 → -3-5% pullback → 1日hold MOO) ⭐ BULL pullback v3",
-      "cat": "短期 pullback",
-      "tickers": "GOOGL/SNPS/NVDA + EQIX/ON/GOOG/SPXL/STRL/UPRO/VC = 10 銘柄 (ST710 拡張 20→ST726 で AAPL/IWM/LIN/META/MSCI/NFLX/PH/SMH/SOXX/XLK 除外、 max 5 同時)",
-      "condition": "SMA50>SMA200 AND close/50日高値 ratio = 0.95-0.97 (3-5% pullback) AND 50日高値が直近 7 日内 + Mar skip → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "銘柄毎 年 5〜10 件 × 20 = 年 100-200 件 (signal max)",
-      "sharpe": "ST710 (5/17 12:01) 拡張: 既存 5 + ST687 ext 7 + ST710 new 8。 新 top: EQIX +8.52 / ON +5.79 / GOOG +5.68 / SPXL +5.65 / STRL +5.10",
-      "live": "✅ LIVE (trail 2% 適用、 5/22 朝 size 0.75 復活)",
-      "memo": "直近高値から軽い pullback で押し目買い、 ETF + 大型 tech + leveraged ETF ハイブリッド、 ST710 で 8 銘柄追加 = 最高頻度 bull 戦略",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.8%",
-      "_backtest_n": 1079,
-      "_backtest_sharpe": -5.78,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 14.05,
-      "_r2_n": 1079,
-      "_r2_win_pct": 33.0,
-      "_r2_mean_pct": -0.81,
-      "_r2_sharpe": -5.78,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-5.78 $-360/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Stoch_Oversold_v1 (Stoch %K<20 + uptrend → 1日hold MOO) BULL oscillator",
-      "cat": "短期 pullback",
-      "tickers": "V/NVDA/META/INTC/AMD/AVGO + AEHR/DNLI/FTAI/YUM/AGX/WSM/LLY = 14 銘柄 (ST710 拡張 24→ST726 で AMAT/AMZN/ANET/GLD/KLAC/MA/MSFT/QQQ/RBC/SOXX 除外、 max 5)",
-      "condition": "SMA50>SMA200 AND Stochastic %K(14日)<20 AND 前日 %K>=20 (fresh oversold) + Mar skip → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "銘柄毎 年 4〜8 件 × 24 = 年 96-192 件",
-      "sharpe": "ST710 (5/17 12:01) 拡張: 新候補 17 中 top 10 採用。 AEHR +7.19 / MSFT +6.79 / DNLI +6.59 / FTAI +6.49 / RBC +5.69 / YUM +5.37 / AGX +5.10",
-      "live": "✅ LIVE (trail 2% 適用、 5/22 朝 size 0.75 復活)",
-      "memo": "BB/RSI とは別の oscillator (Stochastic)、 拡張で 24 銘柄、 small/mid-cap (AEHR/DNLI/FTAI) と BLUE chip 混在で 多様な signal source",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.7%",
-      "_backtest_n": 1307,
-      "_backtest_sharpe": -3.75,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 17.02,
-      "_r2_n": 1307,
-      "_r2_win_pct": 37.0,
-      "_r2_mean_pct": -0.66,
-      "_r2_sharpe": -3.75,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-3.75 $-324/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "S1' CFO Solo P-buy (CFO単独 P-buy → 3日hold MOO) INSIDER",
-      "cat": "短期 insider / fundamental",
-      "tickers": "CFO universe 55 銘柄 (form4 で 全期 CFO P-buy 履歴ある銘柄、 monitor_config.json watchlist に登録済)",
-      "condition": "当該 ticker の form4 で 直近 14d に CFO の open-market P-buy filing あり AND cluster window 30d 内に 他 insider P-buy 0 件 (= mu=1 solo) → 翌寄 BUY → 3日後 寄付 SELL",
-      "hold": "3日 寄→3日後寄 MOO bracket (TP+2.5% / SL-10%)",
-      "freq": "年 11 件 (n=89 / 8年検証期間) × universe 53 銘柄 → 実発火 月 1-2件 (CFO P-buy は稀)",
-      "sharpe": "logs/insider_skeptic_top.md A2 family role_CFO_solo_h3: n=89 Sh+2.72 win 61.8% OOS Sh+2.83 [3/4 regime pass]、 unique_tickers=53、 mean+0.83% per trade",
-      "live": "⏳ Phase 1 paper (5/19 採用、 Tier B 未稼働、 実 trade 出るまで promote 禁止)",
-      "memo": "古典 S1 cluster は ST329/446/581 で 3 度目の同結論で完全廃案、 派生で発見された 単一 insider role-based alpha。 CEO solo (h=1) は n=62 で sample 小、 CFO solo h=3 が最 robust。 10%-owner cluster は機関主体 で逆指標 (Sh-2.06)。 user 採用判断",
-      "monthly_profit_usd": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "EarnCascade_SOXX_up5_h5 ⭐ EARNINGS (NVDA/AVGO 決算 ≥+5% → SOXX 5日hold)",
-      "cat": "短期 earnings cascade",
-      "tickers": "SOXX のみ (semi-leader NVDA/AVGO の earnings reaction trigger)",
-      "condition": "NVDA or AVGO の earnings 当日 close/前日 close ≥ +5% (positive beat reaction) → 翌寄 SOXX BUY → 5日後 SELL",
-      "hold": "5日 寄→5日後 MOO bracket (PEAD = post-earnings announcement drift)",
-      "freq": "年 8-12 件 (NVDA + AVGO 各 4 回 earnings × beat rate)",
-      "sharpe": "5/19 ST722-Earn (BG agent): Sh+2.62 win 68% n=69、 OOS Sh+8.21 win 100%",
-      "live": "✅ 自動 entry (5/19 採用) monitor.py EarnCascade_SOXX_up5_h5",
-      "memo": "古典 PEAD anomaly の sector cascade 版。 mega cap (NVDA/AVGO) 決算 beat → 半導体 ETF (SOXX) に drift で resmash continuation alpha",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SOXX ~\\$230 × mean 2.5%",
-      "_backtest_n": 2,
-      "_backtest_sharpe": 0.0,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.03,
-      "_r2_n": 2,
-      "_r2_win_pct": 100.0,
-      "_r2_mean_pct": 2.28,
-      "_r2_sharpe": 0,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=+0.00 $+2/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "EarnCascade_SMH_up5_h5 ⭐ EARNINGS (NVDA/AVGO 決算 ≥+5% → SMH 5日hold)",
-      "cat": "短期 earnings cascade",
-      "tickers": "SMH のみ (semi-leader NVDA/AVGO の earnings reaction trigger)",
-      "condition": "NVDA or AVGO の earnings 当日 close/前日 close ≥ +5% → 翌寄 SMH BUY → 5日後 SELL",
-      "hold": "5日 寄→5日後 MOO bracket",
-      "freq": "年 8-12 件",
-      "sharpe": "5/19 ST722-Earn: Sh+2.51 win 67% n=69、 OOS Sh+8.58",
-      "live": "✅ 自動 entry (5/19 採用) monitor.py EarnCascade_SMH_up5_h5",
-      "memo": "SOXX と並走、 SMH は VanEck Semi ETF (SOXX は iShares)、 holdings やや異なるが NVDA/AVGO weight 同等",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SMH ~\\$560 × mean 2.0%",
-      "_backtest_n": 2,
-      "_backtest_sharpe": 0.0,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.03,
-      "_r2_n": 2,
-      "_r2_win_pct": 100.0,
-      "_r2_mean_pct": 2.28,
-      "_r2_sharpe": 0,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=+0.00 $+2/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "EarnCascade_SMH_down5_h10 ⭐ EARNINGS (NVDA/AVGO 決算 ≤-5% → SMH 10日hold reversion)",
-      "cat": "短期 earnings reversion",
-      "tickers": "SMH のみ",
-      "condition": "NVDA or AVGO の earnings 当日 close/前日 close ≤ -5% (negative miss) → 翌寄 SMH BUY → 10日後 SELL (mean reversion)",
-      "hold": "10日 寄→10日後 MOO bracket",
-      "freq": "年 3-5 件 (miss は beat より少ない)",
-      "sharpe": "5/19 ST722-Earn: Sh+2.54 win 70% n=40、 OOS Sh+4.48",
-      "live": "✅ 自動 entry (5/19 採用) monitor.py EarnCascade_SMH_down5_h10",
-      "memo": "down-side overreaction → 10日で fade、 mean reversion。 up-side cascade と相補で earnings 両方向 catch",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SMH ~\\$560 × mean 2.5%",
-      "_backtest_n": 4,
-      "_backtest_sharpe": -1.44,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.05,
-      "_r2_n": 4,
-      "_r2_win_pct": 50.0,
-      "_r2_mean_pct": -0.27,
-      "_r2_sharpe": -1.44,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-1.44 $-0/mo"
     },
     {
       "tier": "SS",
@@ -1462,84 +1420,6 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 2.72
     },
     {
-      "tier": "DISABLED",
-      "name": "Confluence_RSIBB_v1 ⭐⭐⭐ PLATINUM (RSI<35 ∩ BB(20,2) lower 同日 + uptrend → 1日hold MOO)",
-      "cat": "短期 confluence (BULL TOP2)",
-      "tickers": "NVDA/AVGO/META/GOOGL/AMZN/AMAT/LLY/MSFT/MA/SMH/SOXX/XLK/XLV/XLE/XLY (15 銘柄、 ST726 で SPY/V/XLI/XLF + EEM/EWJ/GLD/HYG/SLV 除外、 max 5)",
-      "condition": "SMA50>SMA200 AND RSI(14)<35 AND close<=BB(20,2) lower 同日発火 → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO bracket (ST699: 5d→1d、 12mo Sh+4.94→+5.37、 SOXX/GOOGL 即反発)",
-      "freq": "銘柄毎 年 4-8 件 × 20 = 年 80-160 件",
-      "sharpe": "ST692 Pat A (5/17 04:14): OOS te_Sh+2.41-20.29 全 20 銘柄 pass。 SOXX +20.29 (mean+4.13% win 94%) / GOOGL +14.76 / SMH +13.68 / NVDA +10.25 / QQQ +10.92 / MA +8.54 / AVGO +8.22 / META +7.77 / AMAT +8.74 / V +6.48 / SPY +6.16 / MSFT +6.04 / XLI +6.20 / XLV +4.86 / XLE +5.58",
-      "live": "✅ 自動 entry (5/17 04:14 自動採用) monitor.py Confluence_RSIBB_v1 ⭐⭐⭐",
-      "memo": "異なる indicator combo (RSI+BB) vs RSI+Stoch、 fire 日 異なる、 全 9 セクター ETF 含む = bull 期 ETF rotation 完全カバー。 期待年率 +40-50% (mean% 2-4 + 高頻度)",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.0%",
-      "_backtest_n": 720,
-      "_backtest_sharpe": -0.53,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 9.38,
-      "_r2_n": 720,
-      "_r2_win_pct": 48.0,
-      "_r2_mean_pct": -0.09,
-      "_r2_sharpe": -0.53,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-0.53 $-28/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "VolDryUp_v1 (vol<0.6×20d + 20d高値 0.97+ → 3日hold MOO) BULL stealth",
-      "cat": "短期 stealth bull",
-      "tickers": "IWM/KLAC/AVGO/META/SMH (5 銘柄、 ST726 で SPY/QQQ/XLF/COST/MA 除外、 max 5)",
-      "condition": "SMA50>SMA200 AND Volume < 0.6×20日平均 AND close >= 0.97×20日高値 → 翌寄 BUY → 3日後 寄付 SELL",
-      "hold": "3日 寄→3日後寄 MOO bracket (ST699: 5d→3d、 12mo Sh+3.44→+4.60、 stealth breakout 3d で抜け)",
-      "freq": "銘柄毎 年 3-7 件 × 10 = 年 30-70 件",
-      "sharpe": "ST693 Pat B (5/17 04:18): OOS XLF te_Sh+8.42 win 76% / IWM +7.82 / SPY +7.47 / QQQ +7.35 / COST +6.16 / KLAC +3.99 / AVGO +3.48 / SMH +3.52 / META +3.14 / MA +2.44",
-      "live": "✅ 自動 entry (5/17 04:18 自動採用) monitor.py VolDryUp_v1",
-      "memo": "Stealth bull = 高値圏で出来高静か = 機関の静かな accumulation 仮説。 他 bull 戦略と独立 (volume signal、 他は価格/オシレーター)。 期待年率 +15-20%",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": -1.45,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.91%",
-      "_backtest_n": 376,
-      "_backtest_sharpe": -3.04,
-      "_backtest_oos_n": 58,
-      "_backtest_oos_mean_pct": -0.088,
-      "_signals_per_month": 4.9,
-      "_r2_n": 376,
-      "_r2_win_pct": 44.9,
-      "_r2_mean_pct": -0.5,
-      "_r2_sharpe": -3.04,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-3.04 $-80/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Inside_Day_BO_v1 (Inside Day Breakout in uptrend → 1日hold MOO) BULL micro-pattern",
-      "cat": "短期 breakout",
-      "tickers": "NVDA のみ (ST726 で SPY/GLD 除外、 max 5 同時)",
-      "condition": "SMA50>SMA200 AND 前日 (i-1) が 前々日 (i-2) の inside (高値↓+安値↑) AND 今日 close > 前々日高値 (breakout) → 翌寄 BUY → 1日後 寄付 SELL",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "銘柄毎 年 8〜10 件 × 3 = 年 24-30 件",
-      "sharpe": "ST712 (5/17 12:03): NVDA oos Sh+4.56 win 71% n=24 reg 3/4 l12 +21.5 / SPY +8.16 win 74% n=23 reg 3/4 / GLD +5.42 win 56% n=25 reg 3/4",
-      "live": "✅ 自動 entry (5/17 12:03 自動採用) monitor.py Inside_Day_BO_v1",
-      "memo": "Inside day = volatility 圧縮、 breakout で trend continuation。 NVDA last 12mo Sh+21.5 = 直近 regime 最強、 SPY/GLD で 分散",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.44%",
-      "_backtest_n": 90,
-      "_backtest_sharpe": -4.69,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 1.17,
-      "_r2_n": 90,
-      "_r2_win_pct": 38.0,
-      "_r2_mean_pct": -0.67,
-      "_r2_sharpe": -4.69,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-4.69 $-23/mo"
-    },
-    {
       "tier": "SS",
       "name": "Sector_FriPanic_v1 (Sector ETF Fri-2% → Mon 寄 BUY target → 1日hold MOO) PANIC follow-on",
       "cat": "短期 panic 追随",
@@ -1563,32 +1443,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 62.0,
       "_r2_mean_pct": 0.85,
       "_r2_sharpe": 4.74
-    },
-    {
-      "tier": "DISABLED",
-      "name": "MSTR_Panic20 (自動)",
-      "cat": "短期 swing",
-      "tickers": "MSTR",
-      "condition": "MSTR chg5 < -20% (Drop5d_7 -12% より深い専用 threshold)",
-      "hold": "当日 寄→引 MOC",
-      "freq": "年 2〜3 件 (n=25/10年)",
-      "sharpe": "MOC SELL 化で Sh+9.95 win 72% (intraday、 ovn+7.33 から +36% up)",
-      "live": "✅ 自動 entry + MOC SELL 引け売り (5/17 早朝 ST596 採用)",
-      "memo": "寄→引 intraday: MOO BUY 寄付 + MOC SELL 15:00 CT 引け売り、 同日完結",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "MSTR ~\\$300 × mean 5.31%",
-      "_backtest_n": 774,
-      "_backtest_sharpe": -1.43,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 10.08,
-      "_r2_n": 774,
-      "_r2_win_pct": 56.0,
-      "_r2_mean_pct": -0.57,
-      "_r2_sharpe": -1.43,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-1.43 $-188/mo"
     },
     {
       "tier": "SS",
@@ -1616,32 +1470,6 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 0.52
     },
     {
-      "tier": "DISABLED",
-      "name": "SPY_Panic2_v1 (SPY 1d<-2% → 5銘柄候補 max 3 entry)",
-      "cat": "短期 mean-rev",
-      "tickers": "NVDA(MOC) + MSCI(MOC) + TWST(MOC) + AVGO(MOO) + SOXX(MOO) (max 3 同時 entry)",
-      "condition": "SPY 1日 chg<-2% (fresh trigger) → 翌寄 BUY → MOC or MOO SELL (per-ticker)",
-      "hold": "1日 (NVDA/MSCI/TWST = 寄→引 MOC、 AVGO/SOXX = 寄→翌寄 MOO)",
-      "freq": "年 10 件 × max 3 = 30 entry/年",
-      "sharpe": "ST644/648/656 (5/17 02:55): NVDA MOC Sh+5.13 / MSCI MOC +5.31 / TWST MOC +4.34 / AVGO MOO +3.86 / SOXX MOO +3.73 (全 4/4 regime pass)",
-      "live": "✅ 自動 entry (5/17 02:55 自動採用 + basket 拡張) monitor.py SPY_Panic2_v1",
-      "memo": "ST650 で AVGO/SOXX MOC化は 2022-2023 fail (Sh-2.89/-0.58) で MOO に戻し、 NVDA は MOC で 4/4 維持。 ST656 で全 watchlist 30+ 銘柄から MSCI/TWST も MOC 4/4 確認 → basket 拡張。 max 3 entry なので NVDA/MSCI/TWST が優先 (MOC 強い順)、 AVGO/SOXX は 4 銘柄目以降 overflow 時のみ entry",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SPY ~\\$740 × mean 1.0%",
-      "_backtest_n": 225,
-      "_backtest_sharpe": -0.42,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 2.93,
-      "_r2_n": 225,
-      "_r2_win_pct": 53.0,
-      "_r2_mean_pct": -0.1,
-      "_r2_sharpe": -0.42,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-0.42 $-9/mo"
-    },
-    {
       "tier": "A",
       "name": "Semi_FriPanic_v1 (SMH Fri-3% → AVGO Mon 1日)",
       "cat": "短期 mean-rev",
@@ -1665,553 +1493,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 59.0,
       "_r2_mean_pct": 0.59,
       "_r2_sharpe": 4.08
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Pharma_Panic_v1 (XBI-7%∩IBB-5% → VRTX 1日)",
-      "cat": "短期 mean-rev",
-      "tickers": "VRTX のみ (monitor.py 自動 entry)",
-      "condition": "XBI chg5<-7% AND IBB chg5<-5% AND month != 11 → VRTX 翌寄 BUY → 翌寄 SELL",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "年 3〜6 件 (改良後)",
-      "sharpe": "ST627/631 (5/17 早朝): base Sh+4.50 → IBB confirm Sh+5.17 n=81 → +11月 skip [4/4 regime pass]",
-      "live": "✅ 自動 entry (5/17 早朝 自動採用 + 02:15 改良) monitor.py Pharma_Panic_v1",
-      "memo": "ST628 個別 VRTX/REGN は直近 Sh -7.62 劣化 → sector trigger 経由が直近 robust。 ST631: 11月 anti-edge Sh-9.09 + IBB<-5 confirm で Sh+0.67 改善。 VIX>=30 booster 候補 Sh+5.95。 hold=5d 既存 Pharma 桶屋 (brief_enhancer) と並走可、 同日 entry 時は v1 優先",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "XLV ~\\$140 × mean 0.7%",
-      "_backtest_n": 25,
-      "_backtest_sharpe": 0.45,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.33,
-      "_r2_n": 25,
-      "_r2_win_pct": 56.0,
-      "_r2_mean_pct": 0.08,
-      "_r2_sharpe": 0.45,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=+0.45 $+1/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Sector Booster (Drop5d 7番目)",
-      "cat": "booster",
-      "tickers": "Drop5d 系全 watchlist",
-      "condition": "Drop5d fire 時 sector が Industrial/Materials/ConsCyc → size +0.5x",
-      "hold": "親 ETF7 寄→翌寄 / BroadPanic 寄→引",
-      "freq": "年 50〜100 件 (Drop5d fire の 1/4 程度)",
-      "sharpe": "recent 2024+ Industrial 10-100M Sh+14.42 / Materials Sh+15.54 / ConsCyc Sh+10.18",
-      "live": "✅ 5/16 夜 採用 (boost_n +1)",
-      "memo": "ST533 cross-tab で発見、 booster_multipliers 7要素 ([1..3.5]) に拡張",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "_backtest_n": 193,
-      "_backtest_sharpe": 4.74,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "VIX_Backward (VIX6M base)",
-      "cat": "短期 day trade",
-      "tickers": "SPY / QQQ / SMH / XLK / XBI",
-      "condition": "VIX/VIX6M ratio ≥ 1.0 (backwardation)",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "年 12〜15 件 (n=117/10年)",
-      "sharpe": "XBI Sh+4.00 / XLK +2.62 / SMH +2.55 / QQQ +2.50 (n=117) — VIX3M v1 から VIX6M v2 に変更で頻度6倍",
-      "live": "✅ 自動 entry + brief alert (5/16 夜 round9 ST535/543)",
-      "memo": "ST543 で VIX6M ベース (n=117) は VIX3M (n=18) より頻度高 alpha 明確",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "XLK ~\\$176 × mean 1.5%",
-      "_backtest_n": 0,
-      "_backtest_sharpe": null,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.0,
-      "_r2_n": 0,
-      "_r2_win_pct": 0,
-      "_r2_mean_pct": 0,
-      "_r2_sharpe": 0,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=+0.00 $+0/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Drop5d_ETF7 (浅 threshold + bad月skip)",
-      "cat": "短期 mean-reversion",
-      "tickers": "11 ETF (XLI/QQQ/XLE/XLK/SMH/SOXX/XBI/XLF/XLY/XLV/SPY)",
-      "condition": "chg5<-7 + pchg5≥-7 + 月∉{1,4,6,9} + 翌日Mon以外 + VIX≥20 + ETF∉{XLE,XLF}",
-      "hold": "1日 寄→翌寄 MOO",
-      "freq": "年 12〜20 件 (5層 filter 後)",
-      "sharpe": "5層 filter Sh+4.08 win 60%; per-ETF: XLV+10.84/SMH+8.54/SOXX+7.76/XBI+3.83/QQQ+3.44 (ST578)",
-      "live": "✅ 自動 entry + 5層 filter + per-ETF hold (5/16 夜 round12 ST571/572/578)",
-      "memo": "ST578: XLE Sh-3.54 win 36% / XLF -0.58 → 除外。 ST572 VIX<20 Sh-9.75 / ST571 Mon Sh+0.40",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SMH ~\\$560 × mean 3.5%",
-      "_backtest_n": 2524,
-      "_backtest_sharpe": -1.93,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 32.86,
-      "_r2_n": 2524,
-      "_r2_win_pct": 52.0,
-      "_r2_mean_pct": -0.63,
-      "_r2_sharpe": -1.93,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-1.93 $-688/mo"
-    },
-    {
-      "tier": "BOOST",
-      "name": "AAII panic booster (Drop5d 9番目)",
-      "cat": "booster",
-      "tickers": "Drop5d 系全 watchlist",
-      "condition": "AAII Bull-Bear spread < -40 (極端 panic)",
-      "hold": "親 ETF7 寄→翌寄 / BroadPanic 寄→引",
-      "freq": "年 10〜20 件 (AAII < -40 は稀)",
-      "sharpe": "Drop5d 翌日 Sh+9.75 win 74% mean +4.67% (n=1310) — 9 番目 booster",
-      "live": "✅ booster +1 (5/16 夜 round10 ST549)",
-      "memo": "AAII csv 週次 fetch、 hardcoded fallback あり",
-      "per_share_profit_usd": 5.55,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "SPY 5/5 down booster (Drop5d 10番目)",
-      "cat": "booster",
-      "tickers": "Drop5d 系全 watchlist",
-      "condition": "SPY 直近 5日 全 down",
-      "hold": "親 ETF7 寄→翌寄 / BroadPanic 寄→引",
-      "freq": "年 30〜50 件",
-      "sharpe": "Drop5d 翌日 Sh+3.24 win 58% mean +0.82% (n=4065)",
-      "live": "✅ booster +1 (5/16 夜 round10 ST552)",
-      "memo": "broad market sell signal、 BroadPanic と補完的",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "_backtest_n": 225,
-      "_backtest_sharpe": -0.42,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "BOOST",
-      "name": "ETF Deep Panic booster (12番目)",
-      "cat": "booster",
-      "tickers": "Drop5d_ETF7 (11 ETF)",
-      "condition": "Drop5d_ETF7 fire 時 chg5 < -10% (extreme regime)",
-      "hold": "親 ETF7 のみ (1日 寄→翌寄 MOO)",
-      "freq": "年 5〜15 件 (極端panic 時のみ)",
-      "sharpe": "QQQ Sh+11.06 (n=9) / XLY +12.68 (n=8) / XLK +9.89 (n=9) / SMH -12% +4.99 (n=39) / SPY +5.60 (n=7) (hold=2d)",
-      "live": "✅ 自動 booster +1 (5/16 夜 round11 ST564 自動採用)",
-      "memo": "rare だが extreme alpha、 deep panic 規模で size 多倍化",
-      "per_share_profit_usd": 5.6,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
-    },
-    {
-      "tier": "BOOST",
-      "name": "Good月 × VIX6M booster (13番目)",
-      "cat": "booster",
-      "tickers": "Drop5d_ETF7 (11 ETF)",
-      "condition": "Drop5d_ETF7 fire 時 month ∈ {2,3,8,10,11} + VIX/VIX6M ≥ 1.0",
-      "hold": "親 ETF7 のみ (1日 寄→翌寄 MOO)",
-      "freq": "年 10〜20 件",
-      "sharpe": "good月+VIX6Mbw Sh+5.31 win 62% mean +0.97% (n=109) — good月単体 Sh+4.30",
-      "live": "✅ booster +1 (5/16 夜 round11 ST563 自動採用)",
-      "memo": "ST563 stacking 検証で good月単体+1.48 vs VIX6M 追加で更に +1.01",
-      "per_share_profit_usd": 0.66,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
-    },
-    {
-      "tier": "BOOST",
-      "name": "Tech/Semis × VIX6M booster (Drop5d 11番目)",
-      "cat": "booster",
-      "tickers": "Drop5d 系 (Tech/Semis 銘柄のみ)",
-      "condition": "Drop5d fire & sector ∈ {Tech, Semis} & VIX/VIX6M ≥ 1.0",
-      "hold": "親 ETF7 寄→翌寄 / BroadPanic 寄→引",
-      "freq": "年 5〜10 件",
-      "sharpe": "Tech Sh+8.23 win 68% n=66 / Semis +6.49 win 67% n=184 (VIX6M backward 時)",
-      "live": "✅ booster +1 (5/16 夜 round10 ST553)",
-      "memo": "既存 Industrial/Materials/ConsCyc 3 sector booster と組み合わせ可",
-      "per_share_profit_usd": 1.65,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est"
-    },
-    {
-      "tier": "ANTI",
-      "name": "Earnings 直前 7日 skip",
-      "cat": "filter",
-      "tickers": "Drop5d 系全 watchlist (earnings 持つ銘柄)",
-      "condition": "Drop5d signal fire 時 earnings ≤ 7日先 → skip",
-      "hold": "親 ETF7/BroadPanic 共通 filter (entry skip のみ、 親 exit に従う)",
-      "freq": "全 Drop5d signal の ~5% 除外",
-      "sharpe": "Pre-earnings 7日 = Sh-1.81 (anti-edge), mid (14+日離れ) = Sh+3.81 win 57% (ST536)",
-      "live": "✅ 5/16 夜 採用 (ST536)",
-      "memo": "yfinance earnings_dates lookup",
-      "per_share_profit_usd": 4.4,
-      "_per_share_basis": "avoided loss est (= skip しなかったら出てた損失)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "VIX +15% spike booster",
-      "cat": "6番目 booster",
-      "tickers": "Drop5d 系全 watchlist",
-      "condition": "Drop5d signal 当日 VIX 1日 change% ≥ +15%",
-      "hold": "親 ETF7 寄→翌寄 / BroadPanic 寄→引",
-      "freq": "年 20〜50 件 (VIX spike+15% 単体は年 50-80件、 Drop5d 同日 hit はさらに小)",
-      "sharpe": "Drop5d × VIX spike Sh+2.16 win 56% (n=9012) / 翌日 QQQ Sh+4.70",
-      "live": "✅ 5/16 夜 採用 (boost_n +1 加算)",
-      "memo": "ST508/509 brief_enhancer alert + monitor booster 両方",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "(base × (mult-1)) - booster 増分 est",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "_backtest_n": 0,
-      "_backtest_sharpe": null,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Intraday Surge (COIN/MSTR/MARA) +2% 30min → +60min ⚡ 場中",
-      "cat": "場中 momentum (crypto-proxy)",
-      "tickers": "COIN / MSTR / MARA",
-      "condition": "15m bar の連続 2 本 return >= +2% → 即 MKT BUY → +60min (= 4×15m bar) で MKT SELL or TP touch",
-      "hold": "場中 60min (intraday、 15:45 CT で強制 close)",
-      "freq": "月 fires raw 76 件 (COIN 24 / MSTR 23 / MARA 30)、 max_pos=2 制約後 **実 trade 30-35件/月**",
-      "sharpe": "ST725 (5/17 夜) 4重 OOS PASS: COIN n=70 win 61% mean +0.86% / MSTR n=65 win 55% +0.70% / MARA n=87 win 55% +0.59%  ⇒ **月益 ~$235 (size $980)、 年率 +66%/元本$4,237**",
-      "live": "⏸ disabled (5/22 朝 Agent G OOS で全 net negative、 enabled=false)",
-      "memo": "安田さん 5/17「場中で反応ないなら PC 起動意味ない」→ Path 2 intraday LIVE 実装。 crypto-proxy 群は universe 平均より突出 (mean reversion でなく momentum follow)。 OCA bracket: LMT TP+0.7-0.86% / STP SL-3% (server side、 PC 落ちても発動)",
-      "monthly_profit_usd": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Intraday RSI20 (AMD/PLTR/VRTX) 5m RSI<20 → +30min ⚡ 場中",
-      "cat": "場中 reversion (high-beta)",
-      "tickers": "AMD / PLTR / VRTX",
-      "condition": "5m bar RSI(14) < 20 → 即 MKT BUY → +30min (= 6×5m bar) で MKT SELL or TP touch",
-      "hold": "場中 30min (intraday、 15:45 CT 強制 close)",
-      "freq": "月 fires raw 86 件 (AMD 18 / PLTR 37 / VRTX 31)、 max_pos=2 制約後 **実 trade 40-50件/月**",
-      "sharpe": "ST725 PASS: AMD n=52 win 58% mean +0.71% / PLTR n=107 win 62% +0.33% / VRTX n=89 win 56% +0.27% (VRTX は recent regime caveat、 small size 推奨)  ⇒ **月益 ~$190 (size $980)、 年率 +54%/元本$4,237**",
-      "live": "⏸ disabled (5/22 朝 Agent G OOS で全 net negative、 enabled=false)",
-      "memo": "急落底 reversion: 場中 5m RSI<20 = 一時的 oversold、 30min で反発。 VRTX は前半 win 42% / 後半 70% で regime 依存強く size 半減、 AMD/PLTR は全 regime stable",
-      "monthly_profit_usd": null,
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Drop5d_7 (chg5d<=-7% mean reversion → next open MOO bracket) 🔧 5/22 bracket 復活",
-      "cat": "短期 reversion",
-      "tickers": "watchlist 100銘柄全数 (SECTOR_MAP filter + Tue skip + earnings≤7d skip)",
-      "condition": "chg5d <= -7% AND not (earnings within 7d) AND not Tue → 翌寄 BUY → bracket OCA (TP+5% / SL-10%)",
-      "hold": "1日 寄→翌寄 MOO + 場中 bracket (ST134 元 / ST244 で TP+10% optimum、 5% は conservative)",
-      "freq": "watchlist 全体 月 5〜15 件 (panic 局面集中、 VIX>20 で頻度倍増)",
-      "sharpe": "ST134 元 Sh+2.79 (hold=1d TP+3% time)、 ST244 で TP+10% optimum 判明 / ST485 hold=1d filter込み Sh+6.66",
-      "live": "✅ 本番運用中 (5/22 朝 bracket 復活、 _default 2% → tp 5% / sl -10%、 silent skip 解消)",
-      "memo": "5/22 朝 user 採用: ST134 元 / ST244 optimum、 watchlist 全 100銘柄。 5/16 夜「intraday/overnight ズレ」 で一旦廃案候補だったが 5/22 で bracket spec 明示化 + silent skip 解消で復活、 _default 2% から 5% に上方修正",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 3.3,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.5%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Drop5d_StrictATR (chg5d<=-7% + ATR strict variant → next open MOO bracket) 🔧 5/22 bracket 復活",
-      "cat": "短期 reversion (ATR variant)",
-      "tickers": "watchlist 100銘柄全数 (earnings≤7d skip + size_mult 1.5)",
-      "condition": "chg5d <= -7% AND ATR strict filter AND not (earnings within 7d) → 翌寄 BUY → bracket OCA (TP+4% / SL-10%)",
-      "hold": "1日 寄→翌寄 MOO + 場中 bracket (ST184/489 hold=1d Sh+7.46)",
-      "freq": "watchlist 全体 月 3〜8 件 (ATR フィルタで Drop5d_7 より厳しめ)",
-      "sharpe": "ST184/489 hold=1d Sh+7.46 (ATR variant、 strict filter で higher conviction)",
-      "live": "✅ 本番運用中 (5/22 朝 bracket 復活、 _default 2% → tp 4% / sl -10%)",
-      "memo": "Drop5d_7 の ATR variant、 size_multiplier 1.5、 5/22 朝 user 採用で _default 2% から TP 4% に上方修正、 commission floor 確保",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 3.3,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.5%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "Earnings_T_minus_5 (earnings 5日前 entry → 寄付 hold) 🔧 5/22 bracket 復活",
-      "cat": "短期 earnings drift",
-      "tickers": "watchlist 100銘柄全数 (earnings calendar 連動)",
-      "condition": "earnings 発表 5 営業日前 → 翌寄 BUY → hold=5d 寄付 SELL or bracket TP+3%/SL-10%",
-      "hold": "5日 寄→5日後寄 MOO + 場中 bracket",
-      "freq": "watchlist 全体 月 8〜20 件 (earnings cycle 毎)",
-      "sharpe": "ST532 earnings drift base、 mean move 控えめ (TP+3% で commission floor 確保)",
-      "live": "✅ 本番運用中 (5/22 朝 bracket 復活、 _default 2% → tp 3% / sl -10%)",
-      "memo": "5/22 朝 user 採用: ST532 hold=5d earnings 直前 entry、 mean move 控えめだが _default 2% より TP 3% で commission floor (RT $2.80) 確保",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 1.1,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.5%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "IB1_SlopeMA_v1 (200SMA slope>0 + 5SMA touch → 3日hold) 📝 paper 田舎投資家ブログ",
-      "cat": "短期 trend pullback (paper)",
-      "tickers": "watchlist 100銘柄 (daily、 2022-2026 backtest 必要)",
-      "condition": "SMA200 slope > 0 (= SMA200[t] > SMA200[t-20]) AND close touch SMA5 (low <= SMA5 <= high) → 翌寄 BUY → 3日後 SELL",
-      "hold": "3日 寄→3日後寄 + bracket (TP+4% / SL-10%)",
-      "freq": "watchlist 全体 月 10〜25 件 (uptrend filter で頻度抑え)",
-      "sharpe": "田舎投資家ブログ /3921/ Sh+4.78 n=30 (FX 由来 → stock 移植 decay -30% 想定)、 paper 1週後 LIVE 判定",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "田舎投資家ブログ 1位「衝撃の200sma」 移植: 200SMA 上向き + 5SMA touch pullback、 paper 1週後 LIVE 判定。 100銘柄 × 4年 で n>=300 必須、 source n=30 は ST 採用基準未満",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.0%",
-      "_backtest_n": 23364,
-      "_backtest_sharpe": -2.63,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 304.22,
-      "_r2_n": 23364,
-      "_r2_win_pct": 46.0,
-      "_r2_mean_pct": -0.63,
-      "_r2_sharpe": -2.63,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-2.63 $-5814/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "IB3_WickReversal_v1 (long lower wick + chg5d<-5% → 2日hold) 📝 paper 田舎投資家ブログ",
-      "cat": "短期 wick reversal (paper)",
-      "tickers": "watchlist 100銘柄 (daily panic 文脈)",
-      "condition": "lower_wick / body >= 2.0 AND close > open AND chg5d < -5% (panic) → 翌寄 BUY → 2日後 SELL",
-      "hold": "2日 寄→2日後寄 + bracket (TP+3% / SL-10%)",
-      "freq": "watchlist 全体 月 5〜15 件 (panic 文脈 + wick 限定)",
-      "sharpe": "田舎投資家ブログ /3734/ ピンバー Sh+1.98 n=69 (paper 1週後 LIVE 判定)",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "田舎投資家ブログ 2位 ピンバー: long lower wick (body 2x+) + reversal close、 panic 文脈で底打ち拾う、 paper 1週後 LIVE 判定",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.8%",
-      "_backtest_n": 12002,
-      "_backtest_sharpe": -2.75,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 156.28,
-      "_r2_n": 12002,
-      "_r2_win_pct": 48.0,
-      "_r2_mean_pct": -0.6,
-      "_r2_sharpe": -2.75,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-2.75 $-3009/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "IB4_RCI_Reversal_v1 (RCI(9)>RCI(26) from oversold → 3日hold) 📝 paper 田舎投資家ブログ",
-      "cat": "短期 oscillator reversal (paper)",
-      "tickers": "watchlist 100銘柄 (daily)",
-      "condition": "RCI(9) < -80 (oversold) AND RCI(9) cross above RCI(26) → 翌寄 BUY → 3日後 SELL",
-      "hold": "3日 寄→3日後寄 + bracket (TP+3.5% / SL-10%)",
-      "freq": "watchlist 全体 月 8〜20 件",
-      "sharpe": "田舎投資家ブログ /4032/ RCI 単体 Sh+2.14 n=77 + /3978/ 200MA+RCI Sh+2.69 n=51 (paper 1週後 LIVE 判定)",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "田舎投資家ブログ 4位 200MA+RCI 派生: RCI(9) oversold cross above RCI(26) reversal、 既存 Stoch_Oversold と直交 oscillator、 paper 1週後 LIVE 判定",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.2%",
-      "_backtest_n": 4277,
-      "_backtest_sharpe": -1.98,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 55.69,
-      "_r2_n": 4277,
-      "_r2_win_pct": 52.0,
-      "_r2_mean_pct": -0.51,
-      "_r2_sharpe": -1.98,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-1.98 $-838/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "US_D1_ORB_Stocks_v1 (ORB-5min stocks-in-play 動的 universe) 📝 paper US-D1 Zarattini",
-      "cat": "場中 ORB momentum (paper)",
-      "tickers": "動的 stocks-in-play universe (100銘柄 watchlist fallback、 RelVol>1 上位 20)",
-      "condition": "08:35 CT 5min ORB、 close>open → BUY STOP @ ORB high / close<open → SELL STOP @ ORB low、 SL=entry±(0.1×ATR14)、 risk 1% / max 4x lev",
-      "hold": "場中 (entry → 15:00 CT MOC exit)",
-      "freq": "毎日 fire 候補 (動的 universe 通過分のみ実 trade)",
-      "sharpe": "Zarattini SSRN 4729284 Sharpe ≈ 2.40 (2016-2023 8年 7000+ 株 QC backtest)、 cumul 1,484% Win 17% Beta -0.04",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "US-D1 Zarattini ORB 5min stocks-in-play、 paper 1週後 LIVE 判定。 動的 universe = 当日 09:30-09:35 ET volume / 過去14日 同時刻 vol 比 上位20 RelVol>1。 risk 1% / max 4x lev / 15:00 CT MOC",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.7%",
-      "_backtest_n": 23781,
-      "_backtest_sharpe": -3.73,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 309.65,
-      "_r2_n": 23781,
-      "_r2_win_pct": 42.0,
-      "_r2_mean_pct": -0.72,
-      "_r2_sharpe": -3.73,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-3.73 $-7648/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "US_D2_SPY_NoiseArea_v1 (SPY 1m VSO_t×N boundary cross) 📝 paper US-D2 ★priority 1★",
-      "cat": "場中 SPY noise band (paper)",
-      "tickers": "SPY 単独 (1m bar、 data_1m/SPY_1m.pkl 完備)",
-      "condition": "SPY 1m NoiseArea VSO_t × N (N=1.0 baseline)、 cross Upper → LONG / Lower → SHORT (LIVE long-only)、 exit opp boundary or VWAP trail or 14:55 CT MOC",
-      "hold": "場中 (entry → opp boundary / VWAP trail / 14:55 CT MOC)",
-      "freq": "毎日 fire 候補 (SPY 1m、 VIX>40 で頻度大)",
-      "sharpe": "Zarattini SSRN 4824172 Sharpe 1.33 全期 / Sharpe 3.50 (VIX>40)、 CAGR 19.6% (2007-2024 SPY 1m) cumul 1,985% Hit 43%",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "US-D2 SPY Noise Area = ★priority 1★、 VSO_t × N boundary cross mean reversion、 yasuda_short data_1m/SPY_1m.pkl 完備、 paper 1週後 LIVE 判定。 5/22 SPY 1m 2年 backtest 第一弾",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SPY ~\\$740 × mean 0.5%",
-      "_backtest_n": 166,
-      "_backtest_sharpe": -6.55,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 2.16,
-      "_r2_n": 166,
-      "_r2_win_pct": 29.0,
-      "_r2_mean_pct": -0.7,
-      "_r2_sharpe": -6.55,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-6.55 $-26/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "US_D3_PreFOMC_Drift_v1 (FOMC -24h drift SPY hold=1d) 📝 paper US-D3 ⚠ post-2015 decay",
-      "cat": "短期 calendar event drift (paper)",
-      "tickers": "SPY 単独 (TQQQ/SPXL は次拡張候補)",
-      "condition": "FOMC announcement -24h → entry FOMC-1 close → exit FOMC day 13:30 CT (= announcement -30min)、 hold=1d",
-      "hold": "1日 calendar (FOMC-1 close → FOMC day 13:30 CT)",
-      "freq": "年 8 件 (FOMC 8 回 / 年、 2026: 06-18 / 07-30 / 09-17 / 11-05 / 12-17)",
-      "sharpe": "NY Fed SR512 Lucca-Moench 1994-2011 n=131 events 24h +49bp t-stat>4.5 (80% US equity premium)、 ⚠ post-2015 SPY CAGR≈4% Sh≈0.5-0.6 decay",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "US-D3 NY Fed SR512 Pre-FOMC drift、 post-2015 press conference 開始後 drift 弱体化 (Hu 2020 FRL)、 2016-2019 flat → 2020+ 復活。 commission floor (RT $2.80 ≈ 0.07% << 49bp) 十分 net positive だが decay 警戒",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SPY ~\\$740 × mean 0.5%",
-      "_backtest_n": 0,
-      "_backtest_sharpe": null,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 0.0,
-      "_r2_n": 0,
-      "_r2_win_pct": 0,
-      "_r2_mean_pct": 0,
-      "_r2_sharpe": 0,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=+0.00 $+0/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "US_D6_First_Hour_FT_v1 (09:30→10:30 first-hour follow-through) 📝 paper US-D6 ⚠ n=125 small",
-      "cat": "場中 first-hour momentum (paper)",
-      "tickers": "SPY 単独 (1m bar)",
-      "condition": "09:30→10:30 ET first-hour 移動幅 Group 4 = $1.02 absolute (or 0.25% pct)、 first-hour DOWN → 76% 当日 close < 10:30 (trend follow)、 LIVE は UP path のみ採用",
-      "hold": "場中 (10:30 trigger → 15:00 CT MOC exit)",
-      "freq": "毎日 fire 候補 (Group 4 該当 6ヶ月 n≈30 / 125 days)",
-      "sharpe": "OptionAlpha 2022-04-25〜2022-10-24 6ヶ月 n≈125 days 76% win、 ⚠ small n、 QS 補強 first-30min positive 年率 6.67% Sh 1.08",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "US-D6 OptionAlpha first-hour follow-through、 small n=125 days (6ヶ月 OOS 必須)、 long-only 体制保持で LIVE は first-hour UP path のみ、 DOWN path は paper observe",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": null,
-      "_per_share_basis": "SPY ~\\$740 × mean 0.5%",
-      "_backtest_n": 520,
-      "_backtest_sharpe": -7.2,
-      "_backtest_oos_n": null,
-      "_backtest_oos_mean_pct": null,
-      "_signals_per_month": 6.77,
-      "_r2_n": 520,
-      "_r2_win_pct": 30.0,
-      "_r2_mean_pct": -0.77,
-      "_r2_sharpe": -7.2,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-7.20 $-179/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "US_D7_VIX_cond_ORB_v1 (US-D1 + VIX size mult 0.5x-2.0x) 📝 paper US-D7 (D1 booster)",
-      "cat": "場中 ORB + VIX gate (paper)",
-      "tickers": "US-D1 と同 universe (動的 stocks-in-play、 100銘柄 fallback)",
-      "condition": "US-D1 ORB-5min base + VIX size mult: <15=0.5x / 15-20=1.0x / 20-25=1.3x / 25-30=1.6x / >=30=2.0x、 VIX<12 skip。 SL=entry±(0.1×ATR14) risk 1% max 4x lev、 15:00 CT MOC",
-      "hold": "場中 (US-D1 同、 entry → 15:00 CT MOC)",
-      "freq": "US-D1 と同頻度 × VIX gate filter (VIX<12 skip)",
-      "sharpe": "US-D1 baseline Sh 2.40 → VIX>30 帯で Sh ~3.50 推定 (US-D2 VIX>40 挙動からの近似)、 既存 Drop5d_VIX30_StochKD (日次 Sh+14) の場中版",
-      "live": "✅ LIVE 5/22 (size 0.75)、 ⚠ yasuda universe OOS 未確定 (5/29 再走で tier 確定)",
-      "memo": "US-D7 = US-D1 + VIX size scaling booster、 本質差は size scaling のみ、 LIVE 化時 D7 形式へ統合推奨。 source: SSRN 4729284 + Agent C VIX filter",
-      "monthly_profit_usd": null,
-      "_per_share_source": "comprehensive_oos_backtest_5_22",
-      "per_share_profit_usd": -1.09,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.8%",
-      "_backtest_n": 68497,
-      "_backtest_sharpe": -4.03,
-      "_backtest_oos_n": 15743,
-      "_backtest_oos_mean_pct": -0.81,
-      "_signals_per_month": 891.89,
-      "_r2_n": 68497,
-      "_r2_win_pct": 40.1,
-      "_r2_mean_pct": -0.74,
-      "_r2_sharpe": -4.03,
-      "_disabled_reason": "5/22 SS+A only、 R2 Sh=-4.03 $-22003/mo"
-    },
-    {
-      "tier": "DISABLED",
-      "name": "RSI35_Trend",
-      "cat": "短期 mean-reversion (disabled)",
-      "tickers": "100銘柄 watchlist subset",
-      "condition": "RSI(14) <= 35 → 翌寄 BUY hold 1d",
-      "hold": "1d",
-      "freq": "30-60/yr (= mean -0.00% / alpha ゼロ)",
-      "sharpe": "ST136 OOS+0.77 弱 / Agent F mean -0.00%",
-      "live": "⏸ disabled (size_mult=0、 alpha ゼロで keep disabled)",
-      "memo": "5/16 ST136 OOS 弱、 5/22 朝 Agent F audit で mean -0.00% (= 期待値ゼロ) 確認、 keep disabled。 trail 効果検証なし。",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 0.66,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.3%",
-      "_disabled_reason": "5/22 SS+A only、 R2 対象外 (廃案残骸)"
-    },
-    {
-      "tier": "BOOST",
-      "name": "⚡ MSTR_Panic20 ×1.5 when [weekday=Monday]",
-      "cat": "Size booster (= 条件一致で size 拡大)",
-      "tickers": "(該当 戦略の watchlist)",
-      "condition": "weekday=Monday",
-      "hold": "hold_override=1",
-      "freq": "n=73 過去 evidence",
-      "sharpe": "期待 ΔSh +9.63",
-      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
-      "memo": "5/20 wire 採用。 base 戦略 MSTR_Panic20 の signal 発火時、 filter=weekday=Monday 一致なら size×1.5 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 15.93,
-      "_per_share_basis": "MSTR ~\\$300 × mean 5.31%"
-    },
-    {
-      "tier": "BOOST",
-      "name": "⚡ Confluence_RSIBB_v1 ×1.5 when [gap_pct<=-3]",
-      "cat": "Size booster (= 条件一致で size 拡大)",
-      "tickers": "(該当 戦略の watchlist)",
-      "condition": "gap_pct<=-3",
-      "hold": "hold_override=3",
-      "freq": "n=39 過去 evidence",
-      "sharpe": "期待 ΔSh +16.99",
-      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
-      "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIBB_v1 の signal 発火時、 filter=gap_pct<=-3 一致なら size×1.5 適用 (= hold_override=3)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 2.2,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.0%"
     },
     {
       "tier": "BOOST",
@@ -2278,22 +1559,6 @@ window.MOBILE_DATA = {
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
     },
     {
-      "tier": "BOOST",
-      "name": "⚡ VolDryUp_v1 ×1.5 when [self_below_200ma]",
-      "cat": "Size booster (= 条件一致で size 拡大)",
-      "tickers": "(該当 戦略の watchlist)",
-      "condition": "self_below_200ma",
-      "hold": "hold_override=1",
-      "freq": "n=24 過去 evidence",
-      "sharpe": "期待 ΔSh +4.04",
-      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
-      "memo": "5/20 wire 採用。 base 戦略 VolDryUp_v1 の signal 発火時、 filter=self_below_200ma 一致なら size×1.5 適用 (= hold_override=1)。 monitor.py が evaluate + executor で size 計算時に乗算。",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 2.0,
-      "_per_share_basis": "NVDA ~\\$220 × mean 0.91%"
-    },
-    {
       "tier": "ANTI",
       "name": "🚫 Drop5d_BroadPanic SKIP when [next_gap_pct>=+3]",
       "cat": "Anti-pattern filter (= 条件一致で signal skip)",
@@ -2340,38 +1605,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 0.97,
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
-    },
-    {
-      "tier": "ANTI",
-      "name": "🚫 SPY_Panic2_v1 SKIP when [spy_5d_return>0]",
-      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
-      "tickers": "(該当 戦略の watchlist)",
-      "condition": "spy_5d_return>0",
-      "hold": "—",
-      "freq": "—",
-      "sharpe": "SPY 5d positive で Panic2 壊滅 (win 18.5%, n=27, ΔSh-11.36)",
-      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
-      "memo": "5/20 wire 採用。 base 戦略 SPY_Panic2_v1 の signal 発火時、 filter=spy_5d_return>0 一致なら action=skip (= 発注 skip)。 理由: SPY 5d positive で Panic2 壊滅 (win 18.5%, n=27, ΔSh-11.36)",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 7.4,
-      "_per_share_basis": "SPY ~\\$740 × mean 1.0%"
-    },
-    {
-      "tier": "ANTI",
-      "name": "🚫 Confluence_RSIBB_v1 SKIP when [vix_25_30]",
-      "cat": "Anti-pattern filter (= 条件一致で signal skip)",
-      "tickers": "(該当 戦略の watchlist)",
-      "condition": "vix_25_30",
-      "hold": "—",
-      "freq": "—",
-      "sharpe": "VIX 25-30 のみ逆 (両側帯 15-20/30+ は OK、 win 33.6%, n=107, ΔSh-11.",
-      "live": "✅ wire 済 (confluence_filters.py、 monitor.py signal-phase + executor exec-phase)",
-      "memo": "5/20 wire 採用。 base 戦略 Confluence_RSIBB_v1 の signal 発火時、 filter=vix_25_30 一致なら action=skip (= 発注 skip)。 理由: VIX 25-30 のみ逆 (両側帯 15-20/30+ は OK、 win 33.6%, n=107, ΔSh-11.17)",
-      "monthly_profit_usd": null,
-      "_per_share_source": "OOS_backtest",
-      "per_share_profit_usd": 2.2,
-      "_per_share_basis": "NVDA ~\\$220 × mean 1.0%"
     },
     {
       "tier": "A",
@@ -2462,237 +1695,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
-    },
-    {
-      "tier": "S",
-      "name": "A10_WideBar_Capitulation_v1",
-      "cat": "その他",
-      "tickers": "NVDA / SPY / VTI / QQQ / SOXX ... (計30銘柄)",
-      "condition": "today_range/ATR20>=2 ∧ close near low → 翌寄 BUY hold 2d (paper、 Sh+2.54 n=616 mean+1.0% win 58.6% 4/4 regime)",
-      "hold": "2日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "today_range/ATR20>=2 ∧ close near low → 翌寄 BUY hold 2d (paper、 Sh+2.54 n=616 mean+1.0% win 58.6% 4/4 regime)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A10.2 (Axis10 microstructure): today_range/ATR20 >= 2.0 AND close near low (= bottom 25% of range) → 翌寄 BUY hold 2d、 OOS Sh=2.54 n=616 mean=+1.0% win=58.6% regime 4/4 (bull+1.98/bear+4.04/high+4.65/low+1.85)、 source: Crabel 1990 volatility expansion / Wyckoff capitulation、 既存 Drop5d 系 (= 5d 累計) と機構違い (= 1d wide bar)、 全 100銘柄 watchlist、 paper 1週後 LIVE 判定。 注: 高頻度 (n=616 OOS) のため signals capped を monitor 配線時 1日 max 1-2 にすべき。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
-      "_auto_meta": {
-        "key": "A10_WideBar_Capitulation_v1",
-        "tp_pct": 3.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": 2.54
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "A2_BTC_Drop_CryptoProxy_v1",
-      "cat": "その他",
-      "tickers": "CLSK / MSTR / COIN / MARA / RIOT ... (計7銘柄)",
-      "condition": "BTC-USD 1d<=-3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d (paper、 Sh+2.08 n=231 mean+1.37% win 52.8% 3/4 regime)",
-      "hold": "2日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "BTC-USD 1d<=-3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d (paper、 Sh+2.08 n=231 mean+1.37% win 52.8% 3/4 regime)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A2.1 (Axis2 crypto-proxy): BTC-USD 1d <= -3% → COIN/MSTR/MARA/RIOT/CLSK/IBIT/FBTC 翌寄 BUY hold 2d、 OOS Sh=2.08 n=231 mean=+1.37% win=52.8% regime 3/4 (bull+1.08/bear+6.01/high+17.48/low+0.81)、 source: Liu-Tsyvinski 2018 / Quantpedia #698 BTC-stock contagion / Bianchi 2020 JFE、 既存 戦略 30+ にない直交軸 (= crypto contagion reversal)、 paper 1週後 LIVE 判定。 mean+1.37% >> commission floor 0.07% OK。 watchlist に MSTR/COIN/MARA/RIOT/CLSK 含む。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
-      "_auto_meta": {
-        "key": "A2_BTC_Drop_CryptoProxy_v1",
-        "tp_pct": 3.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": 2.08
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "A7_DXY_Drop_EM_Long_v1",
-      "cat": "その他",
-      "tickers": "EEM / FXI / KWEB / EWZ / INDA",
-      "condition": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
-      "hold": "5日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A7.2 (Axis7 macro cross-asset): UUP (DXY proxy) 5d <= -2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d、 OOS Sh=4.36 n=54 mean=+1.76% win=72.2% regime 4/4 (bull+2.88/bear+6.88/high+5.80/low+3.85)、 source: Asness-Moskowitz-Pedersen 2013 cross-asset / Frankel-Rose 1996 DXY-EM、 既存 cross-asset (TLT_Spike) と 異なる asset axis、 完全直交、 paper 1週後 LIVE 判定。 全 regime pass + 高 Sharpe。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75",
-      "_auto_meta": {
-        "key": "A7_DXY_Drop_EM_Long_v1",
-        "tp_pct": 3.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": 4.36
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "CFO_Solo_PBuy_v1",
-      "cat": "短期 insider / fundamental",
-      "tickers": "WAB / LLY / INTC / CHD / CHRW ... (計55銘柄)",
-      "condition": "logs/insider_skeptic_top.md A2: CFO solo P-buy (mu=1) h=3、 Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime",
-      "hold": "3日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "logs/insider_skeptic_top.md A2: CFO solo P-buy (mu=1) h=3、 Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_note] 5/19 採用 (Phase 1 paper Tier B): S1' CFO solo P-buy h=3、 logs/insider_skeptic_top.md A2 family Sh+2.72 win 61.8% n=89 OOS+2.83 3/4 regime。 mean+0.83% × 2 = TP+2.5% 目安",
-      "_auto_meta": {
-        "key": "CFO_Solo_PBuy_v1",
-        "tp_pct": 2.5,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 2.72
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "Drop5d_VIX30_StochKD",
-      "cat": "短期 mean-reversion (Drop5d系)",
-      "tickers": "NVDA / SOXX / XLK / XLF / AVGO ... (計58銘柄)",
-      "condition": "ST178/182/184 (5/14 夜): Drop5d-12 + VIX>=30 + Stoch K>D、Sharpe +14.09 (n=35)、Bootstrap CI [+9.08,+21.52]、4重 pass。size 0.5/max 1。",
-      "hold": "1日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "ST178/182/184 (5/14 夜): Drop5d-12 + VIX>=30 + Stoch K>D、Sharpe +14.09 (n=35)、Bootstrap CI [+9.08,+21.52]、4重 pass。size 0.5/max 1。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.5]",
-      "memo": "[_5_21_revision] Agent F: 1.95 → 2.5、 size_multiplier 0.5 維持",
-      "_auto_meta": {
-        "key": "Drop5d_VIX30_StochKD",
-        "tp_pct": 2.5,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.5,
-        "paper": false,
-        "sharpe_value": 14.09
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "A",
-      "name": "N3_HYG_Credit_XBI_v1",
-      "cat": "その他",
-      "tickers": "XBI",
-      "condition": "HYG 5d<=-1.5% → XBI 翌寄 BUY hold 5d (paper、 Sh+1.94 OOS+8.11 n=45 4/4)",
-      "hold": "5日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "HYG 5d<=-1.5% → XBI 翌寄 BUY hold 5d (paper、 Sh+1.94 OOS+8.11 n=45 4/4)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N3 (SSRN credit-equity contagion / Avramov-Chordia overreaction): HYG (high-yield bond ETF) 5d <= -1.5% (= credit spread spike proxy) → XBI biotech 翌寄 BUY hold 5d、 Sh+1.94 OOS+8.11 n=45 win 64% 4/4 regime。 既存 TLT_Spike は flight-to-safety (リスクオフ防衛買)、 こちらは credit panic → リスクオン反転で方向違いの cross-asset。 paper 1週後 LIVE 判定。 / [_5_22_live] 5/22 user 採用: paper→LIVE 化、 size_mult 0.75 (= 中央値、 失敗許容) で初週",
-      "_auto_meta": {
-        "key": "N3_HYG_Credit_XBI_v1",
-        "tp_pct": 3.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": 1.94
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "A",
-      "name": "N7_VIXCurl_XLK_v1",
-      "cat": "その他",
-      "tickers": "XLK",
-      "condition": "VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d (paper、 Sh+1.98 OOS+3.17 n=69 4/4)",
-      "hold": "5日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d (paper、 Sh+1.98 OOS+3.17 n=69 4/4)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] discover_panic_world_5_21.py N7: VIX/VIX3M >= 1.0 → XLK 翌寄 BUY hold 5d、 Sh+1.98 OOS+3.17 n=69 win 67% 4/4 regime。 N7_VIXCurl_SMH_v1 と同 trigger / 別 target (= 分散 dual deploy)、 mean+1.25%。 paper 1週後 LIVE 判定。 / [_5_22_live] 5/22 user 採用: paper→LIVE 化、 size_mult 0.75 (= 中央値、 失敗許容) で初週",
-      "_auto_meta": {
-        "key": "N7_VIXCurl_XLK_v1",
-        "tp_pct": 2.5,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": 1.98
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "PEAD_Down5d_v1",
-      "cat": "その他",
-      "tickers": "NVDA / AVGO / META / GOOGL / AAPL ... (計7銘柄)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C2 (PEAD overreaction): earnings 当日 gap<-3% → 翌寄 BUY hold 5d、 OOS Sh=2.47 n=60 mean=+2.38% win=60% regime 4/4 (bull+1.98/bear+4.31/high+3.75/low+2.21)、 source: 反 PEAD = overreaction (Lakonishok 1991, Tetlock 2007)、 paper 1週後 LIVE 判定。 既存 Earnings_T_minus_5 (= 決算前) と反対方向で重複なし。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C2 (PEAD overreaction): earnings 当日 gap<-3% → 翌寄 BUY hold 5d、 OOS Sh=2.47 n=60 mean=+2.38% win=60% regime 4/4 (bull+1.98/bear+4.31/high+3.75/low+2.21)、 source: 反 PEAD = overreaction (Lakonishok 1991, Tetlock 2007)、 paper 1週後 LIVE 判定。 既存 Earnings_T_minus_5 (= 決算前) と反対方向で重複なし。 / [_5_22_live] 5/22 user 採用: paper→LIVE 化、 size_mult 0.75 (= 中央値、 失敗許容) で初週",
-      "_auto_meta": {
-        "key": "PEAD_Down5d_v1",
-        "tp_pct": 4.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "Sun_Eff_Long_v1",
-      "cat": "その他",
-      "tickers": "SPY / QQQ / SOXX / XLK / SMH",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C5 (Sunday-Effect reversal): Fri close < SMA20 ∧ VIX>20 → Mon 寄付 BUY hold 1d、 OOS Sh=4.43 n=66 mean=+0.63% win=66.7% regime 4/4 (bull+7.52/bear+2.28/high+8.83/low+2.81)、 universe: SPY/QQQ/SOXX/SMH/XLK、 source: QuantSeeker 2022 / 中国量化坛 周末效应 反転 / Sunday-fear thesis、 paper 1週後 LIVE 判定。 既存 Mon 関連 (RSI35 Tue skip / Sector_FriPanic) と別軸。 mean+0.63% > commission floor 0.07% OK。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.75]",
-      "memo": "[_5_22_discovery] scripts/discover_short_term_global_5_22.py C5 (Sunday-Effect reversal): Fri close < SMA20 ∧ VIX>20 → Mon 寄付 BUY hold 1d、 OOS Sh=4.43 n=66 mean=+0.63% win=66.7% regime 4/4 (bull+7.52/bear+2.28/high+8.83/low+2.81)、 universe: SPY/QQQ/SOXX/SMH/XLK、 source: QuantSeeker 2022 / 中国量化坛 周末效应 反転 / Sunday-fear thesis、 paper 1週後 LIVE 判定。 既存 Mon 関連 (RSI35 Tue skip / Sector_FriPanic) と別軸。 mean+0.63% > commission floor 0.07% OK。 / [_5_22_live] 5/22 user 採用: paper→LIVE 化、 size_mult 0.75 (= 中央値、 失敗許容) で初週",
-      "_auto_meta": {
-        "key": "Sun_Eff_Long_v1",
-        "tp_pct": 2.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.75,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "TLT_Spike_Equity_v1",
-      "cat": "短期 cross-asset reversion",
-      "tickers": "NVDA / QQQ / XLK",
-      "condition": "TLT 5日 >=+3% flight-to-safety reversion → 翌寄 NVDA/XLK/QQQ BUY: Sh+3.09〜+3.46 win 72-78% n=36",
-      "hold": "3日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "TLT 5日 >=+3% flight-to-safety reversion → 翌寄 NVDA/XLK/QQQ BUY: Sh+3.09〜+3.46 win 72-78% n=36",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_5_20_revision] 2.0% → 3%、 panic rebound で wide MFE 期待 / [_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): TLT 5d>=+3% → NVDA/XLK/QQQ 翌寄 BUY、 Sh+3.09〜+3.46 win 72-78% n=36。 hold 3d",
-      "_auto_meta": {
-        "key": "TLT_Spike_Equity_v1",
-        "tp_pct": 3.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 3.09
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "VIX_Spike_XLK_v1",
-      "cat": "短期 vol spike",
-      "tickers": "XLK",
-      "condition": "VIX 1日 +30% spike → 翌寄 XLK BUY: Sh+3.21 OOS+8.33 win 83% n=23",
-      "hold": "7日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "VIX 1日 +30% spike → 翌寄 XLK BUY: Sh+3.21 OOS+8.33 win 83% n=23",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_note] 5/19 夜間自走 採用 (Phase 1 paper Tier B): VIX 1d +30% → XLK 翌寄 BUY、 Sh+3.21 OOS+8.33 win 83% n=23。 hold 7d",
-      "_auto_meta": {
-        "key": "VIX_Spike_XLK_v1",
-        "tp_pct": 2.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 3.21
-      },
-      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2705,12 +1707,7 @@ window.MOBILE_DATA = {
       "industry": "Consumer Electronics",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -2722,9 +1719,6 @@ window.MOBILE_DATA = {
       "industry": "Travel Services",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2737,10 +1731,6 @@ window.MOBILE_DATA = {
       "industry": "Semiconductors",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -2754,11 +1744,7 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Stoch_Oversold_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -2770,9 +1756,6 @@ window.MOBILE_DATA = {
       "industry": "Electrical Equipment & Parts",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2785,8 +1768,6 @@ window.MOBILE_DATA = {
       "industry": "Medical Care Facilities",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2799,10 +1780,7 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_BroadPanic",
-        "Stoch_Oversold_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -2814,10 +1792,6 @@ window.MOBILE_DATA = {
       "industry": "Auto Parts",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -2831,27 +1805,9 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Pullback_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
-      ]
-    },
-    {
-      "ticker": "AMD",
-      "name": "Advanced Micro Devices, Inc.",
-      "reading": "アドバンスト・マイクロ・デバイセズ",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Semiconductors",
-      "is_champ": false,
-      "strategies": [
-        "Stoch_Oversold_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -2863,8 +1819,6 @@ window.MOBILE_DATA = {
       "industry": "Electrical Equipment & Parts",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2877,14 +1831,8 @@ window.MOBILE_DATA = {
       "industry": "Internet Retail",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -2896,12 +1844,7 @@ window.MOBILE_DATA = {
       "industry": "Computer Hardware",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Golden_Cross_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -2913,10 +1856,6 @@ window.MOBILE_DATA = {
       "industry": "Specialty Chemicals",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2929,21 +1868,10 @@ window.MOBILE_DATA = {
       "industry": "Semiconductors",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Semi_FriPanic_v1",
-        "SPY_Panic2_v1",
         "Pullback_v1",
-        "MACD_Cross_v1",
-        "SMA_Stack_v1",
-        "Stoch_Oversold_v1",
         "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "VolDryUp_v1",
         "Sector_FriPanic_v1"
       ]
     },
@@ -2956,10 +1884,6 @@ window.MOBILE_DATA = {
       "industry": "Credit Services",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -2972,7 +1896,6 @@ window.MOBILE_DATA = {
       "industry": "Banks - Diversified",
       "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5",
         "Confluence_RSIStoch_v1",
         "Sector_FriPanic_v1"
       ]
@@ -2986,22 +1909,7 @@ window.MOBILE_DATA = {
       "industry": "Medical Instruments & Supplies",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "BSX",
-      "name": "Boston Scientific Corporation",
-      "reading": "ボストン・サイエンティフィック",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Medical Devices",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend"
       ]
     },
     {
@@ -3013,10 +1921,6 @@ window.MOBILE_DATA = {
       "industry": "Auto Parts",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3029,7 +1933,6 @@ window.MOBILE_DATA = {
       "industry": "Medical Distribution",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -3042,35 +1945,7 @@ window.MOBILE_DATA = {
       "industry": "Agricultural Inputs",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "CHD",
-      "name": "Church & Dwight Co., Inc.",
-      "reading": "チャーチ・アンド・ドワイト",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Household & Personal Products",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "CHRW",
-      "name": "C.H. Robinson Worldwide, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Integrated Freight & Logistics",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3082,33 +1957,7 @@ window.MOBILE_DATA = {
       "industry": "Capital Markets",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "CNC",
-      "name": "Centene Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Healthcare Plans",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "CNP",
-      "name": "CenterPoint Energy, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Regulated Electric",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3120,22 +1969,7 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "COO",
-      "name": "The Cooper Companies, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Medical Instruments & Supplies",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3147,9 +1981,6 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas E&P",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -3162,9 +1993,7 @@ window.MOBILE_DATA = {
       "sector_jp": "生活必需",
       "industry": "Discount Stores",
       "is_champ": true,
-      "strategies": [
-        "Earnings_T_minus_5"
-      ]
+      "strategies": []
     },
     {
       "ticker": "CRM",
@@ -3175,12 +2004,7 @@ window.MOBILE_DATA = {
       "industry": "Software - Application",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -3192,46 +2016,7 @@ window.MOBILE_DATA = {
       "industry": "Biotechnology",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "CTVA",
-      "name": "Corteva, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Basic Materials",
-      "sector_jp": "素材",
-      "industry": "Agricultural Inputs",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "CVX",
-      "name": "Chevron Corporation",
-      "reading": "シェブロン",
-      "sector_en": "Energy",
-      "sector_jp": "エネルギー",
-      "industry": "Oil & Gas Integrated",
-      "is_champ": false,
-      "strategies": [
-        "Earnings_T_minus_5"
-      ]
-    },
-    {
-      "ticker": "D",
-      "name": "Dominion Energy, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Regulated Electric",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3243,24 +2028,8 @@ window.MOBILE_DATA = {
       "industry": "Farm & Heavy Construction Machinery",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
-      ]
-    },
-    {
-      "ticker": "DLTR",
-      "name": "Dollar Tree, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Discount Stores",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3272,10 +2041,7 @@ window.MOBILE_DATA = {
       "industry": "Biotechnology",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_BroadPanic",
-        "Stoch_Oversold_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -3287,20 +2053,7 @@ window.MOBILE_DATA = {
       "industry": "Internet Retail",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1"
-      ]
-    },
-    {
-      "ticker": "ED",
-      "name": "Consolidated Edison, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Regulated Electric",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3316,30 +2069,6 @@ window.MOBILE_DATA = {
       ]
     },
     {
-      "ticker": "EG",
-      "name": "Everest Group, Ltd.",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Insurance - Reinsurance",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "EL",
-      "name": "The Estée Lauder Companies Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Household & Personal Products",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
       "ticker": "EOG",
       "name": "EOG Resources, Inc.",
       "reading": "EOG リソーシズ",
@@ -3348,22 +2077,7 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas E&P",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "EPAM",
-      "name": "EPAM Systems, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Information Technology Services",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3375,47 +2089,7 @@ window.MOBILE_DATA = {
       "industry": "REIT - Specialty",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "HighPullback50_v1"
-      ]
-    },
-    {
-      "ticker": "EQR",
-      "name": "Equity Residential",
-      "reading": "(未登録)",
-      "sector_en": "Real Estate",
-      "sector_jp": "REIT/不動産",
-      "industry": "REIT - Residential",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "EQT",
-      "name": "EQT Corporation",
-      "reading": "EQT コーポレーション",
-      "sector_en": "Energy",
-      "sector_jp": "エネルギー",
-      "industry": "Oil & Gas E&P",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "EVRG",
-      "name": "Evergy, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Regulated Electric",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -3431,90 +2105,6 @@ window.MOBILE_DATA = {
       ]
     },
     {
-      "ticker": "EXE",
-      "name": "Expand Energy Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Energy",
-      "sector_jp": "エネルギー",
-      "industry": "Oil & Gas E&P",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "FAS",
-      "name": "Direxion Daily Financial Bull 3X Shares",
-      "reading": "金融セクター 3x レバレッジ ETF",
-      "sector_en": "?",
-      "sector_jp": "レバレッジ ETF",
-      "industry": "金融 3x",
-      "is_champ": false,
-      "strategies": [
-        "Drop5d_StrictATR"
-      ]
-    },
-    {
-      "ticker": "FAST",
-      "name": "Fastenal Company",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Industrial Distribution",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "FDS",
-      "name": "FactSet Research Systems Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Financial Data & Stock Exchanges",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "FDX",
-      "name": "FedEx Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Integrated Freight & Logistics",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "FISV",
-      "name": "Fiserv, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "?",
-      "sector_jp": "?",
-      "industry": "?",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "FITB",
-      "name": "Fifth Third Bancorp",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Banks - Regional",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
       "ticker": "FIX",
       "name": "Comfort Systems USA, Inc.",
       "reading": "コンフォート・システムズ USA",
@@ -3523,10 +2113,6 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3539,8 +2125,6 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3553,21 +2137,7 @@ window.MOBILE_DATA = {
       "industry": "Home Improvement Retail",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "FSLR",
-      "name": "First Solar, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Solar",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3579,11 +2149,8 @@ window.MOBILE_DATA = {
       "industry": "Aerospace & Defense",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic",
-        "Confluence_RSIStoch_v1",
-        "Stoch_Oversold_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -3595,48 +2162,7 @@ window.MOBILE_DATA = {
       "industry": "Software - Infrastructure",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ]
-    },
-    {
-      "ticker": "FTV",
-      "name": "Fortive Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Scientific & Technical Instruments",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "GEHC",
-      "name": "GE HealthCare Technologies Inc.",
-      "reading": "GE ヘルスケア",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Medical Devices",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "GL",
-      "name": "Globe Life Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Insurance - Life",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -3652,18 +2178,6 @@ window.MOBILE_DATA = {
       ]
     },
     {
-      "ticker": "GM",
-      "name": "General Motors Company",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Auto Manufacturers",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
       "ticker": "GOOG",
       "name": "Alphabet Inc.",
       "reading": "アルファベット (グーグル)",
@@ -3671,10 +2185,7 @@ window.MOBILE_DATA = {
       "sector_jp": "通信",
       "industry": "Internet Content & Information",
       "is_champ": true,
-      "strategies": [
-        "Earnings_T_minus_5",
-        "HighPullback50_v1"
-      ]
+      "strategies": []
     },
     {
       "ticker": "GOOGL",
@@ -3685,14 +2196,9 @@ window.MOBILE_DATA = {
       "industry": "Internet Content & Information",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Pullback_v1",
-        "HighPullback50_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -3704,23 +2210,7 @@ window.MOBILE_DATA = {
       "industry": "Packaging & Containers",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "HD",
-      "name": "The Home Depot, Inc.",
-      "reading": "ホーム・デポ",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Home Improvement Retail",
-      "is_champ": false,
-      "strategies": [
-        "Earnings_T_minus_5"
       ]
     },
     {
@@ -3732,9 +2222,6 @@ window.MOBILE_DATA = {
       "industry": "REIT - Office",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3747,8 +2234,6 @@ window.MOBILE_DATA = {
       "industry": "Capital Markets",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3773,24 +2258,7 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "INTC",
-      "name": "Intel Corporation",
-      "reading": "インテル",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Semiconductors",
-      "is_champ": false,
-      "strategies": [
-        "Stoch_Oversold_v1",
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3802,9 +2270,6 @@ window.MOBILE_DATA = {
       "industry": "Packaging & Containers",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -3818,7 +2283,6 @@ window.MOBILE_DATA = {
       "industry": "Specialty Industrial Machinery",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -3831,24 +2295,7 @@ window.MOBILE_DATA = {
       "industry": "ラッセル 2000 (小型株)",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "VolDryUp_v1"
-      ]
-    },
-    {
-      "ticker": "J",
-      "name": "Jacobs Solutions Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Engineering & Construction",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -3860,8 +2307,6 @@ window.MOBILE_DATA = {
       "industry": "Banks - Diversified",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Earnings_T_minus_5",
         "Sector_FriPanic_v1"
       ]
     },
@@ -3874,21 +2319,7 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "KDP",
-      "name": "Keurig Dr Pepper Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Beverages - Non-Alcoholic",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -3900,14 +2331,9 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Pullback_v1",
-        "Confluence_RSIStoch_v1",
-        "VolDryUp_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -3931,9 +2357,6 @@ window.MOBILE_DATA = {
       "industry": "Communication Equipment",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -3946,11 +2369,7 @@ window.MOBILE_DATA = {
       "industry": "Drug Manufacturers - General",
       "is_champ": true,
       "strategies": [
-        "Earnings_T_minus_5",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "Stoch_Oversold_v1",
-        "CFO_Solo_PBuy_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -3962,22 +2381,7 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas Midstream",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "LOW",
-      "name": "Lowe's Companies, Inc.",
-      "reading": "ロウズ",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Home Improvement Retail",
-      "is_champ": false,
-      "strategies": [
-        "Earnings_T_minus_5"
       ]
     },
     {
@@ -3989,11 +2393,7 @@ window.MOBILE_DATA = {
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -4005,10 +2405,6 @@ window.MOBILE_DATA = {
       "industry": "Department Stores",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -4022,10 +2418,7 @@ window.MOBILE_DATA = {
       "industry": "Credit Services",
       "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5",
-        "SMA_Stack_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4037,10 +2430,6 @@ window.MOBILE_DATA = {
       "industry": "Lodging",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -4054,42 +2443,9 @@ window.MOBILE_DATA = {
       "industry": "Internet Content & Information",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Pullback_v1",
-        "SMA_Stack_v1",
-        "Stoch_Oversold_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "VolDryUp_v1"
-      ]
-    },
-    {
-      "ticker": "MGM",
-      "name": "MGM Resorts International",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Resorts & Casinos",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "MRNA",
-      "name": "Moderna, Inc.",
-      "reading": "モデルナ",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Biotechnology",
-      "is_champ": false,
-      "strategies": [
-        "Earnings_T_minus_5"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4101,21 +2457,8 @@ window.MOBILE_DATA = {
       "industry": "Capital Markets",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1",
         "Sector_FriPanic_v1"
-      ]
-    },
-    {
-      "ticker": "MSCI",
-      "name": "MSCI Inc.",
-      "reading": "エムエスシーアイ",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Financial Data & Stock Exchanges",
-      "is_champ": false,
-      "strategies": [
-        "SPY_Panic2_v1"
       ]
     },
     {
@@ -4127,111 +2470,8 @@ window.MOBILE_DATA = {
       "industry": "Software - Infrastructure",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
-      ]
-    },
-    {
-      "ticker": "MSTR",
-      "name": "Strategy Inc",
-      "reading": "マイクロストラテジー",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Software - Application",
-      "is_champ": false,
-      "strategies": [
-        "MSTR_Panic20"
-      ]
-    },
-    {
-      "ticker": "MTB",
-      "name": "M&T Bank Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Banks - Regional",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "MU",
-      "name": "Micron Technology, Inc.",
-      "reading": "マイクロン・テクノロジー",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Semiconductors",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend",
-        "Earnings_T_minus_5"
-      ]
-    },
-    {
-      "ticker": "NCLH",
-      "name": "Norwegian Cruise Line Holdings Ltd.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Travel Services",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "NEE",
-      "name": "NextEra Energy, Inc.",
-      "reading": "ネクステラ・エナジー",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Regulated Electric",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "NSC",
-      "name": "Norfolk Southern Corporation",
-      "reading": "ノーフォーク・サザン",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Railroads",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend"
-      ]
-    },
-    {
-      "ticker": "NTAP",
-      "name": "NetApp, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Software - Infrastructure",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "NTRS",
-      "name": "Northern Trust Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Asset Management",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4243,33 +2483,11 @@ window.MOBILE_DATA = {
       "industry": "Semiconductors",
       "is_champ": true,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "SPY_Panic2_v1",
-        "BB_Lower_Bounce_v1",
-        "Stoch_Oversold_v1",
-        "HighPullback50_v1",
         "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "Inside_Day_BO_v1",
         "Sector_FriPanic_v1",
         "Confluence_BBStoch_v1",
-        "TLT_Spike_Equity_v1"
-      ]
-    },
-    {
-      "ticker": "ODFL",
-      "name": "Old Dominion Freight Line, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Trucking",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "N1_NVDA_Consec4_v1"
       ]
     },
     {
@@ -4281,10 +2499,6 @@ window.MOBILE_DATA = {
       "industry": "Discount Stores",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -4298,26 +2512,8 @@ window.MOBILE_DATA = {
       "industry": "Semiconductors",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Stoch_Oversold_v1",
-        "Confluence_RSIStoch_v1",
-        "HighPullback50_v1"
-      ]
-    },
-    {
-      "ticker": "ORLY",
-      "name": "O'Reilly Automotive, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Auto Parts",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4329,11 +2525,7 @@ window.MOBILE_DATA = {
       "industry": "Software - Infrastructure",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -4346,20 +2538,7 @@ window.MOBILE_DATA = {
       "industry": "Specialty Industrial Machinery",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Sector_FriPanic_v1"
-      ]
-    },
-    {
-      "ticker": "PODD",
-      "name": "Insulet Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Medical Devices",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -4371,10 +2550,6 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
       ]
@@ -4388,8 +2563,6 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas Refining & Marketing",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4412,10 +2585,6 @@ window.MOBILE_DATA = {
       "industry": "Semiconductors",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4428,97 +2597,8 @@ window.MOBILE_DATA = {
       "industry": "ナスダック 100 (テック中心)",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "VIX_Backward",
-        "Drop5d_ETF7",
         "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "Confluence_BBStoch_v1",
-        "TLT_Spike_Equity_v1"
-      ]
-    },
-    {
-      "ticker": "RBC",
-      "name": "RBC Bearings Incorporated",
-      "reading": "RBC ベアリングス",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Tools & Accessories",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend"
-      ]
-    },
-    {
-      "ticker": "RCL",
-      "name": "Royal Caribbean Cruises Ltd.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Travel Services",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "REGN",
-      "name": "Regeneron Pharmaceuticals, Inc.",
-      "reading": "リジェネロン",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Biotechnology",
-      "is_champ": false,
-      "strategies": [
-        "Earnings_T_minus_5"
-      ]
-    },
-    {
-      "ticker": "ROK",
-      "name": "Rockwell Automation, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Specialty Industrial Machinery",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "ROL",
-      "name": "Rollins, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Personal Services",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "SBAC",
-      "name": "SBA Communications Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Real Estate",
-      "sector_jp": "REIT/不動産",
-      "industry": "REIT - Specialty",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "SCHW",
-      "name": "The Charles Schwab Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Financial Services",
-      "sector_jp": "金融",
-      "industry": "Capital Markets",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Confluence_BBStoch_v1"
       ]
     },
     {
@@ -4530,21 +2610,7 @@ window.MOBILE_DATA = {
       "industry": "Internet Retail",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "SHW",
-      "name": "The Sherwin-Williams Company",
-      "reading": "(未登録)",
-      "sector_en": "Basic Materials",
-      "sector_jp": "素材",
-      "industry": "Specialty Chemicals",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -4556,8 +2622,6 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas Equipment & Services",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4570,8 +2634,6 @@ window.MOBILE_DATA = {
       "industry": "Biotechnology",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4584,7 +2646,6 @@ window.MOBILE_DATA = {
       "industry": "銀コモディティ",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -4597,19 +2658,10 @@ window.MOBILE_DATA = {
       "industry": "半導体 (VanEck)",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "VIX_Backward",
-        "Drop5d_ETF7",
-        "SMA_Stack_v1",
         "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "VolDryUp_v1",
-        "EarnCascade_SMH_up5_h5",
-        "EarnCascade_SMH_down5_h10"
+        "N7_VIXCurl_SMH_v1",
+        "N9_Cascade3_SMH_v1"
       ]
     },
     {
@@ -4621,12 +2673,7 @@ window.MOBILE_DATA = {
       "industry": "Software - Infrastructure",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "HighPullback50_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -4638,21 +2685,7 @@ window.MOBILE_DATA = {
       "industry": "Credit Services",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "SOXL",
-      "name": "Direxion Daily Semiconductor Bull 3X Shares",
-      "reading": "半導体 3x レバレッジ ETF",
-      "sector_en": "?",
-      "sector_jp": "レバレッジ ETF",
-      "industry": "半導体 3x",
-      "is_champ": false,
-      "strategies": [
-        "Drop5d_StrictATR"
       ]
     },
     {
@@ -4664,29 +2697,8 @@ window.MOBILE_DATA = {
       "industry": "半導体 (iShares)",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Drop5d_ETF7",
-        "SPY_Panic2_v1",
-        "SMA_Stack_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "EarnCascade_SOXX_up5_h5"
-      ]
-    },
-    {
-      "ticker": "SPG",
-      "name": "Simon Property Group, Inc.",
-      "reading": "サイモン・プロパティ・グループ",
-      "sector_en": "Real Estate",
-      "sector_jp": "REIT/不動産",
-      "industry": "REIT - Retail",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4698,11 +2710,8 @@ window.MOBILE_DATA = {
       "industry": "S&P500 3x",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic",
-        "Confluence_RSIStoch_v1",
-        "HighPullback50_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -4714,9 +2723,6 @@ window.MOBILE_DATA = {
       "industry": "S&P 500 全体",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "VIX_Backward",
-        "Drop5d_ETF7",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -4729,10 +2735,6 @@ window.MOBILE_DATA = {
       "industry": "Steel",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4745,58 +2747,7 @@ window.MOBILE_DATA = {
       "industry": "Engineering & Construction",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_BroadPanic",
-        "HighPullback50_v1"
-      ]
-    },
-    {
-      "ticker": "SYK",
-      "name": "Stryker Corporation",
-      "reading": "ストライカー",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Medical Devices",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend"
-      ]
-    },
-    {
-      "ticker": "SYY",
-      "name": "Sysco Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Food Distribution",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "TDG",
-      "name": "TransDigm Group Incorporated",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Aerospace & Defense",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "TGT",
-      "name": "Target Corporation",
-      "reading": "ターゲット",
-      "sector_en": "Consumer Defensive",
-      "sector_jp": "生活必需",
-      "industry": "Discount Stores",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -4808,35 +2759,7 @@ window.MOBILE_DATA = {
       "industry": "Telecom Services",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
-      ]
-    },
-    {
-      "ticker": "TNA",
-      "name": "Direxion Daily Small Cap Bull 3X Shares",
-      "reading": "ラッセル 2000 3x レバレッジ ETF",
-      "sector_en": "?",
-      "sector_jp": "レバレッジ ETF",
-      "industry": "ラッセル 2000 3x",
-      "is_champ": false,
-      "strategies": [
-        "Drop5d_StrictATR"
-      ]
-    },
-    {
-      "ticker": "TQQQ",
-      "name": "ProShares UltraPro QQQ",
-      "reading": "NASDAQ100 3x レバレッジ ETF",
-      "sector_en": "?",
-      "sector_jp": "レバレッジ ETF",
-      "industry": "NASDAQ100 3x",
-      "is_champ": false,
-      "strategies": [
-        "Drop5d_StrictATR"
       ]
     },
     {
@@ -4848,11 +2771,8 @@ window.MOBILE_DATA = {
       "industry": "Auto Manufacturers",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
+        "N1_TSLA_Consec4_v1"
       ]
     },
     {
@@ -4864,48 +2784,7 @@ window.MOBILE_DATA = {
       "industry": "Diagnostics & Research",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "SPY_Panic2_v1"
-      ]
-    },
-    {
-      "ticker": "UBER",
-      "name": "Uber Technologies, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Software - Application",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "UNH",
-      "name": "UnitedHealth Group Incorporated",
-      "reading": "(未登録)",
-      "sector_en": "Healthcare",
-      "sector_jp": "ヘルスケア",
-      "industry": "Healthcare Plans",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "UPRO",
-      "name": "ProShares UltraPro S&P500",
-      "reading": "S&P500 3x レバレッジ ETF (ProShares)",
-      "sector_en": "?",
-      "sector_jp": "レバレッジ ETF",
-      "industry": "S&P500 3x (ProShares)",
-      "is_champ": false,
-      "strategies": [
-        "Drop5d_StrictATR",
-        "HighPullback50_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -4917,7 +2796,6 @@ window.MOBILE_DATA = {
       "industry": "Credit Services",
       "is_champ": false,
       "strategies": [
-        "Stoch_Oversold_v1",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -4930,11 +2808,7 @@ window.MOBILE_DATA = {
       "industry": "Auto Parts",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "HighPullback50_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -4946,8 +2820,6 @@ window.MOBILE_DATA = {
       "industry": "Utilities - Renewable",
       "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_StrictATR",
         "Drop5d_BroadPanic"
       ]
     },
@@ -4960,24 +2832,8 @@ window.MOBILE_DATA = {
       "industry": "REIT - Office",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
         "Confluence_RSIStoch_v1"
-      ]
-    },
-    {
-      "ticker": "VRT",
-      "name": "Vertiv Holdings Co",
-      "reading": "(未登録)",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Electrical Equipment & Parts",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -4989,25 +2845,7 @@ window.MOBILE_DATA = {
       "industry": "Biotechnology",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Pharma_Panic_v1"
-      ]
-    },
-    {
-      "ticker": "VST",
-      "name": "Vistra Corp.",
-      "reading": "(未登録)",
-      "sector_en": "Utilities",
-      "sector_jp": "公益",
-      "industry": "Utilities - Independent Power Producers",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -5019,33 +2857,7 @@ window.MOBILE_DATA = {
       "industry": "米国株式全体",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
         "Confluence_RSIStoch_v1"
-      ]
-    },
-    {
-      "ticker": "WAB",
-      "name": "Westinghouse Air Brake Technologies Corporation",
-      "reading": "ウェスティングハウス・エア・ブレーキ",
-      "sector_en": "Industrials",
-      "sector_jp": "産業",
-      "industry": "Railroads",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend",
-        "CFO_Solo_PBuy_v1"
-      ]
-    },
-    {
-      "ticker": "WBD",
-      "name": "Warner Bros. Discovery, Inc.",
-      "reading": "(未登録)",
-      "sector_en": "Communication Services",
-      "sector_jp": "通信",
-      "industry": "Entertainment",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     },
     {
@@ -5057,10 +2869,6 @@ window.MOBILE_DATA = {
       "industry": "Industrial Distribution",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic"
       ]
     },
@@ -5073,25 +2881,7 @@ window.MOBILE_DATA = {
       "industry": "Specialty Retail",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "Stoch_Oversold_v1"
-      ]
-    },
-    {
-      "ticker": "XBI",
-      "name": "State Street SPDR S&P Biotech ETF",
-      "reading": "バイオテック ETF",
-      "sector_en": "?",
-      "sector_jp": "ETF",
-      "industry": "バイオテック",
-      "is_champ": false,
-      "strategies": [
-        "VIX_Backward",
-        "Drop5d_ETF7"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -5115,9 +2905,6 @@ window.MOBILE_DATA = {
       "industry": "エネルギー・セクター",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_ETF7",
-        "Confluence_RSIBB_v1",
         "Confluence_RSIStoch_v1"
       ]
     },
@@ -5130,27 +2917,7 @@ window.MOBILE_DATA = {
       "industry": "金融・セクター",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
-        "Drop5d_BroadPanic",
-        "CPI_Cyclical",
-        "Drop5d_ETF7"
-      ]
-    },
-    {
-      "ticker": "XLI",
-      "name": "State Street Industrial Select Sector SPDR ETF",
-      "reading": "インダストリアル・セレクト・セクター",
-      "sector_en": "?",
-      "sector_jp": "ETF",
-      "industry": "産業・セクター",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend",
-        "CPI_Cyclical",
-        "Drop5d_ETF7"
+        "Drop5d_BroadPanic"
       ]
     },
     {
@@ -5162,30 +2929,9 @@ window.MOBILE_DATA = {
       "industry": "テクノロジー・セクター",
       "is_champ": false,
       "strategies": [
-        "RSI35_Trend",
-        "Drop5d_7",
-        "Drop5d_StrictATR",
-        "Drop5d_VIX30_StochKD",
         "Drop5d_BroadPanic",
-        "VIX_Backward",
-        "Drop5d_ETF7",
         "Pullback_v1",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1",
-        "TLT_Spike_Equity_v1",
-        "VIX_Spike_XLK_v1"
-      ]
-    },
-    {
-      "ticker": "XLRE",
-      "name": "State Street Real Estate Select Sector SPDR ETF",
-      "reading": "不動産セクター ETF",
-      "sector_en": "?",
-      "sector_jp": "ETF",
-      "industry": "不動産・セクター",
-      "is_champ": false,
-      "strategies": [
-        "Confluence_RSIBB_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -5197,38 +2943,7 @@ window.MOBILE_DATA = {
       "industry": "公共事業・セクター",
       "is_champ": false,
       "strategies": [
-        "CPI_Defensive",
-        "Confluence_RSIStoch_v1",
-        "Confluence_RSIBB_v1"
-      ]
-    },
-    {
-      "ticker": "XLV",
-      "name": "State Street Health Care Select Sector SPDR ETF",
-      "reading": "ヘルスケア・セレクト・セクター",
-      "sector_en": "?",
-      "sector_jp": "ETF",
-      "industry": "ヘルスケア・セクター",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend",
-        "CPI_Defensive",
-        "Drop5d_ETF7",
-        "Confluence_RSIBB_v1"
-      ]
-    },
-    {
-      "ticker": "XLY",
-      "name": "State Street Consumer Discretionary Select Sector SPDR ETF",
-      "reading": "一般消費財セクター ETF",
-      "sector_en": "?",
-      "sector_jp": "ETF",
-      "industry": "一般消費財・セクター",
-      "is_champ": false,
-      "strategies": [
-        "CPI_Cyclical",
-        "Drop5d_ETF7",
-        "Confluence_RSIBB_v1"
+        "Confluence_RSIStoch_v1"
       ]
     },
     {
@@ -5240,33 +2955,7 @@ window.MOBILE_DATA = {
       "industry": "Oil & Gas Integrated",
       "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5",
         "Sector_FriPanic_v1"
-      ]
-    },
-    {
-      "ticker": "YUM",
-      "name": "Yum! Brands, Inc.",
-      "reading": "ヤム・ブランズ",
-      "sector_en": "Consumer Cyclical",
-      "sector_jp": "一般消費",
-      "industry": "Restaurants",
-      "is_champ": false,
-      "strategies": [
-        "RSI35_Trend",
-        "Stoch_Oversold_v1"
-      ]
-    },
-    {
-      "ticker": "ZBRA",
-      "name": "Zebra Technologies Corporation",
-      "reading": "(未登録)",
-      "sector_en": "Technology",
-      "sector_jp": "テクノロジー",
-      "industry": "Communication Equipment",
-      "is_champ": false,
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
       ]
     }
   ],
@@ -5368,99 +3057,99 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-22",
-      "netliq": 11334.49,
+      "netliq": 11277.98,
       "day_pnl": 0.0,
       "cum_pnl_short": -48.34,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -205.51,
-      "unrealized_today": -160.02
+      "netliq_delta": -262.02,
+      "unrealized_today": -216.53
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-22T22:00:02",
+      "ts": "2026-05-22T22:15:02",
       "ok": true,
       "note": "",
-      "age_min": 5.117841266666667
+      "age_min": 2.8872310166666666
     },
     "sync_mobile": {
-      "ts": "2026-05-22T22:04:53",
+      "ts": "2026-05-22T22:05:11",
       "ok": true,
-      "note": "223,211 B",
-      "age_min": 0.26784126666666663
+      "note": "223,224 B",
+      "age_min": 12.737231016666668
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 1392.0511746
+      "age_min": 1404.82056435
     },
     "intraday_cron": {
-      "ts": "2026-05-22T21:50:29",
+      "ts": "2026-05-22T22:05:12",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.667841266666667
+      "age_min": 12.72056435
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-22T22:00:02",
+      "ts": "2026-05-22T22:15:02",
       "ok": true,
       "note": "",
-      "age_min": 5.117841266666667
+      "age_min": 2.8872310166666666
     },
     "vix_regime": {
-      "ts": "2026-05-22T22:00:14",
+      "ts": "2026-05-22T22:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 4.917841266666667
+      "age_min": 2.5372310166666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 845.0678412666667
+      "age_min": 857.8372310166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 809.8345079333334
+      "age_min": 822.6038976833333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 803.0678412666667
+      "age_min": 815.8372310166667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 1510.1511745999999
+      "age_min": 1522.92056435
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-22T21:30:23",
+      "ts": "2026-05-22T22:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 34.767841266666665
+      "age_min": 2.553897683333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2200.5511745999997
+      "age_min": 2213.3205643499996
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T07:21:58",
       "ok": false,
       "note": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/2",
-      "age_min": 883.1845079333333
+      "age_min": 895.9538976833334
     }
   },
   "regime": {
-    "ts": "2026-05-22T22:00:14",
+    "ts": "2026-05-22T22:15:23",
     "vix": 17.13,
     "spy_close": 742.72,
     "spy_10d_return_pct": 1.52,
@@ -5640,6 +3329,48 @@ window.MOBILE_DATA = {
   ],
   "intraday_opportunities": [],
   "all_trades": [
+    {
+      "date": "2026-05-22",
+      "ticker": "EXE",
+      "strategy": "TWS_BOT",
+      "shares": 11.0,
+      "entry_price": 97.41,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 1.000033,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-22",
+      "ticker": "SPY",
+      "strategy": "TWS_BOT",
+      "shares": 1.0,
+      "entry_price": 747.16,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 1.000003,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-22",
+      "ticker": "XLE",
+      "strategy": "TWS_BOT",
+      "shares": 9.0,
+      "entry_price": 59.3093,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 1.000027,
+      "side": "BOT"
+    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
