@@ -380,13 +380,6 @@
 <div class="tab-content" id="tab-strat">
   <div class="section">
     <div class="section-title">📋 採用 戦略 10 件 (SS+A)</div>
-    <div class="card" id="strategy-list">
-      <div class="empty">読込中...</div>
-    </div>
-  </div>
-  <!-- 5/19 夜 引越: tracker_data.js STRATEGIES_DATA から詳細 card 表示 -->
-  <div class="section">
-    <div class="section-title">📚 全戦略 詳細 (yasuda_quant 統合)</div>
     <div class="card" id="tracker-strategies-summary" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
     <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px" id="tracker-strat-filters"></div>
     <div id="tracker-strategies-list">
@@ -759,30 +752,9 @@ function renderIntraday() {
   }
 }
 
-function renderStrat() {
-  const d = window.MOBILE_DATA || {};
-  const strats = d.strategies || [];
-  const el = document.getElementById('strategy-list');
-  if (!strats.length) {
-    el.innerHTML = '<div class="empty">戦略 list なし</div>';
-    return;
-  }
-  el.innerHTML = strats.map(s => {
-    const kindCol = s.kind==='PANIC' ? '#f85149' : (s.kind==='BULL' ? '#3fb950' : '#7d8590');
-    const kindBadge = s.kind ? `<span class="badge" style="background:${kindCol}22;color:${kindCol}">${s.kind}</span>` : '';
-    return `
-    <div class="row">
-      <div class="row-l">
-        <div class="ticker">${s.name}<span class="badge">${s.tier||''}</span>${kindBadge}</div>
-        <div class="strat">hold=${s.hold||'-'}d · TP+${(s.tp||0).toFixed(2)}% · SL${(s.sl||0).toFixed(0)}%</div>
-      </div>
-      <div class="row-r">
-        <div class="pct ${pctClass(s.monthly_usd)}">${fmt$2(s.monthly_usd)}/月</div>
-        <div class="strat">win ${(s.win||0).toFixed(0)}%</div>
-      </div>
-    </div>`;
-  }).join('');
-}
+// 5/22 夜 user 「上いらない、 重複してる」 → 旧 strategies (d.strategies) 撤廃、
+//                                                        tracker_strategies (renderTrackerStrategies) のみに統一
+function renderStrat() { /* deprecated — renderTrackerStrategies に統合 */ }
 
 function renderWeekly() {
   const d = window.MOBILE_DATA || {};
