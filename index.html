@@ -1797,6 +1797,20 @@ function renderTrackerStrategies() {
     // 5/23 (v31) user 「ティアのところに レア表記」 — name 横 → tier の直下 に移動
     const spm = Number(s._signals_per_month);
     const isRare = isFinite(spm) && spm > 0 && spm < 5 && !isChamp(s);
+    // 5/23 (v32) user 「検証済かわかるようにしてほしい」 — verification status badge
+    // 🟢 R2 verified (= 2 独立実装一致) / 🟡 R2 engine sweep (= 同 engine 単独実装)
+    const stratName = (s.name || '').toLowerCase();
+    const r2_verified_set = ['confluence_rsistoch_v1','pullback_v1','sector_fripanic_v1','drop5d_broadpanic',
+                              'n1_tsla_consec4_v1','confluence_bbstoch_v1','n9_cascade3_smh_v1','n1_nvda_consec4_v1',
+                              'semi_fripanic_v1','n7_vixcurl_smh_v1','earnseason_open'];
+    const sweep_set = ['preearnings_t30_t5_industrial','rating_upgrade_v1_mag2','ai_wave_momentum_v1',
+                       'semi_equip_dip_v1','buffett_vix20_panic_v1','momentum_12_1_v1'];
+    let verBadge = '';
+    if (r2_verified_set.some(k => stratName.includes(k))) {
+      verBadge = `<div style="margin-top:3px;background:#3fb95022;color:#3fb950;font-size:9px;font-weight:700;padding:2px 6px;border-radius:6px;text-align:center">🟢 R2 verified</div>`;
+    } else if (sweep_set.some(k => stratName.includes(k))) {
+      verBadge = `<div style="margin-top:3px;background:#d2992222;color:#d29922;font-size:9px;font-weight:700;padding:2px 6px;border-radius:6px;text-align:center">🟡 R2 sweep</div>`;
+    }
     const rareUnderTier = isRare
       ? `<div style="margin-top:4px;background:#22d3ee22;color:#22d3ee;font-size:10px;font-weight:700;padding:2px 7px;border-radius:8px;letter-spacing:0.5px;text-align:center;line-height:1.3">🦄 レア<br/>月${spm.toFixed(spm<1?2:1)}回</div>`
       : '';
@@ -1810,6 +1824,7 @@ function renderTrackerStrategies() {
           </div>
           <div style="text-align:right;flex-shrink:0">
             <div style="background:${tcol}22;color:${tcol};font-weight:900;font-size:28px;line-height:1;padding:4px 10px;border-radius:8px;letter-spacing:1px">${s.tier||'-'}</div>
+            ${verBadge}
             ${rareUnderTier}
             <div style="margin-top:6px">${mpDisplay}</div>
           </div>

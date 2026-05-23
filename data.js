@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T13:30",
+  "generated_at": "2026-05-23T13:33",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -2836,97 +2836,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T13:30:06",
       "ok": true,
       "note": "",
-      "age_min": 0.6164973333333333
+      "age_min": 2.9182291333333334
     },
     "sync_mobile": {
-      "ts": "2026-05-23T13:30:29",
+      "ts": "2026-05-23T13:30:44",
       "ok": true,
-      "note": "102,431 B",
-      "age_min": 0.23316399999999998
+      "note": "102,410 B",
+      "age_min": 2.2848958
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2317.6164973333334
+      "age_min": 2319.9182291333336
     },
     "intraday_cron": {
-      "ts": "2026-05-23T13:15:45",
+      "ts": "2026-05-23T13:30:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.966497333333333
+      "age_min": 2.2848958
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T13:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.683164
+      "age_min": 2.9848958
     },
     "vix_regime": {
       "ts": "2026-05-23T13:30:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.433164
+      "age_min": 2.7348958
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1770.6331639999999
+      "age_min": 1772.9348958
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 296.283164
+      "age_min": 298.58489579999997
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1728.6331639999999
+      "age_min": 1730.9348958
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2435.7164973333333
+      "age_min": 2438.0182291333335
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 855.3498306666667
+      "age_min": 857.6515624666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3126.1164973333334
+      "age_min": 3128.4182291333336
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 885.7664973333334
+      "age_min": 888.0682291333334
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 355.4664973333333
+      "age_min": 357.7682291333333
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T13:30:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.6331640000000001
+      "age_min": 2.9348958
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 296.283164
+      "age_min": 298.58489579999997
     }
   },
   "regime": {
