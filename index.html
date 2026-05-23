@@ -76,11 +76,10 @@
   <div class="header-row">
     <div style="min-width:0;flex:1">
       <h1>IBKR投資計画</h1>
-      <div class="header-sub" id="hdr-sub">v20 LIVE · 短期 19 戦略 · 場中 6 paper</div>
+      <div class="header-sub" id="hdr-sub">LIVE · SS+A 10 戦略 採用</div>
       <div class="last-update" id="last-update" style="margin-top:1px">未取得</div>
     </div>
     <div style="display:flex;gap:4px;flex-shrink:0">
-      <button class="refresh" onclick="reportToCROCO()" style="background:var(--yellow);color:#0d1117">📮 報告</button>
       <button class="refresh" onclick="subscribePush()" id="push-btn" style="background:#a371f7;color:#fff">🔔 通知ON</button>
       <button class="refresh" onclick="hardRefresh()">更新</button>
     </div>
@@ -100,7 +99,6 @@
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
   <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
-  <div class="tab" data-tab="reports" onclick="switchTab('reports')" style="opacity:0.7">📬<span id="reports-badge" style="display:none;background:var(--red);color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;margin-left:3px;font-weight:700"></span></div>
 </div>
 
 <main>
@@ -378,26 +376,10 @@
   </div>
 </div>
 
-<!-- Tab: 📬 返信 (5/19 夜 user 「PWA 返信タブ」) -->
-<div class="tab-content" id="tab-reports">
-  <div class="section">
-    <div class="section-title">📬 クロコー との通信履歴</div>
-    <div class="card" id="reports-summary" style="font-size:11px;color:var(--sub);margin-bottom:8px"></div>
-    <div class="card" id="reports-list"><div class="empty">読込中...</div></div>
-  </div>
-  <div class="section">
-    <div class="section-title">📮 送信履歴</div>
-    <div class="card" id="reports-tip" style="font-size:11px;color:var(--sub)">
-      header 「📮 報告」 で新規送信。 close 済 = クロコー対応完了、 OPEN = 未対応。<br/>
-      クロコーは次セッション開始時に check して返信します (即時 NOT 可)。
-    </div>
-  </div>
-</div>
-
 <!-- Tab: 戦略 -->
 <div class="tab-content" id="tab-strat">
   <div class="section">
-    <div class="section-title">📋 LIVE 戦略 19 件 (v20)</div>
+    <div class="section-title">📋 採用 戦略 10 件 (SS+A)</div>
     <div class="card" id="strategy-list">
       <div class="empty">読込中...</div>
     </div>
@@ -1263,71 +1245,6 @@ function isMarketHoursCT() {
   return (cur >= 810 && cur <= 1200);
 }
 
-function renderReports() {
-  // 5/19 夜 user 「PWA 返信タブ」 → gh issue list の pwa-report 一覧 + クロコー返信表示 + 未読バッジ
-  const d = window.MOBILE_DATA || {};
-  const reports = d.pwa_reports || [];
-  const sumEl = document.getElementById('reports-summary');
-  const listEl = document.getElementById('reports-list');
-  const badgeEl = document.getElementById('reports-badge');
-
-  // 未読 = 直近 close されたが localStorage に「seen」 記録ない issue
-  let seen;
-  try { seen = JSON.parse(localStorage.getItem('pwa_reports_seen')||'[]'); }
-  catch { seen = []; }
-  const newClosed = reports.filter(r => r.state === 'CLOSED' && !seen.includes(r.number));
-  if (badgeEl) {
-    if (newClosed.length > 0) { badgeEl.textContent = String(newClosed.length); badgeEl.style.display = 'inline-block'; }
-    else badgeEl.style.display = 'none';
-  }
-
-  const openN = reports.filter(r=>r.state==='OPEN').length;
-  const closedN = reports.filter(r=>r.state==='CLOSED').length;
-  if (sumEl) sumEl.innerHTML = `送信 ${reports.length} 件 / 対応中 ${openN} / 返信済 ${closedN}${newClosed.length>0?` / <span class="red">未読 ${newClosed.length}</span>`:''}`;
-
-  if (!reports.length) {
-    listEl.innerHTML = '<div class="empty">送信履歴 なし。 header 「📮 報告」 から送信。</div>';
-    return;
-  }
-  // sort: OPEN first, then recent
-  reports.sort((a,b) => {
-    if (a.state !== b.state) return a.state === 'OPEN' ? -1 : 1;
-    return (b.created_at||'').localeCompare(a.created_at||'');
-  });
-  listEl.innerHTML = reports.map(r => {
-    const stateLabel = r.state === 'OPEN' ? '<span class="red">🟡 対応中</span>' : '<span class="green">✅ 返信済</span>';
-    const isNew = r.state === 'CLOSED' && !seen.includes(r.number);
-    const newBadge = isNew ? '<span style="background:var(--red);color:#fff;font-size:9px;padding:1px 4px;border-radius:8px;margin-left:4px">NEW</span>' : '';
-    const created = (r.created_at||'').slice(0,16).replace('T',' ');
-    const closed = r.closed_at ? (r.closed_at||'').slice(0,16).replace('T',' ') : '';
-    const bodyShort = (r.body||'').slice(0, 300);
-    // クロコー返信 (最新 close comment があれば)
-    const replies = (r.comments || []).filter(c => c.author && (c.author.toLowerCase().includes('claude') || c.author.toLowerCase() === 'crepello88-png' || c.body));
-    const replyHtml = replies.length
-      ? replies.map(c => `<div style="margin-top:8px;padding:8px;background:rgba(63,185,80,.08);border-left:3px solid var(--green);border-radius:4px">
-          <div class="strat" style="font-size:10px;color:var(--sub)">${c.author} · ${(c.created_at||'').slice(0,16).replace('T',' ')}</div>
-          <div style="font-size:12px;white-space:pre-wrap;margin-top:4px">${c.body}</div>
-        </div>`).join('')
-      : (r.state === 'CLOSED' ? '<div class="strat" style="margin-top:6px">(close のみ、 comment なし)</div>' : '<div class="strat" style="margin-top:6px">返信 待ち</div>');
-    return `<div style="padding:10px 0;border-bottom:1px solid var(--line)">
-      <div style="display:flex;justify-content:space-between;align-items:center">
-        <div class="ticker" style="font-size:13px">#${r.number} ${stateLabel}${newBadge}</div>
-        <div class="strat" style="font-size:10px">${created}${closed?' → '+closed:''}</div>
-      </div>
-      <div style="font-size:12px;margin-top:4px;font-weight:600">${r.title}</div>
-      <div style="font-size:10px;color:var(--sub);white-space:pre-wrap;margin-top:4px;max-height:80px;overflow:hidden">${bodyShort}</div>
-      ${replyHtml}
-    </div>`;
-  }).join('');
-
-  // 既読 mark (タブ open した瞬間に全 close 既読 化)
-  if (newClosed.length > 0) {
-    const allClosedNums = reports.filter(r=>r.state==='CLOSED').map(r=>r.number);
-    localStorage.setItem('pwa_reports_seen', JSON.stringify(allClosedNums));
-    setTimeout(() => { if (badgeEl) badgeEl.style.display = 'none'; }, 1000);
-  }
-}
-
 function renderShortTab() {
   // 5/20 夜 統一: 計算は sync_mobile.py の short_summary に集約、 JS は表示のみ
   const d = window.MOBILE_DATA || {};
@@ -2018,7 +1935,6 @@ function loadAll() {
   safeRun('trackerStrategies', renderTrackerStrategies);
   safeRun('tickers', renderTickers);
   safeRun('short', renderShortTab);
-  safeRun('reports', renderReports);
   safeRun('trades', renderTrades);  // 約定 tab 廃止後も 履歴 tab 内の trades-list / trades-summary を render
   safeRun('svsl', renderShortVsLong);
   safeRun('monitor', renderMonitor);
@@ -2038,76 +1954,6 @@ function loadAll() {
   }
 }
 
-// 強力リロード: cache/SW 全クリア + cache-busting URL でリロード
-// 5/19 夜 user 「スマホからエラー出てるぞ！ 単一コマンド送りたい」 → GitHub Issue 経由 で報告
-function reportToCROCO() {
-  // Quick template 選択 (1 タップで送れる) or 自由入力
-  const templates = [
-    '🚨 売れてないぞ！',
-    '⚠ 約定 おかしい',
-    '💸 PnL 数字 変',
-    '📱 PWA エラー / 表示崩れ',
-    '🔍 確認お願い',
-    '✏ 自由入力'
-  ];
-  const choice = prompt(
-    'クロコー (Claude) に送るメッセージ\n\n' +
-    '番号でテンプレ選択 or 自由文章 入力:\n' +
-    '1: ' + templates[0] + '\n' +
-    '2: ' + templates[1] + '\n' +
-    '3: ' + templates[2] + '\n' +
-    '4: ' + templates[3] + '\n' +
-    '5: ' + templates[4] + '\n' +
-    '6: ' + templates[5] + ' (自由入力)\n' +
-    '\n番号 or テキスト:',
-    ''
-  );
-  if (!choice) return;
-  let msg;
-  const n = parseInt(choice);
-  if (n >= 1 && n <= 5) msg = templates[n-1];
-  else if (n === 6) {
-    const free = prompt('自由入力メッセージ:', '');
-    if (!free) return;
-    msg = free;
-  } else {
-    msg = choice;  // テキスト直入力
-  }
-  // Context auto-collect
-  const now = new Date();
-  const ts = now.toISOString().slice(0,16).replace('T',' ');
-  const md = window.MOBILE_DATA || {};
-  const gen = md.generated_at || '?';
-  const s = md.today_summary || {};
-  const activeTab = document.querySelector('.tab.active')?.textContent || '?';
-  const title = '[PWA報告] ' + ts + ' ' + msg.slice(0,40);
-  const body = [
-    '## メッセージ',
-    msg,
-    '',
-    '## 自動 Context',
-    '- 報告時刻: ' + ts + ' (browser local)',
-    '- data.js generated_at: ' + gen,
-    '- 表示中タブ: ' + activeTab,
-    '- NetLiq: $' + (s.netliq || '?'),
-    '- Cash (Available): $' + (s.cash || '?'),
-    '- unrealized: $' + (s.unrealized_pnl || '?'),
-    '- 短期 open: ' + (s.open_positions || 0) + ' 件',
-    '- データソース: ' + (s.data_source || '?'),
-    '- UA: ' + (navigator.userAgent.slice(0,100)),
-    '',
-    '## クロコー アクション',
-    '- このメッセージを読んで対応をお願いします',
-    '- 完了したら issue close + reply'
-  ].join('\n');
-  // GitHub Issue Create URL 経由 (PAT 不要、 user の GitHub login で投稿)
-  const url = 'https://github.com/crepello88-png/yasuda_short/issues/new'
-    + '?title=' + encodeURIComponent(title)
-    + '&body=' + encodeURIComponent(body)
-    + '&labels=' + encodeURIComponent('pwa-report');
-  window.open(url, '_blank');
-}
-
 // 5/20 0:35 Web Push 通知 (VAPID, iOS 16.4+ home screen PWA で動作)
 // クロコー (Claude CLI) が `gh issue close` した瞬間に push_send.py → user iPhone → Watch 振動
 const VAPID_PUBLIC = 'BDS6W6Mhdy6-OYKlVku9LLxt9S-4IvPGDLaMyWCMgosVIuhzcm5c9eIOtkSfk-vP7q1gSj8mrx1pfHyjkZZxnYo';
@@ -2121,14 +1967,14 @@ async function subscribePush() {
     const reg = await navigator.serviceWorker.ready;
     const existing = await reg.pushManager.getSubscription();
     if (existing) {
-      // 5/20 夜: 既存 subscription を clipboard コピー + 📮 報告 経由で送信 (iOS PWA window.open 制約回避)
-      const resend = confirm('既に通知ON済 (' + existing.endpoint.slice(-30) + ')\n\nsubscription を サーバーに 再送信 しますか?\nOK → clipboard にコピー → 📮 報告 経由 submit');
+      // 5/22 夜: 既存 subscription を clipboard コピー + 黒さん 経由で送信 (報告ボタン撤廃後)
+      const resend = confirm('既に通知ON済 (' + existing.endpoint.slice(-30) + ')\n\nsubscription を サーバーに 再送信 しますか?\nOK → clipboard にコピー → 黒さん 経由 submit');
       if (resend) {
         const subText2 = JSON.stringify(existing.toJSON(), null, 2);
         let copied2 = false;
         try { await navigator.clipboard.writeText('PUSH_SUBSCRIBE:\n' + subText2); copied2 = true; } catch(e) {}
         if (copied2) {
-          alert('✓ clipboard コピー完了。\n\n次の手順:\n1. 📮 報告 (黄色) ボタン タップ\n2. プロンプトで 「6」 入力 → OK\n3. 自由入力欄を 長押し → ペースト\n4. OK → GitHub Issue 作成画面\n5. Submit new issue (緑) タップ');
+          alert('✓ clipboard コピー完了。\n\n黒さん (claude.ai web) に「subscription 受信」 として ペーストして送信、 黒さん が クロコー に relay します。');
         } else {
           alert('clipboard コピー失敗。 以下を手動コピー:\n\n' + subText2);
         }
@@ -2146,14 +1992,14 @@ async function subscribePush() {
       userVisibleOnly: true,
       applicationServerKey: urlBase64ToUint8Array(VAPID_PUBLIC)
     });
-    // 5/20 夜: iOS PWA の window.open 制約回避 — clipboard コピー + 📮 報告 経由で submit
+    // 5/22 夜: clipboard コピー + 黒さん 経由で submit (報告ボタン撤廃後)
     const subText = JSON.stringify(sub.toJSON(), null, 2);
     let copied = false;
     try { await navigator.clipboard.writeText('PUSH_SUBSCRIBE:\n' + subText); copied = true; } catch(e) {}
     const btn = document.getElementById('push-btn');
     if (btn) { btn.textContent = '🔕 通知ON済'; btn.disabled = true; }
     if (copied) {
-      alert('✓ 通知ON 完了\n\nsubscription を クリップボードにコピー済。\n\n次の手順:\n1. このまま 📮 報告 (黄色) ボタン タップ\n2. プロンプトで 「6」 入力 → OK\n3. 自由入力欄を 長押し → ペースト\n4. OK → GitHub Issue 作成画面 開く\n5. Submit new issue (緑ボタン) タップ');
+      alert('✓ 通知ON 完了\n\nsubscription を クリップボードにコピー済。\n\n黒さん (claude.ai web) に「subscription 受信」 として ペーストして送信、 黒さん が クロコー に relay します。');
     } else {
       // clipboard 失敗 fallback: 内容を alert で表示、 user 手動 copy
       alert('通知ON 完了。 clipboard コピー失敗。\n\n以下を コピー してください (長押し → 選択 → コピー):\n\n' + subText);
