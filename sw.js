@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v31 (5/23): レア badge 位置を name 横 → ティア badge 直下 に移動 (user 「ティアのところに レア表記して」)、 ティアと一体で 視認、 中央寄せ + 2 行 (🦄 レア / 月X.X回) で 字 大きくして 視認性向上。
 // v30 (5/23): 戦略タブ に「🦄 レア」 バッジ追加 — _signals_per_month < 5 の戦略 (Pullback_v1 / Sector_FriPanic_v1 / Drop5d_BroadPanic 等) は cyan バッジ + freq 行 cyan + card 左 cyan border で 視認、 user 「月 5 シグナル未満は レア表記、 シグナル起きたらいいかな程度に見やすく」 対応。 Champ DCA は対象外。
 // v29 (5/22 朝): 監視タブ heartbeat 色判定を「鮮度のみ」 → 「健全性 (ok flag + タスク種別 cadence)」 に統一 — 旧 場中 15/30min 一律 → 1日1発タスク (morning_preopen / verify_claims 等) が正常稼働後も当日中ずっと赤になる設計矛盾を解消。 新: HEARTBEAT_CADENCE table で interval (15min cron 系: red_min=30) と event (1日1発系: ok のみで判定、 age 無視) を区別、 ok=false は 一律 赤、 alert_* で ok=true は resolved 緑。 user 「赤を見たら本当にダメ」 が達成。
 // v28 (5/21 夜): 場中タブ末尾に「💡 日中チャンス」 card 追加 — 取りこぼし (今朝 phantom rollback された再エントリー候補) + Gap Fade pending を列挙、 current_price + signal ref 距離 + TP/SL 距離 + action_label (🟢🟡🔴) + reason 表示、 情報表示のみ で 発注ボタンなし。 source: sync_mobile.build_intraday_opportunities()。
@@ -26,7 +27,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v30';
+const CACHE = 'ibkr-plan-v31';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
