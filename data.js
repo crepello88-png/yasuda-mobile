@@ -2670,97 +2670,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T18:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.4107232333333333
+      "age_min": 0.5980529
     },
     "sync_mobile": {
-      "ts": "2026-05-23T17:45:40",
+      "ts": "2026-05-23T18:00:29",
       "ok": true,
-      "note": "94,818 B",
-      "age_min": 14.794056566666665
+      "note": "94,791 B",
+      "age_min": 0.16471956666666668
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2587.3607232333334
+      "age_min": 2587.5480528999997
     },
     "intraday_cron": {
       "ts": "2026-05-23T17:45:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.794056566666665
+      "age_min": 14.981386233333334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T18:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.4273899
+      "age_min": 0.6147195666666666
     },
     "vix_regime": {
       "ts": "2026-05-23T18:00:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.2273899
+      "age_min": 0.41471956666666665
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 2040.3773899
+      "age_min": 2040.5647195666668
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 566.0273899
+      "age_min": 566.2147195666668
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1998.3773899
+      "age_min": 1998.5647195666668
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2705.4607232333337
+      "age_min": 2705.6480528999996
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 1125.0940565666667
+      "age_min": 1125.2813862333335
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3395.8607232333334
+      "age_min": 3396.0480528999997
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 1155.5107232333332
+      "age_min": 1155.6980529
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T18:00:00",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 0.46072323333333337
+      "age_min": 0.6480528999999999
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T14:45:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 195.3773899
+      "age_min": 195.56471956666667
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 566.0273899
+      "age_min": 566.2147195666668
     }
   },
   "regime": {
