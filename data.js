@@ -1401,6 +1401,27 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
+    },
+    {
+      "tier": "A",
+      "name": "PreEarnings_T30_T5",
+      "cat": "その他",
+      "tickers": "(watchlist 未登録)",
+      "condition": "(monitor.py 参照)",
+      "hold": "?",
+      "freq": "(未集計)",
+      "sharpe": "[_5_23_adoption] R2 OOS 6.4y verified SS tier (= セッション最大の発見): n=3813 win=63.3% mean+0.571% Sh+1.36 $/mo=$218.52, OOS n=920 mean+0.607% win 63.7% (TRAIN 整合)。 universe: monitor_config.watchlist 中 earnings CSV 配信 154/193 ticker。 signal: 今日が 翌 earnings 発表 の T-30 trading day → 翌 MOO BUY → 25d hold → T-5 で exit (TP+6/SL-10)。 discover_preearnings_drift_5_23 (R2-I agent) + r2_oos_preearnings_5_23 (R2 verify) bit-precision で n=3813 完全一致、 R2 metrics は R2-I claim を +12% 上回る (intraday TP/SL precedence による正のバイアス)。 [[ss-a-only-live-set]] 12→13 拡張、 主力 Confluence_RSIStoch + Rating_Upgrade + Pre-earnings で 多柱構造完成。",
+      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.3]",
+      "memo": "[_5_23_adoption] R2 OOS 6.4y verified SS tier (= セッション最大の発見): n=3813 win=63.3% mean+0.571% Sh+1.36 $/mo=$218.52, OOS n=920 mean+0.607% win 63.7% (TRAIN 整合)。 universe: monitor_config.watchlist 中 earnings CSV 配信 154/193 ticker。 signal: 今日が 翌 earnings 発表 の T-30 trading day → 翌 MOO BUY → 25d hold → T-5 で exit (TP+6/SL-10)。 discover_preearnings_drift_5_23 (R2-I agent) + r2_oos_preearnings_5_23 (R2 verify) bit-precision で n=3813 完全一致、 R2 metrics は R2-I claim を +12% 上回る (intraday TP/SL precedence による正のバイアス)。 [[ss-a-only-live-set]] 12→13 拡張、 主力 Confluence_RSIStoch + Rating_Upgrade + Pre-earnings で 多柱構造完成。 / [_5_23_sizing_caveat] ⚠ portfolio sizing CRITICAL: 50 sig/月 × 25d hold = concurrent 40 positions 規模 → 既存 max_pos=5 system では大半 fire 機会を捨てる、 strategy_max=10-20 推奨。 size_mult=0.3 で初期は控えめ deploy、 1-2 週 observed concurrent count を見て scale-up。 既存 D_PreEarn3d skip filter (T-3 以内 earnings) と重複しないか確認: 本戦略は T-30 entry / T-5 exit で時間軸が異なるため独立 alpha。",
+      "_auto_meta": {
+        "key": "PreEarnings_T30_T5",
+        "tp_pct": 6.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 0.3,
+        "paper": false,
+        "sharpe_value": 1.36
+      },
+      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2790,97 +2811,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T10:15:05",
       "ok": true,
       "note": "",
-      "age_min": 0.36271780000000003
+      "age_min": 0.6267379833333333
     },
     "sync_mobile": {
-      "ts": "2026-05-23T10:12:17",
+      "ts": "2026-05-23T10:15:28",
       "ok": true,
-      "note": "100,334 B",
-      "age_min": 3.1627178000000002
+      "note": "100,291 B",
+      "age_min": 0.24340465
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2122.3460511333333
+      "age_min": 2122.6100713166666
     },
     "intraday_cron": {
       "ts": "2026-05-23T10:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.7127178
+      "age_min": 14.976737983333333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T10:15:02",
       "ok": true,
       "note": "",
-      "age_min": 0.4127178
+      "age_min": 0.6767379833333333
     },
     "vix_regime": {
       "ts": "2026-05-23T10:15:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.1627178
+      "age_min": 0.4267379833333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1575.3627178
+      "age_min": 1575.6267379833334
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 101.0127178
+      "age_min": 101.27673798333333
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1533.3627178
+      "age_min": 1533.6267379833334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2240.446051133333
+      "age_min": 2240.7100713166665
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 660.0793844666666
+      "age_min": 660.34340465
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2930.8460511333333
+      "age_min": 2931.1100713166666
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 690.4960511333334
+      "age_min": 690.7600713166667
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 160.19605113333333
+      "age_min": 160.46007131666664
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T10:15:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.36271780000000003
+      "age_min": 0.6267379833333333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 101.0127178
+      "age_min": 101.27673798333333
     }
   },
   "regime": {
