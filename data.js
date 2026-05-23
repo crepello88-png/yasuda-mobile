@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T07:45",
+  "generated_at": "2026-05-23T07:58",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1351,6 +1351,27 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
+    },
+    {
+      "tier": "S",
+      "name": "EarnSeason_Open",
+      "cat": "その他",
+      "tickers": "(watchlist 未登録)",
+      "condition": "(monitor.py 参照)",
+      "hold": "?",
+      "freq": "(未集計)",
+      "sharpe": "[_5_23_adoption] R2 OOS 6.4y verified tier A: n=103 win=63% mean+1.00% Sh+5.49 $/mo=$10.92, OOS n=23 mean+2.44% win 83% (= TRAIN +0.62% を OOS が上回る real edge)。 universe SPY/QQQ/XLK/SMH 限定 (signal: 2nd Tue of Jan/Apr/Jul/Oct 直前 trading day → 翌 MOO BUY → 5d hold)。 discover_calendar_5_23 (C agent) + r2_oos_earnseason_5_23 (5/22 audit engine 直 import) 両者 bit-precision 一致確認。 [[ss-a-only-live-set]] 拡張 (10→11 件)。",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_5_23_adoption] R2 OOS 6.4y verified tier A: n=103 win=63% mean+1.00% Sh+5.49 $/mo=$10.92, OOS n=23 mean+2.44% win 83% (= TRAIN +0.62% を OOS が上回る real edge)。 universe SPY/QQQ/XLK/SMH 限定 (signal: 2nd Tue of Jan/Apr/Jul/Oct 直前 trading day → 翌 MOO BUY → 5d hold)。 discover_calendar_5_23 (C agent) + r2_oos_earnseason_5_23 (5/22 audit engine 直 import) 両者 bit-precision 一致確認。 [[ss-a-only-live-set]] 拡張 (10→11 件)。",
+      "_auto_meta": {
+        "key": "EarnSeason_Open",
+        "tp_pct": 5.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 5.49
+      },
+      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2740,85 +2761,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T07:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6028487833333334
+      "age_min": 13.451735266666667
     },
     "sync_mobile": {
-      "ts": "2026-05-23T07:45:29",
+      "ts": "2026-05-23T07:45:40",
       "ok": true,
-      "note": "96,105 B",
-      "age_min": 0.16951545
+      "note": "96,092 B",
+      "age_min": 12.8350686
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 1972.5528487833333
+      "age_min": 1985.4017352666667
     },
     "intraday_cron": {
-      "ts": "2026-05-23T07:30:41",
+      "ts": "2026-05-23T07:45:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.96951545
+      "age_min": 12.8350686
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T07:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.61951545
+      "age_min": 13.468401933333332
     },
     "vix_regime": {
       "ts": "2026-05-23T07:45:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.41951544999999996
+      "age_min": 13.268401933333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1425.56951545
+      "age_min": 1438.4184019333334
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1390.3361821166666
+      "age_min": 1403.1850686
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1383.56951545
+      "age_min": 1396.4184019333334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2090.6528487833334
+      "age_min": 2103.501735266667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 510.2861821166667
+      "age_min": 523.1350686
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2781.0528487833335
+      "age_min": 2793.9017352666665
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 540.7028487833334
+      "age_min": 553.5517352666667
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 10.402848783333333
+      "age_min": 23.251735266666667
     }
   },
   "regime": {
