@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T08:00",
+  "generated_at": "2026-05-23T08:03",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1151,6 +1151,31 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 4.08
     },
     {
+      "tier": "A",
+      "name": "EarnSeason_Open (R2 5/23 採用、 earnings 開幕週)",
+      "cat": "短期 calendar (earnings 季節性)",
+      "tickers": "SPY / QQQ / XLK / SMH (4 銘柄、 universe 制限、 monitor.py 自動 entry)",
+      "condition": "Jan/Apr/Jul/Oct の 2nd Tuesday 直前 trading day → 翌 MOO BUY → 5日 hold (TP+5/SL-10)",
+      "hold": "5日 寄→5日後 bracket TP/SL or MOO timeout",
+      "freq": "年 4 回 × 4 ticker = 年 16 件 (月 1.34 件)、 RARE 帯",
+      "sharpe": "R2 OOS 6.4y: Sh+5.49 mean+1.00% win 63% n=103 / OOS n=23 mean+2.44% win 83% (= TRAIN を OOS が上回る real edge)",
+      "live": "✅ 自動 entry (5/23 R2 verified 後 paper skip 直 LIVE) monitor.py EarnSeason_Open",
+      "memo": "discover_calendar_5_23 (C agent) 発見 → r2_oos_earnseason_5_23 (5/22 audit engine 直 import) で bit-precision 一致確認 → user 「正式採用」 で SS+A 10→11 戦略 拡張。 次の signal: 2026-07-13 (Mon, 2nd Tue 7/14 直前) 4 ticker 全 BUY。 既存 Pullback_v1 と直交軸 (= mean-rev でなく earnings 期待 drift)。",
+      "monthly_profit_usd": 10.92,
+      "_per_share_source": "r2_oos_earnseason_5_23",
+      "per_share_profit_usd": null,
+      "_per_share_basis": "SPY/QQQ/XLK/SMH avg ~\\$400 × mean 1.00%",
+      "_backtest_n": 103,
+      "_backtest_sharpe": 5.49,
+      "_backtest_oos_n": 23,
+      "_backtest_oos_mean_pct": 2.44,
+      "_signals_per_month": 1.34,
+      "_r2_n": 103,
+      "_r2_win_pct": 63.0,
+      "_r2_mean_pct": 1.0,
+      "_r2_sharpe": 5.49
+    },
+    {
       "tier": "BOOST",
       "name": "⚡ Confluence_RSIStoch_v1 ×1.5 when [gap_pct<=-3]",
       "cat": "Size booster (= 条件一致で size 拡大)",
@@ -1351,27 +1376,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
-    },
-    {
-      "tier": "S",
-      "name": "EarnSeason_Open",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption] R2 OOS 6.4y verified tier A: n=103 win=63% mean+1.00% Sh+5.49 $/mo=$10.92, OOS n=23 mean+2.44% win 83% (= TRAIN +0.62% を OOS が上回る real edge)。 universe SPY/QQQ/XLK/SMH 限定 (signal: 2nd Tue of Jan/Apr/Jul/Oct 直前 trading day → 翌 MOO BUY → 5d hold)。 discover_calendar_5_23 (C agent) + r2_oos_earnseason_5_23 (5/22 audit engine 直 import) 両者 bit-precision 一致確認。 [[ss-a-only-live-set]] 拡張 (10→11 件)。",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_5_23_adoption] R2 OOS 6.4y verified tier A: n=103 win=63% mean+1.00% Sh+5.49 $/mo=$10.92, OOS n=23 mean+2.44% win 83% (= TRAIN +0.62% を OOS が上回る real edge)。 universe SPY/QQQ/XLK/SMH 限定 (signal: 2nd Tue of Jan/Apr/Jul/Oct 直前 trading day → 翌 MOO BUY → 5d hold)。 discover_calendar_5_23 (C agent) + r2_oos_earnseason_5_23 (5/22 audit engine 直 import) 両者 bit-precision 一致確認。 [[ss-a-only-live-set]] 拡張 (10→11 件)。",
-      "_auto_meta": {
-        "key": "EarnSeason_Open",
-        "tp_pct": 5.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 5.49
-      },
-      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2761,85 +2765,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T08:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6119901833333333
+      "age_min": 3.298051966666667
     },
     "sync_mobile": {
-      "ts": "2026-05-23T08:00:30",
+      "ts": "2026-05-23T08:00:42",
       "ok": true,
-      "note": "97,586 B",
-      "age_min": 0.16199018333333332
+      "note": "97,594 B",
+      "age_min": 2.6480519666666664
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 1987.5619901833334
+      "age_min": 1990.2480519666667
     },
     "intraday_cron": {
-      "ts": "2026-05-23T07:45:40",
+      "ts": "2026-05-23T08:00:42",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.995323516666668
+      "age_min": 2.6480519666666664
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T08:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.62865685
+      "age_min": 3.3147186333333334
     },
     "vix_regime": {
       "ts": "2026-05-23T08:00:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.42865685000000003
+      "age_min": 3.114718633333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1440.57865685
+      "age_min": 1443.2647186333334
     },
     "morning_tws_connect": {
       "ts": "2026-05-22T08:35:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1405.3453235166667
+      "age_min": 1408.0313853
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1398.57865685
+      "age_min": 1401.2647186333334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2105.6619901833333
+      "age_min": 2108.348051966667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 525.2953235166666
+      "age_min": 527.9813853
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2796.0619901833334
+      "age_min": 2798.7480519666665
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 555.7119901833333
+      "age_min": 558.3980519666667
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 25.411990183333334
+      "age_min": 28.098051966666667
     }
   },
   "regime": {
