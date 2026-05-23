@@ -1367,7 +1367,7 @@ function renderShortVsLong() {
         const priceStr = isShort
           ? `${sh}株 @ $${ep.toFixed(0)}`
           : `${sh}株 $${ep.toFixed(0)}→$${cp.toFixed(0)}`;
-        return `<div class="row"><div class="row-l" style="min-width:0;flex:1 1 auto"><div class="ticker" style="font-size:13px">${p.ticker}</div><div class="strat">${priceStr}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`;
+        return `<div class="row" style="padding:12px 0"><div class="row-l" style="min-width:0;flex:1 1 auto"><div class="ticker" style="font-size:13px">${p.ticker}</div><div class="strat">${priceStr}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`;
       }).join('')
       : '';
     breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ 短期', sList, true)) || '<div class="empty">保有なし</div>';
