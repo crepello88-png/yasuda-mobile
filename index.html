@@ -1352,14 +1352,23 @@ function renderShortVsLong() {
       <div class="row-l" style="min-width:0;flex:1 1 auto"><div class="ticker" style="font-size:13px">⚡ 短期</div><div class="strat">${sCount}銘柄 cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日${today.n_trades}件` : ''}</div></div>
       <div class="row-r"><div class="price ${pctClass(sCombined)}">${sCombined>=0?'+$':'-$'}${Math.abs(sCombined).toFixed(2)}</div>${sToday!==0 ? `<div class="pct ${pctClass(sToday)}" style="font-size:10px">今日 ${sToday>=0?'+':''}$${sToday.toFixed(2)}</div>` : ''}</div>
     </div>
-    <div class="row">
-      <div class="row-l"><div class="ticker">合計</div><div class="strat">${lCount+sCount} 銘柄 · 元本 $${(lCost+sCost).toFixed(0)} → 評価 $${(lValue+sCost+sUnreal).toFixed(0)}</div></div>
-      <div class="row-r"><div class="price ${pctClass(lPnl+sCombined)}">${(lPnl+sCombined)>=0?'+$':'-$'}${Math.abs(lPnl+sCombined).toFixed(2)}</div></div>
+    <div class="row" style="border-top:1px solid var(--line);padding-top:6px;margin-top:4px">
+      <div class="row-l" style="min-width:0;flex:1 1 auto"><div class="ticker" style="font-size:13px">💰 合計</div><div class="strat">${lCount+sCount}銘柄 元本 $${(lCost+sCost).toFixed(0)}</div></div>
+      <div class="row-r"><div class="price ${pctClass(lPnl+sCombined)}" style="font-weight:700">${(lPnl+sCombined)>=0?'+$':'-$'}${Math.abs(lPnl+sCombined).toFixed(2)}</div></div>
     </div>`;
   if (breakEl) {
     const sList = (open.positions || []).map(p => ({...p, pnl: 0}));
+    // 5/22 夜: 短VS長 breakdown layout 修正 — ticker section に min-width:0 + 価格表記 短縮で iPhone 切れ防止
     const mkSect = (title, items, isShort) => items.length ? `<div class="strat" style="margin:8px 0 4px;font-weight:600;color:var(--txt)">${title}</div>` +
-      items.map(p=>`<div class="row"><div class="row-l"><div class="ticker">${p.ticker} ${isShort?'':`<span class="badge">${(p.strategy||'').slice(0,16)}</span>`}</div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)}${isShort?'':` → 現 $${((p.current_price||p._market_price)||0).toFixed(2)}`}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`).join('')
+      items.map(p=>{
+        const sh = p.shares||0;
+        const ep = (p.entry_price||0);
+        const cp = ((p.current_price||p._market_price)||0);
+        const priceStr = isShort
+          ? `${sh}株 @ $${ep.toFixed(0)}`
+          : `${sh}株 $${ep.toFixed(0)}→$${cp.toFixed(0)}`;
+        return `<div class="row"><div class="row-l" style="min-width:0;flex:1 1 auto"><div class="ticker" style="font-size:13px">${p.ticker}</div><div class="strat">${priceStr}</div></div><div class="row-r"><div class="price ${pctClass(p.pnl)}">${p.pnl>=0?'+$':'-$'}${Math.abs(p.pnl).toFixed(2)}</div></div></div>`;
+      }).join('')
       : '';
     breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ 短期', sList, true)) || '<div class="empty">保有なし</div>';
   }
