@@ -1758,7 +1758,11 @@ function renderTrackerStrategies() {
     if (ra !== rb) return ra - rb;
     return (Number(b.monthly_profit_usd) || 0) - (Number(a.monthly_profit_usd) || 0);
   });
-  listEl.innerHTML = filtered.map(s => {
+  // 5/22 夜 user 「BOOST/ANTI は別カードで default 閉じ」
+  const _isRule = (s) => ['BOOST','ANTI'].includes((s.tier||'').toUpperCase());
+  const stratEntries = filtered.filter(s => !_isRule(s));
+  const ruleEntries = filtered.filter(s => _isRule(s));
+  const renderEntry = (s) => {
     const live = s.live || '';
     const isLive = live.indexOf('✅') >= 0;
     const tcol = tierColor(s.tier);
@@ -1791,7 +1795,12 @@ function renderTrackerStrategies() {
         </div>
         ${s.memo ? `<div style="margin-top:6px;font-size:10px;color:var(--sub);line-height:1.5;font-style:italic">📝 ${s.memo}</div>` : ''}
       </div>`;
-  }).join('');
+  };
+  const stratHtml = stratEntries.map(renderEntry).join('');
+  const ruleHtml = ruleEntries.length
+    ? `<div style="margin-top:12px"><div onclick="(function(){var e=document.getElementById('rule-entries');var t=document.getElementById('rule-toggle');if(e.style.display==='none'){e.style.display='block';t.textContent='▼';}else{e.style.display='none';t.textContent='▶';}})()" style="cursor:pointer;padding:8px 10px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;font-size:12px;color:var(--sub);display:flex;justify-content:space-between"><span>⚙ 実行 rule ${ruleEntries.length} 件 (BOOST/ANTI = 採用戦略の size 倍化 / skip filter)</span><span id="rule-toggle">▶</span></div><div id="rule-entries" style="display:none;margin-top:8px">${ruleEntries.map(renderEntry).join('')}</div></div>`
+    : '';
+  listEl.innerHTML = stratHtml + ruleHtml;
 }
 function _setTrackerStratFilter(kind, val) {
   if (kind === 'tier') _trackerStratFilter.tier = val;
