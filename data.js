@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T11:00",
+  "generated_at": "2026-05-23T11:03",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1426,6 +1426,27 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
+    },
+    {
+      "tier": "S",
+      "name": "PreEarnings_T30_T5_Industrial",
+      "cat": "その他",
+      "tickers": "(watchlist 未登録)",
+      "condition": "(monitor.py 参照)",
+      "hold": "?",
+      "freq": "(未集計)",
+      "sharpe": "[_5_23_adoption_industrial] 5/23 深夜 batch4 N_preearn_industrial 発見、 PreEarnings_T30_T5 の Industrial sector 限定 variant: n=334 $/mo=$59.52 SS tier, OOS n=79 mean+1.571% Sh+5.35 (= broad +0.607% の 2.6× edge)。 universe: SECTOR_MAP で 'Industrial' に該当する 13 ticker のみ。 broad PreEarnings_T30_T5 (Industrial 除外) と 二重 fire しない設計、 size_mult=1.0 で本 strategy は full size deploy (Industrial の高 alpha 価値を享受)。",
+      "live": "✅ 本番運用中 (TWS 自動執行)",
+      "memo": "[_5_23_adoption_industrial] 5/23 深夜 batch4 N_preearn_industrial 発見、 PreEarnings_T30_T5 の Industrial sector 限定 variant: n=334 $/mo=$59.52 SS tier, OOS n=79 mean+1.571% Sh+5.35 (= broad +0.607% の 2.6× edge)。 universe: SECTOR_MAP で 'Industrial' に該当する 13 ticker のみ。 broad PreEarnings_T30_T5 (Industrial 除外) と 二重 fire しない設計、 size_mult=1.0 で本 strategy は full size deploy (Industrial の高 alpha 価値を享受)。",
+      "_auto_meta": {
+        "key": "PreEarnings_T30_T5_Industrial",
+        "tp_pct": 6.0,
+        "sl_pct": -10.0,
+        "size_multiplier": 1.0,
+        "paper": false,
+        "sharpe_value": 5.35
+      },
+      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2815,97 +2836,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T11:00:06",
       "ok": true,
       "note": "",
-      "age_min": 0.60195325
+      "age_min": 3.4690808166666667
     },
     "sync_mobile": {
-      "ts": "2026-05-23T11:00:29",
+      "ts": "2026-05-23T11:00:44",
       "ok": true,
-      "note": "102,167 B",
-      "age_min": 0.21861991666666666
+      "note": "102,179 B",
+      "age_min": 2.8357474833333334
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2167.60195325
+      "age_min": 2170.4690808166665
     },
     "intraday_cron": {
-      "ts": "2026-05-23T10:45:43",
+      "ts": "2026-05-23T11:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.985286583333334
+      "age_min": 2.8357474833333334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T11:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6686199166666668
+      "age_min": 3.535747483333333
     },
     "vix_regime": {
       "ts": "2026-05-23T11:00:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.41861991666666665
+      "age_min": 3.285747483333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1620.6186199166666
+      "age_min": 1623.4857474833334
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 146.26861991666667
+      "age_min": 149.13574748333335
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1578.6186199166666
+      "age_min": 1581.4857474833334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2285.70195325
+      "age_min": 2288.569080816667
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 705.3352865833333
+      "age_min": 708.20241415
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 2976.10195325
+      "age_min": 2978.9690808166665
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 735.7519532499999
+      "age_min": 738.6190808166666
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 205.45195325
+      "age_min": 208.31908081666668
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T11:00:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.6186199166666667
+      "age_min": 3.4857474833333333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 146.26861991666667
+      "age_min": 149.13574748333335
     }
   },
   "regime": {
