@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T13:00",
+  "generated_at": "2026-05-23T13:03",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -2857,97 +2857,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T13:00:05",
       "ok": true,
       "note": "",
-      "age_min": 0.6262785166666667
+      "age_min": 3.9102525166666666
     },
     "sync_mobile": {
-      "ts": "2026-05-23T13:00:29",
+      "ts": "2026-05-23T13:00:44",
       "ok": true,
-      "note": "103,318 B",
-      "age_min": 0.22627851666666665
+      "note": "103,324 B",
+      "age_min": 3.2602525166666667
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2287.60961185
+      "age_min": 2290.89358585
     },
     "intraday_cron": {
-      "ts": "2026-05-23T12:45:44",
+      "ts": "2026-05-23T13:00:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.976278516666667
+      "age_min": 3.2602525166666667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T13:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6762785166666667
+      "age_min": 3.9602525166666664
     },
     "vix_regime": {
       "ts": "2026-05-23T13:00:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.42627851666666666
+      "age_min": 3.7102525166666664
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1740.6262785166666
+      "age_min": 1743.9102525166668
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 266.27627851666665
+      "age_min": 269.56025251666665
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1698.6262785166666
+      "age_min": 1701.9102525166668
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2405.70961185
+      "age_min": 2408.9935858500003
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 825.3429451833333
+      "age_min": 828.6269191833333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3096.10961185
+      "age_min": 3099.39358585
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 855.75961185
+      "age_min": 859.04358585
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 325.45961185000004
+      "age_min": 328.74358585000004
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T13:00:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.6262785166666667
+      "age_min": 3.9102525166666666
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 266.27627851666665
+      "age_min": 269.56025251666665
     }
   },
   "regime": {
