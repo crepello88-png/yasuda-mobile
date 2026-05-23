@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-23T11:30",
+  "generated_at": "2026-05-23T11:41",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1152,6 +1152,122 @@ window.MOBILE_DATA = {
     },
     {
       "tier": "SS",
+      "name": "PreEarnings_T30_T5_Industrial (Industrial sector boost)",
+      "cat": "短期 期待形成 (pre-announce drift Industrial限定)",
+      "tickers": "13 Industrial tickers (SECTOR_MAP='Industrial')",
+      "condition": "PreEarnings_T30_T5 と同じ signal + Industrial sector 限定",
+      "hold": "25日 寄→T-5 MOO exit",
+      "freq": "n=334、 約 4.3 sig/月",
+      "sharpe": "R2 OOS: Sh+5.35 mean+1.571% (broad +0.607% の 2.6× edge) $/mo=$59.52",
+      "live": "✅ size_mult=1.0 (broad 0.3 vs Industrial 1.0、 3.3× boost) monitor.py PreEarnings_T30_T5_Industrial",
+      "memo": "batch4 N_preearn_industrial 発見、 sector booster 配線。",
+      "monthly_profit_usd": 59.52,
+      "_signals_per_month": 4.3,
+      "_r2_win_pct": null,
+      "_r2_mean_pct": 1.571,
+      "_r2_sharpe": 5.35
+    },
+    {
+      "tier": "A",
+      "name": "Rating_Upgrade_v1_Mag2 (2-tier+ upgrade booster)",
+      "cat": "短期 sentiment (analyst high conviction)",
+      "tickers": "Rating_Upgrade_v1 と同 universe (120 tickers)",
+      "condition": "analyst 2+ tier jump (例 Sell→Buy / Hold→Strong Buy) → 翌 MOO BUY → 20d hold",
+      "hold": "20日",
+      "freq": "n=138、 約 1.8 sig/月、 🦄 RARE",
+      "sharpe": "R2: OOS+2.205% (1-tier+ の 9× edge) $/mo=$15.93",
+      "live": "✅ size_mult=1.5 で broad Rating_Upgrade と double-fire",
+      "memo": "batch5 U_rating_mag2plus 発見、 high conviction boost。",
+      "monthly_profit_usd": 15.93,
+      "_signals_per_month": 1.8,
+      "_r2_mean_pct": 2.205
+    },
+    {
+      "tier": "SS",
+      "name": "Donchian_20d_Breakout_v1 (Man AHL classic trend)",
+      "cat": "短期 trend following",
+      "tickers": "watchlist 上位 80 tickers",
+      "condition": "close > 過去 20d high → 翌 MOO BUY → 20d hold (TP+12/SL-10)",
+      "hold": "20日",
+      "freq": "n=10905、 約 142 sig/月 (= 高 concurrency 警戒)",
+      "sharpe": "R2 OOS: Sh+0.8 mean+0.39% / OOS mean+1.247% $/mo=$504",
+      "live": "✅ size_mult=0.2 (= 135 concurrent positions 規模で控えめ) monitor.py Donchian_20d_Breakout_v1",
+      "memo": "batch6 W_donchian20_h20 → R2 verified、 Dunn Capital style classic trend。 portfolio sizing 注意。",
+      "monthly_profit_usd": 504.51,
+      "_signals_per_month": 142,
+      "_r2_n": 10905,
+      "_r2_win_pct": 53.0,
+      "_r2_mean_pct": 0.39,
+      "_r2_sharpe": 0.8
+    },
+    {
+      "tier": "SS",
+      "name": "Momentum_12_1_v1 (Jegadeesh-Titman classic factor)",
+      "cat": "短期 momentum factor",
+      "tickers": "全 193 watchlist",
+      "condition": "月初 trading day で 12-1 (= 252d return 除 21d) >= +20% → 翌 MOO BUY → 21d hold",
+      "hold": "21日",
+      "freq": "n=6115、 約 6 sig/月 (低頻度)",
+      "sharpe": "R2: Sh+0.73 OOS+0.28% $/mo=$239",
+      "live": "✅ size_mult=0.5、 portfolio sizing 余裕 monitor.py Momentum_12_1_v1",
+      "memo": "batch6 X_mom_12_1_h21 → R2 verified bit-precision、 Jegadeesh-Titman 1993 / Carhart 1997 classic momentum。",
+      "monthly_profit_usd": 239.37,
+      "_signals_per_month": 6,
+      "_r2_n": 6115,
+      "_r2_win_pct": 52.6,
+      "_r2_mean_pct": 0.366,
+      "_r2_sharpe": 0.73
+    },
+    {
+      "tier": "SS",
+      "name": "Buffett_RSI_Pullback_v1 (Berkshire holdings value pullback)",
+      "cat": "短期 value (long-hold)",
+      "tickers": "11 Berkshire holdings (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)",
+      "condition": "RSI(14)<35 + 200d SMA 近辺 → 翌 MOO BUY → 120d hold",
+      "hold": "120日 (4-5 ヶ月、 long-term value)",
+      "freq": "n=1600、 約 21 sig/月、 🦄 RARE (per-ticker basis)",
+      "sharpe": "R2 OOS: mean+1.723% (= 高 quality edge) $/mo=$339",
+      "live": "✅ size_mult=0.3 (= 長期 capital lock のため控えめ) monitor.py Buffett_RSI_Pullback_v1",
+      "memo": "batch7 DD_buffett_h120 → R2 verified、 Buffett-style follow value pick on pullback。",
+      "monthly_profit_usd": 339.3,
+      "_signals_per_month": 21,
+      "_r2_n": 1600,
+      "_r2_mean_pct": 1.723
+    },
+    {
+      "tier": "SS",
+      "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum)",
+      "cat": "短期 theme momentum",
+      "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
+      "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 20d hold",
+      "hold": "20日",
+      "freq": "n=1834、 約 24 sig/月",
+      "sharpe": "R2 OOS: mean+1.682% $/mo=$275",
+      "live": "✅ size_mult=0.5 monitor.py AI_Wave_Momentum_v1",
+      "memo": "batch7 BB_ai_mom15_h20 → R2 verified、 2023-2024 AI wave テーマ momentum continuation。",
+      "monthly_profit_usd": 275.19,
+      "_signals_per_month": 24,
+      "_r2_n": 1834,
+      "_r2_mean_pct": 1.682
+    },
+    {
+      "tier": "SS",
+      "name": "Semi_Equip_Dip_v1 (CHIPS Act semi装備 dip buying)",
+      "cat": "短期 sector dip",
+      "tickers": "7 semi equipment (AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH)",
+      "condition": "-3% 1d dip → 翌 MOO BUY → 20d hold (TP+8/SL-10)",
+      "hold": "20日",
+      "freq": "n=713、 約 9 sig/月",
+      "sharpe": "R2 OOS: mean+1.34% $/mo=$72",
+      "live": "✅ size_mult=0.5 monitor.py Semi_Equip_Dip_v1",
+      "memo": "batch8 JJ_semi_d3_h20 → R2 verified、 CHIPS Act onshoring 受益 semi 装備 dip pattern。",
+      "monthly_profit_usd": 72.33,
+      "_signals_per_month": 9,
+      "_r2_n": 713,
+      "_r2_mean_pct": 1.34
+    },
+    {
+      "tier": "SS",
       "name": "PreEarnings_T30_T5 (R2 5/23 深夜 採用、 earnings 期待 drift)",
       "cat": "短期 期待形成 (pre-announce drift)",
       "tickers": "154/193 watchlist (yasuda_quant/data/earnings/ 配信銘柄、 monitor.py 自動 entry)",
@@ -1426,153 +1542,6 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 70.0,
       "_r2_mean_pct": 0.51,
       "_r2_sharpe": 2.15
-    },
-    {
-      "tier": "?",
-      "name": "AI_Wave_Momentum_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_aiwave] batch7 BB_ai_mom15_h20 → SS $275.19/mo n=1834 OOS n=462 mean+1.682% (= 高 edge、 momentum continuation)。 universe: AI wave 2023-2024 winners 8 銘柄 (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)、 signal: 20d return >= +15% (momentum confirmed)。 hold 20d (Donchian と同期間)、 size_mult=0.5 で deploy。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.5]",
-      "memo": "[_5_23_adoption_aiwave] batch7 BB_ai_mom15_h20 → SS $275.19/mo n=1834 OOS n=462 mean+1.682% (= 高 edge、 momentum continuation)。 universe: AI wave 2023-2024 winners 8 銘柄 (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)、 signal: 20d return >= +15% (momentum confirmed)。 hold 20d (Donchian と同期間)、 size_mult=0.5 で deploy。",
-      "_auto_meta": {
-        "key": "AI_Wave_Momentum_v1",
-        "tp_pct": 8.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.5,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "Buffett_RSI_Pullback_v1",
-      "cat": "短期 pullback",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_buffett] batch7 DD_buffett_h120 → SS $339.30/mo n=1600 win=? OOS n=333 mean+1.723% (= 高 edge、 long-hold value premium)。 universe: Berkshire 主要保有 11 銘柄 (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)、 signal: RSI(14)<35 + 200d SMA 近辺 (= quality value pullback、 Buffett follower style)。 hold 120d = 4-5 ヶ月、 capital lock 長め → size_mult=0.3 で控えめ deploy。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.3]",
-      "memo": "[_5_23_adoption_buffett] batch7 DD_buffett_h120 → SS $339.30/mo n=1600 win=? OOS n=333 mean+1.723% (= 高 edge、 long-hold value premium)。 universe: Berkshire 主要保有 11 銘柄 (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)、 signal: RSI(14)<35 + 200d SMA 近辺 (= quality value pullback、 Buffett follower style)。 hold 120d = 4-5 ヶ月、 capital lock 長め → size_mult=0.3 で控えめ deploy。",
-      "_auto_meta": {
-        "key": "Buffett_RSI_Pullback_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -15.0,
-        "size_multiplier": 0.3,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "B",
-      "name": "Donchian_20d_Breakout_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_donchian] batch6 W_donchian20_h20 → R2 verified SS $504.51/mo, n=10905 win=53% mean+0.39% Sh+0.8, OOS n=2448 mean+1.247% (= TRAIN +0.39% を OOS が 3× 上回る real edge)。 Man AHL / Dunn Capital style classic trend following。 universe: watchlist 上位 80 ticker、 142 sig/月 × 20d hold = concurrent 135 positions → size_mult=0.2 で控えめ deploy。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.2]",
-      "memo": "[_5_23_adoption_donchian] batch6 W_donchian20_h20 → R2 verified SS $504.51/mo, n=10905 win=53% mean+0.39% Sh+0.8, OOS n=2448 mean+1.247% (= TRAIN +0.39% を OOS が 3× 上回る real edge)。 Man AHL / Dunn Capital style classic trend following。 universe: watchlist 上位 80 ticker、 142 sig/月 × 20d hold = concurrent 135 positions → size_mult=0.2 で控えめ deploy。",
-      "_auto_meta": {
-        "key": "Donchian_20d_Breakout_v1",
-        "tp_pct": 12.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.2,
-        "paper": false,
-        "sharpe_value": 0.8
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "B",
-      "name": "Momentum_12_1_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_momentum] batch6 X_mom_12_1_h21 → R2 verified SS $239.37/mo, n=6115 win=52.6% mean+0.366% Sh+0.73, OOS n=1345 mean+0.28%。 Jegadeesh-Titman 1993 / Carhart 1997 momentum factor (12-1 = 252d return 除 21d, threshold +20%)、 月初 rebalance。 universe: 全 193 watchlist、 portfolio sizing 余裕 (n=6 sig/月 のみ)、 size_mult=0.5 で deploy。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.5]",
-      "memo": "[_5_23_adoption_momentum] batch6 X_mom_12_1_h21 → R2 verified SS $239.37/mo, n=6115 win=52.6% mean+0.366% Sh+0.73, OOS n=1345 mean+0.28%。 Jegadeesh-Titman 1993 / Carhart 1997 momentum factor (12-1 = 252d return 除 21d, threshold +20%)、 月初 rebalance。 universe: 全 193 watchlist、 portfolio sizing 余裕 (n=6 sig/月 のみ)、 size_mult=0.5 で deploy。",
-      "_auto_meta": {
-        "key": "Momentum_12_1_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.5,
-        "paper": false,
-        "sharpe_value": 0.73
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "S",
-      "name": "PreEarnings_T30_T5_Industrial",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_industrial] 5/23 深夜 batch4 N_preearn_industrial 発見、 PreEarnings_T30_T5 の Industrial sector 限定 variant: n=334 $/mo=$59.52 SS tier, OOS n=79 mean+1.571% Sh+5.35 (= broad +0.607% の 2.6× edge)。 universe: SECTOR_MAP で 'Industrial' に該当する 13 ticker のみ。 broad PreEarnings_T30_T5 (Industrial 除外) と 二重 fire しない設計、 size_mult=1.0 で本 strategy は full size deploy (Industrial の高 alpha 価値を享受)。",
-      "live": "✅ 本番運用中 (TWS 自動執行)",
-      "memo": "[_5_23_adoption_industrial] 5/23 深夜 batch4 N_preearn_industrial 発見、 PreEarnings_T30_T5 の Industrial sector 限定 variant: n=334 $/mo=$59.52 SS tier, OOS n=79 mean+1.571% Sh+5.35 (= broad +0.607% の 2.6× edge)。 universe: SECTOR_MAP で 'Industrial' に該当する 13 ticker のみ。 broad PreEarnings_T30_T5 (Industrial 除外) と 二重 fire しない設計、 size_mult=1.0 で本 strategy は full size deploy (Industrial の高 alpha 価値を享受)。",
-      "_auto_meta": {
-        "key": "PreEarnings_T30_T5_Industrial",
-        "tp_pct": 6.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.0,
-        "paper": false,
-        "sharpe_value": 5.35
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "Rating_Upgrade_v1_Mag2",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_mag2] batch5 U_rating_mag2plus_h20 発見: 2+ tier jump upgrade (例 Sell→Buy/Hold→Strong Buy = 2-tier、 Strong Sell→Buy = 3-tier) は OOS mean +2.205% (= broad 1-tier+ Rating_Upgrade_v1 の +0.247% の 9× edge)。 n=138 $/mo=$15.93 A tier。 高 conviction subset を double-fire (broad Rating_Upgrade_v1 + Mag2 = 2 段重み付け)、 size_mult=1.5 で boost。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×1.5]",
-      "memo": "[_5_23_adoption_mag2] batch5 U_rating_mag2plus_h20 発見: 2+ tier jump upgrade (例 Sell→Buy/Hold→Strong Buy = 2-tier、 Strong Sell→Buy = 3-tier) は OOS mean +2.205% (= broad 1-tier+ Rating_Upgrade_v1 の +0.247% の 9× edge)。 n=138 $/mo=$15.93 A tier。 高 conviction subset を double-fire (broad Rating_Upgrade_v1 + Mag2 = 2 段重み付け)、 size_mult=1.5 で boost。",
-      "_auto_meta": {
-        "key": "Rating_Upgrade_v1_Mag2",
-        "tp_pct": 6.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 1.5,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "Semi_Equip_Dip_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "(monitor.py 参照)",
-      "hold": "?",
-      "freq": "(未集計)",
-      "sharpe": "[_5_23_adoption_semi] batch8 JJ_semi_d3_h20 → SS $72.33/mo n=713 OOS n=160 mean+1.34% (CHIPS Act onshoring tailwind)。 universe: AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH 7 銘柄、 signal: -3% 1d dip → 翌 MOO BUY → 20d hold。 size_mult=0.5 で deploy。",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.5]",
-      "memo": "[_5_23_adoption_semi] batch8 JJ_semi_d3_h20 → SS $72.33/mo n=713 OOS n=160 mean+1.34% (CHIPS Act onshoring tailwind)。 universe: AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH 7 銘柄、 signal: -3% 1d dip → 翌 MOO BUY → 20d hold。 size_mult=0.5 で deploy。",
-      "_auto_meta": {
-        "key": "Semi_Equip_Dip_v1",
-        "tp_pct": 8.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.5,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2962,97 +2931,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-23T11:30:05",
       "ok": true,
       "note": "",
-      "age_min": 0.62282505
+      "age_min": 11.6296426
     },
     "sync_mobile": {
-      "ts": "2026-05-23T11:30:29",
+      "ts": "2026-05-23T11:30:44",
       "ok": true,
-      "note": "111,545 B",
-      "age_min": 0.22282505
+      "note": "111,496 B",
+      "age_min": 10.9796426
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 2197.6061583833334
+      "age_min": 2208.6129759333335
     },
     "intraday_cron": {
-      "ts": "2026-05-23T11:15:44",
+      "ts": "2026-05-23T11:30:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.97282505
+      "age_min": 10.9796426
     },
     "intraday_executor_scan": {
       "ts": "2026-05-23T11:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.67282505
+      "age_min": 11.6796426
     },
     "vix_regime": {
       "ts": "2026-05-23T11:30:17",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.42282505000000004
+      "age_min": 11.4296426
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 1650.6228250499998
+      "age_min": 1661.6296426000001
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 176.27282505
+      "age_min": 187.2796426
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 1608.6228250499998
+      "age_min": 1619.6296426000001
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 2315.7061583833333
+      "age_min": 2326.7129759333334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 735.3394917166667
+      "age_min": 746.3463092666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3006.1061583833334
+      "age_min": 3017.1129759333335
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 765.7561583833334
+      "age_min": 776.7629759333333
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T07:35:15",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 235.45615838333333
+      "age_min": 246.46297593333333
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T11:30:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 0.62282505
+      "age_min": 11.6296426
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 176.27282505
+      "age_min": 187.2796426
     }
   },
   "regime": {
