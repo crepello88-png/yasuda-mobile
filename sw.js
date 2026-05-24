@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v37 (5/24): Hi52w_Pullback10_RSI40_v1 を paper=true 一時停止 = LIVE 11 戦略に戻る。 audit_live_overlap_5_24 で OOS fire 11,687 件 = 想定 760 件の 15.4x 超過確認、 元 discovery agent sig/月 計算ミス + R2 verify が見抜けず。 R2 protocol 拡張 (sig/月 妥当性 / overlap / 集中 / deploy 1週 fail-safe) memory 保存済。
 // v36 (5/24): Hi52w_Pullback10_RSI40_v1 (= F2 discovery: 252d high -10% pullback + RSI<40 → 翌 MOO BUY h7 TP+7/SL-8) 追加 = 計 12 戦略 LIVE。 SS tier $223.44/mo OOS+0.23% Sh+0.66 robust、 n=8888 OOS n=2022、 Jaccard <0.05 全 LIVE で完全 incremental、 top fire: KLAC/APH/ADI/PH/WAB (Semis/Industrials cluster)。 size_mult=0.25 probe (50 concurrent strain で控えめ start、 4-8週後 ramp)。 user 「採用して次々止まらず探して」 directive、 round #6 並行 launch 済。
 // v35 (5/24): HYG_LQD_QQQ_v1 (信用 spread blowout = HYG/LQD 126d bottom 15% → QQQ rebound、 5d hold TP+4/SL-4) 追加 = 計 11 戦略 LIVE。 portfolio sim Δ$/mo+$24.86 ΔSh+0.15、 macro 軸唯一の生存、 Sh+4.97 quality 最強級、 LIVE 中最短 hold 帯 (5d)。 user adoption priority 「hold 短ければ短いほうがいい」 充足。
 // v34 (5/24): 「メイン (Confluence_RSIStoch_v1)」 → 「Confluence_RSIStoch_v1」 に rename (user 「メインの文字消して」)、 戦略名揃え。 同時 Loser_3yr50_h10_v1 (De Bondt-Thaler 古典 3yr loser h10 D bracket) を SS tier で tracker 追加 (5/24 採用、 size_mult=0.75)。
@@ -30,7 +31,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v36';
+const CACHE = 'ibkr-plan-v37';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
