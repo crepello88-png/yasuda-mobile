@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-24T02:15",
+  "generated_at": "2026-05-24T02:30",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -1029,7 +1029,7 @@ window.MOBILE_DATA = {
     },
     {
       "tier": "SS",
-      "name": "メイン (Confluence_RSIStoch_v1)",
+      "name": "Confluence_RSIStoch_v1",
       "cat": "短期 confluence (BULL TOP)",
       "tickers": "既存24 + ST710 新20 = 44 銘柄。 新候補 top: PRIM+14.91 / ON+11.24 / M+10.97 / VNO+10.04 / OLLI+9.94 / COP+8.99 / MAR+8.64 / CAH+7.92 / PANW+7.66 / DE+7.26 / ITT+7.22 / BAC+7.07 / EBAY+6.96 / ALSN+6.73 / MS+6.70 / VTI+6.51 / ADI+6.51 / FTAI+6.44 / IP+6.41 / SPXL+5.99",
       "condition": "SMA50>SMA200 AND RSI(14)<35 AND Stochastic %K(14)<20 同日発火 + Jan/Mar/May skip → 翌寄 BUY → 3日後 寄付 SELL",
@@ -1119,6 +1119,27 @@ window.MOBILE_DATA = {
       "_r2_win_pct": 52.6,
       "_r2_mean_pct": 0.366,
       "_r2_sharpe": 0.73
+    },
+    {
+      "tier": "SS",
+      "name": "Loser_3yr50_h10_v1 (De Bondt-Thaler 古典 loser reversal)",
+      "cat": "中期 mean reversion / contrarian",
+      "tickers": "全 193 watchlist (>=3yr history)",
+      "condition": "月初 trading day で 36m (756d) 累積 return ≤ -50% → 翌 MOO BUY → 10d hold (TP+20/SL-15)",
+      "hold": "10日",
+      "freq": "n=671、 約 8.75 sig/月",
+      "sharpe": "Sh+4.25 OOS+3.06% win=58% $/mo=$157",
+      "live": "✅ size_mult=0.75 (5/24 採用、 portfolio sim Δ$/mo +$39 = 最大増分) monitor.py Loser_3yr50_h10_v1",
+      "memo": "De Bondt-Thaler 1985 古典反転、 5/24 hold sweep で h=10 D bracket が短 hold sweet spot 判明 (baseline 60d MOO $1813 inflate、 実 bracket=$157)。 Momentum_12_1_v1 と直交 (reversal vs momentum 両刀)、 Jaccard 0.001 既存 LIVE と完全独立。",
+      "monthly_profit_usd": 156.87,
+      "_signals_per_month": 8.75,
+      "_r2_n": 671,
+      "_r2_win_pct": 58.0,
+      "_r2_mean_pct": 1.99,
+      "_r2_sharpe": 2.48,
+      "_oos_n": 156,
+      "_oos_mean_pct": 3.06,
+      "_oos_sharpe": 4.25
     },
     {
       "tier": "S",
@@ -2655,104 +2676,104 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-24T02:15:03",
+      "ts": "2026-05-24T02:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.59484575
+      "age_min": 0.40668683333333333
     },
     "sync_mobile": {
-      "ts": "2026-05-24T02:15:28",
+      "ts": "2026-05-24T02:15:40",
       "ok": true,
-      "note": "94,473 B",
-      "age_min": 0.17817908333333332
+      "note": "94,469 B",
+      "age_min": 14.790020166666666
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 3082.54484575
+      "age_min": 3097.3566868333337
     },
     "intraday_cron": {
-      "ts": "2026-05-24T02:00:42",
+      "ts": "2026-05-24T02:15:40",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.94484575
+      "age_min": 14.790020166666666
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-24T02:15:02",
+      "ts": "2026-05-24T02:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6115124166666667
+      "age_min": 0.4233535
     },
     "vix_regime": {
-      "ts": "2026-05-24T02:15:14",
+      "ts": "2026-05-24T02:30:14",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.41151241666666666
+      "age_min": 0.2233535
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 2535.5615124166666
+      "age_min": 2550.3733535
     },
     "morning_tws_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "all 5 attempts failed: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 1061.2115124166667
+      "age_min": 1076.0233535
     },
     "short_term_auto_bat": {
       "ts": "2026-05-22T08:42:05",
       "ok": true,
       "note": "completed",
-      "age_min": 2493.5615124166666
+      "age_min": 2508.3733535
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 3200.64484575
+      "age_min": 3215.4566868333336
     },
     "state_tws_reconciler": {
       "ts": "2026-05-22T23:15:22",
       "ok": true,
       "note": "state=3 TWS=8 phantoms=0 partials=0",
-      "age_min": 1620.2781790833333
+      "age_min": 1635.0900201666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 3891.04484575
+      "age_min": 3905.8566868333337
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 1650.69484575
+      "age_min": 1665.5066868333333
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-23T18:00:00",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 495.64484575
+      "age_min": 510.4566868333333
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T14:45:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 690.5615124166667
+      "age_min": 705.3733535
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 1061.2115124166667
+      "age_min": 1076.0233535
     }
   },
   "regime": {
-    "ts": "2026-05-24T02:15:14",
+    "ts": "2026-05-24T02:30:14",
     "vix": 17.13,
     "spy_close": 745.64,
     "spy_10d_return_pct": 1.09,
