@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v35 (5/24): HYG_LQD_QQQ_v1 (信用 spread blowout = HYG/LQD 126d bottom 15% → QQQ rebound、 5d hold TP+4/SL-4) 追加 = 計 11 戦略 LIVE。 portfolio sim Δ$/mo+$24.86 ΔSh+0.15、 macro 軸唯一の生存、 Sh+4.97 quality 最強級、 LIVE 中最短 hold 帯 (5d)。 user adoption priority 「hold 短ければ短いほうがいい」 充足。
 // v34 (5/24): 「メイン (Confluence_RSIStoch_v1)」 → 「Confluence_RSIStoch_v1」 に rename (user 「メインの文字消して」)、 戦略名揃え。 同時 Loser_3yr50_h10_v1 (De Bondt-Thaler 古典 3yr loser h10 D bracket) を SS tier で tracker 追加 (5/24 採用、 size_mult=0.75)。
 // v31 (5/23): レア badge 位置を name 横 → ティア badge 直下 に移動 (user 「ティアのところに レア表記して」)、 ティアと一体で 視認、 中央寄せ + 2 行 (🦄 レア / 月X.X回) で 字 大きくして 視認性向上。
 // v30 (5/23): 戦略タブ に「🦄 レア」 バッジ追加 — _signals_per_month < 5 の戦略 (Pullback_v1 / Sector_FriPanic_v1 / Drop5d_BroadPanic 等) は cyan バッジ + freq 行 cyan + card 左 cyan border で 視認、 user 「月 5 シグナル未満は レア表記、 シグナル起きたらいいかな程度に見やすく」 対応。 Champ DCA は対象外。
@@ -28,7 +29,7 @@
 // v6 (5/19 夜): 「出口」タブ追加 — exit_plans (sync_mobile.build_exit_plans) で銘柄別 bracket/出口候補/当日実態/force_sell 表示。
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
-const CACHE = 'ibkr-plan-v34';
+const CACHE = 'ibkr-plan-v35';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
