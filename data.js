@@ -1361,6 +1361,23 @@ window.MOBILE_DATA = {
       "_oos_sharpe": 0.66
     },
     {
+      "tier": "SS",
+      "name": "PreEarnings_T30_T5_Industrial (Industrial sector boost)",
+      "cat": "短期 期待形成 (pre-announce drift Industrial限定)",
+      "tickers": "13 Industrial tickers (SECTOR_MAP='Industrial')",
+      "condition": "PreEarnings_T30_T5 と同じ signal + Industrial sector 限定",
+      "hold": "18日",
+      "freq": "n=334、 約 4.3 sig/月",
+      "sharpe": "R2 OOS: Sh+5.35 mean+1.571% (broad +0.607% の 2.6× edge) $/mo=$59.52",
+      "live": "✅ size_mult=1.0 (broad 0.3 vs Industrial 1.0、 3.3× boost) monitor.py PreEarnings_T30_T5_Industrial",
+      "memo": "batch4 N_preearn_industrial 発見、 sector booster 配線。",
+      "monthly_profit_usd": 41.65,
+      "_signals_per_month": 2.42,
+      "_r2_win_pct": null,
+      "_r2_mean_pct": 1.571,
+      "_r2_sharpe": 5.35
+     },
+    {
       "tier": "A",
       "name": "HYG_LQD_QQQ_v1 (信用 spread blowout → QQQ rebound)",
       "cat": "macro (credit spread → equity)",
