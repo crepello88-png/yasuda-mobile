@@ -1853,9 +1853,8 @@ function renderTrackerStrategies() {
     return;
   }
   // 5/25 F7 framework サマリ card (= 戦略タブ 上部に portfolio governance 概要)
-  const bf = d.bimet_framework || {};
+  // bf, pillars は上で既に宣言済
   const sm = bf.summary || {};
-  const pillars = bf.pillars || {};
   let f7Card = '';
   if (sm.framework_name) {
     const pillarRows = Object.entries(pillars).map(([k, p]) => {
