@@ -1414,6 +1414,8 @@ const HEARTBEAT_CADENCE = {
   'morning_tws_connect':        { type: 'event', desc: '朝1回 (executor 内)' },
   'short_term_auto_bat':        { type: 'event', desc: '朝1回 (08:25 CT)' },
   'verify_claims':              { type: 'event', desc: '夜1回 (nightly audit)' },
+  // 5/25 追加: monitor health 系 event-driven (= 整地後 baseline、 1日1発 健全性 check)
+  'monitor_main_engine_health': { type: 'event', desc: '整地 baseline (5/25 F7 構築)' },
 };
 
 function classifyHeartbeat(name, entry) {
