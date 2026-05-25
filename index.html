@@ -79,7 +79,7 @@
   <div class="header-row">
     <div style="min-width:0;flex:1">
       <h1>IBKR投資計画</h1>
-      <div class="header-sub" id="hdr-sub">LIVE · SS+A 10 戦略 採用</div>
+      <div class="header-sub" id="hdr-sub">LIVE · F7 14 戦略 採用</div>
       <div class="last-update" id="last-update" style="margin-top:1px">未取得</div>
     </div>
     <div style="display:flex;gap:4px;flex-shrink:0">
@@ -96,7 +96,8 @@
   <div class="tab" data-tab="history" onclick="switchTab('history')">履歴</div>
   <div class="tab" data-tab="weekly" onclick="switchTab('weekly')">週次</div>
   <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
-  <div class="tab" data-tab="short" onclick="switchTab('short')">短期</div>
+  <div class="tab" data-tab="short" onclick="switchTab('short')">F7戦略</div>
+  <div class="tab" data-tab="f7" onclick="switchTab('f7')">F7</div>
   <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">VS</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中(休止中)</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
@@ -192,19 +193,19 @@
   </div>
 </div>
 
-<!-- Tab: 週次 (5/19 夜 user 「長期 + 短期 合計」 view) -->
+<!-- Tab: 週次 (5/19 夜 user 「Champ + F7戦略 合計」 view) -->
 <div class="tab-content" id="tab-weekly">
   <div class="section">
-    <div class="section-title">📈 今週 P&L 合計 (長期 + 短期)</div>
+    <div class="section-title">📈 今週 P&L 合計 (Champ + F7戦略)</div>
     <div class="card" id="weekly-combined"><div class="empty">読込中...</div></div>
   </div>
 
   <div class="section">
-    <div class="section-title">📊 先週 短期 P&L サマリ (realized)</div>
+    <div class="section-title">📊 先週 F7戦略 P&L サマリ (realized)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
-          <div class="stat-label">短期 realized</div>
+          <div class="stat-label">F7戦略 realized</div>
           <div class="stat-value" id="w-pnl">—</div>
         </div>
         <div class="stat">
@@ -243,7 +244,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">🔮 月次・年間 予想 (短期 capital base)</div>
+    <div class="section-title">🔮 月次・年間 予想 (F7戦略 capital base)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
@@ -406,29 +407,29 @@
 <!-- Tab: 短期 (5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 で追加。 cron 上書きで消えた事案 → v20 で復元) -->
 <div class="tab-content" id="tab-short">
   <div class="section">
-    <div class="section-title">⚡ 短期 P&L サマリ</div>
+    <div class="section-title">⚡ F7戦略 P&L サマリ</div>
     <div class="card" id="short-summary"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">💼 短期 保有 (現)</div>
+    <div class="section-title">💼 F7戦略 保有 (現)</div>
     <div class="card" id="short-positions"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">📊 短期 戦略別 (今週)</div>
+    <div class="section-title">📊 F7戦略 戦略別 (今週)</div>
     <div class="card" id="short-by-strategy"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">📜 短期 直近 closed</div>
+    <div class="section-title">📜 F7戦略 直近 closed</div>
     <div class="card" id="short-trades"><div class="empty">読込中...</div></div>
   </div>
 </div>
 
 <!-- 約定 tab 廃止: 5/19 夜 user 「履歴の日次ログの所に約定タブの内容移して約定タブ消して」 → 履歴 tab 内に統合済 -->
 
-<!-- Tab: 短期 vs 長期 (5/19 夜 user 「VS わかるタブ」 で追加) -->
+<!-- Tab: F7戦略 vs Champ (5/19 夜 user 「VS わかるタブ」 で追加) -->
 <div class="tab-content" id="tab-svsl">
   <div class="section">
-    <div class="section-title">⚔ 短期 vs 長期 (Champ) 比較</div>
+    <div class="section-title">⚔ F7戦略 vs Champ (Champ) 比較</div>
     <div class="card" id="svsl-compare"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
@@ -453,6 +454,14 @@
     <div class="card" id="alerts-list">
       <div class="empty">読込中...</div>
     </div>
+  </div>
+</div>
+
+<!-- Tab: F7 framework -->
+<div class="tab-content" id="tab-f7">
+  <div class="section">
+    <div class="section-title">🏛 F7 framework (= BIMETSX 7 軸 portfolio)</div>
+    <div class="card" id="f7-detail"><div class="empty">読込中...</div></div>
   </div>
 </div>
 
@@ -617,6 +626,17 @@ function renderToday() {
   document.getElementById('brief-content').textContent = d.morning_brief || '(本日の朝メモ なし)';
 }
 
+// F7 pillar badge helper (= 各タブ共通)
+const _F7MAP = {'Drop5d_BroadPanic':'B','Pullback_v1':'B','Semi_Equip_Dip_v1':'B','HYG_LQD_QQQ_v1':'B','Buffett_VIX20_Panic_v1':'B','Confluence_RSIStoch_v1':'B','Loser_3yr50_h10_v1':'B','Momentum_12_1_v1':'M','CrossSec_Mom_v1':'M','PreEarnings_T30_T5_Industrial':'E','PEAD_SUE_60d_v1':'E','AI_Wave_Momentum_v1':'T','Bull_Trend_Breakout_v1':'T','SectorRotation_Laggard_v1':'S','A7_DXY_Drop_EM_Long_v1':'X','Insider_Dir200k_v1':'I','Drop5d_7':'B','Drop5d_StrictATR':'B'};
+const _F7COL = {'B':'#f85149','I':'#ffd700','M':'#58a6ff','E':'#3fb950','T':'#22d3ee','S':'#a78bfa','X':'#ff8c00'};
+const _F7NAM = {'B':'Bear','I':'Insider','M':'Mom','E':'Earn','T':'Trend','S':'Sector','X':'Cross'};
+function f7Badge(strat) {
+  if (!strat) return '';
+  const p = _F7MAP[strat]; if (!p) return '';
+  const c = _F7COL[p]||'#7d8590';
+  return ` <span style="background:${c}22;color:${c};font-size:9px;font-weight:800;padding:1px 5px;border-radius:4px">${_F7NAM[p]||p}</span>`;
+}
+
 function renderPositions() {
   const d = window.MOBILE_DATA || {};
   const pos = d.positions || [];
@@ -647,7 +667,7 @@ function renderPositions() {
       <div class="row" style="display:block;padding:8px 0">
         <div style="display:flex;justify-content:space-between;align-items:center">
           <div class="row-l">
-            <div class="ticker">${p.ticker} <span class="badge">${p.strategy||''}</span></div>
+            <div class="ticker">${p.ticker} <span class="badge">${p.strategy||''}</span>${f7Badge(p.strategy)}</div>
             <div class="strat">${p.entry_date||''} · ${p.shares||0}株 @ ${fmt$2(p.entry_price)}</div>
           </div>
           <div class="row-r">
@@ -765,7 +785,7 @@ function renderWeekly() {
   if (!w) {
     return;
   }
-  // 5/19 夜 user 「週次が長期と短期の合計みたいな感じで」 → 長期 + 短期 合計 section
+  // 5/19 夜 user 「週次が長期と短期の合計みたいな感じで」 → Champ + F7戦略 合計 section
   // 長期 (Champ) は unrealized 累計 (positions の現値 - cost)、 短期は realized (closed trades)
   const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
   let lCost=0, lValue=0;
@@ -789,11 +809,11 @@ function renderWeekly() {
       <div class="row-r"><div class="price ${pctClass(longUnreal)}">${longUnreal>=0?'+$':'-$'}${Math.abs(longUnreal).toFixed(2)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker">⚡ 短期 (今週 realized)</div><div class="strat">closed trades 集計</div></div>
+      <div class="row-l"><div class="ticker">⚡ F7戦略 (今週 realized)</div><div class="strat">closed trades 集計</div></div>
       <div class="row-r"><div class="price ${pctClass(shortRealizedWeek)}">${shortRealizedWeek>=0?'+$':'-$'}${Math.abs(shortRealizedWeek).toFixed(2)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker" style="font-weight:700">合計</div><div class="strat">長期 unreal + 短期 realized</div></div>
+      <div class="row-l"><div class="ticker" style="font-weight:700">合計</div><div class="strat">Champ unreal + F7戦略 realized</div></div>
       <div class="row-r"><div class="price ${pctClass(combinedTotal)}" style="font-size:18px">${combinedTotal>=0?'+$':'-$'}${Math.abs(combinedTotal).toFixed(2)}</div></div>
     </div>`;
   // Stat cards (short realized 中心)
@@ -880,7 +900,7 @@ function renderWeekly() {
       sEl.innerHTML = bs.map(s => `
         <div class="row">
           <div class="row-l">
-            <div class="ticker" style="font-size:13px">${s.strategy || '?'}</div>
+            <div class="ticker" style="font-size:13px">${s.strategy || '?'}${f7Badge(s.strategy)}</div>
             <div class="strat">${s.wins||0}勝 / ${s.n||0}件 (${s.win_rate||0}%)</div>
           </div>
           <div class="row-r">
@@ -1250,24 +1270,24 @@ function renderShortTab() {
   const total = ss.total || {realized_net:0, n_trades_total:0, n_days_traded:0, n_days_profit:0, n_days_loss:0, live_start_date:'?', avg_daily_pnl:0};
   const sumEl = document.getElementById('short-summary');
   if (sumEl) sumEl.innerHTML = `
-    <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">F7戦略 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(open.unrealized)}">${open.unrealized>=0?'+$':'-$'}${Math.abs(open.unrealized).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">今日 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(today.realized_net)}">${today.realized_net>=0?'+$':'-$'}${Math.abs(today.realized_net).toFixed(2)}</div><div class="pct">${today.n_trades}件 / 勝${today.n_wins}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(week.realized_net)}">${week.realized_net>=0?'+$':'-$'}${Math.abs(week.realized_net).toFixed(2)}</div><div class="pct">${week.n_trades}件 / 勝${week.n_wins}${week.phantom_count?` · phantom ${week.phantom_count}`:''}</div></div></div>
     <div class="row" style="border-top:1px solid var(--line);padding-top:8px;margin-top:4px"><div class="row-l"><div class="strat" style="font-weight:600;color:var(--txt)">💰 トータル損益 (LIVE ${(total.live_start_date||'').slice(5)}〜)</div></div><div class="row-r"><div class="price ${pctClass(total.realized_net)}" style="font-weight:700">${total.realized_net>=0?'+$':'-$'}${Math.abs(total.realized_net).toFixed(2)}</div><div class="pct">${total.n_trades_total}件 / 勝${total.n_days_profit}日 損${total.n_days_loss}日 (${total.n_days_traded}営)</div></div></div>`;
   const posEl = document.getElementById('short-positions');
   if (posEl) {
-    if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
+    if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">F7戦略 保有なし</div>';
     else posEl.innerHTML = open.positions.map(p => {
       return `<div class="row"><div class="row-l"><div class="ticker">${p.ticker}</div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)}</div></div><div class="row-r"><div class="price">$${(p.cost||0).toFixed(2)}</div></div></div>`;
     }).join('');
   }
   const byStratEl = document.getElementById('short-by-strategy');
   if (byStratEl) {
-    if (!byStratArr.length) byStratEl.innerHTML = '<div class="empty">今週 短期 closed なし</div>';
+    if (!byStratArr.length) byStratEl.innerHTML = '<div class="empty">今週 F7戦略 closed なし</div>';
     else byStratEl.innerHTML = byStratArr.map(s => {
       const wr = s.n ? (s.wins/s.n*100).toFixed(0) : '—';
-      return `<div class="row"><div class="row-l"><div class="ticker">${s.strategy}</div><div class="strat">${s.n}件 / 勝${s.wins} (${wr}%)</div></div><div class="row-r"><div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div></div></div>`;
+      return `<div class="row"><div class="row-l"><div class="ticker">${s.strategy}${f7Badge(s.strategy)}</div><div class="strat">${s.n}件 / 勝${s.wins} (${wr}%)</div></div><div class="row-r"><div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div></div></div>`;
     }).join('');
   }
   const tradesEl = document.getElementById('short-trades');
@@ -1361,7 +1381,7 @@ function renderShortVsLong() {
     </div>`;
   compEl.innerHTML =
     svslRow('📈 長期 Champ', `${lCount}銘柄 cost $${lCost.toFixed(0)}`, lPnl, lPct) +
-    svslRow('⚡ 短期', `${sCount}銘柄 cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日${today.n_trades}件` : ''}`, sCombined, null) +
+    svslRow('⚡ F7戦略', `${sCount}銘柄 cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日${today.n_trades}件` : ''}`, sCombined, null) +
     `<div style="padding:14px 0 6px;border-top:2px solid var(--line);margin-top:6px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <div style="font-size:14px;font-weight:700">💰 合計</div>
@@ -1390,7 +1410,7 @@ function renderShortVsLong() {
           </div>`;
       }).join('')
       : '';
-    breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ 短期', sList, true)) || '<div class="empty">保有なし</div>';
+    breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ F7戦略', sList, true)) || '<div class="empty">保有なし</div>';
   }
 }
 
@@ -1598,8 +1618,8 @@ function renderExitPlans() {
     return 'var(--sub)';
   };
 
-  // category order: 短期 (寄付戦略) → 場中 (intraday) → others
-  const catOrder = ['短期 (寄付戦略)', '場中 (intraday)'];
+  // category order: F7戦略 (寄付戦略) → 場中 (intraday) → others
+  const catOrder = ['F7戦略 (寄付戦略)', '場中 (intraday)'];
   const cats = Object.keys(groups).sort((a,b) => {
     const ai = catOrder.indexOf(a); const bi = catOrder.indexOf(b);
     if (ai < 0 && bi < 0) return a.localeCompare(b);
@@ -1845,16 +1865,23 @@ function renderTrackerStrategies() {
         <span style="background:#3fb95022;color:#3fb950;font-size:14px;font-weight:800;padding:5px 11px;border-radius:7px">🎯 月<span style="font-size:17px">${spmDisp}</span>回</span>
         <span style="background:${moPctColor}22;color:${moPctColor};font-size:14px;font-weight:800;padding:5px 11px;border-radius:7px">📈 <span style="font-size:17px">${moPctDisp}</span>/月</span>
       </div>`;
+    // tier から pillar 名抽出 + tier letter のみ右上
+    const tierMatch = (s.tier||'').match(/^(\S+)\s*\((.+)\)$/);
+    const tierLetter = tierMatch ? tierMatch[1] : (s.tier||'-');
+    const pillarName = tierMatch ? tierMatch[2] : (s.cat||'');
+    // pillar → F7 色
+    const _F7C2 = {'Bear':'#f85149','Insider':'#ffd700','Momentum':'#58a6ff','Earnings':'#3fb950','Trend':'#22d3ee','Sector':'#a78bfa','Cross':'#ff8c00'};
+    const pillarCol = Object.entries(_F7C2).find(([k]) => pillarName.toLowerCase().includes(k.toLowerCase()))?.[1] || tcol;
     return `
       <div class="card" style="margin-bottom:8px${isRare ? ';border-left:2px solid #22d3ee' : ''}">
         <div style="display:flex;justify-content:space-between;align-items:flex-start;gap:8px">
           <div style="flex:1;min-width:0">
-            <div class="ticker" style="font-size:14px">${s.name||''}</div>
+            <div class="ticker" style="font-size:14px;color:${pillarCol}">${s.name||''}</div>
+            <div style="margin-top:3px"><span style="background:${pillarCol}22;color:${pillarCol};font-size:11px;font-weight:700;padding:2px 8px;border-radius:6px">${pillarName}</span></div>
             ${infoChips}
-            <div class="strat" style="margin-top:4px">${s.cat||''}</div>
           </div>
           <div style="text-align:right;flex-shrink:0">
-            <div style="background:${tcol}22;color:${tcol};font-weight:900;font-size:28px;line-height:1;padding:4px 10px;border-radius:8px;letter-spacing:1px">${s.tier||'-'}</div>
+            <div style="background:${tcol}22;color:${tcol};font-weight:900;font-size:28px;line-height:1;padding:4px 10px;border-radius:8px;letter-spacing:1px">${tierLetter}</div>
             ${verBadge}
             ${rareUnderTier}
             <div style="margin-top:6px">${mpDisplay}</div>
@@ -1894,7 +1921,7 @@ function renderTickers() {
   const filEl = document.getElementById('tickers-filters');
   if (!listEl) return;
   if (!tickers.length) {
-    listEl.innerHTML = '<div class="empty">tracker_tickers なし (sync_mobile が yasuda_quant/tracker_data.js を読めていない可能性)</div>';
+    listEl.innerHTML = '<div class="empty">銘柄データなし</div>';
     if (sumEl) sumEl.textContent = '';
     return;
   }
@@ -1941,7 +1968,10 @@ function renderTickers() {
     const champBadge = t.is_champ ? '<span class="badge" style="background:rgba(210,153,34,.18);color:var(--yellow)">🏆 Champ</span>' : '';
     const sectorJp = t.sector_jp || t.sector_en || '-';
     const stratsHtml = strats.length
-      ? strats.map(s => `<span style="display:inline-block;background:rgba(88,166,255,.10);color:var(--blue);padding:2px 6px;border-radius:3px;margin:2px 3px 0 0;font-size:10px">${s}</span>`).join('')
+      ? strats.map(s => {
+          const _p = _F7MAP[s]; const _c = _p ? (_F7COL[_p]||'#58a6ff') : '#58a6ff';
+          return `<span style="display:inline-block;background:${_c}18;color:${_c};padding:2px 6px;border-radius:3px;margin:2px 3px 0 0;font-size:10px;font-weight:600">${s}${_p ? ' '+(_F7NAM[_p]||'') : ''}</span>`;
+        }).join('')
       : '<span style="color:var(--sub);font-size:10px">配線なし</span>';
     return `
       <div class="card" style="margin-bottom:6px;padding:10px">
@@ -1988,6 +2018,35 @@ function loadAll() {
     }
   };
   safeRun('regime', renderRegime);
+  // F7 tab render
+  safeRun('f7', function() {
+    const d = window.MOBILE_DATA || {};
+    const bf = d.bimet_framework || {};
+    const sm = bf.summary || {};
+    const pls = bf.pillars || {};
+    const el = document.getElementById('f7-detail');
+    if (!el || !sm.framework_name) return;
+    const FC = {'B':'#f85149','I':'#ffd700','M':'#58a6ff','E':'#3fb950','T':'#22d3ee','S':'#a78bfa','X':'#ff8c00'};
+    let html = `<div style="display:flex;justify-content:space-between;margin-bottom:8px"><div style="font-size:20px;font-weight:900;background:linear-gradient(90deg,#ffd700,#ff8c00);-webkit-background-clip:text;-webkit-text-fill-color:transparent">${sm.framework_name} = ${Object.keys(pls).join('-')}</div><div style="font-size:11px;color:var(--sub)">N_eff ${sm.n_eff_full_period||'?'}<br/>size ${(sm.total_size||0).toFixed(2)} / LIVE ${sm.live_count||0}</div></div>`;
+    Object.entries(pls).forEach(([k,p]) => {
+      const c = FC[k]||'#7d8590'; const w = Math.min(100,p.share_pct||0);
+      html += `<div style="margin:8px 0;padding:8px;border-left:4px solid ${c};background:${c}08;border-radius:4px">`;
+      html += `<div style="display:flex;justify-content:space-between"><b style="color:${c}">${k} ${(p.name||'').substring(0,25)}</b><span style="font-size:12px;font-weight:700">${(p.share_pct||0).toFixed(0)}% (${(p.size_sum||0).toFixed(2)})</span></div>`;
+      html += `<div style="margin:4px 0;background:#21262d;border-radius:3px;height:8px;overflow:hidden"><div style="height:100%;width:${w}%;background:${c}"></div></div>`;
+      (p.strategies||[]).forEach(s => {
+        html += `<div style="margin:3px 0;padding:3px 6px;font-size:11px;display:flex;justify-content:space-between"><span style="color:${c}">${s.name||'?'}</span><span>size ${s.size||0} · ${s.badge||''} · $${s.mo_usd||0}/月 · ${(s.mo_pct||0)>=0?'+':''}${s.mo_pct||0}%/月</span></div>`;
+      });
+      if (p.warning) html += `<div style="font-size:10px;color:#d29922;margin-top:3px">⚠️ ${p.warning}</div>`;
+      html += `</div>`;
+    });
+    const ex = bf.excluded||{};
+    if (Object.keys(ex).length) {
+      html += `<div style="margin-top:10px;font-size:11px;color:var(--sub)"><b>除外:</b> ${Object.entries(ex).map(([k,v])=>k+': '+v).join(' / ')}</div>`;
+    }
+    if (bf.governance) html += `<div style="margin-top:6px;font-size:10px;color:var(--sub)">${bf.governance}</div>`;
+    el.innerHTML = html;
+  });
+
   safeRun('today', renderToday);
   safeRun('positions', renderPositions);
   safeRun('exitPlans', renderExitPlans);
