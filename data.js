@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T03:45",
+  "generated_at": "2026-05-25T03:54",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -1460,7 +1460,7 @@ window.MOBILE_DATA = {
       "tier": "?",
       "name": "SectorRotation_Laggard_v1",
       "cat": "その他",
-      "tickers": "(watchlist 未登録)",
+      "tickers": "XLV / XLK / XLI / XLF / XLE ... (計11銘柄)",
       "condition": "5/24 BIMETS S 柱 (= 6 軸目 Sector Rotation): 月初 SPDR sector ETF 60d return 下位 2 → 翌 MOO BUY hold 20d、 contrarian (NOT momentum)、 CrossSec と corr 0.00 完全直交 = 別源泉、 cost+1.20% n=92 OOS、 ST348 復活 PASS",
       "hold": "20日 寄→翌寄 MOO bracket",
       "freq": "(未集計)",
@@ -2880,97 +2880,97 @@ window.MOBILE_DATA = {
       "ts": "2026-05-25T03:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6608047666666667
+      "age_min": 9.086498833333334
     },
     "sync_mobile": {
-      "ts": "2026-05-25T03:45:22",
+      "ts": "2026-05-25T03:45:44",
       "ok": true,
-      "note": "114,711 B",
-      "age_min": 0.3441381
+      "note": "114,683 B",
+      "age_min": 8.4031655
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 4612.610804766667
+      "age_min": 4621.036498833333
     },
     "intraday_cron": {
-      "ts": "2026-05-25T03:30:43",
+      "ts": "2026-05-25T03:45:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.994138099999999
+      "age_min": 8.4031655
     },
     "intraday_executor_scan": {
       "ts": "2026-05-25T03:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6774714333333333
+      "age_min": 9.1031655
     },
     "vix_regime": {
       "ts": "2026-05-25T03:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.32747143333333334
+      "age_min": 8.7531655
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 4065.6274714333335
+      "age_min": 4074.0531655
     },
     "morning_tws_connect": {
       "ts": "2026-05-24T08:29:46",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1155.9441381
+      "age_min": 1164.3698321666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-24T08:36:22",
       "ok": true,
       "note": "completed",
-      "age_min": 1149.3441381
+      "age_min": 1157.7698321666664
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 4730.710804766667
+      "age_min": 4739.1364988333335
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T03:45:22",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 0.3441381
+      "age_min": 8.769832166666667
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 5421.110804766667
+      "age_min": 5429.536498833333
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 3180.7608047666668
+      "age_min": 3189.186498833333
     },
     "monitor_main_engine_health": {
-      "ts": "2026-05-24T18:00:01",
+      "ts": "2026-05-25T03:49:14",
       "ok": true,
-      "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 585.6941381
+      "note": "OK 5/25: Confluence_RSIStoch_v1 trades 0 in 90d = 期待値 (5/25 整地で size=0 CUT、 N_eff +0.39 改善理由、 hub dup で正しい dispose)。 LIVE 13 戦略 (= Bull/CrossSec/PEAD_60d/SR/A7 等 probe 含む) で稼働、 baseline 期待値再計算要。",
+      "age_min": 4.9031655
     },
     "alert_intraday_position_monitor": {
-      "ts": "2026-05-23T14:45:05",
-      "ok": false,
-      "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 2220.6274714333335
+      "ts": "2026-05-25T03:49:14",
+      "ok": true,
+      "note": "RESOLVED 5/25: 後続 intraday_position_monitor heartbeat <1min ago で OK 連続、 state_tws_reconciler state=1 TWS=8 で TWS 接続正常稼働確認。 5/23 14:45 FAIL は当時 TWS off 状態の transient。",
+      "age_min": 4.9031655
     },
     "alert_short_term_executor_connect": {
-      "ts": "2026-05-23T08:34:26",
-      "ok": false,
-      "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 2591.2774714333336
+      "ts": "2026-05-25T03:49:14",
+      "ok": true,
+      "note": "RESOLVED 5/25: 後続 morning_tws_connect attempt=1 OK + short_term_auto_bat completed + state_tws_reconciler 健全 (state=1 TWS=8)、 TWS 接続復旧確認済。 5/23 08:34 FAIL は当時 TWS off 状態の transient。",
+      "age_min": 4.9031655
     }
   },
   "regime": {
@@ -2992,12 +2992,6 @@ window.MOBILE_DATA = {
     "data_freshness_days": 3
   },
   "alerts_recent": [
-    {
-      "ts": "2026-05-23T08:34:26",
-      "severity": "CRITICAL",
-      "source": "short_term_executor_connect",
-      "message": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要"
-    },
     {
       "ts": "2026-05-22T08:00:05",
       "severity": "INFO",
