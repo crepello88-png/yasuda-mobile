@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T11:46",
+  "generated_at": "2026-05-25T12:00",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -765,7 +765,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 104.3,
       "win": 65.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "Confluence_RSIBB_v1",
@@ -775,7 +775,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 78.0,
       "win": 63.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "HighPullback50_v1",
@@ -785,7 +785,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 60.0,
       "win": 55.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "EarnCascade_SOXX_up5_h5",
@@ -795,7 +795,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 12.5,
       "win": 75.0,
-      "hold": "5日"
+      "hold": null
     },
     {
       "name": "EarnCascade_SMH_up5_h5",
@@ -805,7 +805,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 12.5,
       "win": 75.0,
-      "hold": "5日"
+      "hold": null
     },
     {
       "name": "Stoch_Oversold_v1",
@@ -815,7 +815,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 44.0,
       "win": 54.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Confluence_BBStoch_v1",
@@ -825,7 +825,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 36.0,
       "win": 62.0,
-      "hold": "5日"
+      "hold": null
     },
     {
       "name": "EarnCascade_SMH_down5_h10",
@@ -835,7 +835,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 7.5,
       "win": 75.0,
-      "hold": "10日"
+      "hold": null
     },
     {
       "name": "Golden_Cross_v1",
@@ -845,7 +845,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 36.0,
       "win": 68.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "SMA_Stack_v1",
@@ -855,7 +855,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 36.0,
       "win": 62.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "MACD_Cross_v1",
@@ -865,7 +865,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 24.0,
       "win": 56.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Inside_Day_BO_v1",
@@ -875,7 +875,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 22.8,
       "win": 56.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Sector_FriPanic_v1",
@@ -885,7 +885,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 20.0,
       "win": 60.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "CFO_Solo_PBuy_v1",
@@ -895,7 +895,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 12.4,
       "win": 58.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "VolDryUp_v1",
@@ -905,7 +905,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 20.0,
       "win": 55.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "BB_Lower_Bounce_v1",
@@ -915,7 +915,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 16.0,
       "win": 54.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Pullback_v1",
@@ -925,7 +925,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 15.0,
       "win": 53.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "TLT_Spike_Equity_v1",
@@ -935,7 +935,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 15.0,
       "win": 65.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "Drop5d_BroadPanic",
@@ -945,7 +945,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 7.5,
       "win": 65.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Drop5d_ETF7",
@@ -955,7 +955,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 7.5,
       "win": 55.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "MSTR_Panic20",
@@ -965,7 +965,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 6.0,
       "win": 70.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "VIX_Spike_XLK_v1",
@@ -975,7 +975,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 5.4,
       "win": 68.0,
-      "hold": "7日"
+      "hold": null
     },
     {
       "name": "SPY_Panic2_v1",
@@ -985,7 +985,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 4.5,
       "win": 65.0,
-      "hold": "3日"
+      "hold": null
     },
     {
       "name": "VIX_Backward",
@@ -995,7 +995,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 4.5,
       "win": 65.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Drop5d_VIX30_StochKD",
@@ -1005,7 +1005,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 4.5,
       "win": 65.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Pharma_Panic_v1",
@@ -1015,7 +1015,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 2.0,
       "win": 70.0,
-      "hold": "1日"
+      "hold": null
     },
     {
       "name": "Semi_FriPanic_v1",
@@ -1025,7 +1025,7 @@ window.MOBILE_DATA = {
       "sl": -10.0,
       "monthly_usd": 1.0,
       "win": 60.0,
-      "hold": "1日"
+      "hold": null
     }
   ],
   "tracker_strategies": [
@@ -1112,7 +1112,7 @@ window.MOBILE_DATA = {
       "cat": "短期 theme momentum",
       "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
       "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 18d hold (TP+10/SL-10 wide)",
-      "hold": "14日",
+      "hold": "18日 (= sweet spot swap、 5/23)",
       "freq": "n=978、 月 12.76 sig",
       "sharpe": "R2 OOS: eff $20.50/slot mean+1.21%/trade OOS+2.96%",
       "live": "✅ size_mult=1.0 monitor.py AI_Wave_Momentum_v1",
@@ -1174,7 +1174,7 @@ window.MOBILE_DATA = {
       "cat": "短期 momentum factor",
       "tickers": "全 193 watchlist",
       "condition": "月初 trading day で 12-1 (= 252d return 除 21d) >= +20% → 翌 MOO BUY → 21d hold",
-      "hold": "5日",
+      "hold": "7日",
       "freq": "n=6115、 約 6 sig/月 (低頻度)",
       "sharpe": "R2: Sh+0.73 OOS+0.28% $/mo=$239",
       "live": "✅ size_mult=0.4 (5/25 regime-balanced reduce 1.0→0.4 + CrossSec 0.6)、 portfolio sizing 余裕 monitor.py Momentum_12_1_v1",
@@ -1196,7 +1196,7 @@ window.MOBILE_DATA = {
       "cat": "短期 mean-reversion (intraday)",
       "tickers": "100銘柄 watchlist",
       "condition": "chg5<-12% + SPY 5日<-5% (broad market panic)",
-      "hold": "1日",
+      "hold": "当日 寄→引 MOC",
       "freq": "年 30〜80 件 (broad panic 時)",
       "sharpe": "MOC化 Sh+1.98 win 55% mean+0.96% (n=36820, ovn+0.91 から 2倍化 ST596)",
       "live": "✅ 自動 entry + MOC SELL (5/17 早朝 廃案撤回)",
@@ -1225,7 +1225,7 @@ window.MOBILE_DATA = {
       "cat": "短期 pullback",
       "tickers": "GOOGL / META / AVGO / KLAC / AMAT / XLK (6 銘柄、 monitor.py 自動 entry, max 5 同時)",
       "condition": "SMA50>SMA200 (uptrend) AND RSI(14)<35 (oversold) AND 前日 RSI>=35 (fresh) → 翌寄 BUY → 3日後 寄付 SELL",
-      "hold": "3日",
+      "hold": "3日 寄→3日後寄 MOO bracket (ST699: 5d→3d、 full Sh+3.39 vs 5d+3.11)",
       "freq": "銘柄毎 年 3〜6 件 × 6 = 年 18-36 件 (bull 期 main alpha source)",
       "sharpe": "ST680 (5/17 03:46): GOOGL Sh+6.87 / META +6.81 / AVGO +6.22 / KLAC +6.17 / AMAT +4.97 / XLK +4.05 win 60-70% n=53-65 [全 4/4 regime pass]",
       "live": "✅ 自動 entry (5/17 03:46 自動採用) monitor.py Pullback_v1",
@@ -1400,6 +1400,27 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.84,
       "_per_share_basis": "NVDA ~\\$220 × mean 1.29%"
+    },
+    {
+      "tier": "?",
+      "name": "PEAD_SUE_Top20_v1",
+      "cat": "その他",
+      "tickers": "(watchlist 未登録)",
+      "condition": "5/24 BIMET E 柱 2 本目: earnings 当日 gap >= +1.86% (80%-tile) → 翌 MOO BUY、 hold 20d、 PreEarn と corr -0.01 完全独立、 stress N_eff +0.86、 Bernard-Thomas 1990 / Ball-Brown 1968 PEAD anomaly",
+      "hold": "20日 寄→翌寄 MOO bracket",
+      "freq": "(未集計)",
+      "sharpe": "5/24 BIMET E 柱 2 本目: earnings 当日 gap >= +1.86% (80%-tile) → 翌 MOO BUY、 hold 20d、 PreEarn と corr -0.01 完全独立、 stress N_eff +0.86、 Bernard-Thomas 1990 / Ball-Brown 1968 PEAD anomaly",
+      "live": "⏸ disabled (size_multiplier=0)",
+      "memo": "[_5_25_dispose] 5/25 dispose: bug fix 後 OOS n=148 fire、 cost -0.41% anti-edge 確定 (= drift だけでは cost 0.6% 回収不能)、 size 0 で zombie 維持、 別 spec PEAD_SUE_60d_v1 に置換。",
+      "_auto_meta": {
+        "key": "PEAD_SUE_Top20_v1",
+        "tp_pct": 10.0,
+        "sl_pct": -8.0,
+        "size_multiplier": 0,
+        "paper": false,
+        "sharpe_value": null
+      },
+      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -3679,28 +3700,28 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-25T11:45:49",
+      "ts": "2026-05-25T11:46:38",
       "ok": true,
-      "note": "128,070 B",
-      "age_min": 0.7910662166666668
+      "note": "128,063 B",
+      "age_min": 13.726965766666666
     },
     "vix_regime": {
       "ts": "2026-05-25T11:45:30",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 1.1077328833333333
+      "age_min": 14.860299099999999
     },
     "intraday_cron": {
       "ts": "2026-05-25T11:45:49",
       "ok": true,
       "note": "bat completed",
-      "age_min": 0.7910662166666668
+      "age_min": 14.543632433333332
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-25T11:45:03",
+      "ts": "2026-05-25T12:00:03",
       "ok": true,
       "note": "",
-      "age_min": 1.5577328833333333
+      "age_min": 0.3102991
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3715,22 +3736,22 @@ window.MOBILE_DATA = {
       "age_min": null
     },
     "intraday_position_monitor": {
-      "ts": "2026-05-25T11:45:09",
+      "ts": "2026-05-25T12:00:09",
       "ok": true,
       "note": "",
-      "age_min": 1.4577328833333332
+      "age_min": 0.2102991
     },
     "morning_preopen_notify": {
       "ts": "2026-05-25T09:41:47",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 124.82439955
+      "age_min": 138.57696576666666
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T11:45:29",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 1.12439955
+      "age_min": 14.876965766666666
     }
   },
   "regime": {
