@@ -480,7 +480,7 @@
 </main>
 
 <div class="footer">
-  IBKR投資計画 mobile · F7 13戦略 + Champ DCA + 場中 6 paper
+  IBKR投資計画 mobile · F7 14戦略 + Champ DCA
 </div>
 
 <script>
@@ -1809,13 +1809,29 @@ function renderExitPlans() {
 let _trackerStratFilter = { tier: 'ALL', liveOnly: false };
 function renderTrackerStrategies() {
   const d = window.MOBILE_DATA || {};
-  const strats = d.tracker_strategies || [];
+  // 5/25 fix: tracker 廃止 → F7 framework pillars から戦略リスト生成
+  const bf = d.bimet_framework || {};
+  const pillars = bf.pillars || {};
+  const strats = [];
+  Object.entries(pillars).forEach(([k, p]) => {
+    (p.strategies || []).forEach(s => {
+      strats.push({
+        name: s.name, tier: `${s.badge || '🟢'} F7-${k}`,
+        monthly_profit_usd: s.mo_usd, hold: s.hold ? `${s.hold}日` : null,
+        _signals_per_month: null, _r2_mean_pct: s.mo_pct,
+        cat: p.name, live: s.note || '', memo: s.note || '',
+        sharpe: `$/月 $${s.mo_usd || 0} / %/月 ${s.mo_pct || 0}%`,
+        condition: s.note || '', tickers: '', freq: '',
+        _size_mult_current: s.size, _monthly_full_size_usd: null,
+      });
+    });
+  });
   const listEl = document.getElementById('tracker-strategies-list');
   const sumEl = document.getElementById('tracker-strategies-summary');
   const filEl = document.getElementById('tracker-strat-filters');
   if (!listEl) return;
   if (!strats.length) {
-    listEl.innerHTML = '<div class="empty">tracker_strategies なし (sync_mobile が yasuda_quant/tracker_data.js を読めていない可能性)</div>';
+    listEl.innerHTML = '<div class="empty">F7 framework data なし</div>';
     if (sumEl) sumEl.textContent = '';
     return;
   }
