@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T13:17",
+  "generated_at": "2026-05-25T13:18",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -1176,28 +1176,28 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-25T13:16:15",
+      "ts": "2026-05-25T13:17:33",
       "ok": true,
-      "note": "74,460 B",
-      "age_min": 1.2769431166666665
+      "note": "82,730 B",
+      "age_min": 0.9791778166666667
     },
     "vix_regime": {
       "ts": "2026-05-25T13:15:29",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 2.0436097833333333
+      "age_min": 3.045844483333333
     },
     "intraday_cron": {
       "ts": "2026-05-25T13:15:48",
       "ok": true,
       "note": "bat completed",
-      "age_min": 1.7269431166666667
+      "age_min": 2.7291778166666663
     },
     "intraday_executor_scan": {
       "ts": "2026-05-25T13:15:03",
       "ok": true,
       "note": "",
-      "age_min": 2.476943116666667
+      "age_min": 3.4791778166666663
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -1215,19 +1215,19 @@ window.MOBILE_DATA = {
       "ts": "2026-05-25T13:15:09",
       "ok": true,
       "note": "",
-      "age_min": 2.376943116666667
+      "age_min": 3.3791778166666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-25T09:41:47",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 215.74360978333334
+      "age_min": 216.74584448333331
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T13:15:29",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 2.0436097833333333
+      "age_min": 3.045844483333333
     }
   },
   "regime": {
@@ -1792,1439 +1792,2402 @@ window.MOBILE_DATA = {
   "tracker_tickers": [
     {
       "ticker": "AAPL",
+      "name": "Apple Inc.",
+      "reading": "アップル",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Consumer Electronics",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "ABNB",
+      "name": "Airbnb, Inc.",
+      "reading": "エアビーアンドビー",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Travel Services",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "ADI",
+      "name": "Analog Devices, Inc.",
+      "reading": "アナログ・デバイセズ",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductors",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AEHR",
+      "name": "Aehr Test Systems, Inc.",
+      "reading": "エアー・テスト・システムズ",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "AEIS",
+      "name": "Advanced Energy Industries, Inc.",
+      "reading": "アドバンスト・エナジー",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Electrical Equipment & Parts",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "AGL",
+      "name": "agilon health, inc.",
+      "reading": "アグライア・テラピューティクス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Medical Care Facilities",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "AGX",
+      "name": "Argan, Inc.",
+      "reading": "アーガン",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "ALSN",
+      "name": "Allison Transmission Holdings, Inc.",
+      "reading": "アリソン・トランスミッション",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Auto Parts",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AMAT",
+      "name": "Applied Materials, Inc.",
+      "reading": "アプライド・マテリアルズ",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Pullback_v1",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "AMD",
-      "strategies": [],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AMPX",
+      "name": "Amprius Technologies, Inc.",
+      "reading": "アンプリエックス・パワー",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Electrical Equipment & Parts",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "AMZN",
+      "name": "Amazon.com, Inc.",
+      "reading": "アマゾン・ドットコム",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Internet Retail",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ANET",
+      "name": "Arista Networks, Inc.",
+      "reading": "アリスタ・ネットワークス",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Computer Hardware",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "APD",
+      "name": "Air Products and Chemicals, Inc.",
+      "reading": "エア・プロダクツ",
+      "sector_en": "Basic Materials",
+      "sector_jp": "素材",
+      "industry": "Specialty Chemicals",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "AVGO",
+      "name": "Broadcom Inc.",
+      "reading": "ブロードコム",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductors",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "SPY_Panic2_v1",
+        "Semi_FriPanic_v1",
         "Pullback_v1",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "AXP",
+      "name": "American Express Company",
+      "reading": "アメリカン・エキスプレス",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Credit Services",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "BAC",
+      "name": "Bank of America Corporation",
+      "reading": "バンク・オブ・アメリカ",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Banks - Diversified",
+      "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "BAX",
+      "name": "Baxter International Inc.",
+      "reading": "バクスター・インターナショナル",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Medical Instruments & Supplies",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "BSX",
-      "strategies": [],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "BWA",
+      "name": "BorgWarner Inc.",
+      "reading": "ボーグワーナー",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Auto Parts",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "CAH",
-      "strategies": [],
-      "is_champ": false
+      "name": "Cardinal Health, Inc.",
+      "reading": "カーディナル・ヘルス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Medical Distribution",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "CF",
+      "name": "CF Industries Holdings, Inc.",
+      "reading": "CF インダストリーズ",
+      "sector_en": "Basic Materials",
+      "sector_jp": "素材",
+      "industry": "Agricultural Inputs",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CHD",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CHRW",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "CLSK",
+      "name": "CleanSpark, Inc.",
+      "reading": "クリーンスパーク",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Capital Markets",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CNC",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CNP",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "COHU",
+      "name": "Cohu, Inc.",
+      "reading": "コーフー",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "COIN",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "COO",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "COP",
+      "name": "ConocoPhillips",
+      "reading": "コノコフィリップス",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas E&P",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "COST",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": true
+      "name": "Costco Wholesale Corporation",
+      "reading": "コストコ・ホールセール",
+      "sector_en": "Consumer Defensive",
+      "sector_jp": "生活必需",
+      "industry": "Discount Stores",
+      "is_champ": true,
+      "strategies": []
     },
     {
       "ticker": "CRM",
+      "name": "Salesforce, Inc.",
+      "reading": "セールスフォース",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Software - Application",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "CRSP",
+      "name": "CRISPR Therapeutics AG",
+      "reading": "クリスパー・セラピューティクス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Biotechnology",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CTVA",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "CVX",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "D",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "DE",
+      "name": "Deere & Company",
+      "reading": "ディア・アンド・カンパニー",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Farm & Heavy Construction Machinery",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "DIA",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "DLTR",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "DNLI",
+      "name": "Denali Therapeutics Inc.",
+      "reading": "デナリ・セラピューティクス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Biotechnology",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "EBAY",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "ED",
+      "name": "eBay Inc.",
+      "reading": "イーベイ",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Internet Retail",
+      "is_champ": false,
       "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "EEM",
+      "name": "iShares MSCI Emerging Markets ETF",
+      "reading": "新興国株式 ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "新興国株式",
+      "is_champ": false,
       "strategies": [
-        "A7_DXY_Drop_EM_Long_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EG",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EL",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "EOG",
+      "name": "EOG Resources, Inc.",
+      "reading": "EOG リソーシズ",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas E&P",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EPAM",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "EQIX",
+      "name": "Equinix, Inc.",
+      "reading": "エクイニクス",
+      "sector_en": "Real Estate",
+      "sector_jp": "REIT/不動産",
+      "industry": "REIT - Specialty",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EQR",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EQT",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EVRG",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "EWJ",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "EWZ",
+      "name": "iShares MSCI Japan ETF",
+      "reading": "日本株 ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "日本株 ETF",
+      "is_champ": false,
       "strategies": [
-        "A7_DXY_Drop_EM_Long_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "EXE",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FAS",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "FAST",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FBTC",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "FDS",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FDX",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FISV",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FITB",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "FIX",
+      "name": "Comfort Systems USA, Inc.",
+      "reading": "コンフォート・システムズ USA",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "FLR",
+      "name": "Fluor Corporation",
+      "reading": "フルア",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "FND",
+      "name": "Floor & Decor Holdings, Inc.",
+      "reading": "フロア&デコー",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Home Improvement Retail",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FSLR",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "FTAI",
+      "name": "FTAI Aviation Ltd.",
+      "reading": "FTAI アビエーション",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Aerospace & Defense",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "FTNT",
+      "name": "Fortinet, Inc.",
+      "reading": "フォーティネット",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Software - Infrastructure",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FTV",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "FXI",
-      "strategies": [
-        "A7_DXY_Drop_EM_Long_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "GEHC",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "GL",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "GLD",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "GM",
+      "name": "SPDR Gold Shares",
+      "reading": "金 (商品) ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "金 (商品)",
+      "is_champ": false,
       "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "GOOG",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": true
+      "name": "Alphabet Inc.",
+      "reading": "アルファベット (グーグル)",
+      "sector_en": "Communication Services",
+      "sector_jp": "通信",
+      "industry": "Internet Content & Information",
+      "is_champ": true,
+      "strategies": []
     },
     {
       "ticker": "GOOGL",
+      "name": "Alphabet Inc.",
+      "reading": "アルファベット A (グーグル)",
+      "sector_en": "Communication Services",
+      "sector_jp": "通信",
+      "industry": "Internet Content & Information",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
         "Pullback_v1",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "GPK",
+      "name": "Graphic Packaging Holding Company",
+      "reading": "グラフィック・パッケージング",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Packaging & Containers",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "HD",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "HIW",
+      "name": "Highwoods Properties, Inc.",
+      "reading": "ハイウッズ・プロパティーズ",
+      "sector_en": "Real Estate",
+      "sector_jp": "REIT/不動産",
+      "industry": "REIT - Office",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "HOOD",
+      "name": "Robinhood Markets, Inc.",
+      "reading": "ロビンフッド",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Capital Markets",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "HYG",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "IBIT",
-      "strategies": [],
-      "is_champ": false
+      "name": "iShares iBoxx $ High Yield Corporate Bond ETF",
+      "reading": "ハイイールド債券 ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "ハイイールド債券",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ICHR",
+      "name": "Ichor Holdings, Ltd.",
+      "reading": "イチョール・ホールディングス",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "INDA",
-      "strategies": [
-        "A7_DXY_Drop_EM_Long_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "INTC",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "IP",
+      "name": "International Paper Company",
+      "reading": "インターナショナル・ペーパー",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Packaging & Containers",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ITT",
-      "strategies": [],
-      "is_champ": false
+      "name": "ITT Inc.",
+      "reading": "アイティーティー",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Specialty Industrial Machinery",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "IWM",
+      "name": "iShares Russell 2000 ETF",
+      "reading": "iShares ラッセル2000",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "ラッセル 2000 (小型株)",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "J",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "JPM",
+      "name": "JPMorgan Chase & Co.",
+      "reading": "JP モルガン・チェース",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Banks - Diversified",
+      "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "KBR",
+      "name": "KBR, Inc.",
+      "reading": "KBR (建設エンジニア)",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "KDP",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "KLAC",
+      "name": "KLA Corporation",
+      "reading": "ケーエルエー",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Pullback_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "KWEB",
-      "strategies": [
-        "A7_DXY_Drop_EM_Long_v1"
-      ],
-      "is_champ": false
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "LIN",
-      "strategies": [],
-      "is_champ": false
+      "name": "Linde plc",
+      "reading": "リンデ",
+      "sector_en": "Basic Materials",
+      "sector_jp": "素材",
+      "industry": "Specialty Chemicals",
+      "is_champ": false,
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "LITE",
+      "name": "Lumentum Holdings Inc.",
+      "reading": "ルメンタム",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Communication Equipment",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "LLY",
+      "name": "Eli Lilly and Company",
+      "reading": "イーライリリー",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Drug Manufacturers - General",
+      "is_champ": true,
       "strategies": [
-        "Earnings_T_minus_5",
-        "Confluence_RSIBB_v1",
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": true
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "LNG",
+      "name": "Cheniere Energy, Inc.",
+      "reading": "シェニエール・エナジー",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas Midstream",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "LOW",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "LRCX",
+      "name": "Lam Research Corporation",
+      "reading": "ラム・リサーチ",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductor Equipment & Materials",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "M",
+      "name": "Macy's, Inc.",
+      "reading": "メイシーズ",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Department Stores",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MA",
+      "name": "Mastercard Incorporated",
+      "reading": "マスターカード",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Credit Services",
+      "is_champ": false,
       "strategies": [
-        "Earnings_T_minus_5",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MAR",
+      "name": "Marriott International, Inc.",
+      "reading": "マリオット・インターナショナル",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Lodging",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MARA",
-      "strategies": [],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "META",
+      "name": "Meta Platforms, Inc.",
+      "reading": "メタ・プラットフォームズ",
+      "sector_en": "Communication Services",
+      "sector_jp": "通信",
+      "industry": "Internet Content & Information",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
         "Pullback_v1",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MGM",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MRNA",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MS",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "MSCI",
+      "name": "Morgan Stanley",
+      "reading": "モルガン・スタンレー",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Capital Markets",
+      "is_champ": false,
       "strategies": [
-        "SPY_Panic2_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "MSFT",
+      "name": "Microsoft Corporation",
+      "reading": "マイクロソフト",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Software - Infrastructure",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Confluence_RSIBB_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MSTR",
-      "strategies": [
-        "MSTR_Panic20"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MTB",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "MU",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "NCLH",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "NEE",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "NFLX",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "NSC",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "NTAP",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "NTRS",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "NVDA",
+      "name": "NVIDIA Corporation",
+      "reading": "エヌビディア",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductors",
+      "is_champ": true,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "SPY_Panic2_v1",
-        "Confluence_RSIBB_v1",
-        "TLT_Spike_Equity_v1"
-      ],
-      "is_champ": true
-    },
-    {
-      "ticker": "ODFL",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1",
+        "Confluence_BBStoch_v1",
+        "N1_NVDA_Consec4_v1"
+      ]
     },
     {
       "ticker": "OLLI",
+      "name": "Ollie's Bargain Outlet Holdings, Inc.",
+      "reading": "オリーズ・バーゲン・アウトレット",
+      "sector_en": "Consumer Defensive",
+      "sector_jp": "生活必需",
+      "industry": "Discount Stores",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ON",
+      "name": "ON Semiconductor Corporation",
+      "reading": "オン・セミコンダクター",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductors",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "ORLY",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PANW",
+      "name": "Palo Alto Networks, Inc.",
+      "reading": "パロアルト・ネットワークス",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Software - Infrastructure",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PH",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "PODD",
+      "name": "Parker-Hannifin Corporation",
+      "reading": "パーカー・ハネフィン",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Specialty Industrial Machinery",
+      "is_champ": false,
       "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "PRIM",
+      "name": "Primoris Services Corporation",
+      "reading": "プリモリス・サービシズ",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PSX",
+      "name": "Phillips 66",
+      "reading": "フィリップス 66",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas Refining & Marketing",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "PWR",
-      "strategies": [],
-      "is_champ": true
+      "name": "Quanta Services, Inc.",
+      "reading": "クォンタ・サービシズ",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": true,
+      "strategies": []
     },
     {
       "ticker": "QCOM",
+      "name": "QUALCOMM Incorporated",
+      "reading": "クアルコム",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Semiconductors",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "QQQ",
+      "name": "Invesco QQQ Trust",
+      "reading": "インベスコ QQQ (ナスダック100)",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "ナスダック 100 (テック中心)",
+      "is_champ": false,
       "strategies": [
-        "VIX_Backward",
-        "Confluence_RSIBB_v1",
-        "TLT_Spike_Equity_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "RBC",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "RCL",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "REGN",
-      "strategies": [
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "RIOT",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "ROK",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "ROL",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SBAC",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SCHW",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "Confluence_BBStoch_v1"
+      ]
     },
     {
       "ticker": "SE",
+      "name": "Sea Limited",
+      "reading": "シー・リミテッド",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Internet Retail",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SHW",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "SLB",
+      "name": "SLB N.V.",
+      "reading": "シュルンベルジェ",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas Equipment & Services",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "SLDB",
+      "name": "Solid Biosciences Inc.",
+      "reading": "ソリッド・バイオサイエンス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Biotechnology",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "SLV",
-      "strategies": [],
-      "is_champ": false
+      "name": "iShares Silver Trust",
+      "reading": "iShares シルバー・トラスト",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "銀コモディティ",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SMH",
+      "name": "VanEck Semiconductor ETF",
+      "reading": "ヴァンエック半導体",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "半導体 (VanEck)",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "VIX_Backward",
-        "Confluence_RSIBB_v1",
-        "EarnCascade_SMH_up5_h5",
-        "EarnCascade_SMH_down5_h10"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1",
+        "N7_VIXCurl_SMH_v1",
+        "N9_Cascade3_SMH_v1"
+      ]
     },
     {
       "ticker": "SNPS",
+      "name": "Synopsys, Inc.",
+      "reading": "シノプシス",
+      "sector_en": "Technology",
+      "sector_jp": "テクノロジー",
+      "industry": "Software - Infrastructure",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SOFI",
+      "name": "SoFi Technologies, Inc.",
+      "reading": "ソーファイ・テクノロジーズ",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Credit Services",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SOXL",
-      "strategies": [],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "SOXX",
+      "name": "iShares Semiconductor ETF",
+      "reading": "iShares 半導体",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "半導体 (iShares)",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "SPY_Panic2_v1",
-        "Confluence_RSIBB_v1",
-        "EarnCascade_SOXX_up5_h5"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SPG",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SPXL",
+      "name": "Direxion Daily S&P500 Bull 3X Shares",
+      "reading": "S&P500 3x レバレッジ ETF",
+      "sector_en": "?",
+      "sector_jp": "レバレッジ ETF",
+      "industry": "S&P500 3x",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SPY",
+      "name": "State Street SPDR S&P 500 ETF Trust",
+      "reading": "SPDR S&P 500 ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "S&P 500 全体",
+      "is_champ": false,
       "strategies": [
-        "VIX_Backward"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "STLD",
+      "name": "Steel Dynamics, Inc.",
+      "reading": "スティール・ダイナミクス",
+      "sector_en": "Basic Materials",
+      "sector_jp": "素材",
+      "industry": "Steel",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "STRL",
+      "name": "Sterling Infrastructure, Inc.",
+      "reading": "スターリング・インフラ",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Engineering & Construction",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "SYK",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "SYY",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "TDG",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "TGT",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "TLT",
-      "strategies": [],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "TMUS",
+      "name": "T-Mobile US, Inc.",
+      "reading": "T モバイル US",
+      "sector_en": "Communication Services",
+      "sector_jp": "通信",
+      "industry": "Telecom Services",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "TNA",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "TQQQ",
-      "strategies": [],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "TSLA",
+      "name": "Tesla, Inc.",
+      "reading": "テスラ",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Auto Manufacturers",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+        "N1_TSLA_Consec4_v1"
+      ]
     },
     {
       "ticker": "TWST",
+      "name": "Twist Bioscience Corporation",
+      "reading": "ツイスト・バイオサイエンス",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Diagnostics & Research",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "SPY_Panic2_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "UBER",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "UNH",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "UPRO",
-      "strategies": [],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "V",
-      "strategies": [],
-      "is_champ": false
+      "name": "Visa Inc.",
+      "reading": "ビザ",
+      "sector_en": "Financial Services",
+      "sector_jp": "金融",
+      "industry": "Credit Services",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "VC",
+      "name": "Visteon Corporation",
+      "reading": "ビスティオン (Visteon)",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Auto Parts",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "VGAS",
+      "name": "Verde Clean Fuels, Inc.",
+      "reading": "バーゴン (グリーン水素)",
+      "sector_en": "Utilities",
+      "sector_jp": "公益",
+      "industry": "Utilities - Renewable",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "VNO",
+      "name": "Vornado Realty Trust",
+      "reading": "ヴォルナード・リアルティ・トラスト",
+      "sector_en": "Real Estate",
+      "sector_jp": "REIT/不動産",
+      "industry": "REIT - Office",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "VRT",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "VRTX",
+      "name": "Vertex Pharmaceuticals Incorporated",
+      "reading": "バーテックス・ファーマシューティカルズ",
+      "sector_en": "Healthcare",
+      "sector_jp": "ヘルスケア",
+      "industry": "Biotechnology",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "Earnings_T_minus_5",
-        "Pharma_Panic_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "VST",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "VTI",
-      "strategies": [],
-      "is_champ": false
-    },
-    {
-      "ticker": "WAB",
+      "name": "Vanguard Total Stock Market Index Fund ETF Shares",
+      "reading": "バンガード・トータル株式",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "米国株式全体",
+      "is_champ": false,
       "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "WBD",
-      "strategies": [
-        "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "WCC",
+      "name": "WESCO International, Inc.",
+      "reading": "WESCO インターナショナル",
+      "sector_en": "Industrials",
+      "sector_jp": "産業",
+      "industry": "Industrial Distribution",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "WSM",
+      "name": "Williams-Sonoma, Inc.",
+      "reading": "ウィリアムズ・ソノマ",
+      "sector_en": "Consumer Cyclical",
+      "sector_jp": "一般消費",
+      "industry": "Specialty Retail",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XBI",
-      "strategies": [
-        "VIX_Backward"
-      ],
-      "is_champ": false
+      ]
     },
     {
       "ticker": "XLB",
+      "name": "State Street Materials Select Sector SPDR ETF",
+      "reading": "素材セクター ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "素材・セクター",
+      "is_champ": false,
       "strategies": [
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLC",
-      "strategies": [
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLE",
+      "name": "State Street Energy Select Sector SPDR ETF",
+      "reading": "エネルギー・セレクト・セクター",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "エネルギー・セクター",
+      "is_champ": false,
       "strategies": [
-        "Confluence_RSIBB_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLF",
+      "name": "State Street Financial Select Sector SPDR ETF",
+      "reading": "フィナンシャル・セレクト・セクター",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "金融・セクター",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
-        "Drop5d_BroadPanic",
-        "CPI_Cyclical",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLI",
-      "strategies": [
-        "CPI_Cyclical",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "XLK",
+      "name": "State Street Technology Select Sector SPDR ETF",
+      "reading": "テクノロジー・セレクト・セクター",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "テクノロジー・セクター",
+      "is_champ": false,
       "strategies": [
-        "Drop5d_7",
         "Drop5d_BroadPanic",
-        "VIX_Backward",
         "Pullback_v1",
-        "Confluence_RSIBB_v1",
-        "TLT_Spike_Equity_v1",
-        "VIX_Spike_XLK_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLP",
-      "strategies": [
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLRE",
-      "strategies": [
-        "Confluence_RSIBB_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLU",
+      "name": "State Street Utilities Select Sector SPDR ETF",
+      "reading": "公益事業セクター ETF",
+      "sector_en": "?",
+      "sector_jp": "ETF",
+      "industry": "公共事業・セクター",
+      "is_champ": false,
       "strategies": [
-        "CPI_Defensive",
-        "Confluence_RSIBB_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLV",
-      "strategies": [
-        "CPI_Defensive",
-        "Confluence_RSIBB_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
-    },
-    {
-      "ticker": "XLY",
-      "strategies": [
-        "CPI_Cyclical",
-        "Confluence_RSIBB_v1",
-        "SectorRotation_Laggard_v1"
-      ],
-      "is_champ": false
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XOM",
+      "name": "Exxon Mobil Corporation",
+      "reading": "エクソンモービル",
+      "sector_en": "Energy",
+      "sector_jp": "エネルギー",
+      "industry": "Oil & Gas Integrated",
+      "is_champ": false,
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
+    },
+    {
+      "ticker": "AMD",
+      "name": "AMD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Stoch_Oversold_v1",
+        "PEAD_Down5d_v1",
+        "A10_WideBar_Capitulation_v1"
+      ]
+    },
+    {
+      "ticker": "BSX",
+      "name": "BSX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend"
+      ]
+    },
+    {
+      "ticker": "CHD",
+      "name": "CHD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "CHRW",
+      "name": "CHRW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "CNC",
+      "name": "CNC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "CNP",
+      "name": "CNP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "COIN",
+      "name": "COIN (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "COO",
+      "name": "COO (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "CTVA",
+      "name": "CTVA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "CVX",
+      "name": "CVX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
       "strategies": [
         "Earnings_T_minus_5"
-      ],
-      "is_champ": false
+      ]
+    },
+    {
+      "ticker": "D",
+      "name": "D (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "DIA",
+      "name": "DIA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A10_WideBar_Capitulation_v1"
+      ]
+    },
+    {
+      "ticker": "DLTR",
+      "name": "DLTR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "ED",
+      "name": "ED (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EG",
+      "name": "EG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EL",
+      "name": "EL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EPAM",
+      "name": "EPAM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EQR",
+      "name": "EQR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EQT",
+      "name": "EQT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EVRG",
+      "name": "EVRG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "EWZ",
+      "name": "EWZ (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "EXE",
+      "name": "EXE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FAS",
+      "name": "FAS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Drop5d_StrictATR"
+      ]
+    },
+    {
+      "ticker": "FAST",
+      "name": "FAST (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FBTC",
+      "name": "FBTC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "FDS",
+      "name": "FDS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FDX",
+      "name": "FDX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FISV",
+      "name": "FISV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FITB",
+      "name": "FITB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FSLR",
+      "name": "FSLR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FTV",
+      "name": "FTV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "FXI",
+      "name": "FXI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "GEHC",
+      "name": "GEHC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "GL",
+      "name": "GL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "GM",
+      "name": "GM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "HD",
+      "name": "HD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Earnings_T_minus_5"
+      ]
+    },
+    {
+      "ticker": "IBIT",
+      "name": "IBIT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "INDA",
+      "name": "INDA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "INTC",
+      "name": "INTC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Stoch_Oversold_v1",
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "J",
+      "name": "J (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "KDP",
+      "name": "KDP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "KWEB",
+      "name": "KWEB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "LOW",
+      "name": "LOW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Earnings_T_minus_5"
+      ]
+    },
+    {
+      "ticker": "MARA",
+      "name": "MARA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "MGM",
+      "name": "MGM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "MRNA",
+      "name": "MRNA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Earnings_T_minus_5"
+      ]
+    },
+    {
+      "ticker": "MSCI",
+      "name": "MSCI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SPY_Panic2_v1"
+      ]
+    },
+    {
+      "ticker": "MSTR",
+      "name": "MSTR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "MSTR_Panic20",
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "MTB",
+      "name": "MTB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "MU",
+      "name": "MU (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend",
+        "Earnings_T_minus_5"
+      ]
+    },
+    {
+      "ticker": "NCLH",
+      "name": "NCLH (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "NEE",
+      "name": "NEE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "NFLX",
+      "name": "NFLX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A10_WideBar_Capitulation_v1"
+      ]
+    },
+    {
+      "ticker": "NSC",
+      "name": "NSC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend"
+      ]
+    },
+    {
+      "ticker": "NTAP",
+      "name": "NTAP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "NTRS",
+      "name": "NTRS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "ODFL",
+      "name": "ODFL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "ORLY",
+      "name": "ORLY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "PODD",
+      "name": "PODD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "RBC",
+      "name": "RBC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend"
+      ]
+    },
+    {
+      "ticker": "RCL",
+      "name": "RCL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "REGN",
+      "name": "REGN (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Earnings_T_minus_5"
+      ]
+    },
+    {
+      "ticker": "RIOT",
+      "name": "RIOT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A2_BTC_Drop_CryptoProxy_v1"
+      ]
+    },
+    {
+      "ticker": "ROK",
+      "name": "ROK (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "ROL",
+      "name": "ROL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "SBAC",
+      "name": "SBAC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "SCHW",
+      "name": "SCHW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "SHW",
+      "name": "SHW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "SOXL",
+      "name": "SOXL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Drop5d_StrictATR"
+      ]
+    },
+    {
+      "ticker": "SPG",
+      "name": "SPG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "SYK",
+      "name": "SYK (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend"
+      ]
+    },
+    {
+      "ticker": "SYY",
+      "name": "SYY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "TDG",
+      "name": "TDG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "TGT",
+      "name": "TGT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend"
+      ]
+    },
+    {
+      "ticker": "TLT",
+      "name": "TLT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A10_WideBar_Capitulation_v1"
+      ]
+    },
+    {
+      "ticker": "TNA",
+      "name": "TNA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Drop5d_StrictATR"
+      ]
+    },
+    {
+      "ticker": "TQQQ",
+      "name": "TQQQ (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Drop5d_StrictATR"
+      ]
+    },
+    {
+      "ticker": "UBER",
+      "name": "UBER (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "UNH",
+      "name": "UNH (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "UPRO",
+      "name": "UPRO (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Drop5d_StrictATR",
+        "HighPullback50_v1"
+      ]
+    },
+    {
+      "ticker": "VRT",
+      "name": "VRT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "VST",
+      "name": "VST (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "WAB",
+      "name": "WAB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend",
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "WBD",
+      "name": "WBD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CFO_Solo_PBuy_v1"
+      ]
+    },
+    {
+      "ticker": "XBI",
+      "name": "XBI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "VIX_Backward",
+        "Drop5d_ETF7",
+        "N3_HYG_Credit_XBI_v1"
+      ]
+    },
+    {
+      "ticker": "XLC",
+      "name": "XLC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLI",
+      "name": "XLI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend",
+        "CPI_Cyclical",
+        "Drop5d_ETF7",
+        "A10_WideBar_Capitulation_v1",
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLP",
+      "name": "XLP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLRE",
+      "name": "XLRE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "Confluence_RSIBB_v1",
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLV",
+      "name": "XLV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend",
+        "CPI_Defensive",
+        "Drop5d_ETF7",
+        "Confluence_RSIBB_v1",
+        "A10_WideBar_Capitulation_v1",
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLY",
+      "name": "XLY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CPI_Cyclical",
+        "Drop5d_ETF7",
+        "Confluence_RSIBB_v1",
+        "SectorRotation_Laggard_v1"
+      ]
     },
     {
       "ticker": "YUM",
-      "strategies": [],
-      "is_champ": false
+      "name": "YUM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "RSI35_Trend",
+        "Stoch_Oversold_v1"
+      ]
     },
     {
       "ticker": "ZBRA",
+      "name": "ZBRA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
       "strategies": [
         "CFO_Solo_PBuy_v1"
-      ],
-      "is_champ": false
+      ]
     }
   ]
 };
