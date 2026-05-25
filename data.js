@@ -1028,6 +1028,83 @@ window.MOBILE_DATA = {
       "hold": null
     }
   ],
+  "bimet_framework": {
+    "_doc": "5/25 整地後 F7 (= BIMETSX) portfolio governance。 7 柱で戦略束ねる、 merit-driven 規律 (memory/merit-driven-pillar-balance.md)、 詳細 = memory/f7-framework.md。",
+    "summary": {
+      "framework_name": "F7",
+      "total_size": 6.35,
+      "b_share_pct": 37.8,
+      "live_count": 12,
+      "probe_count": 4,
+      "inert_count": 1,
+      "empty_axes": ["I"],
+      "warning_axes": ["B"],
+      "n_eff_full_period": 7.31
+    },
+    "pillars": {
+      "B": {
+        "name": "Bear / Panic 平均回帰",
+        "size_sum": 2.40, "share_pct": 37.8, "warning": "35%超 (= 残圧縮はR2 merit-drivenで自然降下)",
+        "strategies": [
+          {"name":"Drop5d_BroadPanic","size":0.70,"badge":"🟢LIVE","hold":1,"mo_usd":90.77,"mo_pct":62.49,"note":"#1 収益エンジン"},
+          {"name":"Pullback_v1","size":0.50,"badge":"🟢LIVE","hold":3,"mo_usd":79.44,"mo_pct":10.86,"note":"独立 + 高 edge"},
+          {"name":"Semi_Equip_Dip_v1","size":0.50,"badge":"🟢LIVE","hold":5,"mo_usd":55.30,"mo_pct":12.55,"note":"5/25 reduce 1.0→0.5"},
+          {"name":"HYG_LQD_QQQ_v1","size":0.40,"badge":"🟢LIVE","hold":5,"mo_usd":34.37,"mo_pct":6.80,"note":"5/25 reduce 0.75→0.4"},
+          {"name":"Buffett_VIX20_Panic_v1","size":0.30,"badge":"🟢LIVE","hold":5,"mo_usd":9.29,"mo_pct":0.80,"note":"5/25 reduce 1.0→0.3 (独立保険)"}
+        ]
+      },
+      "I": {
+        "name": "Insider",
+        "size_sum": 0, "share_pct": 0, "warning": "空 (Form4 scrape infra #75 待ち)",
+        "strategies": [
+          {"name":"Insider_Dir200k_v1 (H5)","size":0,"badge":"⚪空","hold":60,"mo_usd":118,"mo_pct":2.34,"note":"deploy 待ち = scrape infra 完成後 size 0.25 probe"}
+        ]
+      },
+      "M": {
+        "name": "Momentum (regime-balanced)",
+        "size_sum": 1.00, "share_pct": 15.7, "warning": null,
+        "strategies": [
+          {"name":"Momentum_12_1_v1","size":0.40,"badge":"🟢LIVE","hold":5,"mo_usd":25.18,"mo_pct":9.57,"note":"calm 主"},
+          {"name":"CrossSec_Mom_v1","size":0.60,"badge":"🟢LIVE","hold":20,"mo_usd":9.01,"mo_pct":4.22,"note":"stress 主"}
+        ]
+      },
+      "E": {
+        "name": "Earnings",
+        "size_sum": 1.00, "share_pct": 15.7, "warning": "PEAD inert で 1 本立てに縮小",
+        "strategies": [
+          {"name":"PreEarnings_T30_T5_Industrial","size":1.00,"badge":"🟢LIVE","hold":5,"mo_usd":26.35,"mo_pct":6.64,"note":"★ クラウンジュエル"},
+          {"name":"PEAD_SUE_Top20_v1","size":0,"badge":"⚠️inert","hold":20,"mo_usd":-0.41,"mo_pct":-0.41,"note":"5/25 dispose: bug fix 後 anti-edge (gap miss)、 別 spec 再立て検討"}
+        ]
+      },
+      "T": {
+        "name": "Trend",
+        "size_sum": 1.25, "share_pct": 19.7, "warning": null,
+        "strategies": [
+          {"name":"AI_Wave_Momentum_v1","size":1.00,"badge":"🟢LIVE","hold":5,"mo_usd":15.69,"mo_pct":8.10,"note":"★ クラウンジュエル"},
+          {"name":"Bull_Trend_Breakout_v1","size":0.25,"badge":"🔵probe","hold":20,"mo_usd":2.25,"mo_pct":1.60,"note":"5/24 deploy、 daily cap 5/日"}
+        ]
+      },
+      "S": {
+        "name": "Sector Rotation (contrarian)",
+        "size_sum": 0.25, "share_pct": 3.9, "warning": null,
+        "strategies": [
+          {"name":"SectorRotation_Laggard_v1","size":0.25,"badge":"🔵probe","hold":20,"mo_usd":1.13,"mo_pct":1.92,"note":"5/24 deploy NEW、 stress 0.38 注視"}
+        ]
+      },
+      "X": {
+        "name": "Cross-Asset",
+        "size_sum": 0.25, "share_pct": 3.9, "warning": null,
+        "strategies": [
+          {"name":"A7_DXY_Drop_EM_Long_v1","size":0.25,"badge":"🔵probe","hold":5,"mo_usd":1.10,"mo_pct":3.66,"note":"5/24 復活、 UUP→EM"}
+        ]
+      }
+    },
+    "excluded": {
+      "Absorption": "幻 (= 平常独立 / 暴落 Drop5d corr 0.507)、 skip",
+      "Pair_StatArb": "-1.26% anti-edge、 死亡確定"
+    },
+    "governance": "新戦略は screen_lib (4 関門) 必須、 N_eff (not Sharpe) で評価、 intra-axis 増殖禁止、 R2 merit-drivenで自然降下"
+  },
   "tracker_strategies": [
     {
       "tier": "SSS",
