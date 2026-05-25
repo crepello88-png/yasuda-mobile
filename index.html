@@ -96,8 +96,9 @@
   <div class="tab" data-tab="history" onclick="switchTab('history')">履歴</div>
   <div class="tab" data-tab="weekly" onclick="switchTab('weekly')">週次</div>
   <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
-  <div class="tab" data-tab="short" onclick="switchTab('short')">短期</div>
-  <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">F7</div>
+  <div class="tab" data-tab="short" onclick="switchTab('short')">F7戦略</div>
+  <div class="tab" data-tab="f7" onclick="switchTab('f7')">F7</div>
+  <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">VS</div>
   <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中(休止中)</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
@@ -195,16 +196,16 @@
 <!-- Tab: 週次 (5/19 夜 user 「長期 + 短期 合計」 view) -->
 <div class="tab-content" id="tab-weekly">
   <div class="section">
-    <div class="section-title">📈 今週 P&L 合計 (長期 + 短期)</div>
+    <div class="section-title">📈 今週 P&L 合計 (Champ + F7戦略)</div>
     <div class="card" id="weekly-combined"><div class="empty">読込中...</div></div>
   </div>
 
   <div class="section">
-    <div class="section-title">📊 先週 短期 P&L サマリ (realized)</div>
+    <div class="section-title">📊 先週 F7戦略 P&L サマリ (realized)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
-          <div class="stat-label">短期 realized</div>
+          <div class="stat-label">F7戦略 realized</div>
           <div class="stat-value" id="w-pnl">—</div>
         </div>
         <div class="stat">
@@ -243,7 +244,7 @@
   </div>
 
   <div class="section">
-    <div class="section-title">🔮 月次・年間 予想 (短期 capital base)</div>
+    <div class="section-title">🔮 月次・年間 予想 (F7戦略 capital base)</div>
     <div class="card">
       <div class="stat-grid">
         <div class="stat">
@@ -406,27 +407,27 @@
 <!-- Tab: 短期 (5/19 夜 user 「短期タブ、 週次=合計 / 短期=短期 only」 で追加。 cron 上書きで消えた事案 → v20 で復元) -->
 <div class="tab-content" id="tab-short">
   <div class="section">
-    <div class="section-title">⚡ 短期 P&L サマリ</div>
+    <div class="section-title">⚡ F7戦略 P&L サマリ</div>
     <div class="card" id="short-summary"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">💼 短期 保有 (現)</div>
+    <div class="section-title">💼 F7戦略 保有 (現)</div>
     <div class="card" id="short-positions"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">📊 短期 戦略別 (今週)</div>
+    <div class="section-title">📊 F7戦略 戦略別 (今週)</div>
     <div class="card" id="short-by-strategy"><div class="empty">読込中...</div></div>
   </div>
   <div class="section">
-    <div class="section-title">📜 短期 直近 closed</div>
+    <div class="section-title">📜 F7戦略 直近 closed</div>
     <div class="card" id="short-trades"><div class="empty">読込中...</div></div>
   </div>
 </div>
 
 <!-- 約定 tab 廃止: 5/19 夜 user 「履歴の日次ログの所に約定タブの内容移して約定タブ消して」 → 履歴 tab 内に統合済 -->
 
-<!-- Tab: F7 framework (5/25 user 「VSじゃなくF7」 で rename、 短期vs長期 VS → F7 portfolio governance 表示) -->
-<div class="tab-content" id="tab-svsl">
+<!-- Tab: F7 framework 専用 (5/25 user 「VS復活させてF7は別タブ」 で分離) -->
+<div class="tab-content" id="tab-f7">
   <div class="section">
     <div class="section-title">🏛 F7 framework (= BIMETSX 7 軸 portfolio)</div>
     <div class="card" id="f7-summary"><div class="empty">読込中...</div></div>
@@ -442,6 +443,18 @@
   <div class="section">
     <div class="section-title">📜 統治原則</div>
     <div class="card" id="f7-governance"><div class="empty">読込中...</div></div>
+  </div>
+</div>
+
+<!-- Tab: VS (5/25 復活、 F7戦略 vs Champ 比較) -->
+<div class="tab-content" id="tab-svsl">
+  <div class="section">
+    <div class="section-title">⚔ F7戦略 vs Champ DCA 比較</div>
+    <div class="card" id="svsl-compare"><div class="empty">読込中...</div></div>
+  </div>
+  <div class="section">
+    <div class="section-title">📊 損益 内訳</div>
+    <div class="card" id="svsl-breakdown"><div class="empty">読込中...</div></div>
   </div>
 </div>
 
@@ -467,7 +480,7 @@
 </main>
 
 <div class="footer">
-  IBKR投資計画 mobile · 短期 19戦略 + Champ DCA + 場中 6 paper
+  IBKR投資計画 mobile · F7 13戦略 + Champ DCA + 場中 6 paper
 </div>
 
 <script>
@@ -895,11 +908,11 @@ function renderWeekly() {
       <div class="row-r"><div class="price ${pctClass(longUnreal)}">${longUnreal>=0?'+$':'-$'}${Math.abs(longUnreal).toFixed(2)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker">⚡ 短期 (今週 realized)</div><div class="strat">closed trades 集計</div></div>
+      <div class="row-l"><div class="ticker">⚡ F7戦略 (今週 realized)</div><div class="strat">closed trades 集計</div></div>
       <div class="row-r"><div class="price ${pctClass(shortRealizedWeek)}">${shortRealizedWeek>=0?'+$':'-$'}${Math.abs(shortRealizedWeek).toFixed(2)}</div></div>
     </div>
     <div class="row">
-      <div class="row-l"><div class="ticker" style="font-weight:700">合計</div><div class="strat">長期 unreal + 短期 realized</div></div>
+      <div class="row-l"><div class="ticker" style="font-weight:700">合計</div><div class="strat">Champ unreal + F7戦略 realized</div></div>
       <div class="row-r"><div class="price ${pctClass(combinedTotal)}" style="font-size:18px">${combinedTotal>=0?'+$':'-$'}${Math.abs(combinedTotal).toFixed(2)}</div></div>
     </div>`;
   // Stat cards (short realized 中心)
@@ -1356,21 +1369,21 @@ function renderShortTab() {
   const total = ss.total || {realized_net:0, n_trades_total:0, n_days_traded:0, n_days_profit:0, n_days_loss:0, live_start_date:'?', avg_daily_pnl:0};
   const sumEl = document.getElementById('short-summary');
   if (sumEl) sumEl.innerHTML = `
-    <div class="row"><div class="row-l"><div class="strat">短期 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
+    <div class="row"><div class="row-l"><div class="strat">F7戦略 保有 (現)</div></div><div class="row-r"><div class="price">${open.n_positions} 銘柄 / 元本 $${open.cost_total.toFixed(0)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">含み損益</div></div><div class="row-r"><div class="price ${pctClass(open.unrealized)}">${open.unrealized>=0?'+$':'-$'}${Math.abs(open.unrealized).toFixed(2)}</div><div class="pct ${pctClass(unrealPct)}">${fmtPct(unrealPct)}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">今日 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(today.realized_net)}">${today.realized_net>=0?'+$':'-$'}${Math.abs(today.realized_net).toFixed(2)}</div><div class="pct">${today.n_trades}件 / 勝${today.n_wins}</div></div></div>
     <div class="row"><div class="row-l"><div class="strat">今週 realized (net)</div></div><div class="row-r"><div class="price ${pctClass(week.realized_net)}">${week.realized_net>=0?'+$':'-$'}${Math.abs(week.realized_net).toFixed(2)}</div><div class="pct">${week.n_trades}件 / 勝${week.n_wins}${week.phantom_count?` · phantom ${week.phantom_count}`:''}</div></div></div>
     <div class="row" style="border-top:1px solid var(--line);padding-top:8px;margin-top:4px"><div class="row-l"><div class="strat" style="font-weight:600;color:var(--txt)">💰 トータル損益 (LIVE ${(total.live_start_date||'').slice(5)}〜)</div></div><div class="row-r"><div class="price ${pctClass(total.realized_net)}" style="font-weight:700">${total.realized_net>=0?'+$':'-$'}${Math.abs(total.realized_net).toFixed(2)}</div><div class="pct">${total.n_trades_total}件 / 勝${total.n_days_profit}日 損${total.n_days_loss}日 (${total.n_days_traded}営)</div></div></div>`;
   const posEl = document.getElementById('short-positions');
   if (posEl) {
-    if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">短期 保有なし</div>';
+    if (!open.positions || !open.positions.length) posEl.innerHTML = '<div class="empty">F7戦略 保有なし</div>';
     else posEl.innerHTML = open.positions.map(p => {
       return `<div class="row"><div class="row-l"><div class="ticker">${p.ticker}</div><div class="strat">${p.shares}株 @ $${(p.entry_price||0).toFixed(2)}</div></div><div class="row-r"><div class="price">$${(p.cost||0).toFixed(2)}</div></div></div>`;
     }).join('');
   }
   const byStratEl = document.getElementById('short-by-strategy');
   if (byStratEl) {
-    if (!byStratArr.length) byStratEl.innerHTML = '<div class="empty">今週 短期 closed なし</div>';
+    if (!byStratArr.length) byStratEl.innerHTML = '<div class="empty">今週 F7戦略 closed なし</div>';
     else byStratEl.innerHTML = byStratArr.map(s => {
       const wr = s.n ? (s.wins/s.n*100).toFixed(0) : '—';
       return `<div class="row"><div class="row-l"><div class="ticker">${s.strategy}${window.f7Badge(s.strategy)}</div><div class="strat">${s.n}件 / 勝${s.wins} (${wr}%)</div></div><div class="row-r"><div class="price ${pctClass(s.pnl)}">${s.pnl>=0?'+$':'-$'}${Math.abs(s.pnl).toFixed(2)}</div></div></div>`;
@@ -1422,8 +1435,8 @@ function renderTrades() {
 }
 
 function renderShortVsLong() {
-  return;  // 5/25 deprecated: renderShortVsLong は renderF7View に置換
-  // 5/20 夜 統一: 短期 numbers は short_summary 参照、 長期 (Champ) は positions から
+  // 5/25 復活: F7 タブ別途追加、 VS は F7戦略 vs Champ 比較として復活
+  // 5/20 夜 統一: F7戦略 numbers は short_summary 参照、 長期 (Champ) は positions から
   const d = window.MOBILE_DATA || {};
   const positions = d.positions || [];
   const CHAMP_TICKERS = ['NVDA','PWR','COST','GOOG','LLY','AVGO','MSFT','META','AMZN'];
@@ -1468,7 +1481,7 @@ function renderShortVsLong() {
     </div>`;
   compEl.innerHTML =
     svslRow('📈 長期 Champ', `${lCount}銘柄 cost $${lCost.toFixed(0)}`, lPnl, lPct) +
-    svslRow('⚡ 短期', `${sCount}銘柄 cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日${today.n_trades}件` : ''}`, sCombined, null) +
+    svslRow('⚡ F7戦略', `${sCount}銘柄 cost $${sCost.toFixed(0)}${today.n_trades ? ` · 今日${today.n_trades}件` : ''}`, sCombined, null) +
     `<div style="padding:14px 0 6px;border-top:2px solid var(--line);margin-top:6px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;gap:8px">
         <div style="font-size:14px;font-weight:700">💰 合計</div>
@@ -1497,7 +1510,7 @@ function renderShortVsLong() {
           </div>`;
       }).join('')
       : '';
-    breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ 短期', sList, true)) || '<div class="empty">保有なし</div>';
+    breakEl.innerHTML = (mkSect('📈 長期', lList, false) + mkSect('⚡ F7戦略', sList, true)) || '<div class="empty">保有なし</div>';
   }
 }
 
@@ -2140,7 +2153,8 @@ function loadAll() {
   safeRun('tickers', renderTickers);
   safeRun('short', renderShortTab);
   safeRun('trades', renderTrades);  // 約定 tab 廃止後も 履歴 tab 内の trades-list / trades-summary を render
-  safeRun('svsl', renderF7View);
+  safeRun('f7', renderF7View);
+  safeRun('svsl', renderShortVsLong);
   safeRun('monitor', renderMonitor);
   safeRun('alerts', renderAlerts);
   safeRun('postMortem', renderPostMortem);
