@@ -1770,23 +1770,20 @@ function renderTrackerStrategies() {
     return nm.includes('champ') || nm.includes('融合');
   };
   const tierRank = (t, s) => {
-    if (s && isChamp(s)) return -1;  // Champ DCA は最上部 pin
+    if (s && isChamp(s)) return -1;
     const T = (t||'').toUpperCase();
-    if (T === 'SS+') return 0;
-    if (T === 'SS') return 1;
-    if (T === 'S+') return 2;
-    if (T === 'S') return 3;
-    if (T === 'S-') return 4;
-    if (T === 'A+') return 5;
-    if (T === 'A') return 6;
-    if (T === 'A-') return 7;
-    if (T === 'B') return 8;
-    if (T === 'C') return 9;
-    if (T === '?') return 10;  // 5/22 朝 paper→LIVE 化 後 yasuda universe OOS 未確定、 C と paper の間
-    if (T === 'PAPER') return 11;
-    if (T === 'DISABLED') return 12;
-    if (T === 'BOOST') return 13;  // 5/22 size booster (= 戦略上書きルール、 disabled の後)
-    if (T === 'ANTI') return 14;   // 5/22 anti-pattern skip filter
+    if (T.startsWith('SS+')) return 0;
+    if (T.startsWith('SS')) return 1;
+    if (T.startsWith('S+')) return 2;
+    if (T.startsWith('S ') || T === 'S') return 3;
+    if (T.startsWith('S-')) return 4;
+    if (T.startsWith('A+')) return 5;
+    if (T.startsWith('A ') || T === 'A') return 6;
+    if (T.startsWith('A-')) return 7;
+    if (T.startsWith('B')) return 8;
+    if (T.startsWith('WIRING')) return 9;
+    if (T === 'BOOST') return 13;
+    if (T === 'ANTI') return 14;
     return 99;
   };
   filtered.sort((a, b) => {
