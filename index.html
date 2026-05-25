@@ -1853,10 +1853,9 @@ function renderTrackerStrategies() {
     return;
   }
   // 5/25 F7 framework サマリ card (= 戦略タブ 上部に portfolio governance 概要)
-  // bf, pillars は上で既に宣言済
-  const sm = bf.summary || {};
+  const sm2 = bf.summary || {};
   let f7Card = '';
-  if (sm.framework_name) {
+  if (sm2.framework_name) {
     const pillarRows = Object.entries(pillars).map(([k, p]) => {
       const warn = p.warning ? ` <span style="color:#d29922;font-size:9px">⚠️</span>` : '';
       const tot = (p.size_sum || 0).toFixed(2);
@@ -1874,15 +1873,15 @@ function renderTrackerStrategies() {
     }).join('');
     f7Card = `<div class="card" style="margin-bottom:10px;padding:10px;background:linear-gradient(135deg,rgba(255,140,0,.08),rgba(88,166,255,.05))">
       <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
-        <div style="font-size:15px;font-weight:800;color:#ff8c00">🏛 ${sm.framework_name} = ${Object.keys(pillars).join('-')}</div>
-        <div style="font-size:10px;color:var(--sub)">N_eff ${sm.n_eff_full_period||'?'} / total size ${(sm.total_size||0).toFixed(2)}</div>
+        <div style="font-size:15px;font-weight:800;color:#ff8c00">🏛 ${sm2.framework_name} = ${Object.keys(pillars).join('-')}</div>
+        <div style="font-size:10px;color:var(--sub)">N_eff ${sm2.n_eff_full_period||'?'} / total size ${(sm2.total_size||0).toFixed(2)}</div>
       </div>
       <div style="font-size:10px;color:var(--sub);margin-bottom:5px;line-height:1.4">7 軸 portfolio governance、 merit-driven (= N_eff 基準、 Sharpe 単独不可)、 intra-axis 増殖禁止。 F8 = 将来 + D 軸 (= 場中復活時)。</div>
       ${pillarRows}
       <div style="margin-top:6px;padding-top:5px;border-top:1px dashed rgba(255,255,255,.1);font-size:9px;color:var(--sub);line-height:1.5">
-        🟢LIVE ${sm.live_count||0} / 🔵probe ${sm.probe_count||0} / 🟡wiring ${sm.wiring_count||0} / ⚠️inert ${sm.inert_count||0}
-        / 空 ${sm.empty_axes && sm.empty_axes.length ? sm.empty_axes.join(',') : 'なし'}
-        / 警告 35%超 ${sm.warning_axes && sm.warning_axes.length ? sm.warning_axes.join(',') : 'なし'}
+        🟢LIVE ${sm2.live_count||0} / 🔵probe ${sm2.probe_count||0} / 🟡wiring ${sm2.wiring_count||0} / ⚠️inert ${sm2.inert_count||0}
+        / 空 ${sm2.empty_axes && sm2.empty_axes.length ? sm2.empty_axes.join(',') : 'なし'}
+        / 警告 35%超 ${sm2.warning_axes && sm2.warning_axes.length ? sm2.warning_axes.join(',') : 'なし'}
       </div>
     </div>`;
   }
