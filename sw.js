@@ -33,7 +33,7 @@
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
 // v39 (5/24): QQQ_50d_BreakBounce_v1 (= T2 discovery、 QQQ 50d SMA fake breakdown reversal) 採用 + Pullback_v1 size_mult 1.0→0.5 (audit REDUCE_SIZE)。 LIVE 13 戦略 (= SS 5 + S 3 + A 5)。 Hi52w spec 改訂後 (pull-15 + cooldown 21d + daily cap 10) で sig/月 80 (target 50-100 内)。 sentiment overlay (= AV news) infra 設置済、 daily cron .bat user 登録待ち。 過去 handover docs (5/4-5/11) 検証 = 既 LIVE で網羅確認。 insider 系 (R9-A / R10-A) は 60d hold で user 切り判断。
-const CACHE = 'ibkr-plan-v62';
+const CACHE = 'ibkr-plan-v63';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
