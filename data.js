@@ -2928,101 +2928,101 @@ window.MOBILE_DATA = {
       "ts": "2026-05-25T04:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.28885806666666664
+      "age_min": 0.6291342166666667
     },
     "sync_mobile": {
-      "ts": "2026-05-25T04:30:43",
+      "ts": "2026-05-25T04:45:22",
       "ok": true,
-      "note": "108,232 B",
-      "age_min": 14.6221914
+      "note": "111,029 B",
+      "age_min": 0.31246755
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 4672.2388580666675
+      "age_min": 4672.579134216667
     },
     "intraday_cron": {
       "ts": "2026-05-25T04:30:43",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.6221914
+      "age_min": 14.962467550000001
     },
     "intraday_executor_scan": {
       "ts": "2026-05-25T04:45:02",
       "ok": true,
       "note": "",
-      "age_min": 0.30552473333333335
+      "age_min": 0.6458008833333333
     },
     "vix_regime": {
-      "ts": "2026-05-25T04:30:23",
+      "ts": "2026-05-25T04:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 14.955524733333334
+      "age_min": 0.2958008833333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 4125.255524733333
+      "age_min": 4125.595800883333
     },
     "morning_tws_connect": {
       "ts": "2026-05-24T08:29:46",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1215.5721913999998
+      "age_min": 1215.91246755
     },
     "short_term_auto_bat": {
       "ts": "2026-05-24T08:36:22",
       "ok": true,
       "note": "completed",
-      "age_min": 1208.9721914
+      "age_min": 1209.31246755
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 4790.338858066667
+      "age_min": 4790.679134216667
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-25T04:30:23",
+      "ts": "2026-05-25T04:45:23",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 14.955524733333334
+      "age_min": 0.2958008833333333
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 5480.7388580666675
+      "age_min": 5481.079134216667
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 3240.3888580666667
+      "age_min": 3240.7291342166664
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-25T03:58:37",
       "ok": true,
       "note": "GREEN 5/25 整地完了: Confluence_RSIStoch_v1 size=0 CUT 正解 (N_eff +0.39 改善、 hub dup dispose)。 LIVE 13 戦略 (Bull/CrossSec/PEAD_60d/SectorRotation/A7 probe 含む) 順調稼働、 整地後 baseline 確定。",
-      "age_min": 46.7221914
+      "age_min": 47.062467549999994
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 intraday_position_monitor heartbeat <1min ago で OK 連続、 state_tws_reconciler state=1 TWS=8 で TWS 接続正常稼働確認。 5/23 14:45 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 56.10552473333333
+      "age_min": 56.44580088333333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 morning_tws_connect attempt=1 OK + short_term_auto_bat completed + state_tws_reconciler 健全 (state=1 TWS=8)、 TWS 接続復旧確認済。 5/23 08:34 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 56.10552473333333
+      "age_min": 56.44580088333333
     }
   },
   "regime": {
-    "ts": "2026-05-25T04:30:23",
+    "ts": "2026-05-25T04:45:23",
     "vix": 17.13,
     "spy_close": 745.64,
     "spy_10d_return_pct": 1.09,
