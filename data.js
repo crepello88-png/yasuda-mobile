@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T13:45",
+  "generated_at": "2026-05-25T13:52",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -797,7 +797,7 @@ window.MOBILE_DATA = {
       "_per_share_source": "11年 実績"
     },
     {
-      "tier": "SS+ (F7-M)",
+      "tier": "SS+ (F7-M: Momentum regime-balanced)",
       "name": "CrossSec_Mom_v1 (月初 cross-sec 12-1 top 20%)",
       "cat": "M 柱 momentum (calm/stress regime-balanced 双子)",
       "tickers": "全 193 watchlist 月初 rank",
@@ -817,7 +817,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.6
     },
     {
-      "tier": "SS+ (F7-T)",
+      "tier": "SS+ (F7-T: Trend breakout)",
       "name": "Bull_Trend_Breakout_v1 (classic trend breakout)",
       "cat": "T 柱 trend follow (AI_Wave と独立)",
       "tickers": "全 193 watchlist breakout 検出",
@@ -837,7 +837,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.25
     },
     {
-      "tier": "SS+ (F7-E)",
+      "tier": "SS+ (F7-E: Earnings drift)",
       "name": "PEAD_SUE_60d_v1 (60d post-earnings drift 累積)",
       "cat": "E 柱 earnings drift (PreEarn と完全独立)",
       "tickers": "earnings CSV カバー watchlist 個別株 ~150 ticker",
@@ -857,7 +857,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.25
     },
     {
-      "tier": "SS (F7-T)",
+      "tier": "SS (F7-T: Trend breakout)",
       "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum) ★ swap h18 wide",
       "cat": "短期 theme momentum",
       "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
@@ -878,7 +878,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 1.0
     },
     {
-      "tier": "S+ (F7-B)",
+      "tier": "S+ (F7-B: Bear/Panic 平均回帰)",
       "name": "Semi_Equip_Dip_v1 (CHIPS Act semi装備 dip buying)",
       "cat": "短期 sector dip",
       "tickers": "7 semi equipment (AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH)",
@@ -898,7 +898,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.5
     },
     {
-      "tier": "S+ (F7-E)",
+      "tier": "S+ (F7-E: Earnings drift)",
       "name": "PreEarnings_T30_T5_Industrial (Industrial sector boost)",
       "cat": "短期 期待形成 (pre-announce drift Industrial限定)",
       "tickers": "13 Industrial tickers (SECTOR_MAP='Industrial')",
@@ -919,7 +919,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 1.0
     },
     {
-      "tier": "S (F7-M)",
+      "tier": "S (F7-M: Momentum regime-balanced)",
       "name": "Momentum_12_1_v1 (Jegadeesh-Titman classic factor)",
       "cat": "短期 momentum factor",
       "tickers": "全 193 watchlist",
@@ -941,7 +941,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.4
     },
     {
-      "tier": "S (F7-B)",
+      "tier": "S (F7-B: Bear/Panic 平均回帰)",
       "name": "Drop5d_BroadPanic (MOC 復活)",
       "cat": "短期 mean-reversion (intraday)",
       "tickers": "100銘柄 watchlist",
@@ -970,7 +970,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.7
     },
     {
-      "tier": "S (F7-B)",
+      "tier": "S (F7-B: Bear/Panic 平均回帰)",
       "name": "Pullback_v1 (SMA50>SMA200 + RSI<35 pullback → 3日hold MOO) ⭐⭐ BULL",
       "cat": "短期 pullback",
       "tickers": "GOOGL / META / AVGO / KLAC / AMAT / XLK (6 銘柄、 monitor.py 自動 entry, max 5 同時)",
@@ -999,7 +999,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.5
     },
     {
-      "tier": "SS+ (F7-I)",
+      "tier": "SS+ (F7-I: Insider idiosyncratic)",
       "name": "Insider_Dir200k_v1 (H5_Dir_200k single)",
       "cat": "I 柱 insider (market-neutral idiosyncratic)",
       "tickers": "watchlist 個別株 (openinsider P-buy データある ticker)",
@@ -1051,7 +1051,7 @@ window.MOBILE_DATA = {
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%"
     },
     {
-      "tier": "S (F7-X)",
+      "tier": "S (F7-X: Cross-Asset macro)",
       "name": "A7_DXY_Drop_EM_Long_v1 (7 軸目 Cross-Asset)",
       "cat": "X 柱 cross-asset macro (通貨 → EM equity)",
       "tickers": "UUP signal → EEM/FXI/KWEB/EWZ/INDA",
@@ -1071,7 +1071,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.25
     },
     {
-      "tier": "S (F7-B)",
+      "tier": "S (F7-B: Bear/Panic 平均回帰)",
       "name": "HYG_LQD_QQQ_v1 (信用 spread blowout → QQQ rebound)",
       "cat": "macro (credit spread → equity)",
       "tickers": "QQQ のみ",
@@ -1095,7 +1095,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.4
     },
     {
-      "tier": "S (F7-S)",
+      "tier": "S (F7-S: Sector Rotation contrarian)",
       "name": "SectorRotation_Laggard_v1 (6 軸目 contrarian)",
       "cat": "S 柱 sector rotation (月次 平均回帰)",
       "tickers": "SPDR sector ETF 11: XLF/XLE/XLI/XLY/XLP/XLV/XLK/XLB/XLU/XLRE/XLC",
@@ -1115,7 +1115,7 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.25
     },
     {
-      "tier": "S (F7-B)",
+      "tier": "S (F7-B: Bear/Panic 平均回帰)",
       "name": "Buffett_VIX20_Panic_v1 (Berkshire RSI<35 + VIX>20 panic dip)",
       "cat": "短期 panic dip (Berkshire universe)",
       "tickers": "11 Berkshire holdings (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)",
@@ -3429,28 +3429,28 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-25T13:45:23",
+      "ts": "2026-05-25T13:45:50",
       "ok": true,
-      "note": "120,090 B",
-      "age_min": 0.4218943833333333
+      "note": "120,101 B",
+      "age_min": 6.3396441999999995
     },
     "vix_regime": {
       "ts": "2026-05-25T13:45:30",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.30522771666666665
+      "age_min": 6.672977533333333
     },
     "intraday_cron": {
-      "ts": "2026-05-25T13:30:49",
+      "ts": "2026-05-25T13:45:50",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.98856105
+      "age_min": 6.3396441999999995
     },
     "intraday_executor_scan": {
       "ts": "2026-05-25T13:45:03",
       "ok": true,
       "note": "",
-      "age_min": 0.7552277166666667
+      "age_min": 7.122977533333333
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3468,19 +3468,19 @@ window.MOBILE_DATA = {
       "ts": "2026-05-25T13:45:09",
       "ok": true,
       "note": "",
-      "age_min": 0.6552277166666667
+      "age_min": 7.022977533333333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-25T09:41:47",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 244.02189438333335
+      "age_min": 250.3896442
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T13:45:29",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 0.3218943833333333
+      "age_min": 6.6896442
     }
   },
   "regime": {

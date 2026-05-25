@@ -1724,6 +1724,20 @@ function renderTrackerStrategies() {
     const tiers = Object.keys(byTier).sort().map(t => `${t}=${byTier[t]}`).join(' / ');
     sumEl.innerHTML = `<span style="color:#3fb950;font-weight:700">🟢 LIVE ${liveN} 件</span> / 全 ${strats.length} 件 (${tiers})`;
   }
+  // Tier 色 (= filter UI + renderEntry 両方で使用)
+  const tierColor = (t) => {
+    const T = (t||'').toUpperCase();
+    if (T === 'SSS') return '#ff5da2';
+    if (T.startsWith('SS+')) return '#ffd700';
+    if (T.startsWith('SS')) return '#ff8c00';
+    if (T.startsWith('S+')) return '#d29922';
+    if (T.startsWith('S')) return '#58a6ff';
+    if (T.startsWith('A')) return '#3fb950';
+    if (T.startsWith('WIRING')) return '#d29922';
+    if (T === 'BOOST') return '#fb8500';
+    if (T === 'ANTI') return '#8b5cf6';
+    return '#7d8590';
+  };
   // filter UI
   if (filEl) {
     const tierList = ['ALL'].concat(Object.keys(byTier).sort());
@@ -1752,18 +1766,7 @@ function renderTrackerStrategies() {
     listEl.innerHTML = '<div class="card"><div class="empty">filter 条件 該当なし</div></div>';
     return;
   }
-  // Tier 色
-  const tierColor = (t) => {
-    const T = (t||'').toUpperCase();
-    if (T === 'SSS') return '#ff5da2';  // 5/22 Champ DCA 別格 pink
-    if (T === 'SS+' || T === 'SS') return '#f85149';
-    if (T === 'S+') return '#d29922';
-    if (T === 'S' || T === 'S-') return '#58a6ff';
-    if (T.startsWith('A')) return '#3fb950';
-    if (T === 'BOOST') return '#fb8500';  // 5/22 booster orange
-    if (T === 'ANTI') return '#8b5cf6';   // 5/22 anti-pattern purple
-    return '#7d8590';
-  };
+  // tierColor は上で定義済
   // 5/22 朝 user 採用: tier 降順 (Champ DCA 最上部 → SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
   const isChamp = (s) => {
     const nm = (s.name || '').toLowerCase();
