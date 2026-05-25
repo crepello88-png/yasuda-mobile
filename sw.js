@@ -1,4 +1,5 @@
 // Service Worker - IBKR投資計画 mobile
+// v42 (5/25 大整地): F7 (= BIMETSX 7 軸) framework 確立。 B 57%→36% 圧縮 (9 cut + 3 reduce)、 新 deploy 5 件: Bull/CrossSec/PEAD_60d/SectorRotation/A7 (BIMETSX S+X 新軸)、 Insider_Dir200k Step 1-3 wiring 完了 (5/30 live flip 予定)。 PEAD bug 2 件 fix (tz_localize + earnings_filter)、 PEAD 20d anti-edge → 60d drift 累積版に置換 PASS。 systemic 監査 全 LIVE causal safe 確認。 VolDryUp フルピリオド 2022 bear で SKIP (= bull regime beta 罠回避)。 真 LIVE 13 + wiring 1。 mobile/data.js bimet_framework block + 6 tracker entry 追加、 sync_mobile preserve patch 入。
 // v37 (5/24): Hi52w_Pullback10_RSI40_v1 を paper=true 一時停止 = LIVE 11 戦略に戻る。 audit_live_overlap_5_24 で OOS fire 11,687 件 = 想定 760 件の 15.4x 超過確認、 元 discovery agent sig/月 計算ミス + R2 verify が見抜けず。 R2 protocol 拡張 (sig/月 妥当性 / overlap / 集中 / deploy 1週 fail-safe) memory 保存済。
 // v36 (5/24): Hi52w_Pullback10_RSI40_v1 (= F2 discovery: 252d high -10% pullback + RSI<40 → 翌 MOO BUY h7 TP+7/SL-8) 追加 = 計 12 戦略 LIVE。 SS tier $223.44/mo OOS+0.23% Sh+0.66 robust、 n=8888 OOS n=2022、 Jaccard <0.05 全 LIVE で完全 incremental、 top fire: KLAC/APH/ADI/PH/WAB (Semis/Industrials cluster)。 size_mult=0.25 probe (50 concurrent strain で控えめ start、 4-8週後 ramp)。 user 「採用して次々止まらず探して」 directive、 round #6 並行 launch 済。
 // v35 (5/24): HYG_LQD_QQQ_v1 (信用 spread blowout = HYG/LQD 126d bottom 15% → QQQ rebound、 5d hold TP+4/SL-4) 追加 = 計 11 戦略 LIVE。 portfolio sim Δ$/mo+$24.86 ΔSh+0.15、 macro 軸唯一の生存、 Sh+4.97 quality 最強級、 LIVE 中最短 hold 帯 (5d)。 user adoption priority 「hold 短ければ短いほうがいい」 充足。
@@ -32,7 +33,7 @@
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
 // v39 (5/24): QQQ_50d_BreakBounce_v1 (= T2 discovery、 QQQ 50d SMA fake breakdown reversal) 採用 + Pullback_v1 size_mult 1.0→0.5 (audit REDUCE_SIZE)。 LIVE 13 戦略 (= SS 5 + S 3 + A 5)。 Hi52w spec 改訂後 (pull-15 + cooldown 21d + daily cap 10) で sig/月 80 (target 50-100 内)。 sentiment overlay (= AV news) infra 設置済、 daily cron .bat user 登録待ち。 過去 handover docs (5/4-5/11) 検証 = 既 LIVE で網羅確認。 insider 系 (R9-A / R10-A) は 60d hold で user 切り判断。
-const CACHE = 'ibkr-plan-v41';
+const CACHE = 'ibkr-plan-v42';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
