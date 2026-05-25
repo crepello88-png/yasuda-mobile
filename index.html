@@ -1816,15 +1816,32 @@ function renderTrackerStrategies() {
   Object.entries(pillars).forEach(([k, p]) => {
     (p.strategies || []).forEach(s => {
       strats.push({
-        name: s.name, tier: `${s.badge || '🟢'} F7-${k}`,
-        monthly_profit_usd: s.mo_usd, hold: s.hold ? `${s.hold}日` : null,
-        _signals_per_month: null, _r2_mean_pct: s.mo_pct,
-        cat: p.name, live: s.note || '', memo: s.note || '',
-        sharpe: `$/月 $${s.mo_usd || 0} / %/月 ${s.mo_pct || 0}%`,
-        condition: s.note || '', tickers: '', freq: '',
-        _size_mult_current: s.size, _monthly_full_size_usd: null,
+        name: s.name || '?',
+        tier: `F7-${k}`,
+        monthly_profit_usd: s.mo_usd || 0,
+        hold: s.hold ? `${s.hold}日` : '?',
+        _signals_per_month: 0,
+        _r2_mean_pct: s.mo_pct || 0,
+        _oos_mean_pct: s.mo_pct || 0,
+        cat: p.name || '',
+        live: (s.size > 0 ? '✅' : '⏸') + ' size ' + (s.size || 0),
+        memo: s.note || '',
+        sharpe: `$${s.mo_usd || 0}/月 ${(s.mo_pct||0)>=0?'+':''}${s.mo_pct||0}%/月`,
+        condition: s.note || '',
+        tickers: '',
+        freq: '',
+        _size_mult_current: s.size || 0,
+        _monthly_full_size_usd: 0,
+        _f7_badge: s.badge || '🟢',
+        _f7_pillar: k,
       });
     });
+  });
+  // strategies array (旧) も merge (= Pullback / Drop5d 等)
+  (d.strategies || []).forEach(s => {
+    if (!strats.some(x => x.name === s.name)) {
+      strats.push(s);
+    }
   });
   const listEl = document.getElementById('tracker-strategies-list');
   const sumEl = document.getElementById('tracker-strategies-summary');
