@@ -1249,6 +1249,26 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.5
     },
     {
+      "tier": "wiring (F7-I)",
+      "name": "Insider_Dir200k_v1 (H5_Dir_200k single)",
+      "cat": "I 柱 insider (market-neutral idiosyncratic)",
+      "tickers": "watchlist 個別株 (openinsider P-buy データある ticker)",
+      "condition": "openinsider P-buy ∧ title=\"Dir\" ∧ value_usd >= $200,000 → 翌寄 MOO BUY → 60d hold (TP+15/SL-15)",
+      "hold": "60日",
+      "freq": "n=357 OOS 6yr / 月 ≈ 5 sig/月 期待",
+      "sharpe": "cost+9.45%/trade SPY corr-0.109 stress維持 N_eff+0.87、 5 variant 中エッジ最強 + 最独立",
+      "live": "🟡 paper:true wiring (5/30 live flip 予定 = scrape 1 週観察後)",
+      "memo": "5/25 BIMETSX I 柱 1 本目 Step 1-3 配線完了。 paper:true で executor skip 安全状態、 scrape 1週連続稼働確認後 paper→live flip で I 柱完成 = F7 7 軸 全 LIVE 達成。 H5 単独 (= 他 4 variant は intra-axis 増殖罠で禁忌)。",
+      "monthly_profit_usd": 0,
+      "_monthly_full_size_usd": 118,
+      "_per_trade_usd": 86.46,
+      "_size_mult_current": 0,
+      "_position_basis": 915,
+      "_signals_per_month": 5,
+      "_r2_n": 357,
+      "_r2_mean_pct": 9.45
+    },
+    {
       "tier": "ANTI",
       "name": "🚫 Drop5d_BroadPanic SKIP when [next_gap_pct>=+3]",
       "cat": "Anti-pattern filter (= 条件一致で signal skip)",
@@ -1380,27 +1400,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.84,
       "_per_share_basis": "NVDA ~\\$220 × mean 1.29%"
-    },
-    {
-      "tier": "?",
-      "name": "PEAD_SUE_Top20_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "5/24 BIMET E 柱 2 本目: earnings 当日 gap >= +1.86% (80%-tile) → 翌 MOO BUY、 hold 20d、 PreEarn と corr -0.01 完全独立、 stress N_eff +0.86、 Bernard-Thomas 1990 / Ball-Brown 1968 PEAD anomaly",
-      "hold": "20日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "5/24 BIMET E 柱 2 本目: earnings 当日 gap >= +1.86% (80%-tile) → 翌 MOO BUY、 hold 20d、 PreEarn と corr -0.01 完全独立、 stress N_eff +0.86、 Bernard-Thomas 1990 / Ball-Brown 1968 PEAD anomaly",
-      "live": "⏸ disabled (size_multiplier=0)",
-      "memo": "[_5_25_dispose] 5/25 dispose: bug fix 後 OOS n=148 fire、 cost -0.41% anti-edge 確定 (= drift だけでは cost 0.6% 回収不能)、 size 0 で zombie 維持、 別 spec PEAD_SUE_60d_v1 に置換。",
-      "_auto_meta": {
-        "key": "PEAD_SUE_Top20_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -8.0,
-        "size_multiplier": 0,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
     }
   ],
   "tracker_tickers": [
@@ -2658,6 +2657,206 @@ window.MOBILE_DATA = {
       ]
     },
     {
+      "ticker": "AMD",
+      "name": "AMD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "BSX",
+      "name": "BSX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CHD",
+      "name": "CHD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CHRW",
+      "name": "CHRW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CNC",
+      "name": "CNC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CNP",
+      "name": "CNP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "COIN",
+      "name": "COIN (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "COO",
+      "name": "COO (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CTVA",
+      "name": "CTVA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "CVX",
+      "name": "CVX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "D",
+      "name": "D (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "DIA",
+      "name": "DIA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "DLTR",
+      "name": "DLTR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ED",
+      "name": "ED (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EG",
+      "name": "EG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EL",
+      "name": "EL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EPAM",
+      "name": "EPAM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EQR",
+      "name": "EQR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EQT",
+      "name": "EQT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "EVRG",
+      "name": "EVRG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
       "ticker": "EWZ",
       "name": "EWZ (auto-supplement)",
       "reading": "?",
@@ -2668,6 +2867,106 @@ window.MOBILE_DATA = {
       "strategies": [
         "A7_DXY_Drop_EM_Long_v1"
       ]
+    },
+    {
+      "ticker": "EXE",
+      "name": "EXE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FAS",
+      "name": "FAS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FAST",
+      "name": "FAST (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FBTC",
+      "name": "FBTC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FDS",
+      "name": "FDS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FDX",
+      "name": "FDX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FISV",
+      "name": "FISV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FITB",
+      "name": "FITB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FSLR",
+      "name": "FSLR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "FTV",
+      "name": "FTV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
     },
     {
       "ticker": "FXI",
@@ -2682,6 +2981,56 @@ window.MOBILE_DATA = {
       ]
     },
     {
+      "ticker": "GEHC",
+      "name": "GEHC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "GL",
+      "name": "GL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "GM",
+      "name": "GM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "HD",
+      "name": "HD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "IBIT",
+      "name": "IBIT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
       "ticker": "INDA",
       "name": "INDA (auto-supplement)",
       "reading": "?",
@@ -2694,6 +3043,36 @@ window.MOBILE_DATA = {
       ]
     },
     {
+      "ticker": "INTC",
+      "name": "INTC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "J",
+      "name": "J (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "KDP",
+      "name": "KDP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
       "ticker": "KWEB",
       "name": "KWEB (auto-supplement)",
       "reading": "?",
@@ -2704,6 +3083,436 @@ window.MOBILE_DATA = {
       "strategies": [
         "A7_DXY_Drop_EM_Long_v1"
       ]
+    },
+    {
+      "ticker": "LOW",
+      "name": "LOW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MARA",
+      "name": "MARA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MGM",
+      "name": "MGM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MRNA",
+      "name": "MRNA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MSCI",
+      "name": "MSCI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MSTR",
+      "name": "MSTR (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MTB",
+      "name": "MTB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "MU",
+      "name": "MU (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NCLH",
+      "name": "NCLH (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NEE",
+      "name": "NEE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NFLX",
+      "name": "NFLX (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NSC",
+      "name": "NSC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NTAP",
+      "name": "NTAP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "NTRS",
+      "name": "NTRS (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ODFL",
+      "name": "ODFL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ORLY",
+      "name": "ORLY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "PODD",
+      "name": "PODD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "RBC",
+      "name": "RBC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "RCL",
+      "name": "RCL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "REGN",
+      "name": "REGN (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "RIOT",
+      "name": "RIOT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ROK",
+      "name": "ROK (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ROL",
+      "name": "ROL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SBAC",
+      "name": "SBAC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SCHW",
+      "name": "SCHW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SHW",
+      "name": "SHW (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SOXL",
+      "name": "SOXL (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SPG",
+      "name": "SPG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SYK",
+      "name": "SYK (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "SYY",
+      "name": "SYY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "TDG",
+      "name": "TDG (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "TGT",
+      "name": "TGT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "TLT",
+      "name": "TLT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "TNA",
+      "name": "TNA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "TQQQ",
+      "name": "TQQQ (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "UBER",
+      "name": "UBER (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "UNH",
+      "name": "UNH (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "UPRO",
+      "name": "UPRO (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "VRT",
+      "name": "VRT (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "VST",
+      "name": "VST (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "WAB",
+      "name": "WAB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "WBD",
+      "name": "WBD (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "XBI",
+      "name": "XBI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
     },
     {
       "ticker": "XLC",
@@ -2779,6 +3588,26 @@ window.MOBILE_DATA = {
         "CPI_Cyclical",
         "SectorRotation_Laggard_v1"
       ]
+    },
+    {
+      "ticker": "YUM",
+      "name": "YUM (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
+    },
+    {
+      "ticker": "ZBRA",
+      "name": "ZBRA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": []
     }
   ],
   "daily_history": [
