@@ -1925,14 +1925,18 @@ function renderTrackerStrategies() {
     listEl.innerHTML = '<div class="card"><div class="empty">filter 条件 該当なし</div></div>';
     return;
   }
-  // Tier 色
+  // Tier 色 (= F7 pillar 対応)
+  const F7_COLORS = {'B':'#f85149','I':'#ffd700','M':'#58a6ff','E':'#3fb950','T':'#22d3ee','S':'#a78bfa','X':'#ff8c00'};
   const tierColor = (t) => {
     const T = (t||'').toUpperCase();
+    // F7-X format
+    const f7m = T.match(/F7-([BIMETSX])/);
+    if (f7m) return F7_COLORS[f7m[1]] || '#7d8590';
     if (T === 'SSS') return '#ff5da2';
     if (T.startsWith('SS+')) return '#ffd700';
     if (T.startsWith('SS')) return '#ff8c00';
     if (T.startsWith('S+')) return '#d29922';
-    if (T.startsWith('WIRING')) return '#d29922';  // 5/25 wiring yellow (= paper:true 配線済、 deploy 待ち)
+    if (T.startsWith('WIRING')) return '#d29922';
     if (T.startsWith('S')) return '#58a6ff';
     if (T.startsWith('A')) return '#3fb950';
     if (T === 'BOOST') return '#fb8500';
@@ -1944,24 +1948,15 @@ function renderTrackerStrategies() {
     const nm = (s.name || '').toLowerCase();
     return nm.includes('champ') || nm.includes('融合');
   };
+  // F7 pillar 順 + $/月 降順
+  const PILLAR_ORDER = {'B':0,'I':1,'M':2,'E':3,'T':4,'S':5,'X':6};
   const tierRank = (t, s) => {
-    if (s && isChamp(s)) return -1;  // Champ DCA は最上部 pin
+    if (s && isChamp(s)) return -1;
     const T = (t||'').toUpperCase();
-    if (T === 'SS+') return 0;
-    if (T === 'SS') return 1;
-    if (T === 'S+') return 2;
-    if (T === 'S') return 3;
-    if (T === 'S-') return 4;
-    if (T === 'A+') return 5;
-    if (T === 'A') return 6;
-    if (T === 'A-') return 7;
-    if (T === 'B') return 8;
-    if (T === 'C') return 9;
-    if (T === '?') return 10;  // 5/22 朝 paper→LIVE 化 後 yasuda universe OOS 未確定、 C と paper の間
-    if (T === 'PAPER') return 11;
-    if (T === 'DISABLED') return 12;
-    if (T === 'BOOST') return 13;  // 5/22 size booster (= 戦略上書きルール、 disabled の後)
-    if (T === 'ANTI') return 14;   // 5/22 anti-pattern skip filter
+    const f7m = T.match(/F7-([BIMETSX])/);
+    if (f7m) return PILLAR_ORDER[f7m[1]] ?? 50;
+    if (T === 'BOOST') return 80;
+    if (T === 'ANTI') return 81;
     return 99;
   };
   filtered.sort((a, b) => {
@@ -2015,7 +2010,7 @@ function renderTrackerStrategies() {
     // 5/23 (v33) user 「月に何回発生と hold わかりやすく」 — 強調 chip
     // 5/25 (v45) user 「月益/リターン%/hold/月発生回数 大きめに」 — chip size 14px + リターン% 追加
     const holdStr = s.hold ? String(s.hold).match(/[\d.]+/)?.[0] || s.hold : '?';
-    const spmDisp = isFinite(spm) && spm > 0 ? `${spm.toFixed(spm<1?2:1)}` : (s.freq || '?');
+    const spmDisp = isFinite(spm) && spm > 0 ? `${spm.toFixed(spm<1?2:1)}` : '—';
     // リターン %/月: _r2_mean_pct or _oos_mean_pct を hold/21 で正規化 (= per-trade % * 21/hold)
     const meanPct = Number(s._r2_mean_pct ?? s._oos_mean_pct);
     const holdNum = Number(holdStr);
