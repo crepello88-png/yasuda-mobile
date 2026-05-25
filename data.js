@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-24T23:45",
+  "generated_at": "2026-05-25T00:00",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -400,29 +400,20 @@ window.MOBILE_DATA = {
   ],
   "weekly_pnl": {
     "capital": 4237,
-    "week_start": "2026-05-20",
-    "week_end": "2026-05-24",
-    "total_pnl_usd": -48.28,
-    "total_pnl_pct": -1.14,
-    "n_trades": 6,
+    "week_start": "2026-05-21",
+    "week_end": "2026-05-25",
+    "total_pnl_usd": 0.0,
+    "total_pnl_pct": 0.0,
+    "n_trades": 0,
     "n_wins": 0,
     "win_rate": 0.0,
     "days": [
-      {
-        "date": "2026-05-20",
-        "dow": "Wed",
-        "vix": null,
-        "pnl": -48.28,
-        "cum": -48.28,
-        "n": 6,
-        "wins": 0
-      },
       {
         "date": "2026-05-21",
         "dow": "Thu",
         "vix": null,
         "pnl": 0.0,
-        "cum": -48.28,
+        "cum": 0.0,
         "n": 0,
         "wins": 0
       },
@@ -431,7 +422,7 @@ window.MOBILE_DATA = {
         "dow": "Fri",
         "vix": null,
         "pnl": 0.0,
-        "cum": -48.28,
+        "cum": 0.0,
         "n": 0,
         "wins": 0
       },
@@ -440,7 +431,7 @@ window.MOBILE_DATA = {
         "dow": "Sat",
         "vix": null,
         "pnl": 0.0,
-        "cum": -48.28,
+        "cum": 0.0,
         "n": 0,
         "wins": 0
       },
@@ -449,140 +440,22 @@ window.MOBILE_DATA = {
         "dow": "Sun",
         "vix": null,
         "pnl": 0.0,
-        "cum": -48.28,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-25",
+        "dow": "Mon",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
         "n": 0,
         "wins": 0
       }
     ],
-    "trades": [
-      {
-        "date": "2026-05-20",
-        "ticker": "SPXL",
-        "strategy": "HighPullback50_v1",
-        "shares": 4,
-        "entry_price": 266.25,
-        "exit_price": 262.27,
-        "pnl_gross": -17.94,
-        "pnl_usd": -18.96,
-        "commission": 1.02,
-        "pnl_pct": null,
-        "exit_reason": "force_sell_completed",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      },
-      {
-        "date": "2026-05-20",
-        "ticker": "LIN",
-        "strategy": "Sector_FriPanic_v1",
-        "shares": 2,
-        "entry_price": 507.15,
-        "exit_price": 502.78,
-        "pnl_gross": -10.76,
-        "pnl_usd": -11.78,
-        "commission": 1.02,
-        "pnl_pct": null,
-        "exit_reason": "force_sell_completed",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      },
-      {
-        "date": "2026-05-20",
-        "ticker": "IP",
-        "strategy": "Candle15m_TweezerBottom_test",
-        "shares": 1,
-        "entry_price": 30.25,
-        "exit_price": 29.26,
-        "pnl_gross": -1.59,
-        "pnl_usd": -1.89,
-        "commission": 0.3,
-        "pnl_pct": null,
-        "exit_reason": "force_sell_completed",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      },
-      {
-        "date": "2026-05-20",
-        "ticker": "VRTX",
-        "strategy": "Intraday_T9_rsi20",
-        "shares": 2,
-        "entry_price": 439.88,
-        "exit_price": 437.72,
-        "pnl_gross": -6.34,
-        "pnl_usd": -7.36,
-        "commission": 1.02,
-        "pnl_pct": null,
-        "exit_reason": "force_sell_completed",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      },
-      {
-        "date": "2026-05-20",
-        "ticker": "GOOGL",
-        "strategy": "HighPullback50_v1",
-        "shares": 1,
-        "entry_price": 387.27,
-        "exit_price": 391.745,
-        "pnl_gross": -2.01,
-        "pnl_usd": -4.02,
-        "commission": 2.01,
-        "pnl_pct": null,
-        "exit_reason": "silent_fail_21_round_trip",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      },
-      {
-        "date": "2026-05-20",
-        "ticker": "FTAI",
-        "strategy": "Stoch_Oversold_v1",
-        "shares": 1,
-        "entry_price": 228.0,
-        "exit_price": 226.68,
-        "pnl_gross": -2.27,
-        "pnl_usd": -4.27,
-        "commission": 2.0,
-        "pnl_pct": null,
-        "exit_reason": "silent_fail_21_round_trip",
-        "source": "monitor",
-        "_net_calc": "state_json_assumed_net"
-      }
-    ],
-    "by_strategy": [
-      {
-        "strategy": "Candle15m_TweezerBottom_test",
-        "n": 1,
-        "pnl": -1.89,
-        "wins": 0,
-        "win_rate": 0.0
-      },
-      {
-        "strategy": "Stoch_Oversold_v1",
-        "n": 1,
-        "pnl": -4.27,
-        "wins": 0,
-        "win_rate": 0.0
-      },
-      {
-        "strategy": "Intraday_T9_rsi20",
-        "n": 1,
-        "pnl": -7.36,
-        "wins": 0,
-        "win_rate": 0.0
-      },
-      {
-        "strategy": "Sector_FriPanic_v1",
-        "n": 1,
-        "pnl": -11.78,
-        "wins": 0,
-        "win_rate": 0.0
-      },
-      {
-        "strategy": "HighPullback50_v1",
-        "n": 2,
-        "pnl": -22.98,
-        "wins": 0,
-        "win_rate": 0.0
-      }
-    ],
+    "trades": [],
+    "by_strategy": [],
     "note": "daily_history から動的生成 (直近 5 営業日)、 by_strategy + trades は closed_positions ベース"
   },
   "short_summary": {
@@ -598,22 +471,15 @@ window.MOBILE_DATA = {
       "tickers": []
     },
     "week": {
-      "realized_net": -48.28,
-      "realized_gross": -40.91,
-      "commission_total": 7.37,
-      "n_trades": 6,
+      "realized_net": 0,
+      "realized_gross": 0,
+      "commission_total": 0,
+      "n_trades": 0,
       "n_wins": 0,
-      "n_losses": 6,
-      "win_rate_pct": 0.0,
+      "n_losses": 0,
+      "win_rate_pct": null,
       "phantom_count": 0,
-      "tickers": [
-        "SPXL",
-        "LIN",
-        "IP",
-        "VRTX",
-        "GOOGL",
-        "FTAI"
-      ]
+      "tickers": []
     },
     "total": {
       "realized_net": -48.34,
@@ -639,9 +505,9 @@ window.MOBILE_DATA = {
         }
       ]
     },
-    "week_start": "2026-05-20",
-    "week_end": "2026-05-24",
-    "today_date": "2026-05-24",
+    "week_start": "2026-05-21",
+    "week_end": "2026-05-25",
+    "today_date": "2026-05-25",
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
@@ -2974,105 +2840,116 @@ window.MOBILE_DATA = {
       "netliq_baseline": 11540.0,
       "netliq_delta": 9137.97,
       "unrealized_today": -216.53
+    },
+    {
+      "date": "2026-05-25",
+      "netliq": 20677.97,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": 9137.97,
+      "unrealized_today": -216.53
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-24T23:45:03",
+      "ts": "2026-05-25T00:00:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6372008333333333
+      "age_min": 0.32733775
     },
     "sync_mobile": {
-      "ts": "2026-05-24T23:45:22",
+      "ts": "2026-05-24T23:45:43",
       "ok": true,
-      "note": "110,032 B",
-      "age_min": 0.3205341666666667
+      "note": "110,003 B",
+      "age_min": 14.660671083333334
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 4372.587200833334
+      "age_min": 4387.27733775
     },
     "intraday_cron": {
-      "ts": "2026-05-24T23:30:43",
+      "ts": "2026-05-24T23:45:43",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.970534166666665
+      "age_min": 14.660671083333334
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-24T23:45:02",
+      "ts": "2026-05-25T00:00:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6538675
+      "age_min": 0.34400441666666665
     },
     "vix_regime": {
       "ts": "2026-05-24T23:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.3038675
+      "age_min": 14.994004416666666
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 3825.6038675
+      "age_min": 3840.2940044166667
     },
     "morning_tws_connect": {
       "ts": "2026-05-24T08:29:46",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 915.9205341666667
+      "age_min": 930.6106710833334
     },
     "short_term_auto_bat": {
       "ts": "2026-05-24T08:36:22",
       "ok": true,
       "note": "completed",
-      "age_min": 909.3205341666667
+      "age_min": 924.0106710833334
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 4490.687200833333
+      "age_min": 4505.37733775
     },
     "state_tws_reconciler": {
       "ts": "2026-05-24T23:45:23",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 0.3038675
+      "age_min": 14.994004416666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 5181.087200833334
+      "age_min": 5195.77733775
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 2940.737200833333
+      "age_min": 2955.42733775
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-24T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 345.67053416666664
+      "age_min": 360.3606710833334
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-23T14:45:05",
       "ok": false,
       "note": "TWS 接続失敗: [WinError 1225] リモート コンピューターによりネットワーク接続が拒否されました。",
-      "age_min": 1980.6038675000002
+      "age_min": 1995.2940044166667
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-23T08:34:26",
       "ok": false,
       "note": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要",
-      "age_min": 2351.2538675
+      "age_min": 2365.9440044166668
     }
   },
   "regime": {
@@ -3143,7 +3020,7 @@ window.MOBILE_DATA = {
       "qty": 11,
       "entry_price": 97.41,
       "entry_date": "2026-05-22",
-      "days_held": 2,
+      "days_held": 3,
       "hold_days": 3,
       "bracket": {
         "tp_pct": 2.5,
@@ -3166,8 +3043,8 @@ window.MOBILE_DATA = {
         },
         {
           "type": "timeout",
-          "due": "hold_days=3、 経過=2d",
-          "status": "未到達"
+          "due": "hold_days=3、 経過=3d",
+          "status": "発火対象 (timeout 経過)"
         }
       ],
       "current_price": 97.94000244140625,
