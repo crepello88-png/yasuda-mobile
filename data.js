@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T03:54",
+  "generated_at": "2026-05-25T04:00",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -1352,88 +1352,84 @@ window.MOBILE_DATA = {
       "_per_share_basis": "XLK ~\\$176 × mean 0.55%"
     },
     {
-      "tier": "S",
-      "name": "A7_DXY_Drop_EM_Long_v1",
-      "cat": "その他",
-      "tickers": "EEM / FXI / KWEB / EWZ / INDA",
-      "condition": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
-      "hold": "5日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "UUP 5d<=-2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d (paper、 Sh+4.36 n=54 mean+1.76% win 72.2% 4/4 regime)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.25]",
-      "memo": "[_5_22_discovery] scripts/discover_untapped_alpha_5_22.py A7.2 (Axis7 macro cross-asset): UUP (DXY proxy) 5d <= -2% → EEM/FXI/KWEB/EWZ/INDA 翌寄 BUY hold 5d、 OOS Sh=4.36 n=54 mean=+1.76% win=72.2% regime 4/4 (bull+2.88/bear+6.88/high+5.80/low+3.85)、 source: Asness-Moskowitz-Pedersen 2013 cross-asset / Frankel-Rose 1996 DXY-EM、 既存 cross-asset (TLT_Spike) と 異なる asset axis、 完全直交、 paper 1週後 LIVE 判定。 全 regime pass + 高 Sharpe。 / [_5_22_live] 5/22 user 採用 (= O agent 結果)、 paper→LIVE、 size_mult 0.75 / [_5_22_emergency_dispose] 5/22 R2 OOS で size_mult=0 緊急 disable (= catastrophic loser cluster の一員と判断、 ただし真の原因は不明) / [_5_24_resurrection] 5/24 リザレクション Phase1 ふるい結果で 真復活 PASS: cost+0.87% panic0.05 stress0.28 N_eff+0.86 dup_None n=70 +3.66%/月、 BIMETSX X 柱 (= 7 軸目 Cross-Asset) 1 本目 deploy、 size_mult 0 → 0.25 probe、 paper:true→false、 R2 1 週 fail-safe 必須。 死亡原因 = 「size_mult=0 による偽陰性」 (= insider 60d hold 摩擦 と同型)、 ふるい再評価で 真エッジ確認。",
-      "_auto_meta": {
-        "key": "A7_DXY_Drop_EM_Long_v1",
-        "tp_pct": 4.0,
-        "sl_pct": -7.0,
-        "size_multiplier": 0.25,
-        "paper": false,
-        "sharpe_value": 4.36
-      },
-      "_supplement": true
+      "tier": "A (BIMETSX T 柱 2 本目 probe)",
+      "name": "Bull_Trend_Breakout_v1 (classic trend breakout)",
+      "cat": "T 柱 trend follow (AI_Wave と独立)",
+      "tickers": "全 193 watchlist breakout 検出",
+      "condition": "C > SMA200 ∧ SMA50 > SMA200 ∧ C > 20d high(shift1) → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
+      "hold": "20日",
+      "freq": "n=1181 OOS / 約 74 sig/月 (daily cap 5/日 で抑制)",
+      "sharpe": "cost+1.23%/trade $/株/月=$2.25 %/月=+1.60% N_eff+0.86 AI_Wave corr 0.01",
+      "live": "✅ size_mult=0.25 probe (5/24 deploy)",
+      "memo": "5/24 BIMETSX T 柱 2 本目、 daily fire cap 5/日 主防衛、 主リスク=calm whipsaw。 R2 1 週 fail-safe。",
+      "monthly_profit_usd": 2.25,
+      "_signals_per_month": 74.0,
+      "_r2_n": 1181,
+      "_r2_mean_pct": 1.23
     },
     {
-      "tier": "?",
-      "name": "Bull_Trend_Breakout_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "5/24 BIMET T 柱 2 本目: C>SMA200 ∧ SMA50>SMA200 ∧ C>20d-high、 hold 20d、 AI_Wave 0.01 完全独立、 stress N_eff +0.86 確定分散源",
-      "hold": "20日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "5/24 BIMET T 柱 2 本目: C>SMA200 ∧ SMA50>SMA200 ∧ C>20d-high、 hold 20d、 AI_Wave 0.01 完全独立、 stress N_eff +0.86 確定分散源",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.25]",
-      "memo": "[_5_24_deploy] 5/24 BIMET T 柱 2 本目 deploy (= 配線2): C>SMA200 ∧ SMA50>SMA200 ∧ C>20d-high (shift1) → 翌 MOO BUY → 20d hold。 size_mult 0.25 probe、 daily fire cap 5/日 (= _DAILY_CAP_DEFAULTS で主防衛)、 AI_Wave 0.01 完全独立、 stress N_eff +0.86 確定分散源、 per-trade +1.23% cost 後。 R2 1 週 fail-safe 必須。 主リスク認識 = calm whipsaw、 暴落時集中ではない。 お守り = VIX>20 で Bull+Loser_3yr50 reversal budget 0.5 cap (DD 削減 6% 限定、 過度期待しない)。",
-      "_auto_meta": {
-        "key": "Bull_Trend_Breakout_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -7.0,
-        "size_multiplier": 0.25,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
+      "tier": "A (BIMETSX M 柱 regime-balanced)",
+      "name": "CrossSec_Mom_v1 (月初 cross-sec 12-1 top 20%)",
+      "cat": "M 柱 momentum (calm/stress regime-balanced 双子)",
+      "tickers": "全 193 watchlist 月初 rank",
+      "condition": "月初 trading day で 12-1 cross-sec rank top 20% → 翌寄 MOO BUY → 20d hold (TP+12/SL-8)",
+      "hold": "20日",
+      "freq": "n=565 OOS / 約 35 sig/月 (月初 batch)",
+      "sharpe": "cost+4.02% $/株/月=$9.01 %/月=+4.22% N_eff+0.64 (Momentum_12_1 と 0.43 部分独立)",
+      "live": "✅ size_mult=0.6 (5/24 deploy、 Momentum_12_1 0.4 と合算 1.0=1柱)",
+      "memo": "5/24 BIMETSX M 柱 案 C deploy、 regime-balanced で calm/stress 自然分担、 stress Sharpe 6.94。",
+      "monthly_profit_usd": 9.01,
+      "_signals_per_month": 35.0,
+      "_r2_n": 565,
+      "_r2_mean_pct": 4.02
     },
     {
-      "tier": "?",
-      "name": "CrossSec_Mom_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "5/24 BIMET M 柱 regime-balanced 2nd (案 C): 月初 cross-sectional 12-1 mom top-20%、 hold 20d、 Momentum_12_1_v1 と併用 (合算 size 0.4+0.6=1.0=1 柱ぶん)",
-      "hold": "20日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "5/24 BIMET M 柱 regime-balanced 2nd (案 C): 月初 cross-sectional 12-1 mom top-20%、 hold 20d、 Momentum_12_1_v1 と併用 (合算 size 0.4+0.6=1.0=1 柱ぶん)",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.6]",
-      "memo": "[_5_24_deploy] 5/24 BIMET M 柱 regime-balanced 2nd deploy (= 配線1 案 C): 月初 cross-sectional 12-1 mom top-20% → 翌 MOO BUY → 20d hold。 Momentum_12_1_v1 (0.4) と併用、 size_mult 0.6 (= サンプル厚い CS を主軸)、 合算 1.0 = 1 柱ぶん維持。 regime hard gate なし (= look-ahead 回避)、 calm/stress 自然分担 (Mom=calm 強 / CS=stress 強)。 n=46 OOS、 stress Sharpe 6.94。 watchlist 全体で 12-1 rank 計算、 _CROSSSEC_MOM_TOP cache で同日内再利用。",
-      "_auto_meta": {
-        "key": "CrossSec_Mom_v1",
-        "tp_pct": 12.0,
-        "sl_pct": -8.0,
-        "size_multiplier": 0.6,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
+      "tier": "S (BIMETSX E 柱 2 本目 probe)",
+      "name": "PEAD_SUE_60d_v1 (60d post-earnings drift 累積)",
+      "cat": "E 柱 earnings drift (PreEarn と完全独立)",
+      "tickers": "earnings CSV カバー watchlist 個別株 ~150 ticker",
+      "condition": "earnings 当日 gap up >= +1.86% (80%-tile) → 翌 MOO BUY → 60d hold (TP+15/SL-10)",
+      "hold": "60日",
+      "freq": "n=157 OOS / 約 10 sig/月",
+      "sharpe": "cost+8.75%/trade $/株/月=$2.62 %/月=+3.06% N_eff+0.83 PreEarn corr 0.02 完全独立",
+      "live": "✅ size_mult=0.25 probe (5/25 deploy、 旧 Top20 dispose 置換)",
+      "memo": "5/25 PEAD 60d 別仮説 PASS、 旧 PEAD_SUE_Top20 (20d hold) は anti-edge dispose。 Bernard-Thomas 1990 / Ball-Brown 1968 文献根拠。 E 柱 真 2 本立て 復活。",
+      "monthly_profit_usd": 2.62,
+      "_signals_per_month": 10.0,
+      "_r2_n": 157,
+      "_r2_mean_pct": 8.75
     },
     {
-      "tier": "?",
-      "name": "PEAD_SUE_60d_v1",
-      "cat": "その他",
-      "tickers": "(watchlist 未登録)",
-      "condition": "5/25 PEAD 別仮説 (= 20d→60d) PASS: earnings 当日 gap >= +1.86% → 翌 MOO BUY hold 60d (= drift 累積で cost 回収)、 cost+8.75% n=157 OOS、 PreEarn corr 0.02 完全独立、 旧 PEAD_SUE_Top20_v1 (20d) は anti-edge で dispose 済",
-      "hold": "60日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "5/25 PEAD 別仮説 (= 20d→60d) PASS: earnings 当日 gap >= +1.86% → 翌 MOO BUY hold 60d (= drift 累積で cost 回収)、 cost+8.75% n=157 OOS、 PreEarn corr 0.02 完全独立、 旧 PEAD_SUE_Top20_v1 (20d) は anti-edge で dispose 済",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.25]",
-      "memo": "[_5_25_deploy] 5/25 PEAD 別仮説 deploy: 旧 PEAD_SUE_Top20_v1 hold 20d anti-edge → hold 60d で drift 累積、 cost+8.75% n=157 OOS、 PreEarn corr 0.02 完全独立、 N_eff +0.83 PASS。 size_mult 0.25 probe、 Bernard-Thomas 1990 / Ball-Brown 1968 文献根拠 (= 数週間〜数ヶ月持続 drift)。 E 柱 真の 2 本立て 復活。",
-      "_auto_meta": {
-        "key": "PEAD_SUE_60d_v1",
-        "tp_pct": 15.0,
-        "sl_pct": -10.0,
-        "size_multiplier": 0.25,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
+      "tier": "A (BIMETSX S 柱 新軸 probe)",
+      "name": "SectorRotation_Laggard_v1 (6 軸目 contrarian)",
+      "cat": "S 柱 sector rotation (月次 平均回帰)",
+      "tickers": "SPDR sector ETF 11: XLF/XLE/XLI/XLY/XLP/XLV/XLK/XLB/XLU/XLRE/XLC",
+      "condition": "月初 trading day で 過去 60d return 下位 2 sector ETF → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
+      "hold": "20日",
+      "freq": "n=26 OOS / 約 1.6 sig/月 (月初 2 件)",
+      "sharpe": "cost+1.83% $/株/月=$1.13 %/月=+1.92% N_eff+0.79 CrossSec corr 0.00 完全直交 stress 0.38 要注視",
+      "live": "✅ size_mult=0.25 probe (5/24 deploy NEW S 柱)",
+      "memo": "5/24 BIMETSX 6 軸目 S 柱 確立、 ST348 復活 PASS。 sector level contrarian (NOT momentum)、 月次 horizon 過剰反応の揺り戻し thesis。 stress 0.38 で R2 1 週注視必須。",
+      "monthly_profit_usd": 1.13,
+      "_signals_per_month": 1.6,
+      "_r2_n": 26,
+      "_r2_mean_pct": 1.83
+    },
+    {
+      "tier": "A (BIMETSX X 柱 新軸 復活 probe)",
+      "name": "A7_DXY_Drop_EM_Long_v1 (7 軸目 Cross-Asset)",
+      "cat": "X 柱 cross-asset macro (通貨 → EM equity)",
+      "tickers": "UUP signal → EEM/FXI/KWEB/EWZ/INDA",
+      "condition": "UUP 5日 return <= -2% (ドル安) → 翌寄 EM ETF MOO BUY → 5d hold (TP+4/SL-7)",
+      "hold": "5日",
+      "freq": "n=70 OOS / 約 4.4 sig/月",
+      "sharpe": "cost+0.87% $/株/月=$1.10 %/月=+3.66% N_eff+0.86 panic 全 corr ≤ 0.07 完全独立 stress 0.28",
+      "live": "✅ size_mult=0.25 probe (5/24 復活 deploy NEW X 柱、 5/22 偽陰性 disable から)",
+      "memo": "5/24 BIMETSX 7 軸目 X 柱 確立、 リザレクション ふるい PASS で復活 (ゼロサイズ偽陰性)。 Asness-Moskowitz-Pedersen 2013 / Frankel-Rose 1996 文献。 S 柱 と corr -0.006 完全別軸。",
+      "monthly_profit_usd": 1.1,
+      "_signals_per_month": 4.4,
+      "_r2_n": 70,
+      "_r2_mean_pct": 0.87
     },
     {
       "tier": "?",
@@ -1451,27 +1447,6 @@ window.MOBILE_DATA = {
         "tp_pct": 10.0,
         "sl_pct": -8.0,
         "size_multiplier": 0,
-        "paper": false,
-        "sharpe_value": null
-      },
-      "_supplement": true
-    },
-    {
-      "tier": "?",
-      "name": "SectorRotation_Laggard_v1",
-      "cat": "その他",
-      "tickers": "XLV / XLK / XLI / XLF / XLE ... (計11銘柄)",
-      "condition": "5/24 BIMETS S 柱 (= 6 軸目 Sector Rotation): 月初 SPDR sector ETF 60d return 下位 2 → 翌 MOO BUY hold 20d、 contrarian (NOT momentum)、 CrossSec と corr 0.00 完全直交 = 別源泉、 cost+1.20% n=92 OOS、 ST348 復活 PASS",
-      "hold": "20日 寄→翌寄 MOO bracket",
-      "freq": "(未集計)",
-      "sharpe": "5/24 BIMETS S 柱 (= 6 軸目 Sector Rotation): 月初 SPDR sector ETF 60d return 下位 2 → 翌 MOO BUY hold 20d、 contrarian (NOT momentum)、 CrossSec と corr 0.00 完全直交 = 別源泉、 cost+1.20% n=92 OOS、 ST348 復活 PASS",
-      "live": "✅ 本番運用中 (TWS 自動執行) [size×0.25]",
-      "memo": "[_5_24_deploy] 5/24 BIMETS S 柱 (= 6 軸目 Sector Rotation) 1 本目 deploy: 月初 SPDR sector ETF (XLF/XLE/XLI/XLY/XLP/XLV/XLK/XLB/XLU/XLRE/XLC) 60d return 下位 2 → 翌 MOO BUY → 20d hold。 size_mult 0.25 probe、 contrarian (NOT momentum)、 CrossSec_Mom_v1 と corr 0.00 完全直交 = 別源泉、 cost+1.20% n=92 OOS、 N_eff +0.79。 注: stress max 0.38 (= 警戒線 0.30 超え)、 R2 1 週 fail-safe で 暴落時跳ね 注視 + エッジ持続確認。 BIMET → BIMETS 拡張、 sector は月次 horizon で過剰反応の揺り戻し + リバランスフロー で平均回帰 thesis。 ST348 復活 (5/24 リザレクション B ショートリスト ふるい PASS)。",
-      "_auto_meta": {
-        "key": "SectorRotation_Laggard_v1",
-        "tp_pct": 10.0,
-        "sl_pct": -7.0,
-        "size_multiplier": 0.25,
         "paper": false,
         "sharpe_value": null
       },
@@ -2877,100 +2852,100 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-25T03:45:03",
+      "ts": "2026-05-25T04:00:03",
       "ok": true,
       "note": "",
-      "age_min": 9.086498833333334
+      "age_min": 0.2460472833333333
     },
     "sync_mobile": {
-      "ts": "2026-05-25T03:45:44",
+      "ts": "2026-05-25T03:54:09",
       "ok": true,
-      "note": "114,683 B",
-      "age_min": 8.4031655
+      "note": "114,774 B",
+      "age_min": 6.146047283333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 4621.036498833333
+      "age_min": 4627.196047283333
     },
     "intraday_cron": {
       "ts": "2026-05-25T03:45:44",
       "ok": true,
       "note": "bat completed",
-      "age_min": 8.4031655
+      "age_min": 14.56271395
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-25T03:45:02",
+      "ts": "2026-05-25T04:00:02",
       "ok": true,
       "note": "",
-      "age_min": 9.1031655
+      "age_min": 0.26271395
     },
     "vix_regime": {
       "ts": "2026-05-25T03:45:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 8.7531655
+      "age_min": 14.91271395
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 4074.0531655
+      "age_min": 4080.21271395
     },
     "morning_tws_connect": {
       "ts": "2026-05-24T08:29:46",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1164.3698321666666
+      "age_min": 1170.5293806166667
     },
     "short_term_auto_bat": {
       "ts": "2026-05-24T08:36:22",
       "ok": true,
       "note": "completed",
-      "age_min": 1157.7698321666664
+      "age_min": 1163.9293806166668
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 4739.1364988333335
+      "age_min": 4745.296047283334
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T03:45:22",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 8.769832166666667
+      "age_min": 14.929380616666666
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 5429.536498833333
+      "age_min": 5435.696047283333
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 3189.186498833333
+      "age_min": 3195.346047283333
     },
     "monitor_main_engine_health": {
-      "ts": "2026-05-25T03:49:14",
+      "ts": "2026-05-25T03:58:37",
       "ok": true,
-      "note": "OK 5/25: Confluence_RSIStoch_v1 trades 0 in 90d = 期待値 (5/25 整地で size=0 CUT、 N_eff +0.39 改善理由、 hub dup で正しい dispose)。 LIVE 13 戦略 (= Bull/CrossSec/PEAD_60d/SR/A7 等 probe 含む) で稼働、 baseline 期待値再計算要。",
-      "age_min": 4.9031655
+      "note": "GREEN 5/25 整地完了: Confluence_RSIStoch_v1 size=0 CUT 正解 (N_eff +0.39 改善、 hub dup dispose)。 LIVE 13 戦略 (Bull/CrossSec/PEAD_60d/SectorRotation/A7 probe 含む) 順調稼働、 整地後 baseline 確定。",
+      "age_min": 1.6793806166666667
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 intraday_position_monitor heartbeat <1min ago で OK 連続、 state_tws_reconciler state=1 TWS=8 で TWS 接続正常稼働確認。 5/23 14:45 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 4.9031655
+      "age_min": 11.06271395
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 morning_tws_connect attempt=1 OK + short_term_auto_bat completed + state_tws_reconciler 健全 (state=1 TWS=8)、 TWS 接続復旧確認済。 5/23 08:34 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 4.9031655
+      "age_min": 11.06271395
     }
   },
   "regime": {
