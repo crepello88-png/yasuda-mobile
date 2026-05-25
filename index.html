@@ -2007,9 +2007,9 @@ function renderTrackerStrategies() {
     // 5/23 (v33) user 「月に何回発生と hold わかりやすく」 — 強調 chip
     // 5/25 (v45) user 「月益/リターン%/hold/月発生回数 大きめに」 — chip size 14px + リターン% 追加
     const holdStr = s.hold ? String(s.hold).match(/[\d.]+/)?.[0] || s.hold : '?';
-    const spmDisp = isFinite(spm) && spm > 0 ? `${spm.toFixed(spm<1?2:1)}` : '—';
-    // リターン %/月: mo_pct を直接使用 (= data.js 側で既に正規化済)、 fallback は _r2_mean_pct
-    const moPct = Number(s.mo_pct ?? s._r2_mean_pct ?? s._oos_mean_pct) || NaN;
+    const spmDisp = isFinite(spm) && spm > 0 ? `${spm.toFixed(spm<1?2:1)}` : '?';
+    // リターン %/月: mo_pct (= data.js 既算) を直接使用
+    const moPct = Number(s.mo_pct) || NaN;
     const moPctDisp = isFinite(moPct) ? `${moPct >= 0 ? '+' : ''}${moPct.toFixed(1)}%` : '?';
     const moPctColor = isFinite(moPct) ? (moPct > 0 ? '#3fb950' : '#f85149') : 'var(--sub)';
     const infoChips = `
