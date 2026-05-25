@@ -1699,6 +1699,42 @@ function renderTrackerStrategies() {
     if (sumEl) sumEl.textContent = '';
     return;
   }
+  // 5/25 F7 framework サマリ card (= 戦略タブ 上部に portfolio governance 概要)
+  const bf = d.bimet_framework || {};
+  const sm = bf.summary || {};
+  const pillars = bf.pillars || {};
+  let f7Card = '';
+  if (sm.framework_name) {
+    const pillarRows = Object.entries(pillars).map(([k, p]) => {
+      const warn = p.warning ? ` <span style="color:#d29922;font-size:9px">⚠️</span>` : '';
+      const tot = (p.size_sum || 0).toFixed(2);
+      const barW = Math.min(100, (p.share_pct || 0));
+      const barCol = (p.share_pct > 35) ? '#f85149' : '#3fb950';
+      return `<div style="display:flex;align-items:center;gap:6px;margin:3px 0;font-size:11px">
+        <span style="width:18px;font-weight:800;color:${barCol}">${k}</span>
+        <span style="flex:1;background:#21262d;border-radius:3px;height:14px;position:relative;overflow:hidden">
+          <span style="position:absolute;left:0;top:0;height:100%;width:${barW}%;background:${barCol}33;border-right:2px solid ${barCol}"></span>
+          <span style="position:absolute;left:6px;top:0;line-height:14px;font-size:10px;color:var(--sub)">${p.name||k}${warn}</span>
+        </span>
+        <span style="font-size:11px;font-weight:700;width:50px;text-align:right">${(p.share_pct||0).toFixed(0)}%</span>
+        <span style="font-size:10px;color:var(--sub);width:38px;text-align:right">${tot}</span>
+      </div>`;
+    }).join('');
+    f7Card = `<div class="card" style="margin-bottom:10px;padding:10px;background:linear-gradient(135deg,rgba(255,140,0,.08),rgba(88,166,255,.05))">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:6px">
+        <div style="font-size:15px;font-weight:800;color:#ff8c00">🏛 ${sm.framework_name} = ${Object.keys(pillars).join('-')}</div>
+        <div style="font-size:10px;color:var(--sub)">N_eff ${sm.n_eff_full_period||'?'} / total size ${(sm.total_size||0).toFixed(2)}</div>
+      </div>
+      <div style="font-size:10px;color:var(--sub);margin-bottom:5px;line-height:1.4">7 軸 portfolio governance、 merit-driven (= N_eff 基準、 Sharpe 単独不可)、 intra-axis 増殖禁止。 F8 = 将来 + D 軸 (= 場中復活時)。</div>
+      ${pillarRows}
+      <div style="margin-top:6px;padding-top:5px;border-top:1px dashed rgba(255,255,255,.1);font-size:9px;color:var(--sub);line-height:1.5">
+        🟢LIVE ${sm.live_count||0} / 🔵probe ${sm.probe_count||0} / 🟡wiring ${sm.wiring_count||0} / ⚠️inert ${sm.inert_count||0}
+        / 空 ${sm.empty_axes && sm.empty_axes.length ? sm.empty_axes.join(',') : 'なし'}
+        / 警告 35%超 ${sm.warning_axes && sm.warning_axes.length ? sm.warning_axes.join(',') : 'なし'}
+      </div>
+    </div>`;
+  }
+  // (f7Card は 後段 listEl.innerHTML 設定時に prepend、 ここでは hoist のみ)
   // Tier カウント
   const byTier = {};
   strats.forEach(s => {
@@ -1742,12 +1778,13 @@ function renderTrackerStrategies() {
   const tierColor = (t) => {
     const T = (t||'').toUpperCase();
     if (T === 'SSS') return '#ff5da2';  // 5/22 Champ DCA 別格 pink
-    if (T === 'SS+' || T === 'SS') return '#f85149';
-    if (T === 'S+') return '#d29922';
-    if (T === 'S' || T === 'S-') return '#58a6ff';
+    if (T.startsWith('SS+')) return '#ffd700';  // 5/25 SS+ ($200+) gold
+    if (T.startsWith('SS')) return '#ff8c00';   // 5/25 SS ($100+) bright orange
+    if (T.startsWith('S+')) return '#d29922';
+    if (T.startsWith('S')) return '#58a6ff';
     if (T.startsWith('A')) return '#3fb950';
-    if (T === 'BOOST') return '#fb8500';  // 5/22 booster orange
-    if (T === 'ANTI') return '#8b5cf6';   // 5/22 anti-pattern purple
+    if (T === 'BOOST') return '#fb8500';
+    if (T === 'ANTI') return '#8b5cf6';
     return '#7d8590';
   };
   // 5/22 朝 user 採用: tier 降順 (Champ DCA 最上部 → SS > S > A > B > paper > disabled) + 同 tier 内は monthly_profit_usd 降順
@@ -1789,11 +1826,17 @@ function renderTrackerStrategies() {
     const isLive = live.indexOf('✅') >= 0;
     const tcol = tierColor(s.tier);
     const mp = Number(s.monthly_profit_usd);
+    const mpFull = Number(s._monthly_full_size_usd);
+    const sz = Number(s._size_mult_current);
     // 5/22 user 「Champ DCA は月利益表示なしでいい」 → Champ は monthly_profit 表示 hide
+    // 5/25 user 「サイズ過少も反映」 → 現 \$/月 + full size 換算 (= upsize 余地) 併記
+    const fullDisp = (isFinite(mpFull) && isFinite(sz) && sz > 0 && sz < 1.0 && mpFull > mp)
+      ? `<div style="margin-top:2px;font-size:10px;color:#d29922;line-height:1.3">↑full size: $${mpFull.toFixed(0)}/月 (= +$${(mpFull-mp).toFixed(0)})</div>`
+      : '';
     const mpDisplay = isChamp(s)
       ? ''
       : (isFinite(mp) && mp > 0
-        ? `<div style="font-size:22px;font-weight:800;color:${tcol};line-height:1">$${mp.toFixed(0)}<span style="font-size:12px;color:var(--sub);font-weight:600">/月</span></div>`
+        ? `<div style="font-size:22px;font-weight:800;color:${tcol};line-height:1">$${mp.toFixed(0)}<span style="font-size:12px;color:var(--sub);font-weight:600">/月</span></div>${fullDisp}`
         : `<div style="font-size:11px;color:var(--sub)">未確定</div>`);
     // 5/23 user 「月 5 シグナル未満は レア表記、 起きたらいいかな程度」 — _signals_per_month で判定
     // 5/23 (v31) user 「ティアのところに レア表記」 — name 横 → tier の直下 に移動
@@ -1863,7 +1906,7 @@ function renderTrackerStrategies() {
   const ruleHtml = ruleEntries.length
     ? `<div style="margin-top:12px"><div onclick="(function(){var e=document.getElementById('rule-entries');var t=document.getElementById('rule-toggle');if(e.style.display==='none'){e.style.display='block';t.textContent='▼';}else{e.style.display='none';t.textContent='▶';}})()" style="cursor:pointer;padding:8px 10px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:6px;font-size:12px;color:var(--sub);display:flex;justify-content:space-between"><span>⚙ 実行 rule ${ruleEntries.length} 件 (BOOST/ANTI = 採用戦略の size 倍化 / skip filter)</span><span id="rule-toggle">▶</span></div><div id="rule-entries" style="display:none;margin-top:8px">${ruleEntries.map(renderEntry).join('')}</div></div>`
     : '';
-  listEl.innerHTML = stratHtml + ruleHtml;
+  listEl.innerHTML = f7Card + stratHtml + ruleHtml;
 }
 function _setTrackerStratFilter(kind, val) {
   if (kind === 'tier') _trackerStratFilter.tier = val;
