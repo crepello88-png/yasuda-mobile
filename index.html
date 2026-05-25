@@ -98,7 +98,7 @@
   <div class="tab" data-tab="champ" onclick="switchTab('champ')">Champ</div>
   <div class="tab" data-tab="short" onclick="switchTab('short')">短期</div>
   <div class="tab" data-tab="svsl" onclick="switchTab('svsl')">VS</div>
-  <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中</div>
+  <div class="tab" data-tab="intraday" onclick="switchTab('intraday')">場中(休止中)</div>
   <div class="tab" data-tab="monitor" onclick="switchTab('monitor')">監視</div>
   <div class="tab" data-tab="strat" onclick="switchTab('strat')">戦略</div>
   <div class="tab" data-tab="tickers" onclick="switchTab('tickers')">銘柄</div>
@@ -1818,12 +1818,20 @@ function renderTrackerStrategies() {
       : '';
     const freqColor = isRare ? '#22d3ee' : 'var(--sub)';
     // 5/23 (v33) user 「月に何回発生と hold わかりやすく」 — 強調 chip
+    // 5/25 (v45) user 「月益/リターン%/hold/月発生回数 大きめに」 — chip size 14px + リターン% 追加
     const holdStr = s.hold ? String(s.hold).match(/[\d.]+/)?.[0] || s.hold : '?';
     const spmDisp = isFinite(spm) && spm > 0 ? `${spm.toFixed(spm<1?2:1)}` : (s.freq || '?');
+    // リターン %/月: _r2_mean_pct or _oos_mean_pct を hold/21 で正規化 (= per-trade % * 21/hold)
+    const meanPct = Number(s._r2_mean_pct ?? s._oos_mean_pct);
+    const holdNum = Number(holdStr);
+    const moPct = (isFinite(meanPct) && isFinite(holdNum) && holdNum > 0) ? (meanPct * 21 / holdNum) : NaN;
+    const moPctDisp = isFinite(moPct) ? `${moPct >= 0 ? '+' : ''}${moPct.toFixed(1)}%` : '?';
+    const moPctColor = isFinite(moPct) ? (moPct > 0 ? '#3fb950' : '#f85149') : 'var(--sub)';
     const infoChips = `
-      <div style="display:flex;gap:5px;margin-top:3px;flex-wrap:wrap">
-        <span style="background:#58a6ff22;color:#58a6ff;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px">📅 hold ${holdStr}日</span>
-        <span style="background:#3fb95022;color:#3fb950;font-size:11px;font-weight:700;padding:3px 8px;border-radius:6px">🎯 月${spmDisp}回</span>
+      <div style="display:flex;gap:6px;margin-top:5px;flex-wrap:wrap">
+        <span style="background:#58a6ff22;color:#58a6ff;font-size:14px;font-weight:800;padding:5px 11px;border-radius:7px">📅 hold <span style="font-size:17px">${holdStr}</span>日</span>
+        <span style="background:#3fb95022;color:#3fb950;font-size:14px;font-weight:800;padding:5px 11px;border-radius:7px">🎯 月<span style="font-size:17px">${spmDisp}</span>回</span>
+        <span style="background:${moPctColor}22;color:${moPctColor};font-size:14px;font-weight:800;padding:5px 11px;border-radius:7px">📈 <span style="font-size:17px">${moPctDisp}</span>/月</span>
       </div>`;
     return `
       <div class="card" style="margin-bottom:8px${isRare ? ';border-left:2px solid #22d3ee' : ''}">

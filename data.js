@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-25T04:15",
+  "generated_at": "2026-05-25T04:30",
   "today_summary": {
     "netliq": 20677.97,
     "cash": 10693.81,
@@ -1047,7 +1047,92 @@ window.MOBILE_DATA = {
       "_per_share_source": "11年 実績"
     },
     {
-      "tier": "SS",
+      "tier": "S (F7-T: Trend)",
+      "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum) ★ swap h18 wide",
+      "cat": "短期 theme momentum",
+      "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
+      "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 18d hold (TP+10/SL-10 wide)",
+      "hold": "18日 (= sweet spot swap、 5/23)",
+      "freq": "n=978、 月 12.76 sig",
+      "sharpe": "R2 OOS: eff $20.50/slot mean+1.21%/trade OOS+2.96%",
+      "live": "✅ size_mult=1.0 monitor.py AI_Wave_Momentum_v1",
+      "memo": "batch7 で発見 → sim_5strats_sweet_spot で h10→h18 + narrow→wide bracket swap → 月益 $111→$224 (2×)、 OOS+0.61→+2.96% (5×)、 portfolio 最強級 alpha source。",
+      "monthly_profit_usd": 224.24,
+      "_signals_per_month": 12.76,
+      "_r2_n": 978,
+      "_r2_mean_pct": 1.21,
+      "_r2_sharpe": null
+    },
+    {
+      "tier": "S (F7-M: Momentum)",
+      "name": "Momentum_12_1_v1 (Jegadeesh-Titman classic factor)",
+      "cat": "短期 momentum factor",
+      "tickers": "全 193 watchlist",
+      "condition": "月初 trading day で 12-1 (= 252d return 除 21d) >= +20% → 翌 MOO BUY → 21d hold",
+      "hold": "7日",
+      "freq": "n=6115、 約 6 sig/月 (低頻度)",
+      "sharpe": "R2: Sh+0.73 OOS+0.28% $/mo=$239",
+      "live": "✅ size_mult=0.4 (5/25 regime-balanced reduce 1.0→0.4 + CrossSec 0.6)、 portfolio sizing 余裕 monitor.py Momentum_12_1_v1",
+      "memo": "batch6 X_mom_12_1_h21 → R2 verified bit-precision、 Jegadeesh-Titman 1993 / Carhart 1997 classic momentum。",
+      "monthly_profit_usd": 140.16,
+      "_signals_per_month": 11.0,
+      "_r2_n": 6115,
+      "_r2_win_pct": 52.6,
+      "_r2_mean_pct": 0.366,
+      "_r2_sharpe": 0.73
+    },
+    {
+      "tier": "S (F7-E: Earnings)",
+      "name": "PreEarnings_T30_T5_Industrial (Industrial sector boost)",
+      "cat": "短期 期待形成 (pre-announce drift Industrial限定)",
+      "tickers": "13 Industrial tickers (SECTOR_MAP='Industrial')",
+      "condition": "PreEarnings_T30_T5 と同じ signal + Industrial sector 限定",
+      "hold": "18日",
+      "freq": "n=334、 約 4.3 sig/月",
+      "sharpe": "R2 OOS: Sh+5.35 mean+1.571% (broad +0.607% の 2.6× edge) $/mo=$59.52",
+      "live": "✅ size_mult=1.0 (broad 0.3 vs Industrial 1.0、 3.3× boost) monitor.py PreEarnings_T30_T5_Industrial",
+      "memo": "batch4 N_preearn_industrial 発見、 sector booster 配線。",
+      "monthly_profit_usd": 41.65,
+      "_signals_per_month": 2.42,
+      "_r2_win_pct": null,
+      "_r2_mean_pct": 1.571,
+      "_r2_sharpe": 5.35
+    },
+    {
+      "tier": "S (F7-B: Bear/Panic)",
+      "name": "Semi_Equip_Dip_v1 (CHIPS Act semi装備 dip buying)",
+      "cat": "短期 sector dip",
+      "tickers": "7 semi equipment (AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH)",
+      "condition": "-3% 1d dip → 翌 MOO BUY → 20d hold (TP+8/SL-10)",
+      "hold": "5日",
+      "freq": "n=713、 約 9 sig/月",
+      "sharpe": "R2 OOS: mean+1.34% $/mo=$72",
+      "live": "✅ size_mult=0.5 monitor.py Semi_Equip_Dip_v1",
+      "memo": "batch8 JJ_semi_d3_h20 → R2 verified、 CHIPS Act onshoring 受益 semi 装備 dip pattern。",
+      "monthly_profit_usd": 30.44,
+      "_signals_per_month": 8.77,
+      "_r2_n": 713,
+      "_r2_mean_pct": 1.34
+    },
+    {
+      "tier": "S (F7-B: Bear/Panic)",
+      "name": "Buffett_VIX20_Panic_v1 (Berkshire RSI<35 + VIX>20 panic dip)",
+      "cat": "短期 panic dip (Berkshire universe)",
+      "tickers": "11 Berkshire holdings (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)",
+      "condition": "RSI(14)<35 + close>SMA200*0.95 + **VIX>20** → 翌 MOO BUY → 10d hold (TP+10/SL-10)",
+      "hold": "10日",
+      "freq": "n=386、 月 5.04 sig",
+      "sharpe": "R2 OOS: eff $10.90/slot mean+0.32%/trade OOS+1.33%",
+      "live": "✅ size_mult=0.3 (5/25 reduce 1.0→0.3) monitor.py Buffett_VIX20_Panic_v1 (旧 Buffett_RSI h120 を代替)",
+      "memo": "sim_pre_reversal_filters 発見 → ≤10d 検証 → wide bracket sweep の 3 段最適化、 panic regime での Buffett pullback を h10 で capital efficient に捕捉。 旧 h120 比で eff 4× 改善、 capital lock 1/12。",
+      "monthly_profit_usd": 26.15,
+      "_signals_per_month": 5.04,
+      "_r2_n": 386,
+      "_r2_mean_pct": 0.32,
+      "_r2_sharpe": null
+    },
+    {
+      "tier": "S (F7-B: Bear/Panic)",
       "name": "Pullback_v1 (SMA50>SMA200 + RSI<35 pullback → 3日hold MOO) ⭐⭐ BULL",
       "cat": "短期 pullback",
       "tickers": "GOOGL / META / AVGO / KLAC / AMAT / XLK (6 銘柄、 monitor.py 自動 entry, max 5 同時)",
@@ -1072,7 +1157,7 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 5.39
     },
     {
-      "tier": "SS",
+      "tier": "S (F7-B: Bear/Panic)",
       "name": "Drop5d_BroadPanic (MOC 復活)",
       "cat": "短期 mean-reversion (intraday)",
       "tickers": "100銘柄 watchlist",
@@ -1097,25 +1182,23 @@ window.MOBILE_DATA = {
       "_r2_sharpe": 0.52
     },
     {
-      "tier": "SS",
-      "name": "Momentum_12_1_v1 (Jegadeesh-Titman classic factor)",
-      "cat": "短期 momentum factor",
-      "tickers": "全 193 watchlist",
-      "condition": "月初 trading day で 12-1 (= 252d return 除 21d) >= +20% → 翌 MOO BUY → 21d hold",
-      "hold": "7日",
-      "freq": "n=6115、 約 6 sig/月 (低頻度)",
-      "sharpe": "R2: Sh+0.73 OOS+0.28% $/mo=$239",
-      "live": "✅ size_mult=0.5、 portfolio sizing 余裕 monitor.py Momentum_12_1_v1",
-      "memo": "batch6 X_mom_12_1_h21 → R2 verified bit-precision、 Jegadeesh-Titman 1993 / Carhart 1997 classic momentum。",
-      "monthly_profit_usd": 140.16,
-      "_signals_per_month": 11.0,
-      "_r2_n": 6115,
-      "_r2_win_pct": 52.6,
-      "_r2_mean_pct": 0.366,
-      "_r2_sharpe": 0.73
+      "tier": "S (F7-E: Earnings probe)",
+      "name": "PEAD_SUE_60d_v1 (60d post-earnings drift 累積)",
+      "cat": "E 柱 earnings drift (PreEarn と完全独立)",
+      "tickers": "earnings CSV カバー watchlist 個別株 ~150 ticker",
+      "condition": "earnings 当日 gap up >= +1.86% (80%-tile) → 翌 MOO BUY → 60d hold (TP+15/SL-10)",
+      "hold": "60日",
+      "freq": "n=157 OOS / 約 10 sig/月",
+      "sharpe": "cost+8.75%/trade $/株/月=$2.62 %/月=+3.06% N_eff+0.83 PreEarn corr 0.02 完全独立",
+      "live": "✅ size_mult=0.25 probe (5/25 deploy、 旧 Top20 dispose 置換)",
+      "memo": "5/25 PEAD 60d 別仮説 PASS、 旧 PEAD_SUE_Top20 (20d hold) は anti-edge dispose。 Bernard-Thomas 1990 / Ball-Brown 1968 文献根拠。 E 柱 真 2 本立て 復活。",
+      "monthly_profit_usd": 2.62,
+      "_signals_per_month": 10.0,
+      "_r2_n": 157,
+      "_r2_mean_pct": 8.75
     },
     {
-      "tier": "A",
+      "tier": "A (F7-B: Bear/Panic)",
       "name": "HYG_LQD_QQQ_v1 (信用 spread blowout → QQQ rebound)",
       "cat": "macro (credit spread → equity)",
       "tickers": "QQQ のみ",
@@ -1135,54 +1218,68 @@ window.MOBILE_DATA = {
       "_oos_mean_pct": 0.53
     },
     {
-      "tier": "S",
-      "name": "Buffett_VIX20_Panic_v1 (Berkshire RSI<35 + VIX>20 panic dip)",
-      "cat": "短期 panic dip (Berkshire universe)",
-      "tickers": "11 Berkshire holdings (AAPL/BAC/KO/AXP/MCO/OXY/CVX/KHC/MA/V/VZ)",
-      "condition": "RSI(14)<35 + close>SMA200*0.95 + **VIX>20** → 翌 MOO BUY → 10d hold (TP+10/SL-10)",
-      "hold": "10日",
-      "freq": "n=386、 月 5.04 sig",
-      "sharpe": "R2 OOS: eff $10.90/slot mean+0.32%/trade OOS+1.33%",
-      "live": "✅ size_mult=0.3 (5/25 reduce 1.0→0.3) monitor.py Buffett_VIX20_Panic_v1 (旧 Buffett_RSI h120 を代替)",
-      "memo": "sim_pre_reversal_filters 発見 → ≤10d 検証 → wide bracket sweep の 3 段最適化、 panic regime での Buffett pullback を h10 で capital efficient に捕捉。 旧 h120 比で eff 4× 改善、 capital lock 1/12。",
-      "monthly_profit_usd": 26.15,
-      "_signals_per_month": 5.04,
-      "_r2_n": 386,
-      "_r2_mean_pct": 0.32,
-      "_r2_sharpe": null
+      "tier": "A (F7-M: Momentum balanced)",
+      "name": "CrossSec_Mom_v1 (月初 cross-sec 12-1 top 20%)",
+      "cat": "M 柱 momentum (calm/stress regime-balanced 双子)",
+      "tickers": "全 193 watchlist 月初 rank",
+      "condition": "月初 trading day で 12-1 cross-sec rank top 20% → 翌寄 MOO BUY → 20d hold (TP+12/SL-8)",
+      "hold": "20日",
+      "freq": "n=565 OOS / 約 35 sig/月 (月初 batch)",
+      "sharpe": "cost+4.02% $/株/月=$9.01 %/月=+4.22% N_eff+0.64 (Momentum_12_1 と 0.43 部分独立)",
+      "live": "✅ size_mult=0.6 (5/24 deploy、 Momentum_12_1 0.4 と合算 1.0=1柱)",
+      "memo": "5/24 BIMETSX M 柱 案 C deploy、 regime-balanced で calm/stress 自然分担、 stress Sharpe 6.94。",
+      "monthly_profit_usd": 9.01,
+      "_signals_per_month": 35.0,
+      "_r2_n": 565,
+      "_r2_mean_pct": 4.02
     },
     {
-      "tier": "SS",
-      "name": "AI_Wave_Momentum_v1 (2023-2024 AI winners momentum) ★ swap h18 wide",
-      "cat": "短期 theme momentum",
-      "tickers": "8 AI winners (NVDA/SMCI/AVGO/AMD/PLTR/META/MSFT/GOOG)",
-      "condition": "20d return >= +15% (momentum confirmed) → 翌 MOO BUY → 18d hold (TP+10/SL-10 wide)",
-      "hold": "18日 (= sweet spot swap、 5/23)",
-      "freq": "n=978、 月 12.76 sig",
-      "sharpe": "R2 OOS: eff $20.50/slot mean+1.21%/trade OOS+2.96%",
-      "live": "✅ size_mult=1.0 monitor.py AI_Wave_Momentum_v1",
-      "memo": "batch7 で発見 → sim_5strats_sweet_spot で h10→h18 + narrow→wide bracket swap → 月益 $111→$224 (2×)、 OOS+0.61→+2.96% (5×)、 portfolio 最強級 alpha source。",
-      "monthly_profit_usd": 224.24,
-      "_signals_per_month": 12.76,
-      "_r2_n": 978,
-      "_r2_mean_pct": 1.21,
-      "_r2_sharpe": null
+      "tier": "A (F7-T: Trend probe)",
+      "name": "Bull_Trend_Breakout_v1 (classic trend breakout)",
+      "cat": "T 柱 trend follow (AI_Wave と独立)",
+      "tickers": "全 193 watchlist breakout 検出",
+      "condition": "C > SMA200 ∧ SMA50 > SMA200 ∧ C > 20d high(shift1) → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
+      "hold": "20日",
+      "freq": "n=1181 OOS / 約 74 sig/月 (daily cap 5/日 で抑制)",
+      "sharpe": "cost+1.23%/trade $/株/月=$2.25 %/月=+1.60% N_eff+0.86 AI_Wave corr 0.01",
+      "live": "✅ size_mult=0.25 probe (5/24 deploy)",
+      "memo": "5/24 BIMETSX T 柱 2 本目、 daily fire cap 5/日 主防衛、 主リスク=calm whipsaw。 R2 1 週 fail-safe。",
+      "monthly_profit_usd": 2.25,
+      "_signals_per_month": 74.0,
+      "_r2_n": 1181,
+      "_r2_mean_pct": 1.23
     },
     {
-      "tier": "SS",
-      "name": "Semi_Equip_Dip_v1 (CHIPS Act semi装備 dip buying)",
-      "cat": "短期 sector dip",
-      "tickers": "7 semi equipment (AMAT/KLAC/LRCX/TSM/ASML/AVGO/SMH)",
-      "condition": "-3% 1d dip → 翌 MOO BUY → 20d hold (TP+8/SL-10)",
+      "tier": "A (F7-S: SectorRotation NEW)",
+      "name": "SectorRotation_Laggard_v1 (6 軸目 contrarian)",
+      "cat": "S 柱 sector rotation (月次 平均回帰)",
+      "tickers": "SPDR sector ETF 11: XLF/XLE/XLI/XLY/XLP/XLV/XLK/XLB/XLU/XLRE/XLC",
+      "condition": "月初 trading day で 過去 60d return 下位 2 sector ETF → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
+      "hold": "20日",
+      "freq": "n=26 OOS / 約 1.6 sig/月 (月初 2 件)",
+      "sharpe": "cost+1.83% $/株/月=$1.13 %/月=+1.92% N_eff+0.79 CrossSec corr 0.00 完全直交 stress 0.38 要注視",
+      "live": "✅ size_mult=0.25 probe (5/24 deploy NEW S 柱)",
+      "memo": "5/24 BIMETSX 6 軸目 S 柱 確立、 ST348 復活 PASS。 sector level contrarian (NOT momentum)、 月次 horizon 過剰反応の揺り戻し thesis。 stress 0.38 で R2 1 週注視必須。",
+      "monthly_profit_usd": 1.13,
+      "_signals_per_month": 1.6,
+      "_r2_n": 26,
+      "_r2_mean_pct": 1.83
+    },
+    {
+      "tier": "A (F7-X: CrossAsset NEW)",
+      "name": "A7_DXY_Drop_EM_Long_v1 (7 軸目 Cross-Asset)",
+      "cat": "X 柱 cross-asset macro (通貨 → EM equity)",
+      "tickers": "UUP signal → EEM/FXI/KWEB/EWZ/INDA",
+      "condition": "UUP 5日 return <= -2% (ドル安) → 翌寄 EM ETF MOO BUY → 5d hold (TP+4/SL-7)",
       "hold": "5日",
-      "freq": "n=713、 約 9 sig/月",
-      "sharpe": "R2 OOS: mean+1.34% $/mo=$72",
-      "live": "✅ size_mult=0.5 monitor.py Semi_Equip_Dip_v1",
-      "memo": "batch8 JJ_semi_d3_h20 → R2 verified、 CHIPS Act onshoring 受益 semi 装備 dip pattern。",
-      "monthly_profit_usd": 30.44,
-      "_signals_per_month": 8.77,
-      "_r2_n": 713,
-      "_r2_mean_pct": 1.34
+      "freq": "n=70 OOS / 約 4.4 sig/月",
+      "sharpe": "cost+0.87% $/株/月=$1.10 %/月=+3.66% N_eff+0.86 panic 全 corr ≤ 0.07 完全独立 stress 0.28",
+      "live": "✅ size_mult=0.25 probe (5/24 復活 deploy NEW X 柱、 5/22 偽陰性 disable から)",
+      "memo": "5/24 BIMETSX 7 軸目 X 柱 確立、 リザレクション ふるい PASS で復活 (ゼロサイズ偽陰性)。 Asness-Moskowitz-Pedersen 2013 / Frankel-Rose 1996 文献。 S 柱 と corr -0.006 完全別軸。",
+      "monthly_profit_usd": 1.1,
+      "_signals_per_month": 4.4,
+      "_r2_n": 70,
+      "_r2_mean_pct": 0.87
     },
     {
       "tier": "BOOST",
@@ -1231,86 +1328,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.11,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%"
-    },
-    {
-      "tier": "A (BIMETSX T 柱 2 本目 probe)",
-      "name": "Bull_Trend_Breakout_v1 (classic trend breakout)",
-      "cat": "T 柱 trend follow (AI_Wave と独立)",
-      "tickers": "全 193 watchlist breakout 検出",
-      "condition": "C > SMA200 ∧ SMA50 > SMA200 ∧ C > 20d high(shift1) → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
-      "hold": "20日",
-      "freq": "n=1181 OOS / 約 74 sig/月 (daily cap 5/日 で抑制)",
-      "sharpe": "cost+1.23%/trade $/株/月=$2.25 %/月=+1.60% N_eff+0.86 AI_Wave corr 0.01",
-      "live": "✅ size_mult=0.25 probe (5/24 deploy)",
-      "memo": "5/24 BIMETSX T 柱 2 本目、 daily fire cap 5/日 主防衛、 主リスク=calm whipsaw。 R2 1 週 fail-safe。",
-      "monthly_profit_usd": 2.25,
-      "_signals_per_month": 74.0,
-      "_r2_n": 1181,
-      "_r2_mean_pct": 1.23
-    },
-    {
-      "tier": "A (BIMETSX M 柱 regime-balanced)",
-      "name": "CrossSec_Mom_v1 (月初 cross-sec 12-1 top 20%)",
-      "cat": "M 柱 momentum (calm/stress regime-balanced 双子)",
-      "tickers": "全 193 watchlist 月初 rank",
-      "condition": "月初 trading day で 12-1 cross-sec rank top 20% → 翌寄 MOO BUY → 20d hold (TP+12/SL-8)",
-      "hold": "20日",
-      "freq": "n=565 OOS / 約 35 sig/月 (月初 batch)",
-      "sharpe": "cost+4.02% $/株/月=$9.01 %/月=+4.22% N_eff+0.64 (Momentum_12_1 と 0.43 部分独立)",
-      "live": "✅ size_mult=0.6 (5/24 deploy、 Momentum_12_1 0.4 と合算 1.0=1柱)",
-      "memo": "5/24 BIMETSX M 柱 案 C deploy、 regime-balanced で calm/stress 自然分担、 stress Sharpe 6.94。",
-      "monthly_profit_usd": 9.01,
-      "_signals_per_month": 35.0,
-      "_r2_n": 565,
-      "_r2_mean_pct": 4.02
-    },
-    {
-      "tier": "S (BIMETSX E 柱 2 本目 probe)",
-      "name": "PEAD_SUE_60d_v1 (60d post-earnings drift 累積)",
-      "cat": "E 柱 earnings drift (PreEarn と完全独立)",
-      "tickers": "earnings CSV カバー watchlist 個別株 ~150 ticker",
-      "condition": "earnings 当日 gap up >= +1.86% (80%-tile) → 翌 MOO BUY → 60d hold (TP+15/SL-10)",
-      "hold": "60日",
-      "freq": "n=157 OOS / 約 10 sig/月",
-      "sharpe": "cost+8.75%/trade $/株/月=$2.62 %/月=+3.06% N_eff+0.83 PreEarn corr 0.02 完全独立",
-      "live": "✅ size_mult=0.25 probe (5/25 deploy、 旧 Top20 dispose 置換)",
-      "memo": "5/25 PEAD 60d 別仮説 PASS、 旧 PEAD_SUE_Top20 (20d hold) は anti-edge dispose。 Bernard-Thomas 1990 / Ball-Brown 1968 文献根拠。 E 柱 真 2 本立て 復活。",
-      "monthly_profit_usd": 2.62,
-      "_signals_per_month": 10.0,
-      "_r2_n": 157,
-      "_r2_mean_pct": 8.75
-    },
-    {
-      "tier": "A (BIMETSX S 柱 新軸 probe)",
-      "name": "SectorRotation_Laggard_v1 (6 軸目 contrarian)",
-      "cat": "S 柱 sector rotation (月次 平均回帰)",
-      "tickers": "SPDR sector ETF 11: XLF/XLE/XLI/XLY/XLP/XLV/XLK/XLB/XLU/XLRE/XLC",
-      "condition": "月初 trading day で 過去 60d return 下位 2 sector ETF → 翌寄 MOO BUY → 20d hold (TP+10/SL-7)",
-      "hold": "20日",
-      "freq": "n=26 OOS / 約 1.6 sig/月 (月初 2 件)",
-      "sharpe": "cost+1.83% $/株/月=$1.13 %/月=+1.92% N_eff+0.79 CrossSec corr 0.00 完全直交 stress 0.38 要注視",
-      "live": "✅ size_mult=0.25 probe (5/24 deploy NEW S 柱)",
-      "memo": "5/24 BIMETSX 6 軸目 S 柱 確立、 ST348 復活 PASS。 sector level contrarian (NOT momentum)、 月次 horizon 過剰反応の揺り戻し thesis。 stress 0.38 で R2 1 週注視必須。",
-      "monthly_profit_usd": 1.13,
-      "_signals_per_month": 1.6,
-      "_r2_n": 26,
-      "_r2_mean_pct": 1.83
-    },
-    {
-      "tier": "A (BIMETSX X 柱 新軸 復活 probe)",
-      "name": "A7_DXY_Drop_EM_Long_v1 (7 軸目 Cross-Asset)",
-      "cat": "X 柱 cross-asset macro (通貨 → EM equity)",
-      "tickers": "UUP signal → EEM/FXI/KWEB/EWZ/INDA",
-      "condition": "UUP 5日 return <= -2% (ドル安) → 翌寄 EM ETF MOO BUY → 5d hold (TP+4/SL-7)",
-      "hold": "5日",
-      "freq": "n=70 OOS / 約 4.4 sig/月",
-      "sharpe": "cost+0.87% $/株/月=$1.10 %/月=+3.66% N_eff+0.86 panic 全 corr ≤ 0.07 完全独立 stress 0.28",
-      "live": "✅ size_mult=0.25 probe (5/24 復活 deploy NEW X 柱、 5/22 偽陰性 disable から)",
-      "memo": "5/24 BIMETSX 7 軸目 X 柱 確立、 リザレクション ふるい PASS で復活 (ゼロサイズ偽陰性)。 Asness-Moskowitz-Pedersen 2013 / Frankel-Rose 1996 文献。 S 柱 と corr -0.006 完全別軸。",
-      "monthly_profit_usd": 1.1,
-      "_signals_per_month": 4.4,
-      "_r2_n": 70,
-      "_r2_mean_pct": 0.87
     },
     {
       "tier": "?",
@@ -2587,6 +2604,129 @@ window.MOBILE_DATA = {
       "strategies": [
         "Sector_FriPanic_v1"
       ]
+    },
+    {
+      "ticker": "EWZ",
+      "name": "EWZ (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "FXI",
+      "name": "FXI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "INDA",
+      "name": "INDA (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "KWEB",
+      "name": "KWEB (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "A7_DXY_Drop_EM_Long_v1"
+      ]
+    },
+    {
+      "ticker": "XLC",
+      "name": "XLC (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLI",
+      "name": "XLI (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CPI_Cyclical",
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLP",
+      "name": "XLP (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLRE",
+      "name": "XLRE (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLV",
+      "name": "XLV (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CPI_Defensive",
+        "SectorRotation_Laggard_v1"
+      ]
+    },
+    {
+      "ticker": "XLY",
+      "name": "XLY (auto-supplement)",
+      "reading": "?",
+      "sector_en": "?",
+      "sector_jp": "?",
+      "industry": "?",
+      "is_champ": false,
+      "strategies": [
+        "CPI_Cyclical",
+        "SectorRotation_Laggard_v1"
+      ]
     }
   ],
   "daily_history": [
@@ -2733,100 +2873,100 @@ window.MOBILE_DATA = {
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "intraday_position_monitor": {
-      "ts": "2026-05-25T04:15:03",
+      "ts": "2026-05-25T04:30:03",
       "ok": true,
       "note": "",
-      "age_min": 0.6220868500000001
+      "age_min": 0.28634033333333336
     },
     "sync_mobile": {
-      "ts": "2026-05-25T04:15:23",
+      "ts": "2026-05-25T04:15:42",
       "ok": true,
-      "note": "104,455 B",
-      "age_min": 0.28875351666666665
+      "note": "104,458 B",
+      "age_min": 14.636340333333333
     },
     "verify_claims": {
       "ts": "2026-05-21T22:53:06",
       "ok": true,
       "note": "70p/0f",
-      "age_min": 4642.57208685
+      "age_min": 4657.236340333333
     },
     "intraday_cron": {
-      "ts": "2026-05-25T04:00:55",
+      "ts": "2026-05-25T04:15:42",
       "ok": true,
       "note": "bat completed",
-      "age_min": 14.755420183333333
+      "age_min": 14.636340333333333
     },
     "intraday_executor_scan": {
-      "ts": "2026-05-25T04:15:02",
+      "ts": "2026-05-25T04:30:02",
       "ok": true,
       "note": "",
-      "age_min": 0.6387535166666667
+      "age_min": 0.303007
     },
     "vix_regime": {
       "ts": "2026-05-25T04:15:23",
       "ok": true,
       "note": "GOOD score=3/4 VIX=17.13",
-      "age_min": 0.28875351666666665
+      "age_min": 14.953007000000001
     },
     "morning_preopen_notify": {
       "ts": "2026-05-22T08:00:05",
       "ok": true,
       "note": "8 blocks",
-      "age_min": 4095.5887535166667
+      "age_min": 4110.253007
     },
     "morning_tws_connect": {
       "ts": "2026-05-24T08:29:46",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1185.9054201833335
+      "age_min": 1200.5696736666666
     },
     "short_term_auto_bat": {
       "ts": "2026-05-24T08:36:22",
       "ok": true,
       "note": "completed",
-      "age_min": 1179.3054201833334
+      "age_min": 1193.9696736666667
     },
     "alert_state_tws_reconciler_phantom": {
       "ts": "2026-05-21T20:55:00",
       "ok": true,
       "note": "5/21 08:39 EXE/NTAP/ADI phantom 検知 + cleanup 完了、 state=0 TWS=5 (Champ のみ) 確認",
-      "age_min": 4760.67208685
+      "age_min": 4775.336340333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-25T04:15:23",
       "ok": true,
       "note": "state=1 TWS=8 phantoms=0 partials=0",
-      "age_min": 0.28875351666666665
+      "age_min": 14.953007000000001
     },
     "alert_test_wire_5_21": {
       "ts": "2026-05-21T09:24:36",
       "ok": true,
       "note": "resolved 09:24: user iPhone で push 受信確認済 (5/21 朝 alert_state_tws_reconciler_phantom 再発 critical で実発火、 user 受信報告)。 wire (notify_failure → push_send.py → VAPID Web Push → Apple PWA) 生存確認",
-      "age_min": 5451.07208685
+      "age_min": 5465.736340333333
     },
     "alert_R2_backtest_critical_findings": {
       "ts": "2026-05-22T22:44:57",
       "ok": true,
       "note": "5/22 22:46 resolved: SS+A only 採用 で US_D7 / HighPullback50 等 anti-edge 戦略 全 disable 完了 + claim ss_a_only_10_strategies_5_22_evening 追加",
-      "age_min": 3210.72208685
+      "age_min": 3225.386340333333
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-25T03:58:37",
       "ok": true,
       "note": "GREEN 5/25 整地完了: Confluence_RSIStoch_v1 size=0 CUT 正解 (N_eff +0.39 改善、 hub dup dispose)。 LIVE 13 戦略 (Bull/CrossSec/PEAD_60d/SectorRotation/A7 probe 含む) 順調稼働、 整地後 baseline 確定。",
-      "age_min": 17.055420183333332
+      "age_min": 31.719673666666665
     },
     "alert_intraday_position_monitor": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 intraday_position_monitor heartbeat <1min ago で OK 連続、 state_tws_reconciler state=1 TWS=8 で TWS 接続正常稼働確認。 5/23 14:45 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 26.43875351666667
+      "age_min": 41.103007000000005
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-05-25T03:49:14",
       "ok": true,
       "note": "RESOLVED 5/25: 後続 morning_tws_connect attempt=1 OK + short_term_auto_bat completed + state_tws_reconciler 健全 (state=1 TWS=8)、 TWS 接続復旧確認済。 5/23 08:34 FAIL は当時 TWS off 状態の transient。",
-      "age_min": 26.43875351666667
+      "age_min": 41.103007000000005
     }
   },
   "regime": {
