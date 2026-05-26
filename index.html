@@ -2077,9 +2077,10 @@ function loadAll() {
       if (fc.f7_end) {
         html += `<div style="margin-top:10px;padding:8px;background:rgba(255,255,255,.03);border-radius:6px;border-left:3px solid #ffd700">`;
         html += `<div style="font-size:13px;font-weight:800;color:#ffd700;margin-bottom:6px">⚔ F7 vs Champ DCA (11年後)</div>`;
-        html += `<div style="display:flex;justify-content:space-between;margin:4px 0;font-size:12px"><span style="color:#22d3ee">🚀 F7 ($${(fc.f7_start||0).toLocaleString()} 一括)</span><span style="color:#22d3ee;font-weight:800">$${(fc.f7_end||0).toLocaleString()} (${fc.f7_multiple}x)</span></div>`;
-        html += `<div style="display:flex;justify-content:space-between;margin:4px 0;font-size:12px"><span style="color:#3fb950">🏆 Champ ($${(cd.total_invested||0).toLocaleString()} 積立)</span><span style="color:#3fb950;font-weight:800">$${(fc.champ_end||0).toLocaleString()} (${fc.champ_multiple}x)</span></div>`;
+        html += `<div style="display:flex;justify-content:space-between;margin:4px 0;font-size:12px"><span style="color:#22d3ee">🚀 F7 ($${(fc.f7_start||0).toLocaleString()} 一括)</span><span style="color:#22d3ee;font-weight:800">$${(fc.f7_end||0).toLocaleString()} (${fc.f7_multiple}x) CAGR +${fc.f7_cagr||'?'}%</span></div>`;
+        html += `<div style="display:flex;justify-content:space-between;margin:4px 0;font-size:12px"><span style="color:#3fb950">🏆 Champ ($${(fc.champ_invested||0).toLocaleString()} 積立)</span><span style="color:#3fb950;font-weight:800">$${(fc.champ_end_11yr||0).toLocaleString()} (${fc.champ_multiple}x) CAGR +${fc.champ_cagr||'?'}%</span></div>`;
         html += `<div style="font-size:10px;color:var(--sub);margin-top:4px">Champ: ${(cd.tickers||[]).join('/')} · $${cd.monthly_usd||0}/月 × ${cd.dca_months||0}ヶ月積立 → ${cd.hold_months||0}ヶ月放置</div>`;
+        html += `<div style="font-size:10px;color:var(--sub)">同元本 $14k 換算: Champ $${(fc.champ_same_capital_14k||0).toLocaleString()} vs F7 $${(fc.f7_end||0).toLocaleString()}</div>`;
         html += `</div>`;
       }
       html += `</div>`;
