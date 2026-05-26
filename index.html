@@ -2044,6 +2044,34 @@ function loadAll() {
       html += `<div style="margin-top:10px;font-size:11px;color:var(--sub)"><b>除外:</b> ${Object.entries(ex).map(([k,v])=>k+': '+v).join(' / ')}</div>`;
     }
     if (bf.governance) html += `<div style="margin-top:6px;font-size:10px;color:var(--sub)">${bf.governance}</div>`;
+    // F7 projection (= 3年 backtest → 11年後)
+    const pj = d.f7_projection || {};
+    if (pj.cagr_pct) {
+      html += `<div style="margin-top:12px;padding:10px;background:linear-gradient(135deg,rgba(255,215,0,.08),rgba(255,140,0,.05));border-radius:8px">`;
+      html += `<div style="font-size:14px;font-weight:800;color:#ffd700;margin-bottom:6px">📈 F7 Projection (CAGR +${pj.cagr_pct}%)</div>`;
+      html += `<div style="font-size:10px;color:var(--sub);margin-bottom:6px">$${(pj.start_usd||0).toLocaleString()} start · backtest ${pj.backtest_period||''} · maxDD ${pj.max_dd_pct||'?'}%</div>`;
+      // Year-by-year backtest
+      const yby = pj.year_by_year || {};
+      if (Object.keys(yby).length) {
+        html += `<div style="font-size:11px;font-weight:700;color:var(--sub);margin-bottom:3px">Backtest 実績:</div>`;
+        Object.entries(yby).forEach(([y, v]) => {
+          const col = v.return_pct >= 0 ? '#3fb950' : '#f85149';
+          const w = Math.min(100, Math.abs(v.return_pct) / 2.5);
+          html += `<div style="display:flex;align-items:center;gap:6px;margin:2px 0;font-size:11px"><span style="width:32px;color:var(--sub)">${y}</span><span style="flex:1;background:#21262d;border-radius:3px;height:10px;overflow:hidden"><span style="display:block;height:100%;width:${w}%;background:${col}"></span></span><span style="width:55px;text-align:right;color:${col};font-weight:700">${v.return_pct>=0?'+':''}${v.return_pct}%</span><span style="width:60px;text-align:right;font-size:10px;color:var(--sub)">$${(v.end||0).toLocaleString()}</span></div>`;
+        });
+      }
+      // Projections 1-11年
+      const prjs = pj.projections || {};
+      if (Object.keys(prjs).length) {
+        html += `<div style="font-size:11px;font-weight:700;color:#ffd700;margin:8px 0 3px">CAGR +${pj.cagr_pct}% 継続想定:</div>`;
+        Object.entries(prjs).forEach(([k, v]) => {
+          const col = v.usd >= 100000 ? '#ffd700' : (v.usd >= 50000 ? '#ff8c00' : '#3fb950');
+          html += `<div style="display:flex;justify-content:space-between;margin:2px 0;font-size:12px"><span style="color:var(--sub)">${k}</span><span style="color:${col};font-weight:800">$${v.usd.toLocaleString()}</span><span style="color:var(--sub);font-size:10px">${v.multiple}x</span></div>`;
+        });
+      }
+      html += `<div style="margin-top:6px;font-size:9px;color:var(--sub)">⚠️ ${pj._warning||''}</div>`;
+      html += `</div>`;
+    }
     el.innerHTML = html;
   });
 
