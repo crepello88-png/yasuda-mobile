@@ -150,7 +150,7 @@
           <div class="stat-value" id="stat-bp" style="font-size:15px">—</div>
         </div>
         <div class="stat">
-          <div class="stat-label">VIX (10d)</div>
+          <div class="stat-label">VIX / VIX1D</div>
           <div class="stat-value" id="stat-vix">—</div>
           <svg id="vix-spark" width="100%" height="28" viewBox="0 0 120 28" preserveAspectRatio="none" style="margin-top:4px"></svg>
         </div>
@@ -560,7 +560,9 @@ function renderToday() {
   document.getElementById('stat-stock').textContent = fmt$2(s.stock_value);
   document.getElementById('stat-bp').textContent = fmt$2(s.buying_power);
   document.getElementById('stat-acct-type').textContent = (s.account_type||'') + (s.open_positions!=null?` · 保有 ${s.open_positions} 件`:'');
-  document.getElementById('stat-vix').textContent = s.vix==null?'—':s.vix.toFixed(2);
+  const _vixStr = s.vix==null?'—':s.vix.toFixed(1);
+  const _v1dStr = s.vix1d==null?'':(' / '+s.vix1d.toFixed(1));
+  document.getElementById('stat-vix').textContent = _vixStr + _v1dStr;
 
   // VIX sparkline (last 10 days)
   const vt = d.vix_trend || [];
