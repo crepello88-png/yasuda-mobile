@@ -124,178 +124,56 @@ window.MOBILE_DATA = {
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
-    "monthly_low": 212,
-    "monthly_mid": 247,
-    "monthly_high": 283,
-    "annual_low_pct": 60,
-    "annual_mid_pct": 70,
-    "annual_high_pct": 80,
-    "annual_low_usd": 2542,
-    "annual_mid_usd": 2966,
-    "annual_high_usd": 3390,
+    "monthly_low": 150,
+    "monthly_mid": 251,
+    "monthly_high": 350,
+    "annual_low_pct": 13,
+    "annual_mid_pct": 22,
+    "annual_high_pct": 30,
+    "annual_low_usd": 1800,
+    "annual_mid_usd": 3012,
+    "annual_high_usd": 4200,
     "champ_annual_pct": 13,
     "champ_annual_usd": 913,
-    "_basis": "短期 +60-80%/年 (memory project_19strat_lineup_2026_05_17)、 Champ +12-15%/年 (S&P 履歴 base)、 1 週間実績 +2.12% は bull 強週 outlier",
-    "last_week_actual_pct": 2.12,
-    "last_week_actual_usd": 89.79,
-    "annualize_naive_pct": 110,
+    "_basis": "5/27 容量現実版: F7 backtest 2026-01-05 $14k/3枠 実測 +$1,254/5mo = $251/mo mid。3月 -$1,090 drawdown 月あり low $150。Bull月は +$1,153 (1月) で high $350。旧 forecast は全 signal 約定前提で過大、 3枠制約で 999 signal 中 40 約定 (4%) が現実。",
+    "_warning": "BACKTEST由来・ライブ未確認。+$251/月は5ヶ月40trade T柱偏重の1経路。小サンプルで robust な期待値ではない。3月型連敗で low $150 より下・マイナス月もあり得る。約束ではなく参考値。",
+    "_capacity_note": "F7 は 7 柱設計だが $14k/3枠では実質 4 柱稼働 (T/M/B/E)。S柱・X柱は枠不足で 0 約定。完全 7 柱分散は資本成長で解く目標。",
+    "last_week_actual_pct": 0.0,
+    "last_week_actual_usd": 0.0,
+    "max_positions": 3,
+    "signals_per_month": 200,
+    "trades_per_month": 8,
+    "signal_fill_rate_pct": 4,
     "growth_trajectory": [
-      {
-        "month": 0,
-        "low": 4237,
-        "mid": 4237,
-        "high": 4237
-      },
-      {
-        "month": 1,
-        "low": 4449,
-        "mid": 4484,
-        "high": 4520
-      },
-      {
-        "month": 2,
-        "low": 4670,
-        "mid": 4746,
-        "high": 4823
-      },
-      {
-        "month": 3,
-        "low": 4903,
-        "mid": 5023,
-        "high": 5147
-      },
-      {
-        "month": 4,
-        "low": 5148,
-        "mid": 5316,
-        "high": 5492
-      },
-      {
-        "month": 5,
-        "low": 5405,
-        "mid": 5626,
-        "high": 5860
-      },
-      {
-        "month": 6,
-        "low": 5675,
-        "mid": 5953,
-        "high": 6253
-      },
-      {
-        "month": 7,
-        "low": 5959,
-        "mid": 6300,
-        "high": 6671
-      },
-      {
-        "month": 8,
-        "low": 6257,
-        "mid": 6667,
-        "high": 7117
-      },
-      {
-        "month": 9,
-        "low": 6570,
-        "mid": 7055,
-        "high": 7593
-      },
-      {
-        "month": 10,
-        "low": 6898,
-        "mid": 7466,
-        "high": 8101
-      },
-      {
-        "month": 11,
-        "low": 7243,
-        "mid": 7901,
-        "high": 8643
-      },
-      {
-        "month": 12,
-        "low": 7605,
-        "mid": 8361,
-        "high": 9221
-      }
+      { "month": 0, "low": 4237, "mid": 4237, "high": 4237 },
+      { "month": 1, "low": 4387, "mid": 4488, "high": 4587 },
+      { "month": 2, "low": 4537, "mid": 4739, "high": 4937 },
+      { "month": 3, "low": 4687, "mid": 4990, "high": 5287 },
+      { "month": 4, "low": 4837, "mid": 5241, "high": 5637 },
+      { "month": 5, "low": 4987, "mid": 5492, "high": 5987 },
+      { "month": 6, "low": 5137, "mid": 5743, "high": 6337 },
+      { "month": 7, "low": 5287, "mid": 5994, "high": 6687 },
+      { "month": 8, "low": 5437, "mid": 6245, "high": 7037 },
+      { "month": 9, "low": 5587, "mid": 6496, "high": 7387 },
+      { "month": 10, "low": 5737, "mid": 6747, "high": 7737 },
+      { "month": 11, "low": 5887, "mid": 6998, "high": 8087 },
+      { "month": 12, "low": 6037, "mid": 7249, "high": 8437 }
     ],
     "by_strategy_monthly": [
-      {
-        "name": "Confluence_RSIStoch_v1",
-        "est": 42
-      },
-      {
-        "name": "Confluence_RSIBB_v1",
-        "est": 33
-      },
-      {
-        "name": "HighPullback50_v1",
-        "est": 26
-      },
-      {
-        "name": "Stoch_Oversold_v1",
-        "est": 19
-      },
-      {
-        "name": "Golden_Cross_v1",
-        "est": 15
-      },
-      {
-        "name": "SMA_Stack_v1",
-        "est": 15
-      },
-      {
-        "name": "MACD_Cross_v1",
-        "est": 10
-      },
-      {
-        "name": "Inside_Day_BO_v1",
-        "est": 10
-      },
-      {
-        "name": "Sector_FriPanic_v1",
-        "est": 8
-      },
-      {
-        "name": "VolDryUp_v1",
-        "est": 8
-      },
-      {
-        "name": "BB_Lower_Bounce_v1",
-        "est": 7
-      },
-      {
-        "name": "Pullback_v1",
-        "est": 6
-      },
-      {
-        "name": "Drop5d_BroadPanic",
-        "est": 3
-      },
-      {
-        "name": "Drop5d_ETF7",
-        "est": 3
-      },
-      {
-        "name": "MSTR_Panic20",
-        "est": 3
-      },
-      {
-        "name": "SPY_Panic2_v1",
-        "est": 2
-      },
-      {
-        "name": "VIX_Backward",
-        "est": 2
-      },
-      {
-        "name": "Pharma_Panic_v1",
-        "est": 1
-      },
-      {
-        "name": "Semi_FriPanic_v1",
-        "est": 1
-      }
+      { "name": "AI_Wave_Momentum_v1", "signals": 16, "trades": 3, "est": 90, "_pillar": "T" },
+      { "name": "Momentum_12_1_v1", "signals": 38, "trades": 1, "est": 73, "_pillar": "M", "_note": "月初のみ" },
+      { "name": "Semi_Equip_Dip_v1", "signals": 12, "trades": 1, "est": 44, "_pillar": "B" },
+      { "name": "Bull_Trend_Breakout_v1", "signals": 69, "trades": 3, "est": 20, "_pillar": "T", "_note": "ps薄い" },
+      { "name": "PreEarnings_T30_T5_Industrial", "signals": 2, "trades": 1, "est": 15, "_pillar": "E" },
+      { "name": "Insider_Dir200k_v1", "signals": 4, "trades": 0, "est": 0, "_pillar": "I", "_note": "5/27 蛇口開通、未約定" },
+      { "name": "Buffett_VIX20_Panic_v1", "signals": 6, "trades": 0, "est": 9, "_pillar": "B", "_note": "VIX>20時のみ" },
+      { "name": "Pullback_v1", "signals": 1, "trades": 0, "est": 0, "_pillar": "B", "_note": "calm市場で稀" },
+      { "name": "PEAD_SUE_60d_v1", "signals": 12, "trades": 0, "est": 0, "_pillar": "E", "_note": "60d hold枠圧迫" },
+      { "name": "CrossSec_Mom_v1", "signals": 39, "trades": 0, "est": 0, "_pillar": "M", "_note": "月初、枠不足" },
+      { "name": "SectorRotation_Laggard_v1", "signals": 2, "trades": 0, "est": 0, "_pillar": "S", "_note": "枠不足0約定" },
+      { "name": "A7_DXY_Drop_EM_Long_v1", "signals": 4, "trades": 0, "est": 0, "_pillar": "X", "_note": "枠不足0約定" },
+      { "name": "Drop5d_BroadPanic", "signals": 0, "trades": 0, "est": 0, "_pillar": "B", "_note": "calm市場0fire" },
+      { "name": "HYG_LQD_QQQ_v1", "signals": 0, "trades": 0, "est": 0, "_pillar": "B", "_note": "calm市場0fire" }
     ]
   },
   "champ": {
