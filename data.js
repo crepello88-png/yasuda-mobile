@@ -1,26 +1,93 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-29T07:01",
+  "generated_at": "2026-05-29T15:15",
   "today_summary": {
-    "netliq": 20185.07,
-    "cash": 7997.75,
-    "available_funds": 7997.75,
-    "excess_liquidity": 7997.75,
-    "settled_cash": 7997.75,
-    "buying_power": 7997.75,
-    "stock_value": 12185.59,
-    "unrealized_pnl": -222.27,
-    "realized_pnl": 0.0,
-    "day_pnl_pct": -1.1011604121263885,
+    "netliq": 19743.15,
+    "cash": 4496.63,
+    "available_funds": 4496.63,
+    "excess_liquidity": 9047.03,
+    "settled_cash": 4496.63,
+    "buying_power": 4496.63,
+    "stock_value": 10694.39,
+    "unrealized_pnl": -335.71,
+    "realized_pnl": -328.47,
+    "day_pnl_pct": -1.7003872229102244,
     "account_type": "INDIVIDUAL",
-    "open_positions": 6,
+    "open_positions": 5,
     "open_orders_count": 0,
-    "fills_today_count": 0,
-    "vix": 15.79,
-    "vix1d": 10.86,
+    "fills_today_count": 6,
+    "vix": 15.34,
+    "vix1d": 12.38,
     "data_source": "TWS_direct_v2"
   },
   "tws_open_orders": [],
-  "tws_fills_today": [],
+  "tws_fills_today": [
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 13:39:37+00:00",
+      "side": "BOT",
+      "shares": 8.0,
+      "price": 233.29,
+      "avgPrice": 233.29,
+      "orderId": 0,
+      "commission": 0.339081,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 13:40:53+00:00",
+      "side": "BOT",
+      "shares": 0.573,
+      "price": 233.28,
+      "avgPrice": 233.289332,
+      "orderId": 0,
+      "commission": 0.000116,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 13:47:39+00:00",
+      "side": "BOT",
+      "shares": 6.0,
+      "price": 235.36,
+      "avgPrice": 235.36,
+      "orderId": 0,
+      "commission": 0.351475,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 13:47:39+00:00",
+      "side": "BOT",
+      "shares": 0.373,
+      "price": 235.47,
+      "avgPrice": 235.366438,
+      "orderId": 0,
+      "commission": 7.6e-05,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 18:51:32+00:00",
+      "side": "SLD",
+      "shares": 20.0,
+      "price": 221.555,
+      "avgPrice": 221.555,
+      "orderId": 0,
+      "commission": 0.449498,
+      "realizedPnL": -319.801616
+    },
+    {
+      "symbol": "SOXL",
+      "time": "2026-05-29 18:51:32+00:00",
+      "side": "SLD",
+      "shares": 0.5388,
+      "price": 221.43,
+      "avgPrice": 221.551721,
+      "orderId": 0,
+      "commission": 0.002672,
+      "realizedPnL": -8.673368
+    }
+  ],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 7027,
@@ -396,7 +463,7 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-29",
-      "v": 15.79
+      "v": 15.34
     }
   ],
   "weekly_pnl": {
@@ -505,7 +572,20 @@ window.MOBILE_DATA = {
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
-  "signals_pending": [],
+  "signals_pending": [
+    {
+      "ticker": "SMCI",
+      "strategy": "AI_Wave_Momentum_v1",
+      "tier": "",
+      "trigger": "AI_Wave_Momentum_v1",
+      "ref_price": 27.83,
+      "target_tp_pct": 10.0,
+      "hold": 1,
+      "selected": true,
+      "shares": null,
+      "sector": "Other"
+    }
+  ],
   "positions": [
     {
       "ticker": "PWR",
@@ -520,11 +600,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2190.3,
-      "_unreal_pnl": -67.16,
-      "_market_price": 730.0999756,
-      "current_price": 730.4000244140625,
-      "pnl_pct": -2.93521846150111,
+      "_market_value": 2136.45,
+      "_unreal_pnl": -121.01,
+      "_market_price": 712.1500244,
+      "current_price": 711.72998046875,
+      "pnl_pct": -5.416329737913939,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 752.48716665,
@@ -550,11 +630,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1976.0,
-      "_unreal_pnl": -35.03,
-      "_market_price": 988.0,
-      "current_price": 995.239990234375,
-      "pnl_pct": -1.021963824108718,
+      "_market_value": 1913.78,
+      "_unreal_pnl": -97.25,
+      "_market_price": 956.89001465,
+      "current_price": 956.0700073242188,
+      "pnl_pct": -4.91747447835551,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1005.516,
@@ -580,11 +660,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2581.8,
-      "_unreal_pnl": -174.44,
-      "_market_price": 215.1499939,
-      "current_price": 214.3000030517578,
-      "pnl_pct": -6.6989798853621,
+      "_market_value": 2549.76,
+      "_unreal_pnl": -206.48,
+      "_market_price": 212.480011,
+      "current_price": 211.14999389648438,
+      "pnl_pct": -8.070417418596653,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 229.68666665,
@@ -610,11 +690,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 1912.4,
-      "_unreal_pnl": -25.51,
-      "_market_price": 382.480011,
-      "current_price": 386.1499938964844,
-      "pnl_pct": -0.3695745997536637,
+      "_market_value": 1885.4,
+      "_unreal_pnl": -52.51,
+      "_market_price": 377.07998655,
+      "current_price": 376.3800048828125,
+      "pnl_pct": -2.8903260615516846,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 387.5824,
@@ -640,11 +720,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 2238.4,
-      "_unreal_pnl": 170.95,
-      "_market_price": 1119.19995115,
-      "current_price": 1127.4599609375,
-      "pnl_pct": 9.067609173661385,
+      "_market_value": 2209.0,
+      "_unreal_pnl": 141.55,
+      "_market_price": 1104.5,
+      "current_price": 1105.0,
+      "pnl_pct": 6.894889674558269,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 1033.72575,
@@ -655,36 +735,6 @@ window.MOBILE_DATA = {
         "catastrophic_stp_price": 930.3531750000001,
         "intraday_sl_exempt": true,
         "exempt_reason": "Champ DCA 長期保有"
-      }
-    },
-    {
-      "ticker": "SOXL",
-      "strategy": "TWS_other",
-      "entry_date": "—",
-      "entry_price": 246.34508655,
-      "shares": 5.5928,
-      "entry_value": 1377.75880005684,
-      "hold_days": null,
-      "exit_style": "UNKNOWN",
-      "status": "open",
-      "bracket": false,
-      "_source": "tws_direct_positions",
-      "_intraday_sl_exempt": false,
-      "_market_value": 1286.69,
-      "_unreal_pnl": -91.07,
-      "_market_price": 230.06173705,
-      "current_price": 224.6699981689453,
-      "pnl_pct": -8.79866884483419,
-      "exit_rules": {
-        "tp1_pct": 0.0,
-        "tp1_price": 246.34508655,
-        "trail_pct": 0.5,
-        "intraday_sl_pct": -3.0,
-        "intraday_sl_price": 238.95473395349998,
-        "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 221.710577895,
-        "intraday_sl_exempt": false,
-        "exempt_reason": null
       }
     }
   ],
@@ -931,26 +981,6 @@ window.MOBILE_DATA = {
       "_position_basis": 915,
       "_monthly_full_size_usd": 20.68,
       "_size_mult_current": 0.5
-    },
-    {
-      "tier": "SS+ (Insider idiosyncratic)",
-      "name": "Insider_Dir200k_v1 (H5_Dir_200k single)",
-      "cat": "I 柱 insider (market-neutral idiosyncratic)",
-      "tickers": "watchlist 個別株 (openinsider P-buy データある ticker)",
-      "condition": "openinsider P-buy ∧ title=\"Dir\" ∧ value_usd >= $200,000 → 翌寄 MOO BUY → 60d hold (TP+15/SL-15)",
-      "hold": "60日",
-      "freq": "n=357 OOS 6yr / 月 ≈ 5 sig/月 期待",
-      "sharpe": "cost+9.45%/trade SPY corr-0.109 stress維持 N_eff+0.87、 5 variant 中エッジ最強 + 最独立",
-      "live": "✅ size_mult=0.73",
-      "memo": "5/25 BIMETSX I 柱 1 本目 Step 1-3 配線完了。 paper:true で executor skip 安全状態、 scrape 1週連続稼働確認後 paper→live flip で I 柱完成 = F7 7 軸 全 LIVE 達成。 H5 単独 (= 他 4 variant は intra-axis 増殖罠で禁忌)。",
-      "monthly_profit_usd": 315.61,
-      "_monthly_full_size_usd": 118,
-      "_per_trade_usd": 86.46,
-      "_size_mult_current": 0,
-      "_position_basis": 915,
-      "_signals_per_month": 5,
-      "_r2_n": 357,
-      "_r2_mean_pct": 9.45
     },
     {
       "tier": "ANTI",
@@ -3394,41 +3424,41 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-05-29",
-      "netliq": 20185.07,
+      "netliq": 19743.15,
       "day_pnl": 0.0,
       "cum_pnl_short": -48.34,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": 8645.07,
-      "unrealized_today": -222.27
+      "netliq_delta": 8203.15,
+      "unrealized_today": -335.71
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-28T15:15:27",
+      "ts": "2026-05-29T07:01:47",
       "ok": true,
-      "note": "130,061 B",
-      "age_min": 946.3104780666667
+      "note": "129,786 B",
+      "age_min": 493.75067485
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 4215.960478066667
+      "age_min": 4709.734008183334
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 4215.6104780666665
+      "age_min": 4709.384008183333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 4216.710478066667
+      "age_min": 4710.484008183334
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3446,43 +3476,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 4216.710478066667
+      "age_min": 4710.484008183334
     },
     "morning_preopen_notify": {
-      "ts": "2026-05-28T08:00:05",
+      "ts": "2026-05-29T08:00:06",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 1381.6771447333333
+      "age_min": 435.43400818333333
     },
     "state_tws_reconciler": {
-      "ts": "2026-05-28T07:06:10",
+      "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 1435.5938113999998
+      "age_min": 488.98400818333334
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-25T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 5101.7438114
+      "age_min": 5595.517341516666
     },
     "morning_tws_connect": {
       "ts": "2026-05-29T07:00:26",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1.3271447333333335
+      "age_min": 495.10067485
     },
     "short_term_auto_bat": {
-      "ts": "2026-05-28T07:06:11",
+      "ts": "2026-05-29T07:06:34",
       "ok": true,
       "note": "completed",
-      "age_min": 1435.5771447333332
+      "age_min": 488.96734151666664
     },
     "evening_signal_gen": {
       "ts": "2026-05-27T18:02:46",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 2218.9938114
+      "age_min": 2712.7673415166664
     }
   },
   "regime": {
@@ -3504,6 +3534,12 @@ window.MOBILE_DATA = {
     "data_freshness_days": 4
   },
   "alerts_recent": [
+    {
+      "ts": "2026-05-29T08:00:06",
+      "severity": "INFO",
+      "source": "morning_preopen",
+      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 0 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
+    },
     {
       "ts": "2026-05-28T08:00:05",
       "severity": "INFO",
@@ -3557,61 +3593,99 @@ window.MOBILE_DATA = {
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 62 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-20T08:00:05",
-      "severity": "INFO",
-      "source": "morning_preopen",
-      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 30 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
     }
   ],
   "post_mortem": {
     "file": "weekly_post_mortem_2026-05-18.md",
     "content": "# Weekly Post-Mortem 2026-05-18 (counterfactual 直近 7 日)\n\n**Task #102 自動出力** — 場中 SL 売却 vs hold-end の比較で SL rule の週次勝敗を判定。\n\n## 📊 Summary\n\n- 期間: 過去 **7** 日 (closed_positions 1 件 対象、 うち場中 SL 系 **1** 件)\n- 場中 SL 実 P&L: **$-90.90**\n- 引け hold 仮想: **$-59.55**\n- 戦略 rule 通り hold (N日後 Close) 仮想: **$+0.00**\n- hold-引け の方が良かった件数: **1 / 1**\n- hold-rule の方が良かった件数: **0 / 1**\n\n## 🎯 今週判定: **LOSS**\n\n> 場中 SL 売却 で $31 (引け) / $91 (rule) の機会損失\n\n## 🔍 Trade-by-trade counterfactual\n\n| Ticker | Strat | Exit reason | 実 P&L | 引け hold P&L | rule hold P&L | 救済可? |\n|---|---|---|---:|---:|---:|---|\n| ON | HighPullback50_v1 | user_manual_-3%_intraday_SL | $-90.90 | $-59.55 | ? | **+$31** 救済 |\n\n## 📝 個別 narrative\n\n- **ON** (HighPullback50_v1, 2026-05-18 entry → 2026-05-18 user_manual_-3%_intraday_SL): 実 $-91 (-5.29%)、 引け hold なら $-60 (-3.50%) = **$31 救済可**\n\n---\n\n_generated by `weekly_post_mortem.py` @ 2026-05-18 23:47:53 CT_\n"
   },
-  "exit_plans": [
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "SOXL",
-      "strategy": "TWS_other",
-      "qty": 5.5928,
-      "entry_price": 246.34508655,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 251.27,
-        "sl_pct": -10.0,
-        "sl_price": 221.71
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 251.27,
-          "target_pct": 2.0,
-          "status": "未到達"
-        },
-        {
-          "type": "SL",
-          "target_price": 221.71,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 224.6699981689453,
-      "unrealized_pct": -8.8,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    }
-  ],
+  "exit_plans": [],
   "intraday_opportunities": [],
   "all_trades": [
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_BOT",
+      "shares": 8.0,
+      "entry_price": 233.29,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.339081,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_BOT",
+      "shares": 0.573,
+      "entry_price": 233.28,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.000116,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_BOT",
+      "shares": 6.0,
+      "entry_price": 235.36,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.351475,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_BOT",
+      "shares": 0.373,
+      "entry_price": 235.47,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 7.6e-05,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_SLD",
+      "shares": 20.0,
+      "entry_price": 221.555,
+      "exit_price": null,
+      "pnl_usd": -319.801616,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.449498,
+      "side": "SLD"
+    },
+    {
+      "date": "2026-05-29",
+      "ticker": "SOXL",
+      "strategy": "TWS_SLD",
+      "shares": 0.5388,
+      "entry_price": 221.43,
+      "exit_price": null,
+      "pnl_usd": -8.673368,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.002672,
+      "side": "SLD"
+    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
