@@ -2113,6 +2113,42 @@ function loadAll() {
       }
       html += `</div>`;
     }
+    // === actual vs expected 監視 (5/29 framework) ===
+    const mon = d.monitoring_5_29 || {};
+    if (mon.strategy_count) {
+      const nowD = ((d.generated_at||'')+'').slice(0,10);
+      html += `<div style="margin-top:12px;padding:10px;background:linear-gradient(135deg,rgba(88,166,255,.08),rgba(63,185,80,.05));border-radius:8px">`;
+      html += `<div style="font-size:14px;font-weight:800;color:#58a6ff;margin-bottom:4px">🎯 actual vs expected 監視 <span style="font-size:9px;color:var(--sub)">(${mon.frozen_at||'5/29'} 固定)</span></div>`;
+      html += `<div style="font-size:10px;color:var(--sub);margin-bottom:6px">${mon.status||''}</div>`;
+      html += `<div style="display:flex;gap:10px;flex-wrap:wrap;font-size:11px;margin-bottom:6px">`;
+      html += `<span>期待/月 (実約定): <b style="color:#3fb950">$${mon.expected_monthly_deployed_usd||0}</b></span>`;
+      html += `<span style="color:var(--sub)">無制約: $${(mon.expected_monthly_unconstrained_usd||0).toLocaleString()}</span>`;
+      html += `<span style="color:var(--sub)">SGOV $${mon.sgov_daily_usd||0}/日</span></div>`;
+      // マイルストン
+      (mon.milestones||[]).forEach(ms => {
+        const past = nowD && ms.due && nowD >= ms.due;
+        const col = past ? '#ffd700' : 'var(--sub)';
+        html += `<div style="margin:3px 0;font-size:10px;display:flex;gap:6px"><span style="width:74px;color:${col};font-weight:${past?'700':'400'}">${past?'📍':'·'} ${ms.label}</span><span style="width:62px;color:var(--sub)">${ms.due}</span><span style="flex:1;color:var(--sub)">${ms.test}</span></div>`;
+      });
+      // 戦略別 frozen 期待値
+      html += `<div style="overflow-x:auto;margin-top:8px"><table style="width:100%;border-collapse:collapse;font-size:10px">`;
+      html += `<tr style="border-bottom:1px solid rgba(255,255,255,.1)"><th style="text-align:left;padding:3px;color:var(--sub)">戦略</th><th style="padding:3px;color:var(--sub)">柱</th><th style="text-align:right;padding:3px;color:var(--sub)">size</th><th style="text-align:right;padding:3px;color:var(--sub)">hold</th><th style="text-align:right;padding:3px;color:var(--sub)">期待fire/月</th><th style="text-align:right;padding:3px;color:#3fb950">期待$/月</th></tr>`;
+      const FC2 = {'B':'#f85149','I':'#ffd700','M':'#58a6ff','E':'#3fb950','T':'#22d3ee','S':'#a78bfa','X':'#ff8c00'};
+      (mon.strategies||[]).forEach(s => {
+        const c = FC2[s.pillar]||'#7d8590';
+        const pap = s.paper ? ' <span style="color:#d29922;font-size:8px">paper</span>' : '';
+        const fm = (s.exp_fires_mo===null||s.exp_fires_mo===undefined) ? '—' : s.exp_fires_mo;
+        html += `<tr style="border-bottom:1px solid rgba(255,255,255,.04)"><td style="padding:3px">${(s.name||'').replace(/_v1$|_v2$/,'')}${pap}</td><td style="text-align:center;padding:3px;color:${c};font-weight:700">${s.pillar||''}</td><td style="text-align:right;padding:3px">${s.size}</td><td style="text-align:right;padding:3px">${s.hold}d</td><td style="text-align:right;padding:3px">${fm}</td><td style="text-align:right;padding:3px;color:#3fb950">$${s.exp_mo_usd||0}</td></tr>`;
+      });
+      html += `</table></div>`;
+      // alert 条件
+      if ((mon.alerts||[]).length) {
+        html += `<div style="margin-top:6px;font-size:9px;color:var(--sub)"><b>alert:</b> ${mon.alerts.join(' / ')}</div>`;
+      }
+      if (mon.capacity_caveat) html += `<div style="margin-top:4px;font-size:9px;color:#d29922">⚠️ ${mon.capacity_caveat}</div>`;
+      if (mon.live_actuals_pending) html += `<div style="margin-top:3px;font-size:9px;color:var(--sub)">${mon.live_actuals_pending}</div>`;
+      html += `</div>`;
+    }
     el.innerHTML = html;
   });
 

@@ -33,7 +33,8 @@
 // v5 (5/19 夜): index.html 動的 data.js 読込 + loadAll try/catch 防御 + renderHistory null fix。
 // 旧 cache は activate 時に削除されるので、 iPhone reload で確実に新 SW 適用 + 全 cache クリア。
 // v39 (5/24): QQQ_50d_BreakBounce_v1 (= T2 discovery、 QQQ 50d SMA fake breakdown reversal) 採用 + Pullback_v1 size_mult 1.0→0.5 (audit REDUCE_SIZE)。 LIVE 13 戦略 (= SS 5 + S 3 + A 5)。 Hi52w spec 改訂後 (pull-15 + cooldown 21d + daily cap 10) で sig/月 80 (target 50-100 内)。 sentiment overlay (= AV news) infra 設置済、 daily cron .bat user 登録待ち。 過去 handover docs (5/4-5/11) 検証 = 既 LIVE で網羅確認。 insider 系 (R9-A / R10-A) は 60d hold で user 切り判断。
-const CACHE = 'umeboshi-v5';
+// v40 (5/29): F7 タブに「🎯 actual vs expected 監視」セクション追加。 配線修復後 14 戦略の frozen baseline 期待値 (期待fire/月・期待$/月・size・hold)・30/90/180日マイルストン・alert 条件を表示。data.js monitoring_5_29 block (= logs/baseline_5_29_frozen.json から生成、 read-only 唯一の真実)。LIVE 実績 (7d/累計 fires・win・Sharpe・netP/L) は 6/1 蓄積開始後に weekly script → sync で注入予定。容量制約の二重性 (signal生成 vs slot後約定) + Insider paper 明示。
+const CACHE = 'umeboshi-v6';
 const STATIC_ASSETS = ['./icon-192.png', './icon-512.png'];
 
 self.addEventListener('install', e => {
