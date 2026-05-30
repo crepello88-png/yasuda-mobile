@@ -4426,5 +4426,196 @@ window.MOBILE_DATA = {
         }
       ]
     }
+  },
+  "monitoring_5_29": {
+    "_doc": "F7 actual-vs-expected 監視 framework (5/29 固定)。baseline = logs/baseline_5_29_frozen.json (read-only、 唯一の真実)。",
+    "frozen_at": "2026-05-29T(JST evening)",
+    "live_start": "2026-06-01",
+    "status": "baseline 固定済 (read-only) / LIVE データ 6/1 蓄積開始 / 初週次 report 6/7",
+    "expected_monthly_deployed_usd": 251,
+    "expected_monthly_unconstrained_usd": 2482,
+    "sgov_daily_usd": 2.7,
+    "capacity_caveat": "期待は 2 系統: signal生成率 (配線生存テスト) と slot制約後の約定 (P/L)。fire-ratio は約定同士で比較 (deployed trades_per_mo)。Insider は paper = 実約定なし。",
+    "milestones": [
+      {
+        "label": "30日 review",
+        "due": "2026-06-30",
+        "test": "期待fires 30%実現 + silent fail なし → 通過/要audit/問題あり"
+      },
+      {
+        "label": "90日 review",
+        "due": "2026-08-30",
+        "test": "LIVE Sharpe vs backtest 40%閾値 (n=30+)、 <40%棚上げ候補 / <0 KILL候補"
+      },
+      {
+        "label": "180日 review",
+        "due": "2026-11-30",
+        "test": "Sharpe>0.5 & netP/L>0継続 / 0-0.5 size減 / <0 KILL。三脚 vs SGOV"
+      }
+    ],
+    "alerts": [
+      "fire<50% × 4週連続 → configuration audit 候補",
+      "累計 netP/L<0 × 13週 (3ヶ月) 連続 → size_mult 減考慮",
+      "経過90日後も portfolio < SGOV → 全体 edge 疑念"
+    ],
+    "weekly_report_path": "logs/weekly_report_YYYYMMDD.md (scripts/live_vs_expected_weekly.py)",
+    "live_actuals_pending": "LIVE 実績 (7d/累計 fires・win・Sharpe・netP/L) は 6/1 蓄積開始後に weekly script → sync で注入予定 (週末 integration)。現在は frozen 期待値 + マイルストン表示。",
+    "strategy_count": 14,
+    "strategies": [
+      {
+        "name": "AI_Wave_Momentum_v1",
+        "pillar": "T",
+        "paper": false,
+        "size": 1.0,
+        "hold": 14,
+        "exp_fires_mo": 12.76,
+        "exp_trades_mo": 3,
+        "exp_mo_usd": 90,
+        "tier": "SS (Trend breakout)"
+      },
+      {
+        "name": "Bull_Trend_Breakout_v1",
+        "pillar": "T",
+        "paper": false,
+        "size": 0.73,
+        "hold": 20,
+        "exp_fires_mo": 74,
+        "exp_trades_mo": 3,
+        "exp_mo_usd": 20,
+        "tier": "SS+ (Trend breakout)"
+      },
+      {
+        "name": "CrossSec_Mom_v1",
+        "pillar": "M",
+        "paper": false,
+        "size": 0.73,
+        "hold": 20,
+        "exp_fires_mo": 35,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "SS+ (Momentum regime-balanced)"
+      },
+      {
+        "name": "PEAD_SUE_60d_v1",
+        "pillar": "E",
+        "paper": false,
+        "size": 0.73,
+        "hold": 60,
+        "exp_fires_mo": 10,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "SS+ (Earnings drift)"
+      },
+      {
+        "name": "Momentum_12_1_v1",
+        "pillar": "M",
+        "paper": false,
+        "size": 0.73,
+        "hold": 5,
+        "exp_fires_mo": 6,
+        "exp_trades_mo": 1,
+        "exp_mo_usd": 73,
+        "tier": "S (Momentum regime-balanced)"
+      },
+      {
+        "name": "Semi_Equip_Dip_v1",
+        "pillar": "B",
+        "paper": false,
+        "size": 0.73,
+        "hold": 5,
+        "exp_fires_mo": 9,
+        "exp_trades_mo": 1,
+        "exp_mo_usd": 44,
+        "tier": "S+ (Bear/Panic 平均回帰)"
+      },
+      {
+        "name": "PreEarnings_T30_T5_Industrial",
+        "pillar": "E",
+        "paper": false,
+        "size": 1.0,
+        "hold": 18,
+        "exp_fires_mo": 4.3,
+        "exp_trades_mo": 1,
+        "exp_mo_usd": 15,
+        "tier": "S+ (Earnings drift)"
+      },
+      {
+        "name": "Buffett_VIX20_Panic_v1",
+        "pillar": "B",
+        "paper": false,
+        "size": 0.73,
+        "hold": 10,
+        "exp_fires_mo": 5.04,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 9,
+        "tier": "S (Bear/Panic 平均回帰)"
+      },
+      {
+        "name": "A7_DXY_Drop_EM_Long_v1",
+        "pillar": "X",
+        "paper": false,
+        "size": 0.73,
+        "hold": 5,
+        "exp_fires_mo": 4.4,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "S (Cross-Asset macro)"
+      },
+      {
+        "name": "HYG_LQD_QQQ_v1",
+        "pillar": "B",
+        "paper": false,
+        "size": 0.73,
+        "hold": 5,
+        "exp_fires_mo": 2.5,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "S (Bear/Panic 平均回帰)"
+      },
+      {
+        "name": "SectorRotation_Laggard_v1",
+        "pillar": "S",
+        "paper": false,
+        "size": 0.73,
+        "hold": 20,
+        "exp_fires_mo": 1.6,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "S (Sector Rotation contrarian)"
+      },
+      {
+        "name": "Pullback_v1",
+        "pillar": "B",
+        "paper": false,
+        "size": 0.73,
+        "hold": 3,
+        "exp_fires_mo": 1.5,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "B (base, 6-ticker pullback)"
+      },
+      {
+        "name": "Drop5d_BroadPanic",
+        "pillar": "B",
+        "paper": false,
+        "size": 0.73,
+        "hold": 1,
+        "exp_fires_mo": "regime-conditional",
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "B (Bear/Panic 平均回帰)"
+      },
+      {
+        "name": "Insider_Dir200k_v1",
+        "pillar": "I",
+        "paper": true,
+        "size": 0.73,
+        "hold": 60,
+        "exp_fires_mo": 4,
+        "exp_trades_mo": 0,
+        "exp_mo_usd": 0,
+        "tier": "I 柱 (Insider, 5 variant 中最強・最独立)"
+      }
+    ]
   }
 };
