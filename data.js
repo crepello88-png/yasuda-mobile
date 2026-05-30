@@ -90,7 +90,8 @@ window.MOBILE_DATA = {
   ],
   "forecast": {
     "capital_short": 4237,
-    "capital_champ": 7027,
+    "capital_champ": 0,
+    "_capital_champ_note": "DISCONTINUED 2026-05-29: Champ 全 unwind。 旧 $7,027 は weekly_buys slice の stale 値 (実 position は $11k cost / -0.85%)。 unwind 後 capital は SPY (SPY_DCA_v1) へ移管、 Champ capital は 0。",
     "monthly_low": 150,
     "monthly_mid": 251,
     "monthly_high": 350,
@@ -100,8 +101,9 @@ window.MOBILE_DATA = {
     "annual_low_usd": 1800,
     "annual_mid_usd": 3012,
     "annual_high_usd": 4200,
-    "champ_annual_pct": 13,
-    "champ_annual_usd": 913,
+    "champ_annual_pct": null,
+    "champ_annual_usd": null,
+    "_champ_forecast_status": "DISCONTINUED 2026-05-29: Champ 廃止につき annual forecast 無効。 後継 SPY_DCA_v1 は benchmark = SPY total return (別途算出)、 個別 forecast は置かない (= 手動積立、 約束値なし)。",
     "_basis": "5/27 容量現実版: F7 backtest 2026-01-05 $14k/3枠 実測 +$1,254/5mo = $251/mo mid。3月 -$1,090 drawdown 月あり low $150。Bull月は +$1,153 (1月) で high $350。旧 forecast は全 signal 約定前提で過大、 3枠制約で 999 signal 中 40 約定 (4%) が現実。",
     "_warning": "BACKTEST由来・ライブ未確認。+$251/月は5ヶ月40trade T柱偏重の1経路。小サンプルで robust な期待値ではない。3月型連敗で low $150 より下・マイナス月もあり得る。約束ではなく参考値。",
     "_capacity_note": "F7 は 7 柱設計だが $14k/3枠では実質 4 柱稼働 (T/M/B/E)。S柱・X柱は枠不足で 0 約定。完全 7 柱分散は資本成長で解く目標。",
@@ -304,6 +306,9 @@ window.MOBILE_DATA = {
     ]
   },
   "champ": {
+    "status": "discontinued",
+    "discontinued_date": "2026-05-29",
+    "_status_note": "DISCONTINUED 2026-05-29: Champ 全 unwind (5名 sell → SPY 一括化)。 以下 weekly_buys / weekly_* は 5/11-5/15 の history record として残置 (live ではない)。 将来 buy 予定 (schedule_next) は void。 後継は SPY_DCA_v1。",
     "tickers": [
       "NVDA",
       "PWR",
@@ -390,23 +395,8 @@ window.MOBILE_DATA = {
     "weekly_pnl": 48.74,
     "weekly_pnl_pct": 0.7,
     "weekly_sells_cash": 1624.01,
-    "schedule_next": [
-      {
-        "date": "2026-06-15",
-        "plan": "TBD (6月初に再 design)",
-        "buys": []
-      },
-      {
-        "date": "2026-07-20",
-        "plan": "第3月曜日 ルール: 7月分 Champ DCA、 詳細は 7月入り後 配分確定",
-        "buys": []
-      },
-      {
-        "date": "2026-08-17",
-        "plan": "第3月曜日 ルール: 8月分 Champ DCA、 NVDA 8月決算前 (歴史的 90% win) タイミング、 詳細",
-        "buys": []
-      }
-    ]
+    "schedule_next": [],
+    "_schedule_next_void": "DISCONTINUED 2026-05-29: 旧 Champ buy 予定 (6/15・7/20・8/17 第3月曜ルール) は全て void。 後継 SPY_DCA_v1 は user 手動・月次・SPY のみ。"
   },
   "vix_trend": [
     {
@@ -764,21 +754,37 @@ window.MOBILE_DATA = {
   ],
   "tracker_strategies": [
     {
-      "tier": "SSS",
-      "name": "融合Champ DCA",
-      "cat": "長期積立 (柱)",
+      "tier": "廃止",
+      "status": "discontinued",
+      "discontinued_date": "2026-05-29",
+      "name": "融合Champ DCA (廃止)",
+      "cat": "廃止戦略",
       "tickers": "NVDA / PWR / COST / LLY / GOOG",
-      "condition": "月次 $1,800 入金 (Mon DCA は木曜前倒し: 5/13, 5/14, 5/15)",
-      "hold": "長期保有 (rebalance 時のみ見直し)",
-      "freq": "月次 $1,800 (年 $21,600)",
-      "sharpe": "★ 過去実 DCA 11年 = $1,040,044 (元本 $64,800 → 16.05x、 実効 CAGR +28.7%) ★ ST613 実データ",
-      "live": "✅ 本番運用中 (資産形成の柱)",
-      "memo": "【実績 2015-05→2026-05 月$1,800×36ヶ月 DCA + 8年放置】 NVDA $828k(×63.9) PWR $214k LLY $126k GOOG $79k COST $63k = $1.04M。 比較 SPY 単独 $138k (×2.1)。 $1k 月益 $114 = 短期 7戦略 ($26.9) の 4.2倍効率",
+      "condition": "—",
+      "hold": "—",
+      "freq": "—",
+      "sharpe": "—",
+      "live": "❌ 廃止 2026-05-29 (全 unwind → SPY 一括化、 SPY_DCA_v1 へ移行)",
+      "memo": "DISCONTINUED 2026-05-29: 5/29 audit で確定 — (1) 実 live は 2026-05-11 開始の 2.5週・$11,030 cost・-0.85% (2) 旧表記「★ST613 実データ $1.04M/+28.7%CAGR/SSS」は 2015-2026 の仮想 backtest を実績として表示した phantom claim (3) 同期間 SPY DCA に -2.68pp / -$291 劣後。user 決定で 6/1 全 unwind、 月次手動 SPY DCA (SPY_DCA_v1) へ移行。過去 backtest は logs/champ_vs_f7_11yr.json (_archived) を参照、 live decision には効かせない。",
       "monthly_profit_usd": null,
-      "_monthly_profit_note": "5/22 user 「月利益表示なし」 で hide、 11年実績は memo 参照",
-      "per_share_profit_usd": 200,
-      "_per_share_basis": "11年 hold 累積 (= NVDA +$180/COST +$700/AVGO +$1500 etc 平均 ~$200)",
-      "_per_share_source": "11年 実績"
+      "per_share_profit_usd": null
+    },
+    {
+      "tier": "BASE",
+      "status": "live",
+      "name": "SPY_DCA_v1",
+      "cat": "長期積立 (手動)",
+      "tickers": "SPY",
+      "condition": "月次手動 buy (user 操作)、 固定 $1,800/月",
+      "hold": "LONG_TERM",
+      "freq": "月次 $1,800",
+      "sharpe": "—",
+      "live": "✅ 手動運用 (2026-06-01 開始予定、 Champ 全 unwind の後継)",
+      "exit": "none",
+      "memo": "Champ (廃止 2026-05-29) の後継。 個別株 discretionary DCA → SPY 一括 DCA へ単純化。 自動 executor は実装しない (user 手動 sell/buy)。 benchmark = SPY total return (= 自己 benchmark)。 約束 forecast は置かない。 buy 記録は本 entry を手動更新 or champ{} 同様の block を将来追加。",
+      "_started": "2026-06-01",
+      "monthly_profit_usd": null,
+      "per_share_profit_usd": null
     },
     {
       "tier": "SS+ (Momentum regime-balanced)",
@@ -4113,6 +4119,8 @@ window.MOBILE_DATA = {
     },
     "_warning": "backtest CAGR で regime shift / capacity constraint / execution slippage 未反映",
     "champ_comparison": {
+      "_ARCHIVED": "ARCHIVED 2026-05-29 — 廃止 Champ の backtest 比較 (参考用、 live 否定)。 2015-2026 仮想 DCA simulation。 logs/champ_vs_f7_11yr.json (_archived) と数値経路が不一致 ($486k vs $1.04M) のまま並存していたもの。 実 Champ live とは無関係、 history としてのみ残置。 Champ は 5/29 全 unwind → SPY 一括化。",
+      "_archived_date": "2026-05-29",
       "champ_dca": {
         "monthly_usd": 1800,
         "dca_months": 36,
