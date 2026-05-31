@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-30T15:15",
+  "generated_at": "2026-05-31T08:45",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -408,27 +408,22 @@ window.MOBILE_DATA = {
     {
       "date": "2026-05-30",
       "v": 15.32
+    },
+    {
+      "date": "2026-05-31",
+      "v": 15.32
     }
   ],
   "weekly_pnl": {
-    "capital": 20770.38,
-    "week_start": "2026-05-26",
-    "week_end": "2026-05-30",
+    "capital": 20505.95,
+    "week_start": "2026-05-27",
+    "week_end": "2026-05-31",
     "total_pnl_usd": 0.0,
     "total_pnl_pct": 0.0,
     "n_trades": 0,
     "n_wins": 0,
     "win_rate": 0.0,
     "days": [
-      {
-        "date": "2026-05-26",
-        "dow": "Tue",
-        "vix": null,
-        "pnl": 0.0,
-        "cum": 0.0,
-        "n": 0,
-        "wins": 0
-      },
       {
         "date": "2026-05-27",
         "dow": "Wed",
@@ -459,6 +454,15 @@ window.MOBILE_DATA = {
       {
         "date": "2026-05-30",
         "dow": "Sat",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-05-31",
+        "dow": "Sun",
         "vix": null,
         "pnl": 0.0,
         "cum": 0.0,
@@ -510,9 +514,9 @@ window.MOBILE_DATA = {
       "unrealized": 0.0,
       "positions": []
     },
-    "week_start": "2026-05-26",
-    "week_end": "2026-05-30",
-    "today_date": "2026-05-30",
+    "week_start": "2026-05-27",
+    "week_end": "2026-05-31",
+    "today_date": "2026-05-31",
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
@@ -520,7 +524,48 @@ window.MOBILE_DATA = {
   "positions": [],
   "intraday_patterns": [],
   "intraday_positions": [],
-  "strategies": [],
+  "strategies": [
+    {
+      "name": "Confluence_RSIStoch_v1",
+      "tier": "SS+",
+      "priority": 100,
+      "tp": 4.0,
+      "sl": -10.0,
+      "monthly_usd": 104.3,
+      "win": 65.0,
+      "hold": 3
+    },
+    {
+      "name": "Sector_FriPanic_v1",
+      "tier": "S",
+      "priority": 60,
+      "tp": 4.0,
+      "sl": -10.0,
+      "monthly_usd": 20.0,
+      "win": 60.0,
+      "hold": null
+    },
+    {
+      "name": "Pullback_v1",
+      "tier": "S-",
+      "priority": 48,
+      "tp": 2.5,
+      "sl": -10.0,
+      "monthly_usd": 15.0,
+      "win": 53.0,
+      "hold": 3
+    },
+    {
+      "name": "Drop5d_BroadPanic",
+      "tier": "A+",
+      "priority": 42,
+      "tp": 5.06,
+      "sl": -10.0,
+      "monthly_usd": 7.5,
+      "win": 65.0,
+      "hold": 1
+    }
+  ],
   "tracker_strategies": [
     {
       "tier": "SSS",
@@ -662,6 +707,55 @@ window.MOBILE_DATA = {
       "_size_mult_current": 1.0
     },
     {
+      "tier": "S",
+      "name": "Hi52w_Pullback10_RSI40_v1 (52w high -10% pullback + RSI<40)",
+      "cat": "momentum leader pullback",
+      "tickers": "全 watchlist (>=252d history)、 top fire: KLAC/APH/ADI/PH/WAB",
+      "condition": "252d 高値からの pull <= -10% AND RSI(14)<40 → 翌 MOO BUY → 7d hold (TP+7/SL-8)",
+      "hold": "7日",
+      "freq": "n=8888 (TRAIN+OOS)、 約 46 sig/月 (高頻度)",
+      "sharpe": "Sh+0.66 OOS+0.23% win=53.8% $/mo=$223",
+      "live": "⛔ paper:true (整地で hide)",
+      "memo": "F2 discovery (discover_cross_stock_5_24) 結果、 OOS ≥ TRAIN robust、 Jaccard <0.05 全 LIVE で完全 incremental。 momentum leader の押し目買い、 Semis/Industrials cluster。",
+      "monthly_profit_usd": 23.15,
+      "_signals_per_month": 46.0,
+      "_r2_n": 8888,
+      "_r2_win_pct": 53.8,
+      "_r2_mean_pct": 0.22,
+      "_r2_sharpe": 0.63,
+      "_oos_n": 2022,
+      "_oos_mean_pct": 0.23,
+      "_oos_sharpe": 0.66,
+      "_per_trade_usd": 2.01,
+      "_position_basis": 915,
+      "_monthly_full_size_usd": 92.6,
+      "_size_mult_current": 0.25
+    },
+    {
+      "tier": "S",
+      "name": "QQQ_50d_BreakBounce_v1 (QQQ 50d SMA fake breakdown reversal)",
+      "cat": "macro index inflection",
+      "tickers": "QQQ のみ",
+      "condition": "QQQ 50d SMA 割れ後 10d 以内 + 5d return >+3% + 現値 SMA50 の -5%〜+2% 範囲 → 翌 MOO BUY → 5d hold (TP+4/SL-5)",
+      "hold": "5日",
+      "freq": "n=79、 約 4-5 sig/月",
+      "sharpe": "Sh+3.50 OOS+0.91% win=67% $/mo=$10.53",
+      "live": "⛔ paper:true (整地で hide)",
+      "memo": "discover_index_inflection_5_24 T2 発見、 Jaccard 全 LIVE 0 = 完全直交、 fake breakdown reversal pattern。",
+      "monthly_profit_usd": 18.73,
+      "_signals_per_month": 4.5,
+      "_r2_n": 79,
+      "_r2_win_pct": 58,
+      "_r2_sharpe": 1.87,
+      "_oos_n": 15,
+      "_oos_mean_pct": 0.91,
+      "_oos_sharpe": 3.5,
+      "_per_trade_usd": 8.33,
+      "_position_basis": 915,
+      "_monthly_full_size_usd": 37.47,
+      "_size_mult_current": 0.5
+    },
+    {
       "tier": "S (Momentum regime-balanced)",
       "name": "Momentum_12_1_v1 (Jegadeesh-Titman classic factor)",
       "cat": "短期 momentum factor",
@@ -742,6 +836,26 @@ window.MOBILE_DATA = {
       "_size_mult_current": 0.5
     },
     {
+      "tier": "SS+ (Insider idiosyncratic)",
+      "name": "Insider_Dir200k_v1 (H5_Dir_200k single)",
+      "cat": "I 柱 insider (market-neutral idiosyncratic)",
+      "tickers": "watchlist 個別株 (openinsider P-buy データある ticker)",
+      "condition": "openinsider P-buy ∧ title=\"Dir\" ∧ value_usd >= $200,000 → 翌寄 MOO BUY → 60d hold (TP+15/SL-15)",
+      "hold": "60日",
+      "freq": "n=357 OOS 6yr / 月 ≈ 5 sig/月 期待",
+      "sharpe": "cost+9.45%/trade SPY corr-0.109 stress維持 N_eff+0.87、 5 variant 中エッジ最強 + 最独立",
+      "live": "✅ size_mult=0.73",
+      "memo": "5/25 BIMETSX I 柱 1 本目 Step 1-3 配線完了。 paper:true で executor skip 安全状態、 scrape 1週連続稼働確認後 paper→live flip で I 柱完成 = F7 7 軸 全 LIVE 達成。 H5 単独 (= 他 4 variant は intra-axis 増殖罠で禁忌)。",
+      "monthly_profit_usd": 315.61,
+      "_monthly_full_size_usd": 118,
+      "_per_trade_usd": 86.46,
+      "_size_mult_current": 0,
+      "_position_basis": 915,
+      "_signals_per_month": 5,
+      "_r2_n": 357,
+      "_r2_mean_pct": 9.45
+    },
+    {
       "tier": "ANTI",
       "name": "🚫 Drop5d_BroadPanic SKIP when [next_gap_pct>=+3]",
       "cat": "Anti-pattern filter (= 条件一致で signal skip)",
@@ -772,26 +886,6 @@ window.MOBILE_DATA = {
       "_per_share_source": "OOS_backtest",
       "per_share_profit_usd": 2.11,
       "_per_share_basis": "NVDA ~\\$220 × mean 0.96%"
-    },
-    {
-      "tier": "S (Cross-Asset macro)",
-      "name": "A7_DXY_Drop_EM_Long_v1 (7 軸目 Cross-Asset)",
-      "cat": "X 柱 cross-asset macro (通貨 → EM equity)",
-      "tickers": "UUP signal → EEM/FXI/KWEB/EWZ/INDA",
-      "condition": "UUP 5日 return <= -2% (ドル安) → 翌寄 EM ETF MOO BUY → 5d hold (TP+4/SL-7)",
-      "hold": "5日",
-      "freq": "n=70 OOS / 約 4.4 sig/月",
-      "sharpe": "cost+0.87% $/株/月=$1.10 %/月=+3.66% N_eff+0.86 panic 全 corr ≤ 0.07 完全独立 stress 0.28",
-      "live": "✅ size_mult=0.73",
-      "memo": "5/24 BIMETSX 7 軸目 X 柱 確立、 リザレクション ふるい PASS で復活 (ゼロサイズ偽陰性)。 Asness-Moskowitz-Pedersen 2013 / Frankel-Rose 1996 文献。 S 柱 と corr -0.006 完全別軸。",
-      "monthly_profit_usd": 25.57,
-      "_signals_per_month": 4.4,
-      "_r2_n": 70,
-      "_r2_mean_pct": 0.87,
-      "_per_trade_usd": 7.96,
-      "_position_basis": 915,
-      "_monthly_full_size_usd": 35.03,
-      "_size_mult_current": 0.25
     },
     {
       "tier": "S (Bear/Panic 平均回帰)",
@@ -884,7 +978,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Consumer Electronics",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "ABNB",
@@ -894,7 +990,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Travel Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "ADI",
@@ -904,7 +1002,10 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductors",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AEHR",
@@ -914,7 +1015,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "AEIS",
@@ -924,7 +1027,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Electrical Equipment & Parts",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "AGL",
@@ -934,7 +1039,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Medical Care Facilities",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "AGX",
@@ -944,7 +1051,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "ALSN",
@@ -954,7 +1063,10 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Auto Parts",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AMAT",
@@ -964,7 +1076,11 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "AMPX",
@@ -974,7 +1090,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Electrical Equipment & Parts",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "AMZN",
@@ -984,7 +1102,10 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Internet Retail",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ANET",
@@ -994,7 +1115,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Computer Hardware",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "APD",
@@ -1004,7 +1127,9 @@ window.MOBILE_DATA = {
       "sector_jp": "素材",
       "industry": "Specialty Chemicals",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "AVGO",
@@ -1014,7 +1139,12 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductors",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "AXP",
@@ -1024,7 +1154,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Credit Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "BAC",
@@ -1034,7 +1166,10 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Banks - Diversified",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "BAX",
@@ -1044,7 +1179,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Medical Instruments & Supplies",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "BWA",
@@ -1054,7 +1191,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Auto Parts",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "CAH",
@@ -1064,7 +1203,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Medical Distribution",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "CF",
@@ -1074,7 +1215,9 @@ window.MOBILE_DATA = {
       "sector_jp": "素材",
       "industry": "Agricultural Inputs",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "CLSK",
@@ -1084,7 +1227,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Capital Markets",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "COHU",
@@ -1094,7 +1239,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "COP",
@@ -1104,7 +1251,10 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas E&P",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "COST",
@@ -1124,7 +1274,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Software - Application",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "CRSP",
@@ -1134,7 +1286,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Biotechnology",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "DE",
@@ -1144,7 +1298,10 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Farm & Heavy Construction Machinery",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "DNLI",
@@ -1154,7 +1311,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Biotechnology",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "EBAY",
@@ -1164,7 +1323,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Internet Retail",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "EEM",
@@ -1174,7 +1335,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "新興国株式",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "EOG",
@@ -1184,7 +1347,9 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas E&P",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "EQIX",
@@ -1194,7 +1359,9 @@ window.MOBILE_DATA = {
       "sector_jp": "REIT/不動産",
       "industry": "REIT - Specialty",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "EWJ",
@@ -1204,7 +1371,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "日本株 ETF",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "FIX",
@@ -1214,7 +1383,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "FLR",
@@ -1224,7 +1395,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "FND",
@@ -1234,7 +1407,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Home Improvement Retail",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "FTAI",
@@ -1244,7 +1419,10 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Aerospace & Defense",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "FTNT",
@@ -1254,7 +1432,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Software - Infrastructure",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "GLD",
@@ -1264,7 +1444,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "金 (商品)",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "GOOG",
@@ -1284,7 +1466,11 @@ window.MOBILE_DATA = {
       "sector_jp": "通信",
       "industry": "Internet Content & Information",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "GPK",
@@ -1294,7 +1480,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Packaging & Containers",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "HIW",
@@ -1304,7 +1492,9 @@ window.MOBILE_DATA = {
       "sector_jp": "REIT/不動産",
       "industry": "REIT - Office",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "HOOD",
@@ -1314,7 +1504,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Capital Markets",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "HYG",
@@ -1324,7 +1516,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "ハイイールド債券",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ICHR",
@@ -1334,7 +1528,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "IP",
@@ -1344,7 +1540,10 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Packaging & Containers",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ITT",
@@ -1354,7 +1553,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Specialty Industrial Machinery",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "IWM",
@@ -1364,7 +1565,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "ラッセル 2000 (小型株)",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "JPM",
@@ -1374,7 +1577,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Banks - Diversified",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "KBR",
@@ -1384,7 +1589,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "KLAC",
@@ -1394,7 +1601,11 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "LIN",
@@ -1404,7 +1615,9 @@ window.MOBILE_DATA = {
       "sector_jp": "素材",
       "industry": "Specialty Chemicals",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "LITE",
@@ -1414,7 +1627,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Communication Equipment",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "LLY",
@@ -1424,7 +1639,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Drug Manufacturers - General",
       "is_champ": true,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "LNG",
@@ -1434,7 +1651,9 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas Midstream",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "LRCX",
@@ -1444,7 +1663,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductor Equipment & Materials",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "M",
@@ -1454,7 +1675,10 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Department Stores",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MA",
@@ -1464,7 +1688,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Credit Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MAR",
@@ -1474,7 +1700,10 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Lodging",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "META",
@@ -1484,7 +1713,11 @@ window.MOBILE_DATA = {
       "sector_jp": "通信",
       "industry": "Internet Content & Information",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "MS",
@@ -1494,7 +1727,10 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Capital Markets",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "MSFT",
@@ -1504,7 +1740,10 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Software - Infrastructure",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "NVDA",
@@ -1514,7 +1753,11 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductors",
       "is_champ": true,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1",
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "OLLI",
@@ -1524,7 +1767,10 @@ window.MOBILE_DATA = {
       "sector_jp": "生活必需",
       "industry": "Discount Stores",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "ON",
@@ -1534,7 +1780,10 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductors",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PANW",
@@ -1544,7 +1793,10 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Software - Infrastructure",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PH",
@@ -1554,7 +1806,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Specialty Industrial Machinery",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "PRIM",
@@ -1564,7 +1818,10 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "PSX",
@@ -1574,7 +1831,9 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas Refining & Marketing",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "PWR",
@@ -1594,7 +1853,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Semiconductors",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "QQQ",
@@ -1604,7 +1865,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "ナスダック 100 (テック中心)",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SE",
@@ -1614,7 +1877,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Internet Retail",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SLB",
@@ -1624,7 +1889,9 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas Equipment & Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SLDB",
@@ -1634,7 +1901,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Biotechnology",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SLV",
@@ -1644,7 +1913,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "銀コモディティ",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SMH",
@@ -1654,7 +1925,10 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "半導体 (VanEck)",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SNPS",
@@ -1664,7 +1938,9 @@ window.MOBILE_DATA = {
       "sector_jp": "テクノロジー",
       "industry": "Software - Infrastructure",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SOFI",
@@ -1674,7 +1950,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Credit Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "SOXX",
@@ -1684,7 +1962,10 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "半導体 (iShares)",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SPXL",
@@ -1694,7 +1975,10 @@ window.MOBILE_DATA = {
       "sector_jp": "レバレッジ ETF",
       "industry": "S&P500 3x",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "SPY",
@@ -1704,7 +1988,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "S&P 500 全体",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "STLD",
@@ -1714,7 +2000,9 @@ window.MOBILE_DATA = {
       "sector_jp": "素材",
       "industry": "Steel",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "STRL",
@@ -1724,7 +2012,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Engineering & Construction",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "TMUS",
@@ -1734,7 +2024,9 @@ window.MOBILE_DATA = {
       "sector_jp": "通信",
       "industry": "Telecom Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "TSLA",
@@ -1744,7 +2036,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Auto Manufacturers",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "TWST",
@@ -1754,7 +2048,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Diagnostics & Research",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "V",
@@ -1764,7 +2060,9 @@ window.MOBILE_DATA = {
       "sector_jp": "金融",
       "industry": "Credit Services",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "VC",
@@ -1774,7 +2072,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Auto Parts",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "VGAS",
@@ -1784,7 +2084,9 @@ window.MOBILE_DATA = {
       "sector_jp": "公益",
       "industry": "Utilities - Renewable",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "VNO",
@@ -1794,7 +2096,10 @@ window.MOBILE_DATA = {
       "sector_jp": "REIT/不動産",
       "industry": "REIT - Office",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "VRTX",
@@ -1804,7 +2109,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ヘルスケア",
       "industry": "Biotechnology",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "VTI",
@@ -1814,7 +2121,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "米国株式全体",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "WCC",
@@ -1824,7 +2133,9 @@ window.MOBILE_DATA = {
       "sector_jp": "産業",
       "industry": "Industrial Distribution",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "WSM",
@@ -1834,7 +2145,9 @@ window.MOBILE_DATA = {
       "sector_jp": "一般消費",
       "industry": "Specialty Retail",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "XLB",
@@ -1844,7 +2157,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "素材・セクター",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLE",
@@ -1854,7 +2169,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "エネルギー・セクター",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLF",
@@ -1864,7 +2181,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "金融・セクター",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic"
+      ]
     },
     {
       "ticker": "XLK",
@@ -1874,7 +2193,11 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "テクノロジー・セクター",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Drop5d_BroadPanic",
+        "Pullback_v1",
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XLU",
@@ -1884,7 +2207,9 @@ window.MOBILE_DATA = {
       "sector_jp": "ETF",
       "industry": "公共事業・セクター",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Confluence_RSIStoch_v1"
+      ]
     },
     {
       "ticker": "XOM",
@@ -1894,7 +2219,9 @@ window.MOBILE_DATA = {
       "sector_jp": "エネルギー",
       "industry": "Oil & Gas Integrated",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "Sector_FriPanic_v1"
+      ]
     },
     {
       "ticker": "AMD",
@@ -2754,7 +3081,9 @@ window.MOBILE_DATA = {
       "sector_jp": "?",
       "industry": "?",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
     },
     {
       "ticker": "XLI",
@@ -2765,7 +3094,8 @@ window.MOBILE_DATA = {
       "industry": "?",
       "is_champ": false,
       "strategies": [
-        "CPI_Cyclical"
+        "CPI_Cyclical",
+        "SectorRotation_Laggard_v1"
       ]
     },
     {
@@ -2776,7 +3106,9 @@ window.MOBILE_DATA = {
       "sector_jp": "?",
       "industry": "?",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
     },
     {
       "ticker": "XLRE",
@@ -2786,7 +3118,9 @@ window.MOBILE_DATA = {
       "sector_jp": "?",
       "industry": "?",
       "is_champ": false,
-      "strategies": []
+      "strategies": [
+        "SectorRotation_Laggard_v1"
+      ]
     },
     {
       "ticker": "XLV",
@@ -2797,7 +3131,8 @@ window.MOBILE_DATA = {
       "industry": "?",
       "is_champ": false,
       "strategies": [
-        "CPI_Defensive"
+        "CPI_Defensive",
+        "SectorRotation_Laggard_v1"
       ]
     },
     {
@@ -2809,7 +3144,8 @@ window.MOBILE_DATA = {
       "industry": "?",
       "is_champ": false,
       "strategies": [
-        "CPI_Cyclical"
+        "CPI_Cyclical",
+        "SectorRotation_Laggard_v1"
       ]
     },
     {
@@ -3027,33 +3363,44 @@ window.MOBILE_DATA = {
       "netliq_baseline": 11540.0,
       "netliq_delta": null,
       "unrealized_today": null
+    },
+    {
+      "date": "2026-05-31",
+      "netliq": null,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": null,
+      "unrealized_today": null
     }
   ],
   "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-30T08:45:27",
+      "ts": "2026-05-30T15:15:30",
       "ok": true,
-      "note": "125,938 B",
-      "age_min": 390.03273193333337
+      "note": "125,899 B",
+      "age_min": 1049.9459175833333
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 6149.682731933333
+      "age_min": 7199.645917583333
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 6149.332731933333
+      "age_min": 7199.295917583334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 6150.432731933333
+      "age_min": 7200.395917583333
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3071,43 +3418,43 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 6150.432731933333
+      "age_min": 7200.395917583333
     },
     "morning_preopen_notify": {
       "ts": "2026-05-29T08:00:06",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 1875.3827319333332
+      "age_min": 2925.345917583333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 1928.9327319333331
+      "age_min": 2978.895917583333
     },
     "monitor_main_engine_health": {
       "ts": "2026-05-25T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 7035.466065266666
+      "age_min": 8085.429250916667
     },
     "morning_tws_connect": {
       "ts": "2026-05-29T07:00:26",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 1935.0493986
+      "age_min": 2985.0125842499997
     },
     "short_term_auto_bat": {
       "ts": "2026-05-29T07:06:34",
       "ok": true,
       "note": "completed",
-      "age_min": 1928.9160652666665
+      "age_min": 2978.8792509166665
     },
     "evening_signal_gen": {
       "ts": "2026-05-27T18:02:46",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 4152.716065266667
+      "age_min": 5202.679250916667
     }
   },
   "regime": {
