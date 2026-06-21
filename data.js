@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-05-31T08:45",
+  "generated_at": "2026-06-21T18:18",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -15,8 +15,8 @@ window.MOBILE_DATA = {
     "open_positions": 0,
     "open_orders_count": 0,
     "fills_today_count": 0,
-    "vix": 15.32,
-    "vix1d": 12.44,
+    "vix": null,
+    "vix1d": null,
     "data_source": "bridge_fallback"
   },
   "tws_open_orders": [],
@@ -331,11 +331,6 @@ window.MOBILE_DATA = {
     "weekly_sells_cash": 1624.01,
     "schedule_next": [
       {
-        "date": "2026-06-15",
-        "plan": "TBD (6月初に再 design)",
-        "buys": []
-      },
-      {
         "date": "2026-07-20",
         "plan": "第3月曜日 ルール: 7月分 Champ DCA、 詳細は 7月入り後 配分確定",
         "buys": []
@@ -415,33 +410,15 @@ window.MOBILE_DATA = {
     }
   ],
   "weekly_pnl": {
-    "capital": 20505.95,
-    "week_start": "2026-05-27",
-    "week_end": "2026-05-31",
+    "capital": 19743.15,
+    "week_start": "2026-05-29",
+    "week_end": "2026-06-21",
     "total_pnl_usd": 0.0,
     "total_pnl_pct": 0.0,
     "n_trades": 0,
     "n_wins": 0,
     "win_rate": 0.0,
     "days": [
-      {
-        "date": "2026-05-27",
-        "dow": "Wed",
-        "vix": null,
-        "pnl": 0.0,
-        "cum": 0.0,
-        "n": 0,
-        "wins": 0
-      },
-      {
-        "date": "2026-05-28",
-        "dow": "Thu",
-        "vix": null,
-        "pnl": 0.0,
-        "cum": 0.0,
-        "n": 0,
-        "wins": 0
-      },
       {
         "date": "2026-05-29",
         "dow": "Fri",
@@ -462,6 +439,24 @@ window.MOBILE_DATA = {
       },
       {
         "date": "2026-05-31",
+        "dow": "Sun",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-06-05",
+        "dow": "Fri",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-06-21",
         "dow": "Sun",
         "vix": null,
         "pnl": 0.0,
@@ -514,9 +509,9 @@ window.MOBILE_DATA = {
       "unrealized": 0.0,
       "positions": []
     },
-    "week_start": "2026-05-27",
-    "week_end": "2026-05-31",
-    "today_date": "2026-05-31",
+    "week_start": "2026-05-29",
+    "week_end": "2026-06-21",
+    "today_date": "2026-06-21",
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
@@ -3374,33 +3369,55 @@ window.MOBILE_DATA = {
       "netliq_baseline": 11540.0,
       "netliq_delta": null,
       "unrealized_today": null
+    },
+    {
+      "date": "2026-06-05",
+      "netliq": null,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": null,
+      "unrealized_today": null
+    },
+    {
+      "date": "2026-06-21",
+      "netliq": null,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": null,
+      "unrealized_today": null
     }
   ],
-  "morning_brief": "# MORNING BRIEF — 2026-05-26 (火) ACH $9,400 settle 当日\n\n_draft_ts: 2026-05-20 22:50 CT (前倒し 6日前) クロコー / 5/24-25 (土日) 更新予定_\n\n## 1. Header — timing 注意\n\n- 5/19 ACH $9,400 request → **5/26 (火) settle 予定 (T+5 銀行営業日)**\n- IBKR **Cash account**: PDT 適用外、 制約は **T+1 settlement** のみ。 5/26 朝着金 cash は 5/26 当日 BUY 可、 ただし sell→buy 同日 round trip は同 cash で 不可\n- 5/20 終 NetLiq **$11,342.78** / Available Cash **$3,649.27** / 短期 open **0**、 Champ 5銘柄 (PWR 2 / COST 1 / NVDA 12 / GOOG 4 / LLY 1) のみ\n- 今週 short 累計 realized **-$48.34** (5/20 force_sell 4本 + GOOGL/FTAI round trip = 8 fills 勝1)\n\n## 2. 入金 status 確認 (06:30-07:30 CT)\n\n1. `python sync_mobile.py` run → `mobile/data.js` `today_summary.netliq` が **~$20,742** へ jump 確認\n2. `available_funds` が **$3,649 → ~$13,049 (+$9,400)** に増えてるか\n3. TWS UI 「Available Funds」 直接照合、 cash settle 反映 lag あれば 30 分待機\n\n## 3. 配分 plan (5/19 夜 user 明示)\n\n### Champ DCA $1,160 (案 A 仮確定: champ_dca_schedule.json `2026-05-26`)\n- **PWR 1 株 (~$763)** + **GOOG 1 株 (~$389)** = **$1,152**\n- NVDA は既に 12 株 (集中過剰 + 5/20 AH 反応次第) → skip\n- `_alternative_if_nvda_drops`: NVDA -7%+ drop 時 NVDA buy-the-dip 5 株 ~$1,000-1,100 を 案 A 代替 (user 5/24-25 最終判断)\n\n### 短期 $8,240 (拡張 pool)\n- 既存 $2,200 + 新規 $8,240 = **$10,440 規模**\n- 1 ポジ size: 33% × $10,440 = **~$3,447** (HighPullback50_v1 / Sector_FriPanic_v1 / Stoch_Oversold_v1 等 14 戦略 commission floor 監査済)\n- max_positions 3 並列、 mega 5/5 booster 全 fire 時は単独 $5,000 cap (5/19 large position split rule 適用、 $3k+ 個別株は 2-5 LMT ladder)\n\n## 4. 5/26 当日 chronological action\n\n| 時刻 (CT) | action | tool |\n|---|---|---|\n| 06:00 | price update | `update_prices_daily.py` (Task Scheduler 自動) |\n| 06:30 | TWS auto-start + bridge 5555 起動確認 | bat (5/17 夜 port kill 適用済) |\n| 07:00 | `sync_mobile.py` → ACH settle netliq jump 確認 | manual or cron |\n| 07:30 | **Champ DCA 起動**: `champ_dca_executor.py --date 2026-05-26` | PWR 1 / GOOG 1 MOO BUY |\n| 08:25 | **Short Term Auto 起動** (5/19 fix: 8:25 CT shift + 5×60s retry) | `short_term_executor.py` MOO BUY 寄付 |\n| 08:30 | 寄付約定 → bracket TP/SL 自動配置確認 | TWS UI + alerts.log |\n| 場中 | monitor cron 15min, force_close 14:42-15:00 window | `monitor.py` |\n| 15:00 | MOC SELL (MSTR / BroadPanic 系) 実行 | `--intraday-exit` batch |\n| 15:30 | 場引後 verify_claims 全 PASS 確認 / `mobile_history.json` 更新 | nightly audit |\n\n## 5. 想定リスク + mitigation\n\n- **ACH settle 遅延**: 5/26 朝に着金未確認なら Champ DCA を **5/27 (水) に 1日 slide**。 `champ_dca_schedule.json` `2026-05-26` を `2026-05-27` に rename + `_alternative_if_nvda_drops` 再判定。 短期 executor は既存 $3,649 で 1 ポジ ($1,200 上限) のみ起動、 残りは settle 翌日に\n- **NVDA earnings AH -4.13% 持続** (5/20 終 $223 → AH ~$214): Champ NVDA 12 株含み損 -$108 → -$180 拡大想定。 -7%+ なら 案 A→NVDA buy-the-dip 5 株切替 trigger、 5/24 (土) user 判断必要\n- **5/26 当日 signal 大量 fire**: priority queue は (1) HighPullback50_v1 NVDA/AMAT 等 Monday booster S+、 (2) Pharma_Panic_v1 / Semi_FriPanic_v1、 (3) Sector_FriPanic_v1。 max_positions 3 で 4本目以降は skip_reason 記録、 翌日再 trigger\n- **T+1 制約**: 5/26 settle cash は 5/27 から再利用可、 当日 SELL 約定 cash は 5/27 まで使えない (Cash ac",
+  "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-05-30T15:15:30",
+      "ts": "2026-06-05T22:31:26",
       "ok": true,
-      "note": "125,899 B",
-      "age_min": 1049.9459175833333
+      "note": "140,425 B",
+      "age_min": 22787.51557995
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 7199.645917583333
+      "age_min": 38013.14891328334
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 7199.295917583334
+      "age_min": 38012.79891328334
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 7200.395917583333
+      "age_min": 38013.89891328334
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3418,43 +3435,85 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 7200.395917583333
+      "age_min": 38013.89891328334
     },
     "morning_preopen_notify": {
-      "ts": "2026-05-29T08:00:06",
+      "ts": "2026-06-21T18:18:37",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 2925.345917583333
+      "age_min": 0.33224661666666666
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 2978.895917583333
+      "age_min": 33792.39891328333
     },
     "monitor_main_engine_health": {
-      "ts": "2026-05-25T18:00:01",
+      "ts": "2026-06-21T18:18:32",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 8085.429250916667
+      "age_min": 0.41557995
     },
     "morning_tws_connect": {
       "ts": "2026-05-29T07:00:26",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 2985.0125842499997
+      "age_min": 33798.51557995
     },
     "short_term_auto_bat": {
       "ts": "2026-05-29T07:06:34",
       "ok": true,
       "note": "completed",
-      "age_min": 2978.8792509166665
+      "age_min": 33792.38224661667
     },
     "evening_signal_gen": {
       "ts": "2026-05-27T18:02:46",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 5202.679250916667
+      "age_min": 36016.18224661667
+    },
+    "bot_dispatch_daily": {
+      "ts": "2026-06-20T07:07:00",
+      "ok": false,
+      "note": "37 bots, autopilot=True",
+      "age_min": 2111.9489132833332
+    },
+    "bot_dispatch_intraday": {
+      "ts": "2026-06-20T15:00:06",
+      "ok": false,
+      "note": "2 bots, autopilot=True",
+      "age_min": 1638.8489132833333
+    },
+    "bot_dispatch_evening": {
+      "ts": "2026-06-20T18:06:06",
+      "ok": false,
+      "note": "40 bots, autopilot=True",
+      "age_min": 1452.8489132833333
+    },
+    "bot_dispatch_moc": {
+      "ts": "2026-06-20T15:45:13",
+      "ok": false,
+      "note": "6 bots, autopilot=True",
+      "age_min": 1593.7322466166665
+    },
+    "tlt_auto_bat": {
+      "ts": "2026-06-21T11:58:30",
+      "ok": true,
+      "note": "completed",
+      "age_min": 380.44891328333335
+    },
+    "inverse_hedge_auto_bat": {
+      "ts": "2026-06-21T18:18:34",
+      "ok": true,
+      "note": "completed",
+      "age_min": 0.38224661666666665
+    },
+    "alert_bot_dispatch": {
+      "ts": "2026-06-21T18:18:32",
+      "ok": false,
+      "note": "fatal: Extra data: line 581 column 1 (char 26034)",
+      "age_min": 0.41557995
     }
   },
   "regime": {
@@ -3477,6 +3536,48 @@ window.MOBILE_DATA = {
   },
   "alerts_recent": [
     {
+      "ts": "2026-06-21T18:18:37",
+      "severity": "INFO",
+      "source": "morning_preopen",
+      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 0 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
+    },
+    {
+      "ts": "2026-06-21T18:18:32",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
+      "ts": "2026-06-21T12:45:01",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
+      "ts": "2026-06-21T12:30:01",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
+      "ts": "2026-06-21T12:15:01",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
+      "ts": "2026-06-21T12:00:01",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
+      "ts": "2026-06-21T11:58:19",
+      "severity": "CRITICAL",
+      "source": "bot_dispatch",
+      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
+    },
+    {
       "ts": "2026-05-29T08:00:06",
       "severity": "INFO",
       "source": "morning_preopen",
@@ -3493,48 +3594,6 @@ window.MOBILE_DATA = {
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 0 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-26T08:00:06",
-      "severity": "INFO",
-      "source": "morning_preopen",
-      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 0 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-25T09:41:47",
-      "severity": "INFO",
-      "source": "morning_preopen",
-      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 0 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-23T08:34:26",
-      "severity": "CRITICAL",
-      "source": "short_term_executor_connect",
-      "message": "TWS 接続 5 回全失敗 — 手動で TWS 起動 + executor 再実行が必要"
-    },
-    {
-      "ts": "2026-05-22T08:00:05",
-      "severity": "INFO",
-      "source": "morning_preopen",
-      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 13 件、 採用 3 件 |   · SPY US_D6_First_Hour_FT_v1 利確+2.00% |   · QQQ US_D7_VIX_cond_ORB_v1 利確+3.00% |   · GOOGL HighPullback50_v1 利確+6.00% | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
-    },
-    {
-      "ts": "2026-05-22T07:21:58",
-      "severity": "CRITICAL",
-      "source": "R2_backtest_critical_findings",
-      "message": "R2 OOS backtest 6.4 年 完了 ⚠ 重大: US_D7_VIX_cond_ORB_v1 paper→LIVE 化済が C tier -840/mo 致命的、 HighPullback50_v1 / RSIBB_v1 / Drop5d_ETF7 等 9 戦略 C tier 落ち、 LIVE 35 中 多数 anti-edge 化。 user 朝判断: 即 disable / 5/26 ACH 待ち / 様子見、 どれ?"
-    },
-    {
-      "ts": "2026-05-21T08:39:30",
-      "severity": "CRITICAL",
-      "source": "state_tws_reconciler_phantom",
-      "message": "state ↔ TWS phantom 検知 (3件): EXE state=11株 TWS=0, NTAP state=4株 TWS=0, ADI state=2株 TWS=0。 silent fail #22 系列、 state.json 自動 cleanup 実行。"
-    },
-    {
-      "ts": "2026-05-21T08:00:05",
-      "severity": "INFO",
-      "source": "morning_preopen",
-      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 6 件、 採用 4 件 |   · NVDA HighPullback50_v1 利確+0.84% |   · ON HighPullback50_v1 利確+0.84% |   · SPXL HighPullback50_v1 利確+0.84% |   · LIN Sector_FriPanic_v1 利確+1.36% | ✅ 前夜 audit: 62 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | ℹ paper rehearsal 未走行 (cron 未配線か初回)"
     }
   ],
   "post_mortem": {
