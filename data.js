@@ -1,115 +1,66 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-22T15:15",
+  "generated_at": "2026-06-23T07:07",
   "today_summary": {
     "netliq": 10617.87,
-    "cash": 41.88,
-    "available_funds": 41.88,
+    "cash": 10614.87,
+    "available_funds": 10614.87,
     "excess_liquidity": 10614.87,
-    "settled_cash": 41.88,
-    "buying_power": 41.88,
+    "settled_cash": null,
+    "buying_power": 42459.48,
     "stock_value": 0.0,
     "unrealized_pnl": 0.0,
-    "realized_pnl": -461.91,
+    "realized_pnl": 0.0,
     "day_pnl_pct": 0.0,
     "account_type": "INDIVIDUAL",
     "open_positions": 0,
-    "open_orders_count": 0,
-    "fills_today_count": 8,
+    "open_orders_count": 3,
+    "fills_today_count": 0,
     "vix": null,
     "vix1d": null,
     "data_source": "TWS_direct_v2"
   },
-  "tws_open_orders": [],
-  "tws_fills_today": [
+  "tws_open_orders": [
     {
-      "symbol": "COST",
-      "time": "2026-06-22 13:30:00+00:00",
-      "side": "SLD",
-      "shares": 2.0,
-      "price": 946.72,
-      "avgPrice": 946.72,
-      "orderId": 0,
-      "commission": 0.393058,
-      "realizedPnL": -117.985058
+      "symbol": "MRK",
+      "orderId": 46,
+      "action": "BUY",
+      "qty": 1.0,
+      "orderType": "MKT",
+      "lmtPrice": 116.37,
+      "auxPrice": 0.0,
+      "tif": "DAY",
+      "status": "Submitted",
+      "filled": 0.0,
+      "remaining": 1.0
     },
     {
-      "symbol": "GOOG",
-      "time": "2026-06-22 13:30:02+00:00",
-      "side": "SLD",
-      "shares": 5.0,
-      "price": 356.57,
-      "avgPrice": 356.57,
-      "orderId": 0,
-      "commission": 0.396474,
-      "realizedPnL": -155.405516
+      "symbol": "AMZN",
+      "orderId": 229,
+      "action": "BUY",
+      "qty": 15.0,
+      "orderType": "MKT",
+      "lmtPrice": 231.21,
+      "auxPrice": 0.0,
+      "tif": "DAY",
+      "status": "Submitted",
+      "filled": 0.0,
+      "remaining": 15.0
     },
     {
-      "symbol": "PWR",
-      "time": "2026-06-22 13:30:02+00:00",
-      "side": "SLD",
-      "shares": 3.0,
-      "price": 712.0,
-      "avgPrice": 712.0,
-      "orderId": 0,
-      "commission": 0.398453,
-      "realizedPnL": -121.859953
-    },
-    {
-      "symbol": "NVDA",
-      "time": "2026-06-22 13:30:03+00:00",
-      "side": "SLD",
-      "shares": 12.0,
-      "price": 211.5,
-      "avgPrice": 211.5,
-      "orderId": 0,
-      "commission": 0.425316,
-      "realizedPnL": -218.665316
-    },
-    {
-      "symbol": "GOOG",
-      "time": "2026-06-22 13:30:07+00:00",
-      "side": "SLD",
-      "shares": 0.0029,
-      "price": 357.92,
-      "avgPrice": 356.570783,
-      "orderId": 0,
-      "commission": 2.3e-05,
-      "realizedPnL": -0.086013
-    },
-    {
-      "symbol": "LLY",
-      "time": "2026-06-22 13:31:09+00:00",
-      "side": "SLD",
-      "shares": 1.0,
-      "price": 1110.0,
-      "avgPrice": 1110.0,
-      "orderId": 0,
-      "commission": 0.374521,
-      "realizedPnL": 75.814487
-    },
-    {
-      "symbol": "LLY",
-      "time": "2026-06-22 13:31:09+00:00",
-      "side": "SLD",
-      "shares": 1.0,
-      "price": 1110.0,
-      "avgPrice": 1110.0,
-      "orderId": 0,
-      "commission": 0.024264,
-      "realizedPnL": 76.164744
-    },
-    {
-      "symbol": "LLY",
-      "time": "2026-06-22 13:31:09+00:00",
-      "side": "SLD",
-      "shares": 0.0015,
-      "price": 1109.07,
-      "avgPrice": 1109.999303,
-      "orderId": 0,
-      "commission": 3.5e-05,
-      "realizedPnL": 0.112854
+      "symbol": "KO",
+      "orderId": 44,
+      "action": "BUY",
+      "qty": 2.0,
+      "orderType": "MKT",
+      "lmtPrice": 0.0,
+      "auxPrice": 0.0,
+      "tif": "DAY",
+      "status": "Submitted",
+      "filled": 0.0,
+      "remaining": 2.0
     }
   ],
+  "tws_fills_today": [],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 0,
@@ -500,23 +451,14 @@ window.MOBILE_DATA = {
   ],
   "weekly_pnl": {
     "capital": 4237,
-    "week_start": "2026-05-30",
-    "week_end": "2026-06-22",
+    "week_start": "2026-05-31",
+    "week_end": "2026-06-23",
     "total_pnl_usd": 0.0,
     "total_pnl_pct": 0.0,
     "n_trades": 0,
     "n_wins": 0,
     "win_rate": 0.0,
     "days": [
-      {
-        "date": "2026-05-30",
-        "dow": "Sat",
-        "vix": null,
-        "pnl": 0.0,
-        "cum": 0.0,
-        "n": 0,
-        "wins": 0
-      },
       {
         "date": "2026-05-31",
         "dow": "Sun",
@@ -547,6 +489,15 @@ window.MOBILE_DATA = {
       {
         "date": "2026-06-22",
         "dow": "Mon",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-06-23",
+        "dow": "Tue",
         "vix": null,
         "pnl": 0.0,
         "cum": 0.0,
@@ -598,9 +549,9 @@ window.MOBILE_DATA = {
       "unrealized": 0.0,
       "positions": []
     },
-    "week_start": "2026-05-30",
-    "week_end": "2026-06-22",
-    "today_date": "2026-06-22",
+    "week_start": "2026-05-31",
+    "week_end": "2026-06-23",
+    "today_date": "2026-06-23",
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
@@ -610,12 +561,36 @@ window.MOBILE_DATA = {
       "strategy": "Confluence_RSIStoch_v1",
       "tier": "",
       "trigger": "Confluence_RSIStoch_v1",
-      "ref_price": 59.51,
+      "ref_price": 58.91,
+      "target_tp_pct": 4.0,
+      "hold": 3,
+      "selected": true,
+      "shares": null,
+      "sector": "Commodity"
+    },
+    {
+      "ticker": "AMZN",
+      "strategy": "Confluence_RSIStoch_v1",
+      "tier": "",
+      "trigger": "Confluence_RSIStoch_v1",
+      "ref_price": 232.79,
+      "target_tp_pct": 4.0,
+      "hold": 3,
+      "selected": true,
+      "shares": null,
+      "sector": "InternetRetail"
+    },
+    {
+      "ticker": "EBAY",
+      "strategy": "Confluence_RSIStoch_v1",
+      "tier": "",
+      "trigger": "Confluence_RSIStoch_v1",
+      "ref_price": 104.94,
       "target_tp_pct": 4.0,
       "hold": 3,
       "selected": false,
       "shares": null,
-      "sector": "Commodity"
+      "sector": "InternetRetail"
     }
   ],
   "positions": [],
@@ -3504,33 +3479,44 @@ window.MOBILE_DATA = {
       "netliq_baseline": 11540.0,
       "netliq_delta": -922.13,
       "unrealized_today": 0.0
+    },
+    {
+      "date": "2026-06-23",
+      "netliq": 10617.87,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": -922.13,
+      "unrealized_today": 0.0
     }
   ],
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-22T08:45:18",
+      "ts": "2026-06-22T15:15:18",
       "ok": true,
-      "note": "137,496 B",
-      "age_min": 389.97336186666666
+      "note": "137,513 B",
+      "age_min": 951.867935
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 39269.473361866665
+      "age_min": 40221.367935
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 39269.12336186667
+      "age_min": 40221.017935
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 39270.223361866665
+      "age_min": 40222.117935
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3548,115 +3534,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 39270.223361866665
+      "age_min": 40222.117935
     },
     "morning_preopen_notify": {
       "ts": "2026-06-22T08:00:06",
       "ok": true,
       "note": "5 blocks",
-      "age_min": 435.17336186666665
+      "age_min": 1387.067935
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 35048.723361866665
+      "age_min": 36000.617935
     },
     "monitor_main_engine_health": {
-      "ts": "2026-06-21T18:18:32",
+      "ts": "2026-06-22T18:00:02",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 1256.7400285333335
+      "age_min": 787.1346016666666
     },
     "morning_tws_connect": {
-      "ts": "2026-06-22T08:15:21",
+      "ts": "2026-06-23T07:00:02",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 419.92336186666665
+      "age_min": 7.134601666666667
     },
     "short_term_auto_bat": {
       "ts": "2026-06-22T07:06:09",
       "ok": true,
       "note": "completed",
-      "age_min": 489.12336186666664
+      "age_min": 1441.017935
     },
     "evening_signal_gen": {
-      "ts": "2026-06-21T18:21:13",
+      "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 1254.0566952000001
+      "age_min": 783.9846016666667
     },
     "bot_dispatch_daily": {
       "ts": "2026-06-22T07:41:13",
       "ok": false,
       "note": "39 bots, autopilot=True",
-      "age_min": 454.0566952
+      "age_min": 1405.9512683333335
     },
     "bot_dispatch_intraday": {
       "ts": "2026-06-22T15:00:04",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 15.2066952
+      "age_min": 967.1012683333333
     },
     "bot_dispatch_evening": {
-      "ts": "2026-06-20T18:06:06",
+      "ts": "2026-06-22T18:06:04",
       "ok": false,
-      "note": "40 bots, autopilot=True",
-      "age_min": 2709.1733618666667
+      "note": "39 bots, autopilot=True",
+      "age_min": 781.1012683333333
     },
     "bot_dispatch_moc": {
-      "ts": "2026-06-20T15:45:13",
-      "ok": false,
+      "ts": "2026-06-22T15:45:35",
+      "ok": true,
       "note": "6 bots, autopilot=True",
-      "age_min": 2850.0566952
+      "age_min": 921.5846016666667
     },
     "tlt_auto_bat": {
       "ts": "2026-06-22T07:10:15",
       "ok": true,
       "note": "completed",
-      "age_min": 485.0233618666667
+      "age_min": 1436.9179350000002
     },
     "inverse_hedge_auto_bat": {
-      "ts": "2026-06-21T18:18:34",
+      "ts": "2026-06-22T16:30:02",
       "ok": true,
       "note": "completed",
-      "age_min": 1256.7066952
+      "age_min": 877.1346016666666
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 481.0566952
+      "age_min": 1432.9512683333335
     },
     "paper_rehearsal": {
       "ts": "2026-06-22T08:15:37",
       "ok": true,
       "note": "rehearsal ok",
-      "age_min": 419.6566952
+      "age_min": 1371.5512683333334
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-21T18:23:32",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260621.log)",
-      "age_min": 1251.7400285333335
+      "age_min": 2203.6346016666666
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 1240.9066952
+      "age_min": 2192.8012683333336
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 1196.4233618666667
+      "age_min": 2148.317935
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 1191.3900285333334
+      "age_min": 2143.2846016666667
+    },
+    "alert_short_term_executor_pyramid_fill_timeout_30s": {
+      "ts": "2026-06-23T07:00:38",
+      "ok": false,
+      "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
+      "age_min": 6.534601666666666
     }
   },
   "regime": {
@@ -3678,6 +3670,12 @@ window.MOBILE_DATA = {
     "data_freshness_days": 4
   },
   "alerts_recent": [
+    {
+      "ts": "2026-06-23T07:00:38",
+      "severity": "CRITICAL",
+      "source": "short_term_executor_pyramid_fill_timeout_30s",
+      "message": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel"
+    },
     {
       "ts": "2026-06-22T08:00:06",
       "severity": "INFO",
@@ -3731,12 +3729,6 @@ window.MOBILE_DATA = {
       "severity": "CRITICAL",
       "source": "bot_dispatch",
       "message": "fatal: Extra data: line 581 column 1 (char 26034)"
-    },
-    {
-      "ts": "2026-06-21T12:00:01",
-      "severity": "CRITICAL",
-      "source": "bot_dispatch",
-      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
     }
   ],
   "post_mortem": {
@@ -3744,120 +3736,22 @@ window.MOBILE_DATA = {
     "content": "# Weekly Post-Mortem 2026-05-18 (counterfactual 直近 7 日)\n\n**Task #102 自動出力** — 場中 SL 売却 vs hold-end の比較で SL rule の週次勝敗を判定。\n\n## 📊 Summary\n\n- 期間: 過去 **7** 日 (closed_positions 1 件 対象、 うち場中 SL 系 **1** 件)\n- 場中 SL 実 P&L: **$-90.90**\n- 引け hold 仮想: **$-59.55**\n- 戦略 rule 通り hold (N日後 Close) 仮想: **$+0.00**\n- hold-引け の方が良かった件数: **1 / 1**\n- hold-rule の方が良かった件数: **0 / 1**\n\n## 🎯 今週判定: **LOSS**\n\n> 場中 SL 売却 で $31 (引け) / $91 (rule) の機会損失\n\n## 🔍 Trade-by-trade counterfactual\n\n| Ticker | Strat | Exit reason | 実 P&L | 引け hold P&L | rule hold P&L | 救済可? |\n|---|---|---|---:|---:|---:|---|\n| ON | HighPullback50_v1 | user_manual_-3%_intraday_SL | $-90.90 | $-59.55 | ? | **+$31** 救済 |\n\n## 📝 個別 narrative\n\n- **ON** (HighPullback50_v1, 2026-05-18 entry → 2026-05-18 user_manual_-3%_intraday_SL): 実 $-91 (-5.29%)、 引け hold なら $-60 (-3.50%) = **$31 救済可**\n\n---\n\n_generated by `weekly_post_mortem.py` @ 2026-05-18 23:47:53 CT_\n"
   },
   "exit_plans": [],
-  "intraday_opportunities": [],
+  "intraday_opportunities": [
+    {
+      "kind": "gap_fade",
+      "ticker": "SLV",
+      "strategy": "Confluence_RSIStoch_v1",
+      "open_price": 56.19,
+      "current_price": 58.9,
+      "from_open_pct": 4.83,
+      "max_size_usd": 7884.0,
+      "sig_ts": "2026-06-23",
+      "cutoff_hhmm": "14:30",
+      "action_label": "🟡 監視中",
+      "reason": "寄付値から +4.83% (発火閾値 -2.0% まで遠い)"
+    }
+  ],
   "all_trades": [
-    {
-      "date": "2026-06-22",
-      "ticker": "COST",
-      "strategy": "TWS_SLD",
-      "shares": 2.0,
-      "entry_price": 946.72,
-      "exit_price": null,
-      "pnl_usd": -117.985058,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.393058,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "GOOG",
-      "strategy": "TWS_SLD",
-      "shares": 5.0,
-      "entry_price": 356.57,
-      "exit_price": null,
-      "pnl_usd": -155.405516,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.396474,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "PWR",
-      "strategy": "TWS_SLD",
-      "shares": 3.0,
-      "entry_price": 712.0,
-      "exit_price": null,
-      "pnl_usd": -121.859953,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.398453,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "NVDA",
-      "strategy": "TWS_SLD",
-      "shares": 12.0,
-      "entry_price": 211.5,
-      "exit_price": null,
-      "pnl_usd": -218.665316,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.425316,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "GOOG",
-      "strategy": "TWS_SLD",
-      "shares": 0.0029,
-      "entry_price": 357.92,
-      "exit_price": null,
-      "pnl_usd": -0.086013,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 2.3e-05,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "LLY",
-      "strategy": "TWS_SLD",
-      "shares": 1.0,
-      "entry_price": 1110.0,
-      "exit_price": null,
-      "pnl_usd": 75.814487,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.374521,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "LLY",
-      "strategy": "TWS_SLD",
-      "shares": 1.0,
-      "entry_price": 1110.0,
-      "exit_price": null,
-      "pnl_usd": 76.164744,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.024264,
-      "side": "SLD"
-    },
-    {
-      "date": "2026-06-22",
-      "ticker": "LLY",
-      "strategy": "TWS_SLD",
-      "shares": 0.0015,
-      "entry_price": 1109.07,
-      "exit_price": null,
-      "pnl_usd": 0.112854,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 3.5e-05,
-      "side": "SLD"
-    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
