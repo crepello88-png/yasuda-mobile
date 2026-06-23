@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-23T07:07",
+  "generated_at": "2026-06-23T08:16",
   "today_summary": {
     "netliq": 10617.87,
     "cash": 10614.87,
@@ -13,7 +13,7 @@ window.MOBILE_DATA = {
     "day_pnl_pct": 0.0,
     "account_type": "INDIVIDUAL",
     "open_positions": 0,
-    "open_orders_count": 3,
+    "open_orders_count": 4,
     "fills_today_count": 0,
     "vix": null,
     "vix1d": null,
@@ -34,17 +34,17 @@ window.MOBILE_DATA = {
       "remaining": 1.0
     },
     {
-      "symbol": "AMZN",
-      "orderId": 229,
+      "symbol": "VZ",
+      "orderId": 48,
       "action": "BUY",
-      "qty": 15.0,
+      "qty": 4.0,
       "orderType": "MKT",
-      "lmtPrice": 231.21,
+      "lmtPrice": 0.0,
       "auxPrice": 0.0,
       "tif": "DAY",
       "status": "Submitted",
       "filled": 0.0,
-      "remaining": 15.0
+      "remaining": 4.0
     },
     {
       "symbol": "KO",
@@ -58,6 +58,19 @@ window.MOBILE_DATA = {
       "status": "Submitted",
       "filled": 0.0,
       "remaining": 2.0
+    },
+    {
+      "symbol": "ETN",
+      "orderId": 50,
+      "action": "BUY",
+      "qty": 1.0,
+      "orderType": "MKT",
+      "lmtPrice": 0.0,
+      "auxPrice": 0.0,
+      "tif": "DAY",
+      "status": "Submitted",
+      "filled": 0.0,
+      "remaining": 1.0
     }
   ],
   "tws_fills_today": [],
@@ -3495,28 +3508,28 @@ window.MOBILE_DATA = {
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-22T15:15:18",
+      "ts": "2026-06-23T07:07:12",
       "ok": true,
-      "note": "137,513 B",
-      "age_min": 951.867935
+      "note": "135,134 B",
+      "age_min": 68.89621558333333
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 40221.367935
+      "age_min": 40290.29621558333
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 40221.017935
+      "age_min": 40289.94621558333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 40222.117935
+      "age_min": 40291.04621558333
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3534,121 +3547,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 40222.117935
+      "age_min": 40291.04621558333
     },
     "morning_preopen_notify": {
-      "ts": "2026-06-22T08:00:06",
+      "ts": "2026-06-23T08:00:03",
       "ok": true,
-      "note": "5 blocks",
-      "age_min": 1387.067935
+      "note": "7 blocks",
+      "age_min": 16.046215583333332
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 36000.617935
+      "age_min": 36069.54621558333
     },
     "monitor_main_engine_health": {
       "ts": "2026-06-22T18:00:02",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 787.1346016666666
+      "age_min": 856.06288225
     },
     "morning_tws_connect": {
-      "ts": "2026-06-23T07:00:02",
+      "ts": "2026-06-23T08:15:34",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 7.134601666666667
+      "age_min": 0.5295489166666667
     },
     "short_term_auto_bat": {
-      "ts": "2026-06-22T07:06:09",
+      "ts": "2026-06-23T07:11:54",
       "ok": true,
       "note": "completed",
-      "age_min": 1441.017935
+      "age_min": 64.19621558333333
     },
     "evening_signal_gen": {
       "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 783.9846016666667
+      "age_min": 852.91288225
     },
     "bot_dispatch_daily": {
-      "ts": "2026-06-22T07:41:13",
+      "ts": "2026-06-23T07:07:11",
       "ok": false,
       "note": "39 bots, autopilot=True",
-      "age_min": 1405.9512683333335
+      "age_min": 68.91288225
     },
     "bot_dispatch_intraday": {
       "ts": "2026-06-22T15:00:04",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 967.1012683333333
+      "age_min": 1036.0295489166667
     },
     "bot_dispatch_evening": {
       "ts": "2026-06-22T18:06:04",
       "ok": false,
       "note": "39 bots, autopilot=True",
-      "age_min": 781.1012683333333
+      "age_min": 850.0295489166667
     },
     "bot_dispatch_moc": {
       "ts": "2026-06-22T15:45:35",
       "ok": true,
       "note": "6 bots, autopilot=True",
-      "age_min": 921.5846016666667
+      "age_min": 990.51288225
     },
     "tlt_auto_bat": {
-      "ts": "2026-06-22T07:10:15",
+      "ts": "2026-06-23T07:10:15",
       "ok": true,
       "note": "completed",
-      "age_min": 1436.9179350000002
+      "age_min": 65.84621558333333
     },
     "inverse_hedge_auto_bat": {
       "ts": "2026-06-22T16:30:02",
       "ok": true,
       "note": "completed",
-      "age_min": 877.1346016666666
+      "age_min": 946.06288225
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 1432.9512683333335
+      "age_min": 1501.8795489166666
     },
     "paper_rehearsal": {
-      "ts": "2026-06-22T08:15:37",
+      "ts": "2026-06-23T08:15:50",
       "ok": true,
       "note": "rehearsal ok",
-      "age_min": 1371.5512683333334
+      "age_min": 0.26288225
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-21T18:23:32",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260621.log)",
-      "age_min": 2203.6346016666666
+      "age_min": 2272.56288225
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 2192.8012683333336
+      "age_min": 2261.7295489166663
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 2148.317935
+      "age_min": 2217.246215583333
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 2143.2846016666667
+      "age_min": 2212.21288225
     },
     "alert_short_term_executor_pyramid_fill_timeout_30s": {
       "ts": "2026-06-23T07:00:38",
       "ok": false,
       "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
-      "age_min": 6.534601666666666
+      "age_min": 75.46288224999999
     }
   },
   "regime": {
@@ -3670,6 +3683,12 @@ window.MOBILE_DATA = {
     "data_freshness_days": 4
   },
   "alerts_recent": [
+    {
+      "ts": "2026-06-23T08:00:03",
+      "severity": "INFO",
+      "source": "morning_preopen",
+      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 3 件、 採用 2 件 |   · SLV Confluence_RSIStoch_v1 利確+4.00% |   · AMZN Confluence_RSIStoch_v1 利確+4.00% | ✅ 前夜 audit: 70 件 全 PASS | 💼 NetLiq $10,618、 cash $10,615 | ✅ paper rehearsal: 2026-06-22T08:15 OK"
+    },
     {
       "ts": "2026-06-23T07:00:38",
       "severity": "CRITICAL",
@@ -3720,12 +3739,6 @@ window.MOBILE_DATA = {
     },
     {
       "ts": "2026-06-21T12:30:01",
-      "severity": "CRITICAL",
-      "source": "bot_dispatch",
-      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
-    },
-    {
-      "ts": "2026-06-21T12:15:01",
       "severity": "CRITICAL",
       "source": "bot_dispatch",
       "message": "fatal: Extra data: line 581 column 1 (char 26034)"
