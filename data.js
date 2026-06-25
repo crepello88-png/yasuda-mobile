@@ -1,16 +1,16 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-25T08:15",
+  "generated_at": "2026-06-25T08:45",
   "today_summary": {
-    "netliq": 10224.87,
-    "cash": 9972.44,
-    "available_funds": 9972.44,
-    "excess_liquidity": 9995.12,
+    "netliq": 10234.52,
+    "cash": 9979.75,
+    "available_funds": 9979.75,
+    "excess_liquidity": 10002.63,
     "settled_cash": null,
-    "buying_power": 39889.76,
-    "stock_value": 876.26,
-    "unrealized_pnl": -6.8,
+    "buying_power": 39918.98,
+    "stock_value": 885.91,
+    "unrealized_pnl": 2.85,
     "realized_pnl": 0.0,
-    "day_pnl_pct": -0.06650451301581341,
+    "day_pnl_pct": 0.02784693371061857,
     "account_type": "INDIVIDUAL",
     "open_positions": 4,
     "open_orders_count": 0,
@@ -579,11 +579,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 181.76,
-      "_unreal_pnl": -1.52,
-      "_market_price": 45.43999865,
-      "current_price": 45.73500061035156,
-      "pnl_pct": -0.18283856268186405,
+      "_market_value": 182.25,
+      "_unreal_pnl": -1.02,
+      "_market_price": 45.5634918,
+      "current_price": 45.63999938964844,
+      "pnl_pct": -0.39017981242747135,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 45.818775,
@@ -609,11 +609,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 414.01,
-      "_unreal_pnl": -5.1,
-      "_market_price": 414.01000975,
-      "current_price": 404.7699890136719,
-      "pnl_pct": -3.4218843878843996,
+      "_market_value": 419.57,
+      "_unreal_pnl": 0.46,
+      "_market_price": 419.5733948,
+      "current_price": 419.45001220703125,
+      "pnl_pct": 0.08076900944766763,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 419.1115,
@@ -639,11 +639,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 120.41,
-      "_unreal_pnl": 2.67,
-      "_market_price": 120.41000365,
-      "current_price": 120.66999816894531,
-      "pnl_pct": 2.4872268222719374,
+      "_market_value": 122.96,
+      "_unreal_pnl": 5.22,
+      "_market_price": 122.96202085,
+      "current_price": 122.65499877929688,
+      "pnl_pct": 4.173123987121685,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 117.7415,
@@ -669,11 +669,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 160.08,
-      "_unreal_pnl": -2.85,
-      "_market_price": 80.0400009,
-      "current_price": 80.62000274658203,
-      "pnl_pct": -1.0388918288569138,
+      "_market_value": 161.12,
+      "_unreal_pnl": -1.81,
+      "_market_price": 80.559021,
+      "current_price": 80.58000183105469,
+      "pnl_pct": -1.0879929798564891,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 81.46635,
@@ -3597,41 +3597,41 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-06-25",
-      "netliq": 10224.87,
+      "netliq": 10234.52,
       "day_pnl": 0.0,
       "cum_pnl_short": -48.34,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -1315.13,
-      "unrealized_today": -6.8
+      "netliq_delta": -1305.48,
+      "unrealized_today": 2.85
     }
   ],
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-24T16:03:17",
+      "ts": "2026-06-25T08:16:00",
       "ok": true,
-      "note": "134,925 B",
-      "age_min": 972.6929872166667
+      "note": "143,058 B",
+      "age_min": 29.3686447
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 43170.17632055
+      "age_min": 43199.5686447
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 43169.826320550004
+      "age_min": 43199.2186447
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 43170.92632055
+      "age_min": 43200.3186447
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3649,121 +3649,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 43170.92632055
+      "age_min": 43200.3186447
     },
     "morning_preopen_notify": {
       "ts": "2026-06-25T08:00:04",
       "ok": true,
       "note": "7 blocks",
-      "age_min": 15.909653883333334
+      "age_min": 45.30197803333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 38949.42632055
+      "age_min": 38978.8186447
     },
     "monitor_main_engine_health": {
       "ts": "2026-06-24T18:00:02",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 855.9429872166667
+      "age_min": 885.3353113666667
     },
     "morning_tws_connect": {
       "ts": "2026-06-25T08:15:21",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 0.6263205500000001
+      "age_min": 30.0186447
     },
     "short_term_auto_bat": {
       "ts": "2026-06-23T07:11:54",
       "ok": true,
       "note": "completed",
-      "age_min": 2944.0763205499998
+      "age_min": 2973.4686447
     },
     "evening_signal_gen": {
       "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 3732.7929872166665
+      "age_min": 3762.1853113666666
     },
     "bot_dispatch_daily": {
       "ts": "2026-06-25T07:06:27",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 69.52632055000001
+      "age_min": 98.9186447
     },
     "bot_dispatch_intraday": {
-      "ts": "2026-06-24T10:00:04",
+      "ts": "2026-06-25T08:45:04",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 1335.9096538833332
+      "age_min": 0.30197803333333334
     },
     "bot_dispatch_evening": {
       "ts": "2026-06-24T18:06:00",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 849.97632055
+      "age_min": 879.3686447
     },
     "bot_dispatch_moc": {
       "ts": "2026-06-24T16:03:04",
       "ok": false,
       "note": "4 bots, autopilot=True",
-      "age_min": 972.9096538833332
+      "age_min": 1002.3019780333333
     },
     "tlt_auto_bat": {
       "ts": "2026-06-25T07:10:15",
       "ok": true,
       "note": "completed",
-      "age_min": 65.72632055
+      "age_min": 95.1186447
     },
     "inverse_hedge_auto_bat": {
       "ts": "2026-06-24T16:30:03",
       "ok": true,
       "note": "completed",
-      "age_min": 945.9263205499999
+      "age_min": 975.3186447
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 4381.759653883333
+      "age_min": 4411.151978033333
     },
     "paper_rehearsal": {
       "ts": "2026-06-25T08:15:37",
       "ok": true,
       "note": "rehearsal ok",
-      "age_min": 0.3596538833333333
+      "age_min": 29.751978033333334
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-21T18:23:32",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260621.log)",
-      "age_min": 5152.442987216667
+      "age_min": 5181.835311366666
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 5141.6096538833335
+      "age_min": 5171.001978033333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 5097.12632055
+      "age_min": 5126.5186447
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 5092.092987216666
+      "age_min": 5121.485311366666
     },
     "alert_short_term_executor_pyramid_fill_timeout_30s": {
       "ts": "2026-06-23T07:00:38",
       "ok": false,
       "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
-      "age_min": 2955.3429872166666
+      "age_min": 2984.735311366667
     }
   },
   "regime": {
@@ -3885,8 +3885,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 45.73500061035156,
-      "unrealized_pct": -0.18,
+      "current_price": 45.63999938964844,
+      "unrealized_pct": -0.39,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -3924,8 +3924,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 404.7699890136719,
-      "unrealized_pct": -3.42,
+      "current_price": 419.45001220703125,
+      "unrealized_pct": 0.08,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -3963,8 +3963,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 120.66999816894531,
-      "unrealized_pct": 2.49,
+      "current_price": 122.65499877929688,
+      "unrealized_pct": 4.17,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -4002,8 +4002,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 80.62000274658203,
-      "unrealized_pct": -1.04,
+      "current_price": 80.58000183105469,
+      "unrealized_pct": -1.09,
       "force_sell_today": null,
       "silent_fail_note": null
     }
