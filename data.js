@@ -1,5 +1,5 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-27T08:45",
+  "generated_at": "2026-06-27T15:15",
   "today_summary": {
     "netliq": null,
     "cash": null,
@@ -3535,28 +3535,28 @@ window.MOBILE_DATA = {
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-26T15:15:25",
+      "ts": "2026-06-27T08:45:24",
       "ok": true,
-      "note": "136,434 B",
-      "age_min": 1049.9694755666667
+      "note": "136,812 B",
+      "age_min": 389.9852381333333
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 46079.58614223333
+      "age_min": 46469.58523813333
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 46079.236142233334
+      "age_min": 46469.23523813333
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 46080.33614223333
+      "age_min": 46470.33523813333
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3574,121 +3574,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 46080.33614223333
+      "age_min": 46470.33523813333
     },
     "morning_preopen_notify": {
       "ts": "2026-06-27T08:00:03",
       "ok": true,
       "note": "6 blocks",
-      "age_min": 45.336142233333334
+      "age_min": 435.33523813333335
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 41858.83614223333
+      "age_min": 42248.83523813333
     },
     "monitor_main_engine_health": {
       "ts": "2026-06-26T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 885.3694755666667
+      "age_min": 1275.3685714666667
     },
     "morning_tws_connect": {
       "ts": "2026-06-25T08:15:21",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 2910.036142233333
+      "age_min": 3300.0352381333337
     },
     "short_term_auto_bat": {
       "ts": "2026-06-23T07:11:54",
       "ok": true,
       "note": "completed",
-      "age_min": 5853.486142233333
+      "age_min": 6243.485238133333
     },
     "evening_signal_gen": {
       "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 6642.2028089
+      "age_min": 7032.201904799999
     },
     "bot_dispatch_daily": {
       "ts": "2026-06-27T07:06:43",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 98.66947556666668
+      "age_min": 488.66857146666666
     },
     "bot_dispatch_intraday": {
-      "ts": "2026-06-27T08:45:06",
+      "ts": "2026-06-27T15:00:06",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 0.28614223333333333
+      "age_min": 15.285238133333333
     },
     "bot_dispatch_evening": {
       "ts": "2026-06-26T18:06:06",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 879.2861422333333
+      "age_min": 1269.2852381333332
     },
     "bot_dispatch_moc": {
       "ts": "2026-06-26T15:45:06",
       "ok": true,
       "note": "4 bots, autopilot=True",
-      "age_min": 1020.2861422333333
+      "age_min": 1410.2852381333332
     },
     "tlt_auto_bat": {
       "ts": "2026-06-27T07:10:14",
       "ok": true,
       "note": "completed",
-      "age_min": 95.15280890000001
+      "age_min": 485.1519048
     },
     "inverse_hedge_auto_bat": {
       "ts": "2026-06-26T16:30:02",
       "ok": true,
       "note": "completed",
-      "age_min": 975.3528088999999
+      "age_min": 1365.3519048
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 7291.169475566667
+      "age_min": 7681.168571466666
     },
     "paper_rehearsal": {
       "ts": "2026-06-27T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s",
-      "age_min": 25.369475566666665
+      "age_min": 415.36857146666665
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-27T08:20:01",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260627.log)",
-      "age_min": 25.369475566666665
+      "age_min": 415.36857146666665
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 8051.019475566666
+      "age_min": 8441.018571466666
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 8006.5361422333335
+      "age_min": 8396.535238133332
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 8001.5028089
+      "age_min": 8391.5019048
     },
     "alert_short_term_executor_pyramid_fill_timeout_30s": {
       "ts": "2026-06-23T07:00:38",
       "ok": false,
       "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
-      "age_min": 5864.7528089
+      "age_min": 6254.7519047999995
     }
   },
   "regime": {
