@@ -1,26 +1,104 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-30T08:15",
+  "generated_at": "2026-06-30T08:45",
   "today_summary": {
-    "netliq": 10227.38,
-    "cash": 9979.82,
-    "available_funds": 9979.82,
-    "excess_liquidity": 10002.32,
+    "netliq": 10223.67,
+    "cash": 5529.95,
+    "available_funds": 5529.95,
+    "excess_liquidity": 5530.0,
     "settled_cash": null,
-    "buying_power": 39919.28,
-    "stock_value": 881.76,
-    "unrealized_pnl": -4.29,
+    "buying_power": 22119.78,
+    "stock_value": 15964.71,
+    "unrealized_pnl": -8.0,
     "realized_pnl": 0.0,
-    "day_pnl_pct": -0.04194622669735554,
+    "day_pnl_pct": -0.07824978701386098,
     "account_type": "INDIVIDUAL",
-    "open_positions": 5,
+    "open_positions": 12,
     "open_orders_count": 0,
-    "fills_today_count": 0,
+    "fills_today_count": 7,
     "vix": null,
     "vix1d": null,
     "data_source": "TWS_direct_v2"
   },
   "tws_open_orders": [],
-  "tws_fills_today": [],
+  "tws_fills_today": [
+    {
+      "symbol": "SPY",
+      "time": "2026-06-30 13:30:00+00:00",
+      "side": "SLD",
+      "shares": 18.0,
+      "price": 741.22,
+      "avgPrice": 741.22,
+      "orderId": 23,
+      "commission": 0.659266,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "GOOGL",
+      "time": "2026-06-30 13:30:00+00:00",
+      "side": "SLD",
+      "shares": 1.0,
+      "price": 354.05,
+      "avgPrice": 354.05,
+      "orderId": 68,
+      "commission": 0.359449,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "BAC",
+      "time": "2026-06-30 13:30:01+00:00",
+      "side": "BOT",
+      "shares": 3.0,
+      "price": 57.41,
+      "avgPrice": 57.41,
+      "orderId": 74,
+      "commission": 0.353866,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "GOOG",
+      "time": "2026-06-30 13:30:01+00:00",
+      "side": "SLD",
+      "shares": 1.0,
+      "price": 351.28,
+      "avgPrice": 351.28,
+      "orderId": 70,
+      "commission": 0.359392,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "LIN",
+      "time": "2026-06-30 13:30:02+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 512.35,
+      "avgPrice": 512.35,
+      "orderId": 78,
+      "commission": 0.35196,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "MS",
+      "time": "2026-06-30 13:32:05+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 210.0,
+      "avgPrice": 210.0,
+      "orderId": 76,
+      "commission": 0.35146,
+      "realizedPnL": 0.0
+    },
+    {
+      "symbol": "XOM",
+      "time": "2026-06-30 13:33:29+00:00",
+      "side": "BOT",
+      "shares": 1.0,
+      "price": 137.01,
+      "avgPrice": 137.01,
+      "orderId": 72,
+      "commission": 0.35146,
+      "realizedPnL": 0.0
+    }
+  ],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 0,
@@ -579,6 +657,156 @@ window.MOBILE_DATA = {
   ],
   "positions": [
     {
+      "ticker": "SPY",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 741.18337415,
+      "shares": -18.0,
+      "entry_value": -13341.300734699998,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": -13349.73,
+      "_unreal_pnl": -8.43,
+      "_market_price": 741.65179445,
+      "current_price": 741.9500122070312,
+      "pnl_pct": 0.10343432998756175,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 741.18337415,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 718.9478729255,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 667.065036735,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "BAC",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 57.5279554,
+      "shares": 3.0,
+      "entry_value": 172.58386620000002,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": 171.34,
+      "_unreal_pnl": -1.24,
+      "_market_price": 57.1137924,
+      "current_price": 57.18830108642578,
+      "pnl_pct": -0.5904161050267809,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 57.5279554,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 55.802116738,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 51.77515986,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "KO",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 81.46635,
+      "shares": 2.0,
+      "entry_value": 162.9327,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": 163.62,
+      "_unreal_pnl": 0.69,
+      "_market_price": 81.80999755,
+      "current_price": 81.88710021972656,
+      "pnl_pct": 0.516471180710254,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 81.46635,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 79.02235950000001,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 73.319715,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "XOM",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 137.36146025,
+      "shares": 1.0,
+      "entry_value": 137.36146025,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": 136.13,
+      "_unreal_pnl": -1.23,
+      "_market_price": 136.1279907,
+      "current_price": 136.10000610351562,
+      "pnl_pct": -0.9183464883006476,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 137.36146025,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 133.2406164425,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 123.625314225,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "LIN",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 512.70196025,
+      "shares": 1.0,
+      "entry_value": 512.70196025,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": 516.57,
+      "_unreal_pnl": 3.86,
+      "_market_price": 516.56555175,
+      "current_price": 517.2899780273438,
+      "pnl_pct": 0.8948703404813685,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 512.70196025,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 497.3209014424999,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 461.431764225,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
       "ticker": "VZ",
       "strategy": "TWS_other",
       "entry_date": "—",
@@ -591,11 +819,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 176.12,
-      "_unreal_pnl": -7.16,
-      "_market_price": 44.0299988,
-      "current_price": 44.07500076293945,
-      "pnl_pct": -3.8058071981639574,
+      "_market_value": 174.28,
+      "_unreal_pnl": -9.0,
+      "_market_price": 43.5699997,
+      "current_price": 43.040000915527344,
+      "pnl_pct": -6.064706191888936,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 45.818775,
@@ -621,11 +849,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 408.5,
-      "_unreal_pnl": -10.61,
-      "_market_price": 408.5,
-      "current_price": 408.260009765625,
-      "pnl_pct": -2.589165468944421,
+      "_market_value": 411.88,
+      "_unreal_pnl": -7.23,
+      "_market_price": 411.8815918,
+      "current_price": 416.489990234375,
+      "pnl_pct": -0.6254922056839196,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 419.1115,
@@ -634,6 +862,36 @@ window.MOBILE_DATA = {
         "intraday_sl_price": 406.53815499999996,
         "catastrophic_stp_pct": -10.0,
         "catastrophic_stp_price": 377.20035,
+        "intraday_sl_exempt": false,
+        "exempt_reason": null
+      }
+    },
+    {
+      "ticker": "GOOGL",
+      "strategy": "TWS_other",
+      "entry_date": "—",
+      "entry_price": 353.6905513,
+      "shares": -1.0,
+      "entry_value": -353.6905513,
+      "hold_days": null,
+      "exit_style": "UNKNOWN",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": false,
+      "_market_value": -351.19,
+      "_unreal_pnl": 2.5,
+      "_market_price": 351.19351195,
+      "current_price": 351.6300048828125,
+      "pnl_pct": -0.5825845246964834,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 353.6905513,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": -3.0,
+        "intraday_sl_price": 343.079834761,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 318.32149617,
         "intraday_sl_exempt": false,
         "exempt_reason": null
       }
@@ -651,11 +909,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 128.56,
-      "_unreal_pnl": 10.82,
-      "_market_price": 128.55999755,
-      "current_price": 129.375,
-      "pnl_pct": 9.880543393790632,
+      "_market_value": 128.62,
+      "_unreal_pnl": 10.88,
+      "_market_price": 128.6230774,
+      "current_price": 128.47500610351562,
+      "pnl_pct": 9.116162188791233,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 117.7415,
@@ -669,31 +927,31 @@ window.MOBILE_DATA = {
       }
     },
     {
-      "ticker": "KO",
+      "ticker": "MS",
       "strategy": "TWS_other",
       "entry_date": "—",
-      "entry_price": 81.46635,
-      "shares": 2.0,
-      "entry_value": 162.9327,
+      "entry_price": 210.35146025,
+      "shares": 1.0,
+      "entry_value": 210.35146025,
       "hold_days": null,
       "exit_style": "UNKNOWN",
       "status": "open",
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 165.56,
-      "_unreal_pnl": 2.63,
-      "_market_price": 82.7799988,
-      "current_price": 82.625,
-      "pnl_pct": 1.422243662567424,
+      "_market_value": 209.45,
+      "_unreal_pnl": -0.9,
+      "_market_price": 209.45332335,
+      "current_price": 209.0850067138672,
+      "pnl_pct": -0.6020654834664074,
       "exit_rules": {
         "tp1_pct": 0.0,
-        "tp1_price": 81.46635,
+        "tp1_price": 210.35146025,
         "trail_pct": 0.5,
         "intraday_sl_pct": -3.0,
-        "intraday_sl_price": 79.02235950000001,
+        "intraday_sl_price": 204.0409164425,
         "catastrophic_stp_pct": -10.0,
-        "catastrophic_stp_price": 73.319715,
+        "catastrophic_stp_price": 189.316314225,
         "intraday_sl_exempt": false,
         "exempt_reason": null
       }
@@ -711,11 +969,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 3.02,
-      "_unreal_pnl": 0.03,
-      "_market_price": 196.0,
-      "current_price": 194.89999389648438,
-      "pnl_pct": 0.3168335097284203,
+      "_market_value": 3.03,
+      "_unreal_pnl": 0.04,
+      "_market_price": 196.94999695,
+      "current_price": 196.72000122070312,
+      "pnl_pct": 1.2536081503018437,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 194.2844357,
@@ -724,6 +982,36 @@ window.MOBILE_DATA = {
         "intraday_sl_price": null,
         "catastrophic_stp_pct": -10.0,
         "catastrophic_stp_price": 174.85599213,
+        "intraday_sl_exempt": true,
+        "exempt_reason": "Champ DCA 長期保有"
+      }
+    },
+    {
+      "ticker": "GOOG",
+      "strategy": "Champ_DCA",
+      "entry_date": "—",
+      "entry_price": 350.9206084,
+      "shares": -1.0,
+      "entry_value": -350.9206084,
+      "hold_days": null,
+      "exit_style": "LONG_TERM",
+      "status": "open",
+      "bracket": false,
+      "_source": "tws_direct_positions",
+      "_intraday_sl_exempt": true,
+      "_market_value": -348.86,
+      "_unreal_pnl": 2.06,
+      "_market_price": 348.86209105,
+      "current_price": 349.3900146484375,
+      "pnl_pct": -0.4361652507503422,
+      "exit_rules": {
+        "tp1_pct": 0.0,
+        "tp1_price": 350.9206084,
+        "trail_pct": 0.5,
+        "intraday_sl_pct": null,
+        "intraday_sl_price": null,
+        "catastrophic_stp_pct": -10.0,
+        "catastrophic_stp_price": 315.82854756,
         "intraday_sl_exempt": true,
         "exempt_reason": "Champ DCA 長期保有"
       }
@@ -3683,41 +3971,41 @@ window.MOBILE_DATA = {
     },
     {
       "date": "2026-06-30",
-      "netliq": 10227.38,
+      "netliq": 10223.67,
       "day_pnl": 0.0,
       "cum_pnl_short": -48.34,
       "n_trades": 0,
       "vix": null,
       "netliq_baseline": 11540.0,
-      "netliq_delta": -1312.62,
-      "unrealized_today": -4.29
+      "netliq_delta": -1316.33,
+      "unrealized_today": -8.0
     }
   ],
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-29T15:15:23",
+      "ts": "2026-06-30T08:15:58",
       "ok": true,
-      "note": "145,614 B",
-      "age_min": 1020.5587487833333
+      "note": "145,991 B",
+      "age_min": 29.59065448333333
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 50370.14208211667
+      "age_min": 50399.757321150006
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 50369.79208211667
+      "age_min": 50399.40732115
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 50370.89208211667
+      "age_min": 50400.507321150006
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3735,121 +4023,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 50370.89208211667
+      "age_min": 50400.507321150006
     },
     "morning_preopen_notify": {
       "ts": "2026-06-30T08:00:04",
       "ok": true,
       "note": "6 blocks",
-      "age_min": 15.87541545
+      "age_min": 45.49065448333333
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 46149.39208211667
+      "age_min": 46179.007321150006
     },
     "monitor_main_engine_health": {
       "ts": "2026-06-29T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 855.92541545
+      "age_min": 885.5406544833334
     },
     "morning_tws_connect": {
       "ts": "2026-06-30T08:15:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 0.62541545
+      "age_min": 30.240654483333334
     },
     "short_term_auto_bat": {
       "ts": "2026-06-23T07:11:54",
       "ok": true,
       "note": "completed",
-      "age_min": 10144.042082116668
+      "age_min": 10173.65732115
     },
     "evening_signal_gen": {
       "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 10932.758748783333
+      "age_min": 10962.373987816665
     },
     "bot_dispatch_daily": {
-      "ts": "2026-06-30T07:06:59",
+      "ts": "2026-06-30T08:16:05",
       "ok": false,
-      "note": "35 bots, autopilot=True",
-      "age_min": 68.95874878333333
+      "note": "39 bots, autopilot=True",
+      "age_min": 29.473987816666668
     },
     "bot_dispatch_intraday": {
-      "ts": "2026-06-29T15:00:04",
+      "ts": "2026-06-30T08:45:05",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 1035.87541545
+      "age_min": 0.4739878166666667
     },
     "bot_dispatch_evening": {
       "ts": "2026-06-29T18:06:18",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 849.6420821166666
+      "age_min": 879.25732115
     },
     "bot_dispatch_moc": {
       "ts": "2026-06-29T15:45:18",
       "ok": true,
       "note": "4 bots, autopilot=True",
-      "age_min": 990.6420821166666
+      "age_min": 1020.25732115
     },
     "tlt_auto_bat": {
       "ts": "2026-06-30T07:10:14",
       "ok": true,
       "note": "completed",
-      "age_min": 65.70874878333333
+      "age_min": 95.32398781666667
     },
     "inverse_hedge_auto_bat": {
       "ts": "2026-06-29T16:30:02",
       "ok": true,
       "note": "completed",
-      "age_min": 945.9087487833333
+      "age_min": 975.5239878166667
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 11581.72541545
+      "age_min": 11611.340654483332
     },
     "paper_rehearsal": {
       "ts": "2026-06-30T08:15:36",
       "ok": true,
       "note": "rehearsal ok",
-      "age_min": 0.3420821166666667
+      "age_min": 29.95732115
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-29T00:05:55",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260629.log)",
-      "age_min": 1930.02541545
+      "age_min": 1959.6406544833333
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 12341.575415450001
+      "age_min": 12371.190654483333
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 12297.092082116667
+      "age_min": 12326.70732115
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 12292.058748783335
+      "age_min": 12321.673987816666
     },
     "alert_short_term_executor_pyramid_fill_timeout_30s": {
       "ts": "2026-06-23T07:00:38",
       "ok": false,
       "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
-      "age_min": 10155.308748783335
+      "age_min": 10184.923987816666
     }
   },
   "regime": {
@@ -3939,29 +4227,29 @@ window.MOBILE_DATA = {
   "exit_plans": [
     {
       "category": "短期 (寄付戦略)",
-      "ticker": "VZ",
+      "ticker": "SPY",
       "strategy": "TWS_other",
-      "qty": 4.0,
-      "entry_price": 45.818775,
+      "qty": -18.0,
+      "entry_price": 741.18337415,
       "entry_date": "—",
       "days_held": null,
       "hold_days": 9999,
       "bracket": {
         "tp_pct": 2.0,
-        "tp_price": 46.74,
+        "tp_price": 756.01,
         "sl_pct": -10.0,
-        "sl_price": 41.24
+        "sl_price": 667.07
       },
       "exits": [
         {
           "type": "TP",
-          "target_price": 46.74,
+          "target_price": 756.01,
           "target_pct": 2.0,
           "status": "未到達"
         },
         {
           "type": "SL",
-          "target_price": 41.24,
+          "target_price": 667.07,
           "target_pct": -10.0,
           "status": "未到達"
         },
@@ -3971,36 +4259,36 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 44.07500076293945,
-      "unrealized_pct": -3.81,
+      "current_price": 741.9500122070312,
+      "unrealized_pct": 0.1,
       "force_sell_today": null,
       "silent_fail_note": null
     },
     {
       "category": "短期 (寄付戦略)",
-      "ticker": "ETN",
+      "ticker": "BAC",
       "strategy": "TWS_other",
-      "qty": 1.0,
-      "entry_price": 419.1115,
+      "qty": 3.0,
+      "entry_price": 57.5279554,
       "entry_date": "—",
       "days_held": null,
       "hold_days": 9999,
       "bracket": {
         "tp_pct": 2.0,
-        "tp_price": 427.49,
+        "tp_price": 58.68,
         "sl_pct": -10.0,
-        "sl_price": 377.2
+        "sl_price": 51.78
       },
       "exits": [
         {
           "type": "TP",
-          "target_price": 427.49,
+          "target_price": 58.68,
           "target_pct": 2.0,
           "status": "未到達"
         },
         {
           "type": "SL",
-          "target_price": 377.2,
+          "target_price": 51.78,
           "target_pct": -10.0,
           "status": "未到達"
         },
@@ -4010,47 +4298,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 408.260009765625,
-      "unrealized_pct": -2.59,
-      "force_sell_today": null,
-      "silent_fail_note": null
-    },
-    {
-      "category": "短期 (寄付戦略)",
-      "ticker": "MRK",
-      "strategy": "TWS_other",
-      "qty": 1.0,
-      "entry_price": 117.7415,
-      "entry_date": "—",
-      "days_held": null,
-      "hold_days": 9999,
-      "bracket": {
-        "tp_pct": 2.0,
-        "tp_price": 120.1,
-        "sl_pct": -10.0,
-        "sl_price": 105.97
-      },
-      "exits": [
-        {
-          "type": "TP",
-          "target_price": 120.1,
-          "target_pct": 2.0,
-          "status": "到達済"
-        },
-        {
-          "type": "SL",
-          "target_price": 105.97,
-          "target_pct": -10.0,
-          "status": "未到達"
-        },
-        {
-          "type": "timeout",
-          "due": "hold_days=9999、 経過=Noned",
-          "status": "発火対象 (timeout 経過)"
-        }
-      ],
-      "current_price": 129.375,
-      "unrealized_pct": 9.88,
+      "current_price": 57.18830108642578,
+      "unrealized_pct": -0.59,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -4088,14 +4337,385 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 82.625,
-      "unrealized_pct": 1.42,
+      "current_price": 81.88710021972656,
+      "unrealized_pct": 0.52,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "XOM",
+      "strategy": "TWS_other",
+      "qty": 1.0,
+      "entry_price": 137.36146025,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 140.11,
+        "sl_pct": -10.0,
+        "sl_price": 123.63
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 140.11,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 123.63,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 136.10000610351562,
+      "unrealized_pct": -0.92,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "LIN",
+      "strategy": "TWS_other",
+      "qty": 1.0,
+      "entry_price": 512.70196025,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 522.96,
+        "sl_pct": -10.0,
+        "sl_price": 461.43
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 522.96,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 461.43,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 517.2899780273438,
+      "unrealized_pct": 0.89,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "VZ",
+      "strategy": "TWS_other",
+      "qty": 4.0,
+      "entry_price": 45.818775,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 46.74,
+        "sl_pct": -10.0,
+        "sl_price": 41.24
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 46.74,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 41.24,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 43.040000915527344,
+      "unrealized_pct": -6.06,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "ETN",
+      "strategy": "TWS_other",
+      "qty": 1.0,
+      "entry_price": 419.1115,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 427.49,
+        "sl_pct": -10.0,
+        "sl_price": 377.2
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 427.49,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 377.2,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 416.489990234375,
+      "unrealized_pct": -0.63,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "GOOGL",
+      "strategy": "TWS_other",
+      "qty": -1.0,
+      "entry_price": 353.6905513,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 360.76,
+        "sl_pct": -10.0,
+        "sl_price": 318.32
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 360.76,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 318.32,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 351.6300048828125,
+      "unrealized_pct": -0.58,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "MRK",
+      "strategy": "TWS_other",
+      "qty": 1.0,
+      "entry_price": 117.7415,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 120.1,
+        "sl_pct": -10.0,
+        "sl_price": 105.97
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 120.1,
+          "target_pct": 2.0,
+          "status": "到達済"
+        },
+        {
+          "type": "SL",
+          "target_price": 105.97,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 128.47500610351562,
+      "unrealized_pct": 9.12,
+      "force_sell_today": null,
+      "silent_fail_note": null
+    },
+    {
+      "category": "短期 (寄付戦略)",
+      "ticker": "MS",
+      "strategy": "TWS_other",
+      "qty": 1.0,
+      "entry_price": 210.35146025,
+      "entry_date": "—",
+      "days_held": null,
+      "hold_days": 9999,
+      "bracket": {
+        "tp_pct": 2.0,
+        "tp_price": 214.56,
+        "sl_pct": -10.0,
+        "sl_price": 189.32
+      },
+      "exits": [
+        {
+          "type": "TP",
+          "target_price": 214.56,
+          "target_pct": 2.0,
+          "status": "未到達"
+        },
+        {
+          "type": "SL",
+          "target_price": 189.32,
+          "target_pct": -10.0,
+          "status": "未到達"
+        },
+        {
+          "type": "timeout",
+          "due": "hold_days=9999、 経過=Noned",
+          "status": "発火対象 (timeout 経過)"
+        }
+      ],
+      "current_price": 209.0850067138672,
+      "unrealized_pct": -0.6,
       "force_sell_today": null,
       "silent_fail_note": null
     }
   ],
   "intraday_opportunities": [],
   "all_trades": [
+    {
+      "date": "2026-06-30",
+      "ticker": "SPY",
+      "strategy": "TWS_SLD",
+      "shares": 18.0,
+      "entry_price": 741.22,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.659266,
+      "side": "SLD"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "GOOGL",
+      "strategy": "TWS_SLD",
+      "shares": 1.0,
+      "entry_price": 354.05,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.359449,
+      "side": "SLD"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "BAC",
+      "strategy": "TWS_BOT",
+      "shares": 3.0,
+      "entry_price": 57.41,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.353866,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "GOOG",
+      "strategy": "TWS_SLD",
+      "shares": 1.0,
+      "entry_price": 351.28,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.359392,
+      "side": "SLD"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "LIN",
+      "strategy": "TWS_BOT",
+      "shares": 1.0,
+      "entry_price": 512.35,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.35196,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "MS",
+      "strategy": "TWS_BOT",
+      "shares": 1.0,
+      "entry_price": 210.0,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.35146,
+      "side": "BOT"
+    },
+    {
+      "date": "2026-06-30",
+      "ticker": "XOM",
+      "strategy": "TWS_BOT",
+      "shares": 1.0,
+      "entry_price": 137.01,
+      "exit_price": null,
+      "pnl_usd": 0,
+      "pnl_pct": null,
+      "exit_reason": "tws_fill",
+      "source": "tws_executions",
+      "commission": 0.35146,
+      "side": "BOT"
+    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
