@@ -1,38 +1,26 @@
 window.MOBILE_DATA = {
-  "generated_at": "2026-06-29T15:15",
+  "generated_at": "2026-06-30T08:15",
   "today_summary": {
-    "netliq": 10227.08,
-    "cash": 9979.61,
-    "available_funds": 9979.61,
-    "excess_liquidity": 10002.1,
+    "netliq": 10227.38,
+    "cash": 9979.82,
+    "available_funds": 9979.82,
+    "excess_liquidity": 10002.32,
     "settled_cash": null,
-    "buying_power": 39918.43,
-    "stock_value": 881.46,
-    "unrealized_pnl": -4.59,
+    "buying_power": 39919.28,
+    "stock_value": 881.76,
+    "unrealized_pnl": -4.29,
     "realized_pnl": 0.0,
-    "day_pnl_pct": -0.044880845754604444,
+    "day_pnl_pct": -0.04194622669735554,
     "account_type": "INDIVIDUAL",
     "open_positions": 5,
     "open_orders_count": 0,
-    "fills_today_count": 1,
+    "fills_today_count": 0,
     "vix": null,
     "vix1d": null,
     "data_source": "TWS_direct_v2"
   },
   "tws_open_orders": [],
-  "tws_fills_today": [
-    {
-      "symbol": "NVDA",
-      "time": "2026-06-29 13:40:00+00:00",
-      "side": "BOT",
-      "shares": 0.0154,
-      "price": 194.09,
-      "avgPrice": 194.09,
-      "orderId": 0,
-      "commission": 0.002994,
-      "realizedPnL": 0.0
-    }
-  ],
+  "tws_fills_today": [],
   "forecast": {
     "capital_short": 4237,
     "capital_champ": 0,
@@ -422,24 +410,15 @@ window.MOBILE_DATA = {
     }
   ],
   "weekly_pnl": {
-    "capital": 4237,
-    "week_start": "2026-06-24",
-    "week_end": "2026-06-29",
+    "capital": 10239.12,
+    "week_start": "2026-06-25",
+    "week_end": "2026-06-30",
     "total_pnl_usd": 0.0,
     "total_pnl_pct": 0.0,
     "n_trades": 0,
     "n_wins": 0,
     "win_rate": 0.0,
     "days": [
-      {
-        "date": "2026-06-24",
-        "dow": "Wed",
-        "vix": null,
-        "pnl": 0.0,
-        "cum": 0.0,
-        "n": 0,
-        "wins": 0
-      },
       {
         "date": "2026-06-25",
         "dow": "Thu",
@@ -470,6 +449,15 @@ window.MOBILE_DATA = {
       {
         "date": "2026-06-29",
         "dow": "Mon",
+        "vix": null,
+        "pnl": 0.0,
+        "cum": 0.0,
+        "n": 0,
+        "wins": 0
+      },
+      {
+        "date": "2026-06-30",
+        "dow": "Tue",
         "vix": null,
         "pnl": 0.0,
         "cum": 0.0,
@@ -521,9 +509,9 @@ window.MOBILE_DATA = {
       "unrealized": 0.0,
       "positions": []
     },
-    "week_start": "2026-06-24",
-    "week_end": "2026-06-29",
-    "today_date": "2026-06-29",
+    "week_start": "2026-06-25",
+    "week_end": "2026-06-30",
+    "today_date": "2026-06-30",
     "_note": "統一 summary、 PWA 短期/短vs長/週次 tab で参照、 二重計算禁止"
   },
   "signals_today": [],
@@ -533,10 +521,10 @@ window.MOBILE_DATA = {
       "strategy": "Confluence_RSIStoch_v1",
       "tier": "",
       "trigger": "Confluence_RSIStoch_v1",
-      "ref_price": 106.11,
+      "ref_price": 104.2,
       "target_tp_pct": 4.0,
       "hold": 3,
-      "selected": true,
+      "selected": false,
       "shares": null,
       "sector": "Energy"
     },
@@ -545,7 +533,7 @@ window.MOBILE_DATA = {
       "strategy": "Confluence_RSIStoch_v1",
       "tier": "",
       "trigger": "Confluence_RSIStoch_v1",
-      "ref_price": 53.99,
+      "ref_price": 53.58,
       "target_tp_pct": 4.0,
       "hold": 3,
       "selected": false,
@@ -557,12 +545,36 @@ window.MOBILE_DATA = {
       "strategy": "Confluence_RSIStoch_v1",
       "tier": "",
       "trigger": "Confluence_RSIStoch_v1",
-      "ref_price": 52.79,
+      "ref_price": 52.68,
       "target_tp_pct": 4.0,
       "hold": 3,
       "selected": false,
       "shares": null,
       "sector": "Commodity"
+    },
+    {
+      "ticker": "ON",
+      "strategy": "Confluence_RSIStoch_v1",
+      "tier": "",
+      "trigger": "Confluence_RSIStoch_v1",
+      "ref_price": 88.57,
+      "target_tp_pct": 4.0,
+      "hold": 3,
+      "selected": false,
+      "shares": null,
+      "sector": "Semis"
+    },
+    {
+      "ticker": "GLD",
+      "strategy": "Confluence_RSIStoch_v1",
+      "tier": "",
+      "trigger": "Confluence_RSIStoch_v1",
+      "ref_price": 368.58,
+      "target_tp_pct": 4.0,
+      "hold": 3,
+      "selected": false,
+      "shares": null,
+      "sector": "Other"
     }
   ],
   "positions": [
@@ -579,11 +591,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 176.4,
-      "_unreal_pnl": -6.88,
-      "_market_price": 44.09999845,
-      "current_price": 44.099998474121094,
-      "pnl_pct": -3.7512494078658976,
+      "_market_value": 176.12,
+      "_unreal_pnl": -7.16,
+      "_market_price": 44.0299988,
+      "current_price": 44.07500076293945,
+      "pnl_pct": -3.8058071981639574,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 45.818775,
@@ -609,9 +621,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 408.29,
-      "_unreal_pnl": -10.82,
-      "_market_price": 408.2868347,
+      "_market_value": 408.5,
+      "_unreal_pnl": -10.61,
+      "_market_price": 408.5,
       "current_price": 408.260009765625,
       "pnl_pct": -2.589165468944421,
       "exit_rules": {
@@ -639,11 +651,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 128.55,
-      "_unreal_pnl": 10.81,
-      "_market_price": 128.55000305,
-      "current_price": 129.3800048828125,
-      "pnl_pct": 9.884794131901241,
+      "_market_value": 128.56,
+      "_unreal_pnl": 10.82,
+      "_market_price": 128.55999755,
+      "current_price": 129.375,
+      "pnl_pct": 9.880543393790632,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 117.7415,
@@ -669,11 +681,11 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": false,
-      "_market_value": 165.22,
-      "_unreal_pnl": 2.29,
-      "_market_price": 82.6100006,
-      "current_price": 82.6500015258789,
-      "pnl_pct": 1.4529330525780315,
+      "_market_value": 165.56,
+      "_unreal_pnl": 2.63,
+      "_market_price": 82.7799988,
+      "current_price": 82.625,
+      "pnl_pct": 1.422243662567424,
       "exit_rules": {
         "tp1_pct": 0.0,
         "tp1_price": 81.46635,
@@ -699,9 +711,9 @@ window.MOBILE_DATA = {
       "bracket": false,
       "_source": "tws_direct_positions",
       "_intraday_sl_exempt": true,
-      "_market_value": 3.0,
-      "_unreal_pnl": 0.01,
-      "_market_price": 194.9299927,
+      "_market_value": 3.02,
+      "_unreal_pnl": 0.03,
+      "_market_price": 196.0,
       "current_price": 194.89999389648438,
       "pnl_pct": 0.3168335097284203,
       "exit_rules": {
@@ -3668,33 +3680,44 @@ window.MOBILE_DATA = {
       "netliq_baseline": 11540.0,
       "netliq_delta": -1312.92,
       "unrealized_today": -4.59
+    },
+    {
+      "date": "2026-06-30",
+      "netliq": 10227.38,
+      "day_pnl": 0.0,
+      "cum_pnl_short": -48.34,
+      "n_trades": 0,
+      "vix": null,
+      "netliq_baseline": 11540.0,
+      "netliq_delta": -1312.62,
+      "unrealized_today": -4.29
     }
   ],
   "morning_brief": "(brief なし)",
   "heartbeats": {
     "sync_mobile": {
-      "ts": "2026-06-29T08:45:27",
+      "ts": "2026-06-29T15:15:23",
       "ok": true,
-      "note": "145,627 B",
-      "age_min": 389.91516903333337
+      "note": "145,614 B",
+      "age_min": 1020.5587487833333
     },
     "vix_regime": {
       "ts": "2026-05-26T08:45:48",
       "ok": true,
       "note": "NEUTRAL score=2/4 VIX=16.63",
-      "age_min": 49349.56516903333
+      "age_min": 50370.14208211667
     },
     "intraday_cron": {
       "ts": "2026-05-26T08:46:09",
       "ok": true,
       "note": "bat completed",
-      "age_min": 49349.215169033334
+      "age_min": 50369.79208211667
     },
     "intraday_executor_scan": {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 49350.31516903333
+      "age_min": 50370.89208211667
     },
     "alert_intraday_executor_scan": {
       "ts": "2026-05-25T%H:%M:%S",
@@ -3712,121 +3735,121 @@ window.MOBILE_DATA = {
       "ts": "2026-05-26T08:45:03",
       "ok": true,
       "note": "",
-      "age_min": 49350.31516903333
+      "age_min": 50370.89208211667
     },
     "morning_preopen_notify": {
-      "ts": "2026-06-29T08:29:54",
+      "ts": "2026-06-30T08:00:04",
       "ok": true,
       "note": "6 blocks",
-      "age_min": 405.4651690333333
+      "age_min": 15.87541545
     },
     "state_tws_reconciler": {
       "ts": "2026-05-29T07:06:33",
       "ok": true,
       "note": "state=0 TWS=6 phantoms=0 partials=0",
-      "age_min": 45128.81516903333
+      "age_min": 46149.39208211667
     },
     "monitor_main_engine_health": {
-      "ts": "2026-06-29T00:00:55",
+      "ts": "2026-06-29T18:00:01",
       "ok": true,
       "note": "cold-start: no Confluence_RSIStoch_v1 trades in 90d 内 (strategy 最近 LIVE 化 or signal 未発火)、 monitor 待機中、 baseline 33sig/mo $160/mo",
-      "age_min": 914.4485023666667
+      "age_min": 855.92541545
     },
     "morning_tws_connect": {
-      "ts": "2026-06-29T08:30:22",
+      "ts": "2026-06-30T08:15:19",
       "ok": true,
       "note": "attempt=1",
-      "age_min": 404.9985023666667
+      "age_min": 0.62541545
     },
     "short_term_auto_bat": {
       "ts": "2026-06-23T07:11:54",
       "ok": true,
       "note": "completed",
-      "age_min": 9123.465169033332
+      "age_min": 10144.042082116668
     },
     "evening_signal_gen": {
       "ts": "2026-06-22T18:03:11",
       "ok": true,
       "note": "refresh=0 signals=0",
-      "age_min": 9912.1818357
+      "age_min": 10932.758748783333
     },
     "bot_dispatch_daily": {
-      "ts": "2026-06-29T08:32:13",
+      "ts": "2026-06-30T07:06:59",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 403.14850236666666
+      "age_min": 68.95874878333333
     },
     "bot_dispatch_intraday": {
       "ts": "2026-06-29T15:00:04",
       "ok": false,
       "note": "2 bots, autopilot=True",
-      "age_min": 15.298502366666666
+      "age_min": 1035.87541545
     },
     "bot_dispatch_evening": {
-      "ts": "2026-06-29T00:02:09",
+      "ts": "2026-06-29T18:06:18",
       "ok": false,
       "note": "35 bots, autopilot=True",
-      "age_min": 913.2151690333334
+      "age_min": 849.6420821166666
     },
     "bot_dispatch_moc": {
-      "ts": "2026-06-29T00:01:08",
-      "ok": false,
+      "ts": "2026-06-29T15:45:18",
+      "ok": true,
       "note": "4 bots, autopilot=True",
-      "age_min": 914.2318357
+      "age_min": 990.6420821166666
     },
     "tlt_auto_bat": {
-      "ts": "2026-06-29T08:30:17",
+      "ts": "2026-06-30T07:10:14",
       "ok": true,
       "note": "completed",
-      "age_min": 405.0818357
+      "age_min": 65.70874878333333
     },
     "inverse_hedge_auto_bat": {
-      "ts": "2026-06-29T00:00:59",
+      "ts": "2026-06-29T16:30:02",
       "ok": true,
       "note": "completed",
-      "age_min": 914.3818357
+      "age_min": 945.9087487833333
     },
     "alert_bot_dispatch": {
       "ts": "2026-06-22T07:14:13",
       "ok": false,
       "note": "fatal: Extra data: line 581 column 1 (char 26034)",
-      "age_min": 10561.148502366666
+      "age_min": 11581.72541545
     },
     "paper_rehearsal": {
-      "ts": "2026-06-29T08:30:38",
+      "ts": "2026-06-30T08:15:36",
       "ok": true,
       "note": "rehearsal ok",
-      "age_min": 404.73183570000003
+      "age_min": 0.3420821166666667
     },
     "alert_paper_rehearsal": {
       "ts": "2026-06-29T00:05:55",
       "ok": false,
       "note": "rehearsal timeout 300s (log: C:\\Users\\crepe\\Documents\\yasuda_short\\logs\\rehearsal_20260629.log)",
-      "age_min": 909.4485023666667
+      "age_min": 1930.02541545
     },
     "alert_short_term_executor_connect_early_warn": {
       "ts": "2026-06-21T18:34:22",
       "ok": false,
       "note": "TWS 15min 接続不可 (attempt=16) — 手動 TWS login が必要な可能性。リトライ継続中、deadline 残44min",
-      "age_min": 11320.998502366665
+      "age_min": 12341.575415450001
     },
     "alert_short_term_executor_connect": {
       "ts": "2026-06-21T19:18:51",
       "ok": false,
       "note": "TWS 60min/59回 全失敗 — 手動 TWS login + executor 再実行が必要 (OPG cutoff 8:28 CT)",
-      "age_min": 11276.515169033333
+      "age_min": 12297.092082116667
     },
     "alert_short_term_auto_bat": {
       "ts": "2026-06-21T19:23:53",
       "ok": false,
       "note": "short_term_executor exit=1",
-      "age_min": 11271.481835699999
+      "age_min": 12292.058748783335
     },
     "alert_short_term_executor_pyramid_fill_timeout_30s": {
       "ts": "2026-06-23T07:00:38",
       "ok": false,
       "note": "XLE pyramid parent BUY 30s 未確定 (status=Cancelled filled=0.0/64)、 silent fail #21/#22 防止のため bracket 配置 skip + parent cancel",
-      "age_min": 9134.731835699999
+      "age_min": 10155.308748783335
     }
   },
   "regime": {
@@ -3848,6 +3871,12 @@ window.MOBILE_DATA = {
     "data_freshness_days": 4
   },
   "alerts_recent": [
+    {
+      "ts": "2026-06-30T08:00:04",
+      "severity": "INFO",
+      "source": "morning_preopen",
+      "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 3 件、 採用 1 件 |   · COP Confluence_RSIStoch_v1 利確+4.00% | ✅ 前夜 audit: 70 件 全 PASS | 💼 NetLiq $10,228、 cash $9,346 | ✅ paper rehearsal: 2026-06-29T08:30 OK"
+    },
     {
       "ts": "2026-06-29T08:29:54",
       "severity": "INFO",
@@ -3901,12 +3930,6 @@ window.MOBILE_DATA = {
       "severity": "INFO",
       "source": "morning_preopen",
       "message": "🌅 寄付前 サマリー (08:00 CT) | 📋 候補 1 件、 採用 0 件 | ✅ 前夜 audit: 70 件 全 PASS | ⚠ bridge 接続不可、 NetLiq/cash 不明 | 🚨 paper rehearsal: 2026-06-21T18:23 FAIL"
-    },
-    {
-      "ts": "2026-06-22T07:14:13",
-      "severity": "CRITICAL",
-      "source": "bot_dispatch",
-      "message": "fatal: Extra data: line 581 column 1 (char 26034)"
     }
   ],
   "post_mortem": {
@@ -3948,8 +3971,8 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 44.099998474121094,
-      "unrealized_pct": -3.75,
+      "current_price": 44.07500076293945,
+      "unrealized_pct": -3.81,
       "force_sell_today": null,
       "silent_fail_note": null
     },
@@ -4026,7 +4049,7 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 129.3800048828125,
+      "current_price": 129.375,
       "unrealized_pct": 9.88,
       "force_sell_today": null,
       "silent_fail_note": null
@@ -4065,28 +4088,14 @@ window.MOBILE_DATA = {
           "status": "発火対象 (timeout 経過)"
         }
       ],
-      "current_price": 82.6500015258789,
-      "unrealized_pct": 1.45,
+      "current_price": 82.625,
+      "unrealized_pct": 1.42,
       "force_sell_today": null,
       "silent_fail_note": null
     }
   ],
   "intraday_opportunities": [],
   "all_trades": [
-    {
-      "date": "2026-06-29",
-      "ticker": "NVDA",
-      "strategy": "TWS_BOT",
-      "shares": 0.0154,
-      "entry_price": 194.09,
-      "exit_price": null,
-      "pnl_usd": 0,
-      "pnl_pct": null,
-      "exit_reason": "tws_fill",
-      "source": "tws_executions",
-      "commission": 0.002994,
-      "side": "BOT"
-    },
     {
       "date": "2026-05-20",
       "ticker": "SPXL",
